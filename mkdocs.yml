@@ -1,0 +1,77 @@
+site_name: DWS – Laravel apunteak
+site_description: Laravel apunteak euskaraz
+theme:
+  name: material
+  language: eu
+  palette:
+  - scheme: default
+    primary: light blue
+    accent: deep orange
+  features:
+  - navigation.tabs
+  - navigation.sections
+  - navigation.expand
+  - content.code.copy
+plugins:
+- search
+markdown_extensions:
+- admonition
+- tables
+- fenced_code
+- attr_list
+- pymdownx.superfences
+- pymdownx.highlight
+nav:
+- Hasiera: index.md
+- Hasiera:
+  - Hasiera: hasiera.md
+- Lehenengo pausuak:
+  - Zer da?: zer-da.md
+  - Instalazioa: instalazioa.md
+  - Laravel proiektua sortu: laravel-proiektua-sortu.md
+  - Eta orain zer?: eta-orain-zer.md
+- Laravel Elementuak:
+  - Rutak: rutak.md
+  - Kontroladoreak: kontroladoreak.md
+  - Bistak:
+    - Bistak: bistak.md
+    - Konponenteak: konponenteak.md
+    - Layouts: layouts.md
+  - Datu baseak:
+    - Datu baseak: datu-baseak.md
+    - Datu basea sortzen: datu-basea-sortzen.md
+    - Migrazioak: migrazioak.md
+    - Eloquent ORM:
+      - Eloquent ORM: eloquent-orm.md
+      - Modeloak: modeloak.md
+      - Seeders: seeders.md
+      - Factories: factories.md
+- CRUD:
+  - Proiektu bat sortu: proiektu-bat-sortu.md
+  - Datu basea: datu-basea.md
+  - All, show, create, edit, delete (Adibideekin): all-show-create-edit-delete-adibideekin.md
+  - Balidazioa, paginazioa eta hizkuntza: balidazioa-paginazioa-eta-hizkuntza.md
+  - Erlazioak (1-N): erlazioak-1-n.md
+  - Erlazioak (N-M): erlazioak-n-m.md
+- Más:
+  - Zelan funtzionatzen du: zelan-funtzionatzen-du.md
+  - Laragon: laragon.md
+  - Composer: composer.md
+  - Nodejs: nodejs.md
+  - Git: git.md
+  - GitBash: gitbash.md
+  - VisualStudio - Laravel: visualstudio-laravel.md
+  - Artisan: artisan.md
+  - Laravel Brezze: laravel-brezze.md
+  - Middleware: middleware.md
+  - Saioak: saioak.md
+  - Taulen arteko erlazioak: taulen-arteko-erlazioak.md
+  - Balidazioak: balidazioak.md
+  - Irudi bat igo: irudi-bat-igo.md
+  - Hizkuntza aldatu: hizkuntza-aldatu.md
+  - Mezuak bidali error eta success: mezuak-bidali-error-eta-success.md
+  - Laravel Dump Server: laravel-dump-server.md
+  - Laravel - Vue: laravel-vue.md
+  - Konponenteak_1: konponenteak-1.md
+  - Copia de Balidazioa paginazioa eta hizkuntza: copia-de-balidazioa-paginazioa-eta-hizkuntza.md
+  - Copia de Hasiera: copia-de-hasiera.md
