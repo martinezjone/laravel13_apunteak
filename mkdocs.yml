@@ -23,55 +23,53 @@ markdown_extensions:
 - pymdownx.highlight
 nav:
 - Hasiera: index.md
-- Hasiera:
-  - Hasiera: hasiera.md
 - Lehenengo pausuak:
-  - Zer da?: zer-da.md
-  - Instalazioa: instalazioa.md
-  - Laravel proiektua sortu: laravel-proiektua-sortu.md
-  - Eta orain zer?: eta-orain-zer.md
+  - Zer da?: Lehenengo pausuak/zer-da.md
+  - Instalazioa: Lehenengo pausuak/instalazioa.md
+  - Laravel proiektua sortu: Lehenengo pausuak/laravel-proiektua-sortu.md
+  - Eta orain zer?: Lehenengo pausuak/eta-orain-zer.md
 - Laravel Elementuak:
-  - Rutak: rutak.md
-  - Kontroladoreak: kontroladoreak.md
+  - Rutak: Laravel Elementuak/rutak.md
+  - Kontroladoreak: Laravel Elementuak/kontroladoreak.md
   - Bistak:
-    - Bistak: bistak.md
-    - Konponenteak: konponenteak.md
-    - Layouts: layouts.md
+    - Bistak: Laravel Elementuak/Bistak/bistak.md
+    - Konponenteak: Laravel Elementuak/Bistak/konponenteak.md
+    - Layouts: Laravel Elementuak/Bistak/layouts.md
   - Datu baseak:
-    - Datu baseak: datu-baseak.md
-    - Datu basea sortzen: datu-basea-sortzen.md
-    - Migrazioak: migrazioak.md
+    - Datu baseak: Laravel Elementuak/Datu baseak/datu-baseak.md
+    - Datu basea sortzen: Laravel Elementuak/Datu baseak/datu-basea-sortzen.md
+    - Migrazioak: Laravel Elementuak/Datu baseak/migrazioak.md
     - Eloquent ORM:
-      - Eloquent ORM: eloquent-orm.md
-      - Modeloak: modeloak.md
-      - Seeders: seeders.md
-      - Factories: factories.md
+      - Eloquent ORM: Laravel Elementuak/Datu baseak/Eloquent ORM/eloquent-orm.md
+      - Modeloak: Laravel Elementuak/Datu baseak/Eloquent ORM/modeloak.md
+      - Seeders: Laravel Elementuak/Datu baseak/Eloquent ORM/seeders.md
+      - Factories: Laravel Elementuak/Datu baseak/Eloquent ORM/factories.md
 - CRUD:
-  - Proiektu bat sortu: proiektu-bat-sortu.md
-  - Datu basea: datu-basea.md
-  - All, show, create, edit, delete (Adibideekin): all-show-create-edit-delete-adibideekin.md
-  - Balidazioa, paginazioa eta hizkuntza: balidazioa-paginazioa-eta-hizkuntza.md
-  - Erlazioak (1-N): erlazioak-1-n.md
-  - Erlazioak (N-M): erlazioak-n-m.md
+  - Proiektu bat sortu: CRUD/proiektu-bat-sortu.md
+  - Datu basea: CRUD/datu-basea.md
+  - All, show, create, edit, delete (Adibideekin): CRUD/all-show-create-edit-delete-adibideekin.md
+  - Balidazioa, paginazioa eta hizkuntza: CRUD/balidazioa-paginazioa-eta-hizkuntza.md
+  - Erlazioak (1-N): CRUD/erlazioak-1-n.md
+  - Erlazioak (N-M): CRUD/erlazioak-n-m.md
 - Más:
-  - Zelan funtzionatzen du: zelan-funtzionatzen-du.md
-  - Laragon: laragon.md
-  - Composer: composer.md
-  - Nodejs: nodejs.md
-  - Git: git.md
-  - GitBash: gitbash.md
-  - VisualStudio - Laravel: visualstudio-laravel.md
-  - Artisan: artisan.md
-  - Laravel Brezze: laravel-brezze.md
-  - Middleware: middleware.md
-  - Saioak: saioak.md
-  - Taulen arteko erlazioak: taulen-arteko-erlazioak.md
-  - Balidazioak: balidazioak.md
-  - Irudi bat igo: irudi-bat-igo.md
-  - Hizkuntza aldatu: hizkuntza-aldatu.md
-  - Mezuak bidali error eta success: mezuak-bidali-error-eta-success.md
-  - Laravel Dump Server: laravel-dump-server.md
-  - Laravel - Vue: laravel-vue.md
-  - Konponenteak_1: konponenteak-1.md
-  - Copia de Balidazioa paginazioa eta hizkuntza: copia-de-balidazioa-paginazioa-eta-hizkuntza.md
-  - Copia de Hasiera: copia-de-hasiera.md
+  - Zelan funtzionatzen du: Más/zelan-funtzionatzen-du.md
+  - Laragon: Más/laragon.md
+  - Composer: Más/composer.md
+  - Nodejs: Más/nodejs.md
+  - Git: Más/git.md
+  - GitBash: Más/gitbash.md
+  - VisualStudio - Laravel: Más/visualstudio-laravel.md
+  - Artisan: Más/artisan.md
+  - Laravel Brezze: Más/laravel-brezze.md
+  - Middleware: Más/middleware.md
+  - Saioak: Más/saioak.md
+  - Taulen arteko erlazioak: Más/taulen-arteko-erlazioak.md
+  - Balidazioak: Más/balidazioak.md
+  - Irudi bat igo: Más/irudi-bat-igo.md
+  - Hizkuntza aldatu: Más/hizkuntza-aldatu.md
+  - Mezuak bidali error eta success: Más/mezuak-bidali-error-eta-success.md
+  - Laravel Dump Server: Más/laravel-dump-server.md
+  - Laravel - Vue: Más/laravel-vue.md
+  - Konponenteak_1: Más/konponenteak-1.md
+  - Copia de Balidazioa paginazioa eta hizkuntza: Más/copia-de-balidazioa-paginazioa-eta-hizkuntza.md
+  - Copia de Hasiera: Más/copia-de-hasiera.md
