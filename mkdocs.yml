@@ -60,8 +60,9 @@ nav:
   - Balidazioa, paginazioa eta hizkuntza: CRUD/balidazioa-paginazioa-eta-hizkuntza.md
   - Erlazioak (1-N): CRUD/erlazioak-1-n.md
   - Erlazioak (N-M): CRUD/erlazioak-n-m.md
-  - API REST eta JSON: CRUD/api-rest/01-api-rest-json.md
+
   - API REST Laravel 13-rekin: 
+    - Sarrera: CRUD/api-rest/index.md
     - API REST eta JSON: CRUD/api-rest/01-api-rest-json.md
     - API ibilbideak: CRUD/api-rest/02-api-ibilbideak.md
     - JSON erantzunak: CRUD/api-rest/03-json-erantzunak.md

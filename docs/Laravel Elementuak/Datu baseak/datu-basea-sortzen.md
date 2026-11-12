@@ -1,6 +1,6 @@
 # Datu basea sortzen
 
-Laravel 12k berez, datu base bat sortuko du proiektua sortzerakoan, sqlite datu basea. Horregaz lan egin nahi izatekotan, zuzenean egin genezakeen.
+Laravel 13k berez, datu base bat sortuko du proiektua sortzerakoan, sqlite datu basea. Horregaz lan egin nahi izatekotan, zuzenean egin genezakeen.
 
 Baina, Laravelek hainbat datu base motekin egin dezake lan, dokumentazioan esaten digu zeinekin egin dezakeen:
 

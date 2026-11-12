@@ -1,174 +1,114 @@
 # Instalazioa
 
-Laravelek, Windows edo Mac-en instalatzeko hainbat modu eskaintzen ditu. Laravel instalatzeko modurik onena eta errazena Composer da. Composer php-rako mendekotasunen administratzailea da, eta bere web-zerbitzarian instala dezake.
+Ikasturte honetan Laravel 13 erabiliko dugu. Laravel aplikazio bat sortzeko, PHP eta Composer behar dira. Aplikazioaren frontend-eko baliabideak (CSS eta JavaScript) lantzeko, Node.js eta npm ere erabiliko ditugu.
 
-## Laravelekin lan egiteko aurrebaldintzak
+Laravel instalatzeko modu errazena Laravel Installer erabiltzea da. Beste aukera gisa, Composer-en bidez sor dezakezu proiektua.
 
-- Ikasturte honetan Laravel 12-rekin lan egingo dugu, eta horrek  PHP 8.2 - 8.4 edo goragokoa eskatzen du, PHPren PDO luzapena, datu-basearekin konektatzeko.
-- MySQL (edo datu-baseen beste iturri batzuk, SQLite t ere erabil dezakezu
-- Composer instalatuta izatea.
-- Node.js (lagungarri baina ez beharrezkoa)
-- Git (Laravel 11-tik aurrera beharrezkoa)
+Dokumentazio ofiziala: <https://laravel.com/docs/13.x/installation>
 
-Zure ordenagailuan software horiek instalatuta dituzun egiaztatzeko, komando pare bat bota behar duzu kontsolaren bidez.
+## Aurrebaldintzak
 
-- PHP instalaturik dugun jakiteko. Komando hauetariko  bat erabili dezakezu:
+- **PHP 8.3 edo berriagoa**, eta Laravel-ek behar dituen PHP luzapenak.
+- **Composer 2**, PHP mendekotasunak kudeatzeko.
+- **Node.js eta npm**, frontend-eko baliabideak instalatu eta konpilatzeko.
+- **Datu-base bat**: SQLite aukera lehenetsia da; MySQL ere erabil dezakezu.
+- **Git**, kode-biltegi batekin lan egin edo proiektu bat klonatu behar baduzu. Ez da beharrezkoa Laravel proiektu berri bat sortzeko.
 
-C:\xampp\php> .\php -v
+Instalazioak egiaztatzeko, ireki terminal bat eta exekutatu:
 
-- PHP instalaturik dugun jakiteko ere php gfitxategi baten hurrengo funtzioa idatzi dezakegu:
-
-```php
-<?php phpinfo(); ?>
+```bash
+php -v
+composer --version
+node -v
+npm -v
 ```
 
-## Instalazioa
+Komando batek ez badu funtzionatzen, instalatu dagokion tresna eta egiaztatu terminalaren `PATH` aldagaian dagoela. Composer edo Node.js instalatzeko argibideak [Composer](../Más/composer.md) eta [Node.js](../Más/nodejs.md) ataletan daude. PHPren luzapenak egiaztatzeko, erabili `php -m`; Composerrek `zip` luzapenari buruzko errorea ematen badu, aktibatu luzapen hori zure PHP konfigurazioan.
 
-- Webgune ofiziala: <https://laravel.com/framework/docs/13.x/installation>
+## Laravel Installer erabiliz (gomendatua)
 
-1.- Laraveleko instalatzailearen bidez
-
-Laravelen instalatzailea Composer-ekin deskarga dezakezu, komando hau erabiliz:
+Instalatu Laravel Installer Composer bidez:
 
 ```bash
 composer global require laravel/installer
 ```
 
-Ziurtatu ~/.composer/vendor/bin direktorioko ibilbidea zure PATHen artean dagoela, horrela zure sistemak behar bezala Laravelen instalatzailea aurkitu eta exekutatu ahal izango du. Direktorio hori aldatu egin daiteke sistema eragilearen edo erabiltzen ari zaren banaketaren arabera.
-
-Gero, laravel new komandoa erabiliz, Laravelen azken bertsioaren kopia sor dezakezu. Adibidez, nombreProyectoizeneko proiektua sortuko dugu:
-
-laravel new nombreProyecto-app
-
-Proiektu berrirako nahi duzun izena aukera dezakezu.
-
-Kasu honetan hainbat galdera egingo dizkigu, adibidez ia Breeze edo Jetstream nahi badugu. Momentuz ezetz esango genioke.
-
-Frogak egiteko framework bat, ezetz momentuz ere
-
-Git repository, horreri adibidez yes esango genioke.
-
-Azkenean ere zein datu basearekin gure dugu sortu esango diogu.
-
-2.- Composer bidez (direktorioa nombreProyecto)
-
-Laravel Composer-ekin ere instala dezakezu, komando hau erabiliz:
+Windows-en `laravel` komandoa ezagutzen ez badu, begiratu Composer-en komando globalen direktorioa:
 
 ```bash
-composer create-project laravel/laravel izenaProiektua
+composer global config bin-dir --absolute
 ```
 
---prefer-distint --prefer-install: Pakete bat deskargatu behar da batzuetan: source y dist.
-
-Composerrek dist erabiltzen du lehenespenez. Pasatzen bada --prefer-install=source (edo --prefer-source), Composer iturritik instalatuko da, bat egotekotan.
-
-Hori erabilgarria da proiektu bateko akats bat zuzendu eta mendekotasunaren tokiko git klon bat zuzenean lortu nahi baduzu. Composerrek paketeen garapen-bertsioetarako iturria automatikoki erabiltzen duen portaera heredatua lortzeko, erabili --prefer-install=auto. Ikus, halaber, config.preferred-install. Bandera hori pasatzeak konfigurazio-balioa baliogabetuko du.
+Gehitu komandoak erakutsitako direktorioa erabiltzailearen `PATH` ingurune-aldagaian, ireki terminal berri bat eta sortu proiektua:
 
 ```bash
-composer create-project --prefer-dist laravel/laravel izenaProiektua
+laravel new nire-proiektua
+cd nire-proiektua
 ```
 
-3. -Laraveleko instalazioa Laravel Breezerekin
+Instalatzaileak hainbat aukera galdetuko dizkizu, hala nola datu-basea eta hasierako egitura. Aukerak ez badituzu ezagutzen, erabili proposatutako lehenetsiak; gero ere alda daitezke. Autentifikazioa behar baduzu, hautatu instalatzaileak eskaintzen duen hasierako egitura.
 
-Laravel Breezek abiapuntu bikaina eta erraza eskaintzen dizu Laravelen aplikazioak autentikatzeko. Breeze erabiltzen hasteko, lehenbizi Laravelen proiektu berri bat sortu behar duzu:
+## Beste aukera bat: Composer bidez
 
-Gero, zure proiektuaren erro-direktorioaren barruan, instalatu Breeze garapen-mendekotasun gisa:
+Laravel Installer erabili nahi ez baduzu, sortu proiektua Composer-ekin:
 
 ```bash
-composer require laravel/breeze --dev
+composer create-project laravel/laravel nire-proiektua
+cd nire-proiektua
 ```
 
-Orain, erabili Artisanen breeze:install komandoa Breezek kautotze- eta ikuste-kontrolatzaile guztiak (Blade eta Tailwinden diseinatuak) kopiatu ditzan zure proiektuan:
+## Datu-basea konfiguratzea
+
+Proiektu berriek SQLite erabil dezakete lehenespenez. MySQL erabili nahi baduzu, sortu datu-basea lehenik eta egokitu proiektuaren erroko `.env` fitxategiko balioak:
+
+```ini
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+Erabili zure MySQL zerbitzariari dagozkion datuak, eta ziurtatu zerbitzaria martxan dagoela. Ondoren, exekutatu migrazioak:
 
 ```bash
-php artisan breeze:install
-
 php artisan migrate
 ```
 
-Eta, azkenik, ondorengo komandoa exekutatzen du Breezeko interfazeko asset guztiak konpilatzeko:
+SQLite erabiltzen baduzu, egiaztatu `.env` fitxategian `DB_CONNECTION=sqlite` dagoela. Beharrezkoa bada, sortu `database/database.sqlite` fitxategia proiektuaren barruan eta exekutatu migrazioak.
+
+## Aplikazioa abiaraztea
+
+Frontend-eko paketeak instalatzeko, proiektuaren erro-direktorioan:
 
 ```bash
-npm install && npm run dev
+npm install
 ```
 
-Arazoak izanez gero, hurrengo estekan sartu:  <https://www.cursosgis.com/como-instalar-node-js-y-npm-en-4-pasos/>
-
-Gogoratu Breezeko kontrolatzaileak eta ikuspegiak pertsonaliza ditzakezula zure aplikazioaren beharretara egokitzeko.
-
-4.-Git bidezko instalazioa
-
-GitHub kodean edo Laravel beste proiektu batean hasiko gara. Hemen fase guztiak eskuz egin beharrekoak dira:
-
-- Deskarga
+Ireki terminal bat frontend-a garapen-moduan exekutatzeko:
 
 ```bash
-git clone https://github.com/laravel/laravel.git nombreProyecto
-
-cd nombreProyecto
+npm run dev
 ```
 
-- Mendekotasun instalazioak
+Ireki beste terminal bat, sartu proiektuaren direktoriora eta abiarazi Laravel:
 
 ```bash
-composer install
+php artisan serve
 ```
 
-- Sortu ingurune-fitxategia adibidetik abiatuta:
+Terminalean erakutsitako helbidea ireki nabigatzailean; normalean <http://127.0.0.1:8000> izango da. Garapeneko zerbitzaria gelditzeko, sakatu `Ctrl+C`.
 
-```bash
-cp .env.example .env
-```
+Frontend-a garapen zerbitzaririk gabe konpilatu nahi baduzu, erabili `npm run build`.
 
-- Zifratze-gakoa sortzea (.env ikusi).
+![Laravel aplikazioaren hasierako orria](../assets/images/Instalazioa/194de0111f563da58c9ea1c351300d76.jpg)
 
-```bash
-php artisan key:generate
-```
+## Ohiko arazoak
 
-OHARRA
+- **Komando bat ez da aurkitzen:** berrikusi tresna instalatuta dagoela eta terminalaren `PATH` aldagaian dagoela; ondoren, ireki terminal berri bat.
+- **PHP luzapenen errorea:** egiaztatu `php -m` komandoaren emaitza eta aktibatu falta den luzapena erabiltzen ari zaren PHP konfigurazioan.
+- **Datu-basearekin konektatzeko errorea:** egiaztatu zerbitzaria martxan dagoela, `.env` fitxategiko datuak zuzenak direla eta MySQL erabiltzen baduzu datu-basea sortuta dagoela.
+- **Baimen-errorea:** Laravel-ek idazteko baimena behar du `storage` eta `bootstrap/cache` direktorioetan. Eman baimenak zure erabiltzaileari; ez eman baimen zabalik direktorio horiei.
 
-Laravel proiektua abian jartzea, zerbitzari integratuarekin
-
-- artisan modu orokorrean erabiltzen da. Adibidez, klase guztiak komando horrekin sortu behar dira.
-- Exekutatuz zerbitzaririk gabe gara dezakegu:
-
-```bash
-php artisan serve              # para iniciar el servicio
-```
-
-ctrl+C                         # para cerrar
-
-Gure zerbitzarirako iragarritako URL hori zure nabigatzaile gogokoenarekin irekiz, Laravelekin instalatu berri den aplikazio baten ongietorriko orria ikusi beharko zenuke.
-
-![Irudia](../assets/images/Instalazioa/194de0111f563da58c9ea1c351300d76.jpg)
-
-KONTUZ HONEKIN!
-
-Batzutan, segun eta zein terminal erabiltzen dugun, izan daiteke composer-en PATH-a ondo konfiguratuta ez egotea, hori gertatzekotan, terminalari adieraziko diogu PATH hori non dagoen.
-
-Visual Studion gertatzekotan, Settings zabaldu eta settings.json fitxategian hurrengo hau idatziko dugu.
-
-"terminal.integrated.env.windows": {
-
-"PATH": "C:/ProgramData/ComposerSetup/bin/composer;${env:PATH}"
-
-}
-
-Non instalatuta dagoen jakiteko, beste terminal baten galdetuko dugu, adibidez git bash-en:
-
-which composer
-
-![Irudia](../assets/images/Instalazioa/914620f87cb541578ce9b2d009be1ee7.jpg)
-
-Visual Studio-ren terminala  erabiltzean, php-ini fitxategian ;extension=zip aktibatu behar dugu ; kentzen.
-
-extension=zip
-
-Baliteke Laravelen salbuespen bat jasotzea sartzeko behar adina pribilegio ez duzunean, normalean storagedirektorioan Laravelen log-fitxategia sortu ezin denean. Hori konpontzeko, pribilegioak doitu ditzakezu; adibidez, Linux-en chmodkomandoa erabil dezakezu erabiltzaileen irakurketa- eta idazketa-pribilegioak emateko.
-
-Zure proiektua duen direktoriotik, hauek egin ditzakezu:
-
-```bash
-sudo chmod -R o=rwx storage
-```
+Laravel aplikazioa garapeneko zerbitzariarekin bakarrik probatu behar da. Benetako zerbitzarian argitaratzeko, jarraitu Laravel-en [hedapen-gida](https://laravel.com/docs/13.x/deployment).
