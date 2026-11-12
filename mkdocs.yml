@@ -24,6 +24,64 @@ extra_css:
 - stylesheets/extra.css
 plugins:
 - search
+- i18n:
+    docs_structure: folder
+    fallback_to_default: true
+    reconfigure_material: true
+    reconfigure_search: true
+    languages:
+    - locale: eu
+      name: Euskara
+      default: true
+      build: true
+    - locale: es
+      name: Castellano
+      build: true
+      site_name: DWS Apuntes de Laravel 13 - 2026-2027
+      site_description: Manual de Laravel en castellano
+      nav_translations:
+        Hasiera: Inicio
+        Lehenengo pausuak: Primeros pasos
+        'Zer da?': '¿Qué es?'
+        Instalazioa: Instalación
+        Laravel proiektua sortu: Crear un proyecto Laravel
+        Eta orain zer?: '¿Y ahora qué?'
+        Laravel elementuak: Elementos de Laravel
+        Rutak eta kontroladoreak: Rutas y controladores
+        Rutak: Rutas
+        Kontroladoreak: Controladores
+        Bistak eta Blade: Vistas y Blade
+        Bistak: Vistas
+        Konponenteak: Componentes
+        'Konponenteak: adibide gehigarriak': 'Componentes: ejemplos adicionales'
+        Datu-baseak eta Eloquent: Bases de datos y Eloquent
+        Datu basea sortzen: Crear la base de datos
+        Migrazioak: Migraciones
+        Modeloak: Modelos
+        Taulen arteko erlazioak: Relaciones entre tablas
+        Formularioak eta fitxategiak: Formularios y archivos
+        Balidazioak: Validaciones
+        Irudi bat igo: Subir una imagen
+        Saioak eta autentifikazioa: Sesiones y autenticación
+        Saioak: Sesiones
+        'Mezuak: error eta success': 'Mensajes: error y success'
+        Hizkuntzak: Idiomas
+        Hizkuntza aldatu: Cambiar idioma
+        CRUD praktika: Práctica de CRUD
+        Proiektu bat sortu: Crear un proyecto
+        Datu basea: Base de datos
+        'All, show, create, edit, delete (Adibideekin)': 'All, show, create, edit, delete (con ejemplos)'
+        'Balidazioa, paginazioa eta hizkuntza': 'Validación, paginación e idioma'
+        'Erlazioak (1-N)': 'Relaciones (1-N)'
+        'Erlazioak (N-M)': 'Relaciones (N-M)'
+        Sarrera: Introducción
+        'API REST eta JSON': 'API REST y JSON'
+        'API ibilbideak': 'Rutas de API'
+        'JSON erantzunak': 'Respuestas JSON'
+        'API kontrolatzaileak eta CRUD': 'Controladores de API y CRUD'
+        'Balidazioa eta erroreak': 'Validación y errores'
+        'API probak': 'Pruebas de API'
+        Tresnak: Herramientas
 markdown_extensions:
 - admonition
 - tables
