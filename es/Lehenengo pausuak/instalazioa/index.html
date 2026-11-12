@@ -1,0 +1,2924 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Manual de Laravel en castellano">
+      
+      
+      
+      
+        <link rel="prev" href="../zer-da/">
+      
+      
+        <link rel="next" href="../laravel-proiektua-sortu/">
+      
+      
+        
+          <link rel="alternate" href="../../../Lehenengo%20pausuak/instalazioa/" hreflang="eu">
+        
+          <link rel="alternate" href="./" hreflang="es">
+        
+      
+      
+      <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Instalación - DWS Apuntes de Laravel 13 - 2026-2027</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#004c95" data-md-color-accent="#e95f15">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#guia-para-empezar-con-laravel-13-windows" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../../" title="DWS Apuntes de Laravel 13 - 2026-2027" class="md-header__button md-logo" aria-label="DWS Apuntes de Laravel 13 - 2026-2027" data-md-component="logo">
+      
+  <img src="../../../images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DWS Apuntes de Laravel 13 - 2026-2027
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Instalación
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="#004c95" data-md-color-accent="#e95f15"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="#004c95" data-md-color-accent="#e95f15"  aria-label="Modu iluna"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modu iluna" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Seleccionar idioma">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../../Lehenengo%20pausuak/instalazioa/" hreflang="eu" class="md-select__link">
+              Euskara
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="es" class="md-select__link">
+              Castellano
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../zer-da/" class="md-tabs__link">
+          
+  
+  
+  Primeros pasos
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Laravel%20Elementuak/Rutak%20eta%20kontroladoreak/rutak/" class="md-tabs__link">
+          
+  
+  
+  Elementos de Laravel
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../CRUD/proiektu-bat-sortu/" class="md-tabs__link">
+          
+  
+  
+  Práctica de CRUD
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../API/" class="md-tabs__link">
+          
+  
+  
+  API REST
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Tresnak/composer/" class="md-tabs__link">
+          
+  
+  
+  Herramientas
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../" title="DWS Apuntes de Laravel 13 - 2026-2027" class="md-nav__button md-logo" aria-label="DWS Apuntes de Laravel 13 - 2026-2027" data-md-component="logo">
+      
+  <img src="../../../images/logo.png" alt="logo">
+
+    </a>
+    DWS Apuntes de Laravel 13 - 2026-2027
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Primeros pasos
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Primeros pasos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zer-da/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ¿Qué es?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instalación
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instalación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-comprueba-php" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Comprueba PHP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Comprueba PHP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comprueba-las-extensiones-de-php" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comprueba las extensiones de PHP
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-comprueba-composer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Comprueba Composer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-comprueba-nodejs-y-npm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Comprueba Node.js y npm
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-instala-o-actualiza-el-instalador-de-laravel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Instala o actualiza el instalador de Laravel
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-crea-tu-primer-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Crea tu primer proyecto
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-inicia-laravel-y-abre-el-navegador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Inicia Laravel y abre el navegador
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../laravel-proiektua-sortu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Crear un proyecto Laravel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eta-orain-zer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ¿Y ahora qué?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Elementos de Laravel
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Elementos de Laravel
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rutas y controladores
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Rutas y controladores
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Laravel%20Elementuak/Rutak%20eta%20kontroladoreak/rutak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rutas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Laravel%20Elementuak/Rutak%20eta%20kontroladoreak/kontroladoreak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Controladores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Laravel%20Elementuak/Rutak%20eta%20kontroladoreak/middleware/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Middleware
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vistas y Blade
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Vistas y Blade
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Laravel%20Elementuak/Bistak/bistak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vistas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Laravel%20Elementuak/Bistak/konponenteak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Componentes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Laravel%20Elementuak/Bistak/layouts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Layouts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Laravel%20Elementuak/Bistak/konponenteak-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Componentes: ejemplos adicionales
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bases de datos y Eloquent
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Bases de datos y Eloquent
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Laravel%20Elementuak/Datu%20baseak/datu-basea-sortzen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Crear la base de datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Laravel%20Elementuak/Datu%20baseak/migrazioak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Migraciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_3" id="__nav_3_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Eloquent ORM
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Eloquent ORM
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Laravel%20Elementuak/Datu%20baseak/Eloquent%20ORM/eloquent-orm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Eloquent ORM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Laravel%20Elementuak/Datu%20baseak/Eloquent%20ORM/modeloak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modelos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Laravel%20Elementuak/Datu%20baseak/Eloquent%20ORM/seeders/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Seeders
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Laravel%20Elementuak/Datu%20baseak/Eloquent%20ORM/factories/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Factories
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Laravel%20Elementuak/Datu%20baseak/Eloquent%20ORM/taulen-arteko-erlazioak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Relaciones entre tablas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Formularios y archivos
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Formularios y archivos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Laravel%20Elementuak/Formularioak%20eta%20fitxategiak/balidazioak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Validaciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Laravel%20Elementuak/Formularioak%20eta%20fitxategiak/irudi-bat-igo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subir una imagen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sesiones y autenticación
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Sesiones y autenticación
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Laravel%20Elementuak/Saioak%20eta%20autentifikazioa/saioak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sesiones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Laravel%20Elementuak/Saioak%20eta%20autentifikazioa/mezuak-bidali-error-eta-success/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mensajes: error y success
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Laravel%20Elementuak/Saioak%20eta%20autentifikazioa/laravel-brezze/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Laravel Breeze
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Idiomas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Idiomas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Laravel%20Elementuak/Hizkuntzak/hizkuntza-aldatu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cambiar idioma
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Práctica de CRUD
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Práctica de CRUD
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CRUD/proiektu-bat-sortu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Crear un proyecto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CRUD/datu-basea/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Base de datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CRUD/all-show-create-edit-delete-adibideekin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    All, show, create, edit, delete (con ejemplos)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CRUD/balidazioa-paginazioa-eta-hizkuntza/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Validación, paginación e idioma
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CRUD/erlazioak-1-n/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Relaciones (1-N)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CRUD/erlazioak-n-m/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Relaciones (N-M)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API REST
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    API REST
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API/01-api-rest-json/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API REST y JSON
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API/02-api-ibilbideak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rutas de API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API/03-json-erantzunak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Respuestas JSON
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API/04-kontrolatzaileak-crud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Controladores de API y CRUD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API/05-api-resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API/06-balidazioa-erroreak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Validación y errores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API/07-api-probak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pruebas de API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API/08-laravel-vue-sanctum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Laravel + Vue 3 + Sanctum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Herramientas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Herramientas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tresnak/composer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Composer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tresnak/nodejs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Node.js
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tresnak/git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tresnak/gitbash/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git Bash
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tresnak/laragon/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Laragon
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tresnak/visualstudio-laravel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visual Studio - Laravel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tresnak/artisan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Artisan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tresnak/laravel-dump-server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Laravel Dump Server
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-comprueba-php" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Comprueba PHP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Comprueba PHP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comprueba-las-extensiones-de-php" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comprueba las extensiones de PHP
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-comprueba-composer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Comprueba Composer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-comprueba-nodejs-y-npm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Comprueba Node.js y npm
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-instala-o-actualiza-el-instalador-de-laravel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Instala o actualiza el instalador de Laravel
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-crea-tu-primer-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Crea tu primer proyecto
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-inicia-laravel-y-abre-el-navegador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Inicia Laravel y abre el navegador
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="guia-para-empezar-con-laravel-13-windows">Guía para empezar con Laravel 13 · Windows</h1>
+<p>En esta guía prepararás tu ordenador y abrirás tu primera aplicación Laravel 13 en el navegador. Todos los comandos deben ejecutarse en el terminal <strong>PowerShell</strong>. En VS Code, abre el terminal con <strong>Terminal → New Terminal</strong>.</p>
+<p>En cada paso, comprueba qué tienes instalado. Si te falta una herramienta o tienes una versión demasiado antigua, instálala o actualízala y repite la comprobación antes de pasar al siguiente paso.</p>
+<h2 id="1-comprueba-php">1. Comprueba PHP</h2>
+<div class="highlight"><pre><span></span><code><span class="n">php</span> <span class="n">-v</span>
+<span class="n">where</span><span class="p">.</span><span class="n">exe</span> <span class="n">php</span>
+<span class="n">php</span> <span class="p">-</span><span class="n">-ini</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Resultado</th>
+<th>Qué hacer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tienes PHP 8.3, 8.4 o 8.5</td>
+<td>Cumples la versión mínima de Laravel 13. Comprueba las extensiones de PHP.</td>
+</tr>
+<tr>
+<td>Tienes PHP 8.2 o anterior</td>
+<td>Si MAMP, XAMPP o Laragon ya incluye una versión compatible de PHP, coloca la carpeta que contiene su archivo <code>php.exe</code> antes que la de la versión antigua en la variable <code>Path</code>. Si no, instala una versión compatible de PHP.</td>
+</tr>
+<tr>
+<td>PowerShell no reconoce <code>php</code></td>
+<td>Si PHP ya está instalado, añade a la variable <code>Path</code> la carpeta donde está <code>php.exe</code>. Si no, utiliza una de las opciones de instalación que aparecen abajo.</td>
+</tr>
+<tr>
+<td>Aparecen varias rutas</td>
+<td>El comando <code>where.exe php</code> muestra los ejecutables encontrados. Usa <code>Get-Command php</code> para ver cuál selecciona PowerShell y <code>php -v</code> para comprobar su versión.</td>
+</tr>
+</tbody>
+</table>
+<p>Para cambiar <code>Path</code>, busca en el menú Inicio de Windows la opción para editar las variables de entorno de la cuenta. Edita <strong>Path</strong>, añade la carpeta de PHP y, si es necesario, cambia el orden de las entradas. Cierra y vuelve a abrir PowerShell. Si utilizas el terminal de VS Code, reinicia también VS Code. Después, repite las comprobaciones.</p>
+<p><strong>Si necesitas instalar PHP</strong>, elige una opción:</p>
+<ul>
+<li><strong>Laravel Herd para Windows.</strong> Descarga y ejecuta el instalador gráfico. Incluye PHP, Composer y el instalador de Laravel. Al terminar, abre un terminal nuevo y repite las comprobaciones. <a href="https://herd.laravel.com/docs/windows/getting-started/installation">Documentación de instalación de Herd</a></li>
+<li><strong>Instalación oficial rápida.</strong> En la documentación de Laravel 13, selecciona <strong>Windows PowerShell</strong> en la sección de instalación de PHP y Composer, y ejecuta el comando que aparece allí. Instala PHP 8.5, Composer y el instalador de Laravel. Si ya los habías instalado mediante <code>php.new</code>, puedes volver a ejecutar el mismo comando para actualizar los tres. <a href="https://laravel.com/framework/docs/13.x/installation#installing-php">Documentación de instalación de Laravel 13</a></li>
+</ul>
+<h3 id="comprueba-las-extensiones-de-php">Comprueba las extensiones de PHP</h3>
+<div class="highlight"><pre><span></span><code><span class="n">php</span> <span class="n">-m</span>
+</code></pre></div>
+<p>Laravel 13 necesita estas extensiones: Ctype, cURL, DOM, Fileinfo, Filter, Hash, Mbstring, OpenSSL, PCRE, PDO, Session, Tokenizer y XML. Para el proyecto de esta guía, comprueba también que aparezca <strong>pdo_sqlite</strong>. Esta extensión permite que PHP utilice una base de datos SQLite.</p>
+<p>Si falta alguna extensión, usa <code>php --ini</code> para ver qué archivo <code>php.ini</code> carga PHP. Si la extensión está disponible en tu instalación, actívala en ese archivo. Por ejemplo, si encuentras la línea <code>;extension=pdo_sqlite</code>, quita el punto y coma inicial. Si la extensión no está incluida en la instalación, instálala según las instrucciones de tu distribución de PHP. Repite <code>php -m</code>. <a href="https://laravel.com/framework/docs/13.x/deployment#server-requirements">Requisitos de PHP para Laravel 13</a></p>
+<h2 id="2-comprueba-composer">2. Comprueba Composer</h2>
+<p>Composer instala las dependencias PHP del proyecto.</p>
+<div class="highlight"><pre><span></span><code><span class="n">composer</span> <span class="p">-</span><span class="n">-version</span>
+</code></pre></div>
+<ul>
+<li><strong>Si tienes Composer 2.x</strong>, pasa al paso 3.</li>
+<li><strong>Si tienes Composer 1.x</strong> y lo instalaste como PHAR, ejecuta <code>composer self-update --2</code> y vuelve a comprobar la versión. Si otra herramienta gestiona la instalación, úsala para actualizarlo.</li>
+<li><strong>Si el comando no funciona</strong>, abre la documentación de Composer para Windows, descarga <strong>Composer-Setup.exe</strong> y ejecútalo. Si te pide la ruta de PHP, selecciona el <code>php.exe</code> compatible del paso 1. Abre un terminal nuevo y repite la comprobación.</li>
+</ul>
+<p><a href="https://getcomposer.org/doc/00-intro.md#installation-windows">Instalar Composer en Windows</a> · <a href="https://getcomposer.org/download/#download-channels">Actualizar Composer</a></p>
+<h2 id="3-comprueba-nodejs-y-npm">3. Comprueba Node.js y npm</h2>
+<p>Node.js ejecuta las herramientas del frontend. npm instala sus dependencias y Vite prepara los archivos CSS y JavaScript.</p>
+<div class="highlight"><pre><span></span><code><span class="n">node</span> <span class="n">-v</span>
+<span class="n">npm</span> <span class="n">-v</span>
+</code></pre></div>
+<ul>
+<li><strong>Para las clases, utiliza Node.js 24 LTS.</strong> Si ya tienes la versión 22.12 o posterior de la rama 22, cumples el requisito de Vite. La documentación de Vite también admite versiones a partir de la 20.19 de la rama 20.</li>
+<li><strong>Si no tienes Node.js o tu versión es demasiado antigua</strong>, instala Node.js 24 LTS con el instalador para Windows. Si gestionas Node.js mediante Herd o un administrador de versiones, instálalo y selecciónalo desde esa herramienta. Abre un terminal nuevo y vuelve a ejecutar ambos comandos.</li>
+<li><strong>Si PowerShell bloquea <code>npm.ps1</code></strong>, prueba <code>npm.cmd -v</code>. Si funciona, utiliza <code>npm.cmd</code> en los comandos npm de esta guía. Si tienes varias instalaciones, puedes ver sus rutas con <code>where.exe node</code> y <code>where.exe npm</code>.</li>
+</ul>
+<p><a href="https://nodejs.org/en/download">Descargar Node.js</a> · <a href="https://vite.dev/guide/#scaffolding-your-first-vite-project">Versiones de Node.js compatibles con Vite</a></p>
+<h2 id="4-instala-o-actualiza-el-instalador-de-laravel">4. Instala o actualiza el instalador de Laravel</h2>
+<div class="highlight"><pre><span></span><code><span class="n">laravel</span> <span class="p">-</span><span class="n">-version</span>
+</code></pre></div>
+<p>El comando muestra la <strong>versión del instalador</strong>. Comprobarás la <strong>versión del framework</strong> dentro de la carpeta del proyecto, en el paso 5.</p>
+<ul>
+<li>Si el comando no existe y ya tienes PHP y Composer instalados, ejecuta <code>composer global require laravel/installer</code>.</li>
+<li>Si lo instalaste mediante Composer y quieres actualizarlo, ejecuta <code>composer global update laravel/installer</code>.</li>
+<li>Si Composer indica que está instalado pero PowerShell no encuentra el comando, ejecuta <code>composer global config bin-dir --absolute</code>. Añade a la variable <code>Path</code> la carpeta que muestra y abre otro terminal. Si lo instalaste mediante Herd o <code>php.new</code>, utiliza el mismo método de instalación para actualizarlo.</li>
+</ul>
+<p><a href="https://laravel.com/framework/docs/13.x/installation#installing-php">Instalador oficial de Laravel</a></p>
+<h2 id="5-crea-tu-primer-proyecto">5. Crea tu primer proyecto</h2>
+<p>Abre PowerShell en la carpeta donde guardas tus ejercicios. Si utilizas VS Code, abre esa carpeta y crea un terminal. Ejecuta:</p>
+<div class="highlight"><pre><span></span><code><span class="n">laravel</span> <span class="n">new</span> <span class="n">lehen-laravel</span>
+</code></pre></div>
+<p>Si el instalador te pregunta, elige <strong>sin starter kit</strong> y selecciona <strong>SQLite</strong>. Para las pruebas, puedes aceptar la opción predeterminada del framework. SQLite guarda los datos en un archivo, por lo que no necesitas iniciar un servidor de bases de datos para este ejercicio.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd </span><span class="n">lehen-laravel</span>
+<span class="n">php</span> <span class="n">artisan</span> <span class="p">-</span><span class="n">-version</span>
+<span class="n">composer</span> <span class="n">check-platform-reqs</span>
+<span class="n">php</span> <span class="n">artisan</span> <span class="n">migrate</span><span class="p">:</span><span class="n">status</span>
+</code></pre></div>
+<p>Comprueba que Artisan muestra <strong>Laravel Framework 13.x</strong>, que Composer valida los requisitos de PHP y sus extensiones, y que aparecen las migraciones de SQLite. Durante la instalación, Laravel crea el archivo <code>database/database.sqlite</code> y ejecuta las migraciones iniciales. Si queda alguna migración pendiente, ejecuta <code>php artisan migrate</code> y vuelve a comprobar el estado.</p>
+<p><strong>Si necesitas seleccionar Laravel 13 específicamente</strong>, crea el proyecto mediante Composer. Ejecuta el comando desde la carpeta principal de los ejercicios y utiliza un nombre de carpeta que esté libre. Después, entra en el nuevo proyecto y repite las comprobaciones anteriores.</p>
+<div class="highlight"><pre><span></span><code><span class="n">composer</span> <span class="n">create-project</span> <span class="n">laravel</span><span class="p">/</span><span class="n">laravel</span> <span class="n">lehen-laravel</span><span class="p">-</span><span class="n">13</span> <span class="s2">&quot;^13.0&quot;</span>
+<span class="nb">cd </span><span class="n">lehen-laravel</span><span class="p">-</span><span class="n">13</span>
+<span class="n">php</span> <span class="n">artisan</span> <span class="p">-</span><span class="n">-version</span>
+</code></pre></div>
+<p><a href="https://laravel.com/framework/docs/13.x/installation#creating-an-application">Crear un proyecto</a> · <a href="https://laravel.com/framework/docs/13.x/installation#databases-and-migrations">SQLite y migraciones</a> · <a href="https://getcomposer.org/doc/03-cli.md#create-project">Composer create-project</a></p>
+<h2 id="6-inicia-laravel-y-abre-el-navegador">6. Inicia Laravel y abre el navegador</h2>
+<p>En la carpeta del proyecto, donde están los archivos <code>artisan</code>, <code>composer.json</code> y <code>package.json</code>, ejecuta estos comandos uno por uno. Espera a que termine cada uno antes de ejecutar el siguiente.</p>
+<div class="highlight"><pre><span></span><code><span class="n">npm</span> <span class="n">install</span>
+<span class="n">npm</span> <span class="n">run</span> <span class="n">build</span>
+<span class="n">composer</span> <span class="n">run</span> <span class="n">dev</span>
+</code></pre></div>
+<p>El comando <code>composer run dev</code> inicia el servidor de desarrollo de Laravel, el proceso que gestiona las tareas de la cola y Vite. Deja abierto el terminal y ve a <a href="http://localhost:8000">http://localhost:8000</a>. Si ves la página de bienvenida de Laravel, la instalación está lista. Para detener el servidor, pulsa <strong>Ctrl+C</strong>. En la siguiente sesión, vuelve a la misma carpeta y ejecuta <code>composer run dev</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Problema</th>
+<th>Qué comprobar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Could not open input file: artisan</code></td>
+<td>Comprueba que estás en la carpeta del proyecto. Ejecuta <code>Get-Location</code> y <code>Get-ChildItem artisan</code>.</td>
+</tr>
+<tr>
+<td><code>could not find driver</code> al usar SQLite</td>
+<td>Comprueba que PHP en el terminal tiene <code>pdo_sqlite</code> activado. Usa <code>php --ini</code> y <code>php -m</code>.</td>
+</tr>
+<tr>
+<td><code>EBADENGINE</code> al instalar dependencias</td>
+<td>Comprueba el resultado de <code>node -v</code> y selecciona una versión compatible con el rango indicado por npm.</td>
+</tr>
+<tr>
+<td>Error relacionado con el manifiesto de Vite</td>
+<td>Ejecuta <code>npm install</code> y <code>npm run build</code> en la carpeta del proyecto. Si la compilación falla, corrige el error que muestra npm.</td>
+</tr>
+<tr>
+<td>El puerto 8000 está en uso</td>
+<td>Detén el servidor que está utilizando ese puerto. Si los recursos ya están compilados, también puedes ejecutar <code>php artisan serve --port=8001</code>. Después, abre <a href="http://localhost:8001">http://localhost:8001</a>.</td>
+</tr>
+</tbody>
+</table>
+<p>Como utilizas el servidor de desarrollo de Laravel, también puedes guardar el proyecto fuera de la carpeta <code>htdocs</code>. <a href="https://laravel.com/framework/docs/13.x/installation#creating-an-application">Documentación para iniciar la aplicación</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

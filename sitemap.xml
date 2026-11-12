@@ -1,3 +1,675 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+        <loc>None./</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="None"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/"/>
+    </url>
+    <url>
+        <loc>NoneAPI/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneAPI/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/API/"/>
+    </url>
+    <url>
+        <loc>NoneAPI/01-api-rest-json/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneAPI/01-api-rest-json/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/API/01-api-rest-json/"/>
+    </url>
+    <url>
+        <loc>NoneAPI/02-api-ibilbideak/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneAPI/02-api-ibilbideak/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/API/02-api-ibilbideak/"/>
+    </url>
+    <url>
+        <loc>NoneAPI/03-json-erantzunak/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneAPI/03-json-erantzunak/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/API/03-json-erantzunak/"/>
+    </url>
+    <url>
+        <loc>NoneAPI/04-kontrolatzaileak-crud/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneAPI/04-kontrolatzaileak-crud/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/API/04-kontrolatzaileak-crud/"/>
+    </url>
+    <url>
+        <loc>NoneAPI/05-api-resources/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneAPI/05-api-resources/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/API/05-api-resources/"/>
+    </url>
+    <url>
+        <loc>NoneAPI/06-balidazioa-erroreak/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneAPI/06-balidazioa-erroreak/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/API/06-balidazioa-erroreak/"/>
+    </url>
+    <url>
+        <loc>NoneAPI/07-api-probak/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneAPI/07-api-probak/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/API/07-api-probak/"/>
+    </url>
+    <url>
+        <loc>NoneAPI/08-laravel-vue-sanctum/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneAPI/08-laravel-vue-sanctum/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/API/08-laravel-vue-sanctum/"/>
+    </url>
+    <url>
+        <loc>NoneCRUD/all-show-create-edit-delete-adibideekin/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneCRUD/all-show-create-edit-delete-adibideekin/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/CRUD/all-show-create-edit-delete-adibideekin/"/>
+    </url>
+    <url>
+        <loc>NoneCRUD/balidazioa-paginazioa-eta-hizkuntza/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneCRUD/balidazioa-paginazioa-eta-hizkuntza/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/CRUD/balidazioa-paginazioa-eta-hizkuntza/"/>
+    </url>
+    <url>
+        <loc>NoneCRUD/datu-basea/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneCRUD/datu-basea/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/CRUD/datu-basea/"/>
+    </url>
+    <url>
+        <loc>NoneCRUD/erlazioak-1-n/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneCRUD/erlazioak-1-n/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/CRUD/erlazioak-1-n/"/>
+    </url>
+    <url>
+        <loc>NoneCRUD/erlazioak-n-m/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneCRUD/erlazioak-n-m/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/CRUD/erlazioak-n-m/"/>
+    </url>
+    <url>
+        <loc>NoneCRUD/proiektu-bat-sortu/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneCRUD/proiektu-bat-sortu/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/CRUD/proiektu-bat-sortu/"/>
+    </url>
+    <url>
+        <loc>NoneLaravel%20Elementuak/Bistak/bistak/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneLaravel%20Elementuak/Bistak/bistak/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Laravel%20Elementuak/Bistak/bistak/"/>
+    </url>
+    <url>
+        <loc>NoneLaravel%20Elementuak/Bistak/konponenteak-1/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneLaravel%20Elementuak/Bistak/konponenteak-1/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Laravel%20Elementuak/Bistak/konponenteak-1/"/>
+    </url>
+    <url>
+        <loc>NoneLaravel%20Elementuak/Bistak/konponenteak/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneLaravel%20Elementuak/Bistak/konponenteak/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Laravel%20Elementuak/Bistak/konponenteak/"/>
+    </url>
+    <url>
+        <loc>NoneLaravel%20Elementuak/Bistak/layouts/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneLaravel%20Elementuak/Bistak/layouts/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Laravel%20Elementuak/Bistak/layouts/"/>
+    </url>
+    <url>
+        <loc>NoneLaravel%20Elementuak/Datu%20baseak/datu-basea-sortzen/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneLaravel%20Elementuak/Datu%20baseak/datu-basea-sortzen/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Laravel%20Elementuak/Datu%20baseak/datu-basea-sortzen/"/>
+    </url>
+    <url>
+        <loc>NoneLaravel%20Elementuak/Datu%20baseak/migrazioak/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneLaravel%20Elementuak/Datu%20baseak/migrazioak/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Laravel%20Elementuak/Datu%20baseak/migrazioak/"/>
+    </url>
+    <url>
+        <loc>NoneLaravel%20Elementuak/Datu%20baseak/Eloquent%20ORM/eloquent-orm/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneLaravel%20Elementuak/Datu%20baseak/Eloquent%20ORM/eloquent-orm/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Laravel%20Elementuak/Datu%20baseak/Eloquent%20ORM/eloquent-orm/"/>
+    </url>
+    <url>
+        <loc>NoneLaravel%20Elementuak/Datu%20baseak/Eloquent%20ORM/factories/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneLaravel%20Elementuak/Datu%20baseak/Eloquent%20ORM/factories/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Laravel%20Elementuak/Datu%20baseak/Eloquent%20ORM/factories/"/>
+    </url>
+    <url>
+        <loc>NoneLaravel%20Elementuak/Datu%20baseak/Eloquent%20ORM/modeloak/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneLaravel%20Elementuak/Datu%20baseak/Eloquent%20ORM/modeloak/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Laravel%20Elementuak/Datu%20baseak/Eloquent%20ORM/modeloak/"/>
+    </url>
+    <url>
+        <loc>NoneLaravel%20Elementuak/Datu%20baseak/Eloquent%20ORM/seeders/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneLaravel%20Elementuak/Datu%20baseak/Eloquent%20ORM/seeders/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Laravel%20Elementuak/Datu%20baseak/Eloquent%20ORM/seeders/"/>
+    </url>
+    <url>
+        <loc>NoneLaravel%20Elementuak/Datu%20baseak/Eloquent%20ORM/taulen-arteko-erlazioak/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneLaravel%20Elementuak/Datu%20baseak/Eloquent%20ORM/taulen-arteko-erlazioak/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Laravel%20Elementuak/Datu%20baseak/Eloquent%20ORM/taulen-arteko-erlazioak/"/>
+    </url>
+    <url>
+        <loc>NoneLaravel%20Elementuak/Formularioak%20eta%20fitxategiak/balidazioak/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneLaravel%20Elementuak/Formularioak%20eta%20fitxategiak/balidazioak/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Laravel%20Elementuak/Formularioak%20eta%20fitxategiak/balidazioak/"/>
+    </url>
+    <url>
+        <loc>NoneLaravel%20Elementuak/Formularioak%20eta%20fitxategiak/irudi-bat-igo/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneLaravel%20Elementuak/Formularioak%20eta%20fitxategiak/irudi-bat-igo/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Laravel%20Elementuak/Formularioak%20eta%20fitxategiak/irudi-bat-igo/"/>
+    </url>
+    <url>
+        <loc>NoneLaravel%20Elementuak/Hizkuntzak/hizkuntza-aldatu/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneLaravel%20Elementuak/Hizkuntzak/hizkuntza-aldatu/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Laravel%20Elementuak/Hizkuntzak/hizkuntza-aldatu/"/>
+    </url>
+    <url>
+        <loc>NoneLaravel%20Elementuak/Rutak%20eta%20kontroladoreak/kontroladoreak/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneLaravel%20Elementuak/Rutak%20eta%20kontroladoreak/kontroladoreak/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Laravel%20Elementuak/Rutak%20eta%20kontroladoreak/kontroladoreak/"/>
+    </url>
+    <url>
+        <loc>NoneLaravel%20Elementuak/Rutak%20eta%20kontroladoreak/middleware/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneLaravel%20Elementuak/Rutak%20eta%20kontroladoreak/middleware/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Laravel%20Elementuak/Rutak%20eta%20kontroladoreak/middleware/"/>
+    </url>
+    <url>
+        <loc>NoneLaravel%20Elementuak/Rutak%20eta%20kontroladoreak/rutak/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneLaravel%20Elementuak/Rutak%20eta%20kontroladoreak/rutak/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Laravel%20Elementuak/Rutak%20eta%20kontroladoreak/rutak/"/>
+    </url>
+    <url>
+        <loc>NoneLaravel%20Elementuak/Saioak%20eta%20autentifikazioa/laravel-brezze/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneLaravel%20Elementuak/Saioak%20eta%20autentifikazioa/laravel-brezze/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Laravel%20Elementuak/Saioak%20eta%20autentifikazioa/laravel-brezze/"/>
+    </url>
+    <url>
+        <loc>NoneLaravel%20Elementuak/Saioak%20eta%20autentifikazioa/mezuak-bidali-error-eta-success/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneLaravel%20Elementuak/Saioak%20eta%20autentifikazioa/mezuak-bidali-error-eta-success/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Laravel%20Elementuak/Saioak%20eta%20autentifikazioa/mezuak-bidali-error-eta-success/"/>
+    </url>
+    <url>
+        <loc>NoneLaravel%20Elementuak/Saioak%20eta%20autentifikazioa/saioak/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneLaravel%20Elementuak/Saioak%20eta%20autentifikazioa/saioak/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Laravel%20Elementuak/Saioak%20eta%20autentifikazioa/saioak/"/>
+    </url>
+    <url>
+        <loc>NoneLehenengo%20pausuak/eta-orain-zer/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneLehenengo%20pausuak/eta-orain-zer/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Lehenengo%20pausuak/eta-orain-zer/"/>
+    </url>
+    <url>
+        <loc>NoneLehenengo%20pausuak/instalazioa/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneLehenengo%20pausuak/instalazioa/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Lehenengo%20pausuak/instalazioa/"/>
+    </url>
+    <url>
+        <loc>NoneLehenengo%20pausuak/laravel-proiektua-sortu/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneLehenengo%20pausuak/laravel-proiektua-sortu/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Lehenengo%20pausuak/laravel-proiektua-sortu/"/>
+    </url>
+    <url>
+        <loc>NoneLehenengo%20pausuak/zer-da/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneLehenengo%20pausuak/zer-da/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Lehenengo%20pausuak/zer-da/"/>
+    </url>
+    <url>
+        <loc>NoneTresnak/artisan/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneTresnak/artisan/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Tresnak/artisan/"/>
+    </url>
+    <url>
+        <loc>NoneTresnak/composer/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneTresnak/composer/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Tresnak/composer/"/>
+    </url>
+    <url>
+        <loc>NoneTresnak/git/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneTresnak/git/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Tresnak/git/"/>
+    </url>
+    <url>
+        <loc>NoneTresnak/gitbash/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneTresnak/gitbash/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Tresnak/gitbash/"/>
+    </url>
+    <url>
+        <loc>NoneTresnak/laragon/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneTresnak/laragon/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Tresnak/laragon/"/>
+    </url>
+    <url>
+        <loc>NoneTresnak/laravel-dump-server/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneTresnak/laravel-dump-server/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Tresnak/laravel-dump-server/"/>
+    </url>
+    <url>
+        <loc>NoneTresnak/nodejs/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneTresnak/nodejs/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Tresnak/nodejs/"/>
+    </url>
+    <url>
+        <loc>NoneTresnak/visualstudio-laravel/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneTresnak/visualstudio-laravel/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Tresnak/visualstudio-laravel/"/>
+    </url>
+    <url>
+        <loc>Nonees/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="None"/>
+    </url>
+    <url>
+        <loc>Nonees/API/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/API/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneAPI/"/>
+    </url>
+    <url>
+        <loc>Nonees/API/01-api-rest-json/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/API/01-api-rest-json/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneAPI/01-api-rest-json/"/>
+    </url>
+    <url>
+        <loc>Nonees/API/02-api-ibilbideak/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/API/02-api-ibilbideak/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneAPI/02-api-ibilbideak/"/>
+    </url>
+    <url>
+        <loc>Nonees/API/03-json-erantzunak/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/API/03-json-erantzunak/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneAPI/03-json-erantzunak/"/>
+    </url>
+    <url>
+        <loc>Nonees/API/04-kontrolatzaileak-crud/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/API/04-kontrolatzaileak-crud/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneAPI/04-kontrolatzaileak-crud/"/>
+    </url>
+    <url>
+        <loc>Nonees/API/05-api-resources/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/API/05-api-resources/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneAPI/05-api-resources/"/>
+    </url>
+    <url>
+        <loc>Nonees/API/06-balidazioa-erroreak/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/API/06-balidazioa-erroreak/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneAPI/06-balidazioa-erroreak/"/>
+    </url>
+    <url>
+        <loc>Nonees/API/07-api-probak/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/API/07-api-probak/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneAPI/07-api-probak/"/>
+    </url>
+    <url>
+        <loc>Nonees/API/08-laravel-vue-sanctum/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/API/08-laravel-vue-sanctum/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneAPI/08-laravel-vue-sanctum/"/>
+    </url>
+    <url>
+        <loc>Nonees/CRUD/all-show-create-edit-delete-adibideekin/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/CRUD/all-show-create-edit-delete-adibideekin/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneCRUD/all-show-create-edit-delete-adibideekin/"/>
+    </url>
+    <url>
+        <loc>Nonees/CRUD/balidazioa-paginazioa-eta-hizkuntza/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/CRUD/balidazioa-paginazioa-eta-hizkuntza/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneCRUD/balidazioa-paginazioa-eta-hizkuntza/"/>
+    </url>
+    <url>
+        <loc>Nonees/CRUD/datu-basea/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/CRUD/datu-basea/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneCRUD/datu-basea/"/>
+    </url>
+    <url>
+        <loc>Nonees/CRUD/erlazioak-1-n/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/CRUD/erlazioak-1-n/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneCRUD/erlazioak-1-n/"/>
+    </url>
+    <url>
+        <loc>Nonees/CRUD/erlazioak-n-m/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/CRUD/erlazioak-n-m/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneCRUD/erlazioak-n-m/"/>
+    </url>
+    <url>
+        <loc>Nonees/CRUD/proiektu-bat-sortu/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/CRUD/proiektu-bat-sortu/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneCRUD/proiektu-bat-sortu/"/>
+    </url>
+    <url>
+        <loc>Nonees/Laravel%20Elementuak/Bistak/bistak/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Laravel%20Elementuak/Bistak/bistak/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneLaravel%20Elementuak/Bistak/bistak/"/>
+    </url>
+    <url>
+        <loc>Nonees/Laravel%20Elementuak/Bistak/konponenteak-1/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Laravel%20Elementuak/Bistak/konponenteak-1/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneLaravel%20Elementuak/Bistak/konponenteak-1/"/>
+    </url>
+    <url>
+        <loc>Nonees/Laravel%20Elementuak/Bistak/konponenteak/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Laravel%20Elementuak/Bistak/konponenteak/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneLaravel%20Elementuak/Bistak/konponenteak/"/>
+    </url>
+    <url>
+        <loc>Nonees/Laravel%20Elementuak/Bistak/layouts/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Laravel%20Elementuak/Bistak/layouts/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneLaravel%20Elementuak/Bistak/layouts/"/>
+    </url>
+    <url>
+        <loc>Nonees/Laravel%20Elementuak/Datu%20baseak/datu-basea-sortzen/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Laravel%20Elementuak/Datu%20baseak/datu-basea-sortzen/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneLaravel%20Elementuak/Datu%20baseak/datu-basea-sortzen/"/>
+    </url>
+    <url>
+        <loc>Nonees/Laravel%20Elementuak/Datu%20baseak/migrazioak/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Laravel%20Elementuak/Datu%20baseak/migrazioak/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneLaravel%20Elementuak/Datu%20baseak/migrazioak/"/>
+    </url>
+    <url>
+        <loc>Nonees/Laravel%20Elementuak/Datu%20baseak/Eloquent%20ORM/eloquent-orm/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Laravel%20Elementuak/Datu%20baseak/Eloquent%20ORM/eloquent-orm/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneLaravel%20Elementuak/Datu%20baseak/Eloquent%20ORM/eloquent-orm/"/>
+    </url>
+    <url>
+        <loc>Nonees/Laravel%20Elementuak/Datu%20baseak/Eloquent%20ORM/factories/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Laravel%20Elementuak/Datu%20baseak/Eloquent%20ORM/factories/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneLaravel%20Elementuak/Datu%20baseak/Eloquent%20ORM/factories/"/>
+    </url>
+    <url>
+        <loc>Nonees/Laravel%20Elementuak/Datu%20baseak/Eloquent%20ORM/modeloak/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Laravel%20Elementuak/Datu%20baseak/Eloquent%20ORM/modeloak/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneLaravel%20Elementuak/Datu%20baseak/Eloquent%20ORM/modeloak/"/>
+    </url>
+    <url>
+        <loc>Nonees/Laravel%20Elementuak/Datu%20baseak/Eloquent%20ORM/seeders/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Laravel%20Elementuak/Datu%20baseak/Eloquent%20ORM/seeders/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneLaravel%20Elementuak/Datu%20baseak/Eloquent%20ORM/seeders/"/>
+    </url>
+    <url>
+        <loc>Nonees/Laravel%20Elementuak/Datu%20baseak/Eloquent%20ORM/taulen-arteko-erlazioak/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Laravel%20Elementuak/Datu%20baseak/Eloquent%20ORM/taulen-arteko-erlazioak/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneLaravel%20Elementuak/Datu%20baseak/Eloquent%20ORM/taulen-arteko-erlazioak/"/>
+    </url>
+    <url>
+        <loc>Nonees/Laravel%20Elementuak/Formularioak%20eta%20fitxategiak/balidazioak/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Laravel%20Elementuak/Formularioak%20eta%20fitxategiak/balidazioak/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneLaravel%20Elementuak/Formularioak%20eta%20fitxategiak/balidazioak/"/>
+    </url>
+    <url>
+        <loc>Nonees/Laravel%20Elementuak/Formularioak%20eta%20fitxategiak/irudi-bat-igo/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Laravel%20Elementuak/Formularioak%20eta%20fitxategiak/irudi-bat-igo/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneLaravel%20Elementuak/Formularioak%20eta%20fitxategiak/irudi-bat-igo/"/>
+    </url>
+    <url>
+        <loc>Nonees/Laravel%20Elementuak/Hizkuntzak/hizkuntza-aldatu/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Laravel%20Elementuak/Hizkuntzak/hizkuntza-aldatu/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneLaravel%20Elementuak/Hizkuntzak/hizkuntza-aldatu/"/>
+    </url>
+    <url>
+        <loc>Nonees/Laravel%20Elementuak/Rutak%20eta%20kontroladoreak/kontroladoreak/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Laravel%20Elementuak/Rutak%20eta%20kontroladoreak/kontroladoreak/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneLaravel%20Elementuak/Rutak%20eta%20kontroladoreak/kontroladoreak/"/>
+    </url>
+    <url>
+        <loc>Nonees/Laravel%20Elementuak/Rutak%20eta%20kontroladoreak/middleware/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Laravel%20Elementuak/Rutak%20eta%20kontroladoreak/middleware/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneLaravel%20Elementuak/Rutak%20eta%20kontroladoreak/middleware/"/>
+    </url>
+    <url>
+        <loc>Nonees/Laravel%20Elementuak/Rutak%20eta%20kontroladoreak/rutak/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Laravel%20Elementuak/Rutak%20eta%20kontroladoreak/rutak/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneLaravel%20Elementuak/Rutak%20eta%20kontroladoreak/rutak/"/>
+    </url>
+    <url>
+        <loc>Nonees/Laravel%20Elementuak/Saioak%20eta%20autentifikazioa/laravel-brezze/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Laravel%20Elementuak/Saioak%20eta%20autentifikazioa/laravel-brezze/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneLaravel%20Elementuak/Saioak%20eta%20autentifikazioa/laravel-brezze/"/>
+    </url>
+    <url>
+        <loc>Nonees/Laravel%20Elementuak/Saioak%20eta%20autentifikazioa/mezuak-bidali-error-eta-success/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Laravel%20Elementuak/Saioak%20eta%20autentifikazioa/mezuak-bidali-error-eta-success/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneLaravel%20Elementuak/Saioak%20eta%20autentifikazioa/mezuak-bidali-error-eta-success/"/>
+    </url>
+    <url>
+        <loc>Nonees/Laravel%20Elementuak/Saioak%20eta%20autentifikazioa/saioak/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Laravel%20Elementuak/Saioak%20eta%20autentifikazioa/saioak/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneLaravel%20Elementuak/Saioak%20eta%20autentifikazioa/saioak/"/>
+    </url>
+    <url>
+        <loc>Nonees/Lehenengo%20pausuak/eta-orain-zer/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Lehenengo%20pausuak/eta-orain-zer/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneLehenengo%20pausuak/eta-orain-zer/"/>
+    </url>
+    <url>
+        <loc>Nonees/Lehenengo%20pausuak/instalazioa/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Lehenengo%20pausuak/instalazioa/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneLehenengo%20pausuak/instalazioa/"/>
+    </url>
+    <url>
+        <loc>Nonees/Lehenengo%20pausuak/laravel-proiektua-sortu/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Lehenengo%20pausuak/laravel-proiektua-sortu/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneLehenengo%20pausuak/laravel-proiektua-sortu/"/>
+    </url>
+    <url>
+        <loc>Nonees/Lehenengo%20pausuak/zer-da/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Lehenengo%20pausuak/zer-da/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneLehenengo%20pausuak/zer-da/"/>
+    </url>
+    <url>
+        <loc>Nonees/Tresnak/artisan/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Tresnak/artisan/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneTresnak/artisan/"/>
+    </url>
+    <url>
+        <loc>Nonees/Tresnak/composer/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Tresnak/composer/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneTresnak/composer/"/>
+    </url>
+    <url>
+        <loc>Nonees/Tresnak/git/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Tresnak/git/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneTresnak/git/"/>
+    </url>
+    <url>
+        <loc>Nonees/Tresnak/gitbash/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Tresnak/gitbash/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneTresnak/gitbash/"/>
+    </url>
+    <url>
+        <loc>Nonees/Tresnak/laragon/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Tresnak/laragon/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneTresnak/laragon/"/>
+    </url>
+    <url>
+        <loc>Nonees/Tresnak/laravel-dump-server/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Tresnak/laravel-dump-server/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneTresnak/laravel-dump-server/"/>
+    </url>
+    <url>
+        <loc>Nonees/Tresnak/nodejs/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Tresnak/nodejs/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneTresnak/nodejs/"/>
+    </url>
+    <url>
+        <loc>Nonees/Tresnak/visualstudio-laravel/</loc>
+        <lastmod>2026-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/Tresnak/visualstudio-laravel/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="NoneTresnak/visualstudio-laravel/"/>
+    </url>
 </urlset>
