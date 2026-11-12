@@ -38,14 +38,17 @@ nav:
   - Instalazioa: Lehenengo pausuak/instalazioa.md
   - Laravel proiektua sortu: Lehenengo pausuak/laravel-proiektua-sortu.md
   - Eta orain zer?: Lehenengo pausuak/eta-orain-zer.md
-- Laravel Elementuak:
-  - Rutak: Laravel Elementuak/rutak.md
-  - Kontroladoreak: Laravel Elementuak/kontroladoreak.md
-  - Bistak:
+- Laravel elementuak:
+  - Rutak eta kontroladoreak:
+    - Rutak: Laravel Elementuak/Rutak eta kontroladoreak/rutak.md
+    - Kontroladoreak: Laravel Elementuak/Rutak eta kontroladoreak/kontroladoreak.md
+    - Middleware: Laravel Elementuak/Rutak eta kontroladoreak/middleware.md
+  - Bistak eta Blade:
     - Bistak: Laravel Elementuak/Bistak/bistak.md
     - Konponenteak: Laravel Elementuak/Bistak/konponenteak.md
     - Layouts: Laravel Elementuak/Bistak/layouts.md
-  - Datu baseak:
+    - 'Konponenteak: adibide gehigarriak': Laravel Elementuak/Bistak/konponenteak-1.md
+  - Datu-baseak eta Eloquent:
     - Datu basea sortzen: Laravel Elementuak/Datu baseak/datu-basea-sortzen.md
     - Migrazioak: Laravel Elementuak/Datu baseak/migrazioak.md
     - Eloquent ORM:
@@ -53,41 +56,39 @@ nav:
       - Modeloak: Laravel Elementuak/Datu baseak/Eloquent ORM/modeloak.md
       - Seeders: Laravel Elementuak/Datu baseak/Eloquent ORM/seeders.md
       - Factories: Laravel Elementuak/Datu baseak/Eloquent ORM/factories.md
-- CRUD:
+      - Taulen arteko erlazioak: Laravel Elementuak/Datu baseak/Eloquent ORM/taulen-arteko-erlazioak.md
+  - Formularioak eta fitxategiak:
+    - Balidazioak: Laravel Elementuak/Formularioak eta fitxategiak/balidazioak.md
+    - Irudi bat igo: Laravel Elementuak/Formularioak eta fitxategiak/irudi-bat-igo.md
+  - Saioak eta autentifikazioa:
+    - Saioak: Laravel Elementuak/Saioak eta autentifikazioa/saioak.md
+    - 'Mezuak: error eta success': Laravel Elementuak/Saioak eta autentifikazioa/mezuak-bidali-error-eta-success.md
+    - Laravel Breeze: Laravel Elementuak/Saioak eta autentifikazioa/laravel-brezze.md
+  - Hizkuntzak:
+    - Hizkuntza aldatu: Laravel Elementuak/Hizkuntzak/hizkuntza-aldatu.md
+- CRUD praktika:
   - Proiektu bat sortu: CRUD/proiektu-bat-sortu.md
   - Datu basea: CRUD/datu-basea.md
   - All, show, create, edit, delete (Adibideekin): CRUD/all-show-create-edit-delete-adibideekin.md
   - Balidazioa, paginazioa eta hizkuntza: CRUD/balidazioa-paginazioa-eta-hizkuntza.md
   - Erlazioak (1-N): CRUD/erlazioak-1-n.md
   - Erlazioak (N-M): CRUD/erlazioak-n-m.md
-
-  - API REST Laravel 13-rekin: 
-    - Sarrera: CRUD/api-rest/index.md
-    - API REST eta JSON: CRUD/api-rest/01-api-rest-json.md
-    - API ibilbideak: CRUD/api-rest/02-api-ibilbideak.md
-    - JSON erantzunak: CRUD/api-rest/03-json-erantzunak.md
-    - API kontrolatzaileak eta CRUD: CRUD/api-rest/04-kontrolatzaileak-crud.md
-    - API Resources: CRUD/api-rest/05-api-resources.md
-    - Balidazioa eta erroreak: CRUD/api-rest/06-balidazioa-erroreak.md
-    - API probak: CRUD/api-rest/07-api-probak.md
-    - Laravel + Vue 3 + Sanctum: CRUD/api-rest/08-laravel-vue-sanctum.md
-- Más:
-  - Zelan funtzionatzen du: Más/zelan-funtzionatzen-du.md
-  - Laragon: Más/laragon.md
-  - Composer: Más/composer.md
-  - Nodejs: Más/nodejs.md
-  - Git: Más/git.md
-  - GitBash: Más/gitbash.md
-  - VisualStudio - Laravel: Más/visualstudio-laravel.md
-  - Artisan: Más/artisan.md
-  - Laravel Brezze: Más/laravel-brezze.md
-  - Middleware: Más/middleware.md
-  - Saioak: Más/saioak.md
-  - Taulen arteko erlazioak: Más/taulen-arteko-erlazioak.md
-  - Balidazioak: Más/balidazioak.md
-  - Irudi bat igo: Más/irudi-bat-igo.md
-  - Hizkuntza aldatu: Más/hizkuntza-aldatu.md
-  - Mezuak bidali error eta success: Más/mezuak-bidali-error-eta-success.md
-  - Laravel Dump Server: Más/laravel-dump-server.md
-  - Laravel - Vue: Más/laravel-vue.md
-  - Konponenteak_1: Más/konponenteak-1.md
+- API REST:
+  - Sarrera: API/index.md
+  - API REST eta JSON: API/01-api-rest-json.md
+  - API ibilbideak: API/02-api-ibilbideak.md
+  - JSON erantzunak: API/03-json-erantzunak.md
+  - API kontrolatzaileak eta CRUD: API/04-kontrolatzaileak-crud.md
+  - API Resources: API/05-api-resources.md
+  - Balidazioa eta erroreak: API/06-balidazioa-erroreak.md
+  - API probak: API/07-api-probak.md
+  - Laravel + Vue 3 + Sanctum: API/08-laravel-vue-sanctum.md
+- Tresnak:
+  - Composer: Tresnak/composer.md
+  - Node.js: Tresnak/nodejs.md
+  - Git: Tresnak/git.md
+  - Git Bash: Tresnak/gitbash.md
+  - Laragon: Tresnak/laragon.md
+  - Visual Studio - Laravel: Tresnak/visualstudio-laravel.md
+  - Artisan: Tresnak/artisan.md
+  - Laravel Dump Server: Tresnak/laravel-dump-server.md

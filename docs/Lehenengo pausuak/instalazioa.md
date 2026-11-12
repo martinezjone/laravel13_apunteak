@@ -1,114 +1,131 @@
-# Instalazioa
+# Laravel 13rekin hasteko gida · Windows
 
-Ikasturte honetan Laravel 13 erabiliko dugu. Laravel aplikazio bat sortzeko, PHP eta Composer behar dira. Aplikazioaren frontend-eko baliabideak (CSS eta JavaScript) lantzeko, Node.js eta npm ere erabiliko ditugu.
+Gida honetan, ordenagailua prestatuko duzu eta zure lehen Laravel 13 aplikazioa nabigatzailean irekiko duzu. Komando guztiak **PowerShell** terminalean exekutatzeko dira. VS Code-n, ireki terminala **Terminal → New Terminal** aukerarekin.
 
-Laravel instalatzeko modu errazena Laravel Installer erabiltzea da. Beste aukera gisa, Composer-en bidez sor dezakezu proiektua.
+Urrats bakoitzean, egiaztatu zer duzun instalatuta. Tresna falta bada edo bertsioa zaharregia bada, instalatu edo eguneratu, eta errepikatu egiaztapena hurrengo urratsera igaro aurretik.
 
-Dokumentazio ofiziala: <https://laravel.com/docs/13.x/installation>
+## 1. Egiaztatu PHP
 
-## Aurrebaldintzak
-
-- **PHP 8.3 edo berriagoa**, eta Laravel-ek behar dituen PHP luzapenak.
-- **Composer 2**, PHP mendekotasunak kudeatzeko.
-- **Node.js eta npm**, frontend-eko baliabideak instalatu eta konpilatzeko.
-- **Datu-base bat**: SQLite aukera lehenetsia da; MySQL ere erabil dezakezu.
-- **Git**, kode-biltegi batekin lan egin edo proiektu bat klonatu behar baduzu. Ez da beharrezkoa Laravel proiektu berri bat sortzeko.
-
-Instalazioak egiaztatzeko, ireki terminal bat eta exekutatu:
-
-```bash
+```powershell
 php -v
+where.exe php
+php --ini
+```
+
+| Emaitza | Zer egin |
+| --- | --- |
+| PHP 8.3, 8.4 edo 8.5 duzu | Laravel 13ren gutxieneko bertsioa betetzen duzu. Egiaztatu PHPren hedapenak. |
+| PHP 8.2 edo zaharragoa duzu | MAMP, XAMPP edo Laragonen PHP bertsio bateragarri bat baduzu, jarri haren `php.exe` fitxategia duen karpeta bertsio zaharrarenaren aurretik `Path` aldagaian. Bestela, instalatu PHP bertsio bateragarri bat. |
+| PowerShell-ek ez du `php` ezagutzen | PHP instalatuta badago, gehitu `php.exe` dagoen karpeta `Path` aldagaian. Bestela, erabili beheko instalazio-aukeretako bat. |
+| Hainbat bide agertzen dira | `where.exe php` komandoak aurkitutako exekutagarriak erakusten ditu. Erabili `Get-Command php` PowerShell-ek zein hautatzen duen ikusteko, eta `php -v` haren bertsioa egiaztatzeko. |
+
+`Path` aldatzeko, bilatu Windowsen Hasiera menuan erabiltzailearen ingurune-aldagaiak editatzeko aukera. Editatu **Path**, gehitu PHPren karpeta eta, beharrezkoa bada, aldatu sarreren ordena. Itxi eta ireki berriro PowerShell. VS Code-ko terminala erabiltzen baduzu, berrabiarazi VS Code ere. Ondoren, errepikatu egiaztapenak.
+
+**PHP instalatu behar baduzu**, aukeratu bide bat:
+
+- **Laravel Herd Windows-erako.** Deskargatu eta exekutatu instalatzaile grafikoa. PHP, Composer eta Laravel-en instalatzailea dakartza. Amaitutakoan, ireki terminal berri bat eta errepikatu egiaztapenak. [Herd instalatzeko dokumentazioa](https://herd.laravel.com/docs/windows/getting-started/installation)
+- **Instalazio azkar ofiziala.** Laravel 13ren dokumentazioan, aukeratu **Windows PowerShell** PHP eta Composer instalatzeko atalean, eta exekutatu bertako komandoa. PHP 8.5, Composer eta Laravel-en instalatzailea instalatzen ditu. Lehenago `php.new` bidez instalatu bazenituen, komando bera berriz exekuta dezakezu hirurak eguneratzeko. [Laravel 13 instalatzeko dokumentazioa](https://laravel.com/framework/docs/13.x/installation#installing-php)
+
+### Egiaztatu PHPren hedapenak
+
+```powershell
+php -m
+```
+
+Laravel 13k hedapen hauek behar ditu: Ctype, cURL, DOM, Fileinfo, Filter, Hash, Mbstring, OpenSSL, PCRE, PDO, Session, Tokenizer eta XML. Gida honetako proiekturako, egiaztatu **pdo_sqlite** ere agertzen dela. Hedapen horri esker, PHPk SQLite datu-basea erabil dezake.
+
+Hedapen bat falta bada, erabili `php --ini` PHPk zein `php.ini` fitxategi kargatzen duen ikusteko. Hedapena zure instalazioan badago, aktibatu fitxategi horretan. Adibidez, `;extension=pdo_sqlite` lerroa aurkitzen baduzu, kendu hasierako puntu eta koma. Hedapena instalazioan ez badago, instalatu zure PHP banaketak eskaintzen duen moduan. Errepikatu `php -m`. [Laravel 13ren PHP eskakizunak](https://laravel.com/framework/docs/13.x/deployment#server-requirements)
+
+## 2. Egiaztatu Composer
+
+Composer-ek proiektuaren PHP mendekotasunak instalatzen ditu.
+
+```powershell
 composer --version
+```
+
+- **Composer 2.x baduzu**, joan 3. urratsera.
+- **Composer 1.x baduzu** eta PHAR gisa instalatu bazenuen, exekutatu `composer self-update --2` eta egiaztatu bertsioa berriro. Beste tresna batek kudeatzen badu instalazioa, erabili tresna hori eguneratzeko.
+- **Komandoa ez badabil**, ireki Windows-erako Composer-en dokumentazioa, deskargatu **Composer-Setup.exe** eta exekutatu. PHPren bidea eskatzen badizu, aukeratu 1. urratseko `php.exe` bateragarria. Ireki terminal berri bat eta errepikatu egiaztapena.
+
+[Composer Windows-en instalatzea](https://getcomposer.org/doc/00-intro.md#installation-windows) · [Composer eguneratzea](https://getcomposer.org/download/#download-channels)
+
+## 3. Egiaztatu Node.js eta npm
+
+Node.js-ek frontendeko tresnak exekutatzen ditu. npm-k haien mendekotasunak instalatzen ditu, eta Vite-k CSS eta JavaScript fitxategiak prestatzen ditu.
+
+```powershell
 node -v
 npm -v
 ```
 
-Komando batek ez badu funtzionatzen, instalatu dagokion tresna eta egiaztatu terminalaren `PATH` aldagaian dagoela. Composer edo Node.js instalatzeko argibideak [Composer](../Más/composer.md) eta [Node.js](../Más/nodejs.md) ataletan daude. PHPren luzapenak egiaztatzeko, erabili `php -m`; Composerrek `zip` luzapenari buruzko errorea ematen badu, aktibatu luzapen hori zure PHP konfigurazioan.
+- **Ikasgelarako, erabili Node.js 24 LTS.** Dagoeneko 22 adarreko 22.12 bertsioa edo berriagoa baduzu, Vite-ren eskakizuna betetzen duzu. Vite-ren dokumentazioak 20 adarrean 20.19tik aurrerako bertsioak ere onartzen ditu.
+- **Node.js falta bada edo bertsioa zaharregia bada**, instalatu Node.js 24 LTS Windows-erako instalatzailearekin. Node.js Herd edo bertsio-kudeatzaile baten bidez kudeatzen baduzu, instalatu eta hautatu Node.js 24 tresna horretan. Ireki terminal berri bat eta exekutatu bi komandoak berriz.
+- **PowerShell-ek `npm.ps1` blokeatzen badu**, probatu `npm.cmd -v`. Funtzionatzen badu, erabili `npm.cmd` gida honetako npm komandoetan. Hainbat instalazio badituzu, `where.exe node` eta `where.exe npm` komandoekin haien bideak ikus ditzakezu.
 
-## Laravel Installer erabiliz (gomendatua)
+[Node.js deskargatzea](https://nodejs.org/en/download) · [Vite-rekin bateragarriak diren Node.js bertsioak](https://vite.dev/guide/#scaffolding-your-first-vite-project)
 
-Instalatu Laravel Installer Composer bidez:
+## 4. Instalatu edo eguneratu Laravel-en instalatzailea
 
-```bash
-composer global require laravel/installer
+```powershell
+laravel --version
 ```
 
-Windows-en `laravel` komandoa ezagutzen ez badu, begiratu Composer-en komando globalen direktorioa:
+Komandoak **instalatzailearen bertsioa** erakusten du. **Framework-aren bertsioa** proiektuaren karpetan egiaztatuko duzu, 5. urratsean.
 
-```bash
-composer global config bin-dir --absolute
+- Komandoa falta bada eta PHP eta Composer instalatuta badituzu, exekutatu `composer global require laravel/installer`.
+- Composer bidez instalatu bazenuen eta eguneratu nahi baduzu, exekutatu `composer global update laravel/installer`.
+- Composer-ek instalatuta dagoela esaten badu baina PowerShell-ek komandoa aurkitzen ez badu, exekutatu `composer global config bin-dir --absolute`. Gehitu erakusten duen karpeta `Path` aldagaian eta ireki beste terminal bat. Herd edo `php.new` bidez instalatu bazenuen, erabili instalazio-bide bera eguneratzeko.
+
+[Laravel-en instalatzaile ofiziala](https://laravel.com/framework/docs/13.x/installation#installing-php)
+
+## 5. Sortu lehen proiektua
+
+Ireki PowerShell ariketak gordetzen dituzun karpetan. VS Code erabiltzen baduzu, ireki karpeta hori eta sortu terminal bat. Exekutatu:
+
+```powershell
+laravel new lehen-laravel
 ```
 
-Gehitu komandoak erakutsitako direktorioa erabiltzailearen `PATH` ingurune-aldagaian, ireki terminal berri bat eta sortu proiektua:
+Instalatzaileak galdetzen badizu, aukeratu **starter kit-ik gabe** eta hautatu **SQLite**. Probetarako framework-aren aukera lehenetsia onar dezakezu. SQLite-k datuak fitxategi batean gordetzen ditu, eta praktika hau egiteko ez duzu datu-basearen zerbitzaririk abiarazi behar.
 
-```bash
-laravel new nire-proiektua
-cd nire-proiektua
+```powershell
+cd lehen-laravel
+php artisan --version
+composer check-platform-reqs
+php artisan migrate:status
 ```
 
-Instalatzaileak hainbat aukera galdetuko dizkizu, hala nola datu-basea eta hasierako egitura. Aukerak ez badituzu ezagutzen, erabili proposatutako lehenetsiak; gero ere alda daitezke. Autentifikazioa behar baduzu, hautatu instalatzaileak eskaintzen duen hasierako egitura.
+Egiaztatu Artisan-ek **Laravel Framework 13.x** erakusten duela, Composer-ek PHPren eta hedapenen eskakizunak baliozkotzen dituela eta SQLite-ren migrazioak agertzen direla. Instalazioan, Laravel-ek `database/database.sqlite` fitxategia sortu eta hasierako migrazioak exekutatzen ditu. Migrazioren bat egiteko badago, exekutatu `php artisan migrate` eta egiaztatu egoera berriro.
 
-## Beste aukera bat: Composer bidez
+**Laravel 13 berariaz hautatu behar baduzu**, sortu proiektua Composer bidez. Exekutatu komandoa ariketen karpeta nagusitik eta erabili libre dagoen karpeta-izen bat. Ondoren, sartu proiektu berrian eta errepikatu goiko egiaztapenak.
 
-Laravel Installer erabili nahi ez baduzu, sortu proiektua Composer-ekin:
-
-```bash
-composer create-project laravel/laravel nire-proiektua
-cd nire-proiektua
+```powershell
+composer create-project laravel/laravel lehen-laravel-13 "^13.0"
+cd lehen-laravel-13
+php artisan --version
 ```
 
-## Datu-basea konfiguratzea
+[Proiektu bat sortzea](https://laravel.com/framework/docs/13.x/installation#creating-an-application) · [SQLite eta migrazioak](https://laravel.com/framework/docs/13.x/installation#databases-and-migrations) · [Composer create-project](https://getcomposer.org/doc/03-cli.md#create-project)
 
-Proiektu berriek SQLite erabil dezakete lehenespenez. MySQL erabili nahi baduzu, sortu datu-basea lehenik eta egokitu proiektuaren erroko `.env` fitxategiko balioak:
+## 6. Abiarazi Laravel eta ireki nabigatzailea
 
-```ini
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=laravel
-DB_USERNAME=root
-DB_PASSWORD=
-```
+Proiektuaren karpetan, `artisan`, `composer.json` eta `package.json` fitxategiak dauden lekuan, exekutatu komando hauek banan-banan. Itxaron bakoitza amaitu arte hurrengoa exekutatzeko.
 
-Erabili zure MySQL zerbitzariari dagozkion datuak, eta ziurtatu zerbitzaria martxan dagoela. Ondoren, exekutatu migrazioak:
-
-```bash
-php artisan migrate
-```
-
-SQLite erabiltzen baduzu, egiaztatu `.env` fitxategian `DB_CONNECTION=sqlite` dagoela. Beharrezkoa bada, sortu `database/database.sqlite` fitxategia proiektuaren barruan eta exekutatu migrazioak.
-
-## Aplikazioa abiaraztea
-
-Frontend-eko paketeak instalatzeko, proiektuaren erro-direktorioan:
-
-```bash
+```powershell
 npm install
+npm run build
+composer run dev
 ```
 
-Ireki terminal bat frontend-a garapen-moduan exekutatzeko:
+`composer run dev` komandoak Laravel-en garapen-zerbitzaria, ilarako atazak prozesatzeko programa eta Vite abiarazten ditu. Utzi terminala irekita eta joan [http://localhost:8000](http://localhost:8000) helbidera. Laravel-en ongietorri-orria ikusten baduzu, instalazioa prest dago. Zerbitzaria gelditzeko, sakatu **Ctrl+C**. Hurrengo saioan, sartu karpeta berean eta exekutatu berriro `composer run dev`.
 
-```bash
-npm run dev
-```
+| Arazoa | Zer egiaztatu |
+| --- | --- |
+| `Could not open input file: artisan` | Egiaztatu proiektuaren karpetan zaudela. Exekutatu `Get-Location` eta `Get-ChildItem artisan`. |
+| `could not find driver` SQLite erabiltzean | Egiaztatu terminaleko PHPk `pdo_sqlite` aktibatuta duela. Erabili `php --ini` eta `php -m`. |
+| `EBADENGINE` mendekotasunak instalatzean | Begiratu `node -v` komandoaren emaitza eta hautatu npm-k adierazitako tartearekin bateragarria den bertsioa. |
+| Vite-ren manifestuari buruzko errorea | Exekutatu `npm install` eta `npm run build` proiektuaren karpetan. Konpilazioak huts egiten badu, konpondu npm-k erakusten duen errorea. |
+| 8000 ataka erabilita dago | Gelditu ataka erabiltzen ari den zerbitzaria. Baliabideak dagoeneko konpilatuta badituzu, `php artisan serve --port=8001` ere exekuta dezakezu. Ondoren, ireki [http://localhost:8001](http://localhost:8001). |
 
-Ireki beste terminal bat, sartu proiektuaren direktoriora eta abiarazi Laravel:
-
-```bash
-php artisan serve
-```
-
-Terminalean erakutsitako helbidea ireki nabigatzailean; normalean <http://127.0.0.1:8000> izango da. Garapeneko zerbitzaria gelditzeko, sakatu `Ctrl+C`.
-
-Frontend-a garapen zerbitzaririk gabe konpilatu nahi baduzu, erabili `npm run build`.
-
-![Laravel aplikazioaren hasierako orria](../assets/images/Instalazioa/194de0111f563da58c9ea1c351300d76.jpg)
-
-## Ohiko arazoak
-
-- **Komando bat ez da aurkitzen:** berrikusi tresna instalatuta dagoela eta terminalaren `PATH` aldagaian dagoela; ondoren, ireki terminal berri bat.
-- **PHP luzapenen errorea:** egiaztatu `php -m` komandoaren emaitza eta aktibatu falta den luzapena erabiltzen ari zaren PHP konfigurazioan.
-- **Datu-basearekin konektatzeko errorea:** egiaztatu zerbitzaria martxan dagoela, `.env` fitxategiko datuak zuzenak direla eta MySQL erabiltzen baduzu datu-basea sortuta dagoela.
-- **Baimen-errorea:** Laravel-ek idazteko baimena behar du `storage` eta `bootstrap/cache` direktorioetan. Eman baimenak zure erabiltzaileari; ez eman baimen zabalik direktorio horiei.
-
-Laravel aplikazioa garapeneko zerbitzariarekin bakarrik probatu behar da. Benetako zerbitzarian argitaratzeko, jarraitu Laravel-en [hedapen-gida](https://laravel.com/docs/13.x/deployment).
+Laravel-en garapen-zerbitzaria erabiltzen duzunez, proiektua `htdocs` karpetatik kanpo ere gorde dezakezu. [Aplikazioa abiarazteko dokumentazioa](https://laravel.com/framework/docs/13.x/installation#creating-an-application)
