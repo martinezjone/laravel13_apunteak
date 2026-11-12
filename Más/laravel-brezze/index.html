@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2387,13 +2387,13 @@ npm<span class="w"> </span>run<span class="w"> </span>dev
 <p>Ikusten dugunez middleware batzuk erabiltzen ditu rutak sortzerakoan, zer dira Middlewareak?</p>
 <p>Hauek rutak filtratzeaz arduratzen dira, kasu honetan adibidez, erabiltzaile bat logeatuta ez izatekotan, ezingo da gure webgunean sartu, beraz rutak guztiei auth filtroa jarriko diegu.</p>
 <p>Breezek bi middleware erabiltzen ditu: auth eta verified. Auth-ek erabiltzaile bat logeatuta dagoen ala ez konprobatuko du (autenticado) eta verified-ek erabiltzaile batek bere emaila berifikatuta duen edo ez konprobatzen du  (verificado)</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::middleware('auth')-&gt;group(function () {</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::middleware(&#39;auth&#39;)-&gt;group(function () {</span>
 
-<span class="x">Route::get('/profile', [ProfileController::class, 'edit'])-&gt;name('profile.edit');</span>
+<span class="x">Route::get(&#39;/profile&#39;, [ProfileController::class, &#39;edit&#39;])-&gt;name(&#39;profile.edit&#39;);</span>
 
-<span class="x">Route::patch('/profile', [ProfileController::class, 'update'])-&gt;name('profile.update');</span>
+<span class="x">Route::patch(&#39;/profile&#39;, [ProfileController::class, &#39;update&#39;])-&gt;name(&#39;profile.update&#39;);</span>
 
-<span class="x">Route::delete('/profile', [ProfileController::class, 'destroy'])-&gt;name('profile.destroy');</span>
+<span class="x">Route::delete(&#39;/profile&#39;, [ProfileController::class, &#39;destroy&#39;])-&gt;name(&#39;profile.destroy&#39;);</span>
 
 <span class="x">});</span>
 </code></pre></div>
@@ -2449,7 +2449,7 @@ npm<span class="w"> </span>run<span class="w"> </span>dev
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Arbelean kopiatuta", "clipboard.copy": "Kopiatu arbelean", "search.result.more.one": "Bat gehiago orri honetan", "search.result.more.other": "# gehiago orri honetan", "search.result.none": "Bat datorren dokumenturik ez", "search.result.one": "Bat datorren dokumentu bat", "search.result.other": "Bat datozen # dokumentu", "search.result.placeholder": "Idatzi bilatzen hasteko", "search.result.term.missing": "Falta da", "select.version": "Hautatu bertsioa"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

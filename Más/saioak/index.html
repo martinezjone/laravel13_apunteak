@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2283,16 +2283,16 @@ SESSION_LIFETIME=120
 <p>Besterik adierazi ezean, saioari buruzko informazioa memorizatzen duen fitxategia da (storage/framework/sessions ), baina honako hauek ere erabil ditzakezu: cookie-ak, datu-basea, taula (probetarako erabilia), memcached, redis…</p>
 <p>Datuak gordetzea (put)</p>
 <p>Erabilitako kontrolatzailea edozein dela ere, Laravelen saio-laguntzaileak saio-kudeaketa sinplifikatua ahalbidetzen du. Beraz, eskaeratik abiatuta, saio-aldagai bat sor dezakezu:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$request-&gt;session()-&gt;put('clave' , 'valor');</span>
+<div class="highlight"><pre><span></span><code><span class="x">$request-&gt;session()-&gt;put(&#39;clave&#39; , &#39;valor&#39;);</span>
 </code></pre></div>
 <p>Edo bere laguntzailea (helper bidez):</p>
 <p>session ([ 'clave' = &gt; 'valor' ]) ;</p>
 <p>Datuak irakurtza (get)</p>
 <p>Bere balioa jasotzeko aldiz:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$valor = $request-&gt;session()-&gt;get('clave'); edo $valor = session ( 'clave' ) ;</span>
+<div class="highlight"><pre><span></span><code><span class="x">$valor = $request-&gt;session()-&gt;get(&#39;clave&#39;); edo $valor = session ( &#39;clave&#39; ) ;</span>
 </code></pre></div>
 <p>Lehenetsiko balio bat ezarri daiteke:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$valor = session ( 'clave' , 'balio lehenetsia' ) ;</span>
+<div class="highlight"><pre><span></span><code><span class="x">$valor = session ( &#39;clave&#39; , &#39;balio lehenetsia&#39; ) ;</span>
 </code></pre></div>
 <p>Datu bat existitzen den jakiteko</p>
 <p>Jakiteko aldagai zehatz bat saioan dagoen edo ez, horrela egingo genuke:</p>
@@ -2303,15 +2303,15 @@ SESSION_LIFETIME=120
 <p>* Request injektatuz: Eskaera egiteko, beharrezkoa da gelak injektatzea:</p>
 <div class="highlight"><pre><span></span><code><span class="x">public function showProfile(Request $request, $id){</span>
 
-<span class="x">$value = $request-&gt;session()-&gt;get('key');</span>
+<span class="x">$value = $request-&gt;session()-&gt;get(&#39;key&#39;);</span>
 
 <span class="x">}</span>
 </code></pre></div>
 <p>* Session Facade</p>
-<div class="highlight"><pre><span></span><code><span class="x">$value = Session::get('key');</span>
+<div class="highlight"><pre><span></span><code><span class="x">$value = Session::get(&#39;key&#39;);</span>
 </code></pre></div>
 <p>* session() helper funtzioa</p>
-<div class="highlight"><pre><span></span><code><span class="x">$value = session('key');</span>
+<div class="highlight"><pre><span></span><code><span class="x">$value = session(&#39;key&#39;);</span>
 </code></pre></div>
 <p>Saio baten datu guztiak ikustea</p>
 <p>Saio baten datu guztiak lortzeko:</p>
@@ -2321,12 +2321,12 @@ SESSION_LIFETIME=120
 </code></pre></div>
 <p>Saioko datuak gordetzea</p>
 <p>Saioko datuak bi modutan gorde ditzakegu:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$request-&gt;session()-&gt;put('email', 'me@example.com');</span>
+<div class="highlight"><pre><span></span><code><span class="x">$request-&gt;session()-&gt;put(&#39;email&#39;, &#39;me@example.com&#39;);</span>
 </code></pre></div>
 <p>session(['email' =&gt; 'me@example.com']); //usando el helper</p>
 <p>Datuak ezabatzea</p>
 <p>Saioko datuak ezabatu ditzakegu ere:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$request-&gt;session()-&gt;forget('key'); //elementu bakarra</span>
+<div class="highlight"><pre><span></span><code><span class="x">$request-&gt;session()-&gt;forget(&#39;key&#39;); //elementu bakarra</span>
 
 <span class="x">$request-&gt;session()-&gt;flush(); // datu guztiak</span>
 </code></pre></div>
@@ -2343,7 +2343,7 @@ SESSION_LIFETIME=120
 </ul>
 <p>Errore-mezuetarako</p>
 <p>//flash datuak eskaera bakarrean irauten dute</p>
-<div class="highlight"><pre><span></span><code><span class="x">$request-&gt;session()-&gt;flash('mensaje', '¡El usuario fue eliminado!');</span>
+<div class="highlight"><pre><span></span><code><span class="x">$request-&gt;session()-&gt;flash(&#39;mensaje&#39;, &#39;¡El usuario fue eliminado!&#39;);</span>
 
 <span class="x">//Flash datuak eskaera 1 baino gehiago irauteko</span>
 
@@ -2351,7 +2351,7 @@ SESSION_LIFETIME=120
 
 <span class="x">//Flash datu zehatz batzuk mantentzeko</span>
 
-<span class="x">$request-&gt;session()-&gt;keep(['mensaje', 'email']);</span>
+<span class="x">$request-&gt;session()-&gt;keep([&#39;mensaje&#39;, &#39;email&#39;]);</span>
 </code></pre></div>
 <p>Kontuan hartu beharreko gauza garrantzitsuak</p>
 <p>Hauek dira saioetarako oinarrizko metodoak, dokumentazioan aurkituko duzu informazio osagarri guztia: <a href="https://laravel.com/framework/docs/13.x/session">https://laravel.com/framework/docs/13.x/session</a></p>
@@ -2421,7 +2421,7 @@ SESSION_LIFETIME=120
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Arbelean kopiatuta", "clipboard.copy": "Kopiatu arbelean", "search.result.more.one": "Bat gehiago orri honetan", "search.result.more.other": "# gehiago orri honetan", "search.result.none": "Bat datorren dokumenturik ez", "search.result.one": "Bat datorren dokumentu bat", "search.result.other": "Bat datozen # dokumentu", "search.result.placeholder": "Idatzi bilatzen hasteko", "search.result.term.missing": "Falta da", "select.version": "Hautatu bertsioa"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2405,13 +2405,13 @@ php<span class="w"> </span>artisan<span class="w"> </span>migrate
 </code></pre></div>
 <p>Behin fitxategia sortuta dugunean, klase berri bat sortu digutela ikusi dezakegu, horren ostean up() eta down() metodoak aldatuko ditugu:</p>
 <div class="highlight"><pre><span></span><code><span class="x">public function up(): void{</span>
-<span class="x">    Schema::create('posts', function (Blueprint $table) {</span>
+<span class="x">    Schema::create(&#39;posts&#39;, function (Blueprint $table) {</span>
 
 <span class="x">        $table-&gt;id();</span>
 
-<span class="x">        $table-&gt;string('title');</span>
+<span class="x">        $table-&gt;string(&#39;title&#39;);</span>
 
-<span class="x">        $table-&gt;text('content');</span>
+<span class="x">        $table-&gt;text(&#39;content&#39;);</span>
 
 <span class="x">        $table-&gt;timestamps();</span>
 <span class="x">    });</span>
@@ -2422,7 +2422,7 @@ php<span class="w"> </span>artisan<span class="w"> </span>migrate
 
 <span class="x">public function down(): void{</span>
 
-<span class="x">    Schema::dropIfExists('posts');</span>
+<span class="x">    Schema::dropIfExists(&#39;posts&#39;);</span>
 
 <span class="x">}</span>
 </code></pre></div>
@@ -2433,16 +2433,16 @@ php<span class="w"> </span>artisan<span class="w"> </span>migrate
 </code></pre></div>
 <p><img alt="Irudia" src="../../../assets/images/Migrazioak/f1de724cd6dd1ebc681b04a78174b068.jpg" /></p>
 <p>Sortuko zaigu migrazio dokumentu bat aurreko metodoekin, beraz hemen eremua gehituko dugu create kasuan moduan. Taulan datuak egongo direnez, eremua sortzerakoan jarri behar dugu null izan daitekeela, akatsarik ez emateko. Hau up() metodoan idatziko dugu.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$table-&gt;string('avatar')-&gt;nullable();</span>
+<div class="highlight"><pre><span></span><code><span class="x">$table-&gt;string(&#39;avatar&#39;)-&gt;nullable();</span>
 </code></pre></div>
 <p>down() metodoan ere zutabea ezabatu beharko dugu-</p>
-<div class="highlight"><pre><span></span><code><span class="x">$table-&gt;dropColumn('avatar');</span>
+<div class="highlight"><pre><span></span><code><span class="x">$table-&gt;dropColumn(&#39;avatar&#39;);</span>
 </code></pre></div>
 <p>Migrazio hau exekutatzerakoan, avatar zutabea gehitu du, baina taularen bukaeran. Horrela nahi ez izatekotan, rollback egingo dugu eta gero aldaketa migrazioan</p>
 <div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>migrate
 </code></pre></div>
 <p>Demagun email eremuaren ostean jarri nahi dugula:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$table-&gt;string('avatar')-&gt;nullable()-&gt;after('email');</span>
+<div class="highlight"><pre><span></span><code><span class="x">$table-&gt;string(&#39;avatar&#39;)-&gt;nullable()-&gt;after(&#39;email&#39;);</span>
 </code></pre></div>
 <p>Dokumentazio ofiziala hurrengo esteka honetan duzue: <a href="https://laravel.com/framework/docs/13.x/migrations">https://laravel.com/framework/docs/13.x/migrations</a></p>
 <p>Hurrengoa: Eloquent</p>
@@ -2498,7 +2498,7 @@ php<span class="w"> </span>artisan<span class="w"> </span>migrate
       <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Arbelean kopiatuta", "clipboard.copy": "Kopiatu arbelean", "search.result.more.one": "Bat gehiago orri honetan", "search.result.more.other": "# gehiago orri honetan", "search.result.none": "Bat datorren dokumenturik ez", "search.result.one": "Bat datorren dokumentu bat", "search.result.other": "Bat datozen # dokumentu", "search.result.placeholder": "Idatzi bilatzen hasteko", "search.result.term.missing": "Falta da", "select.version": "Hautatu bertsioa"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2451,30 +2451,30 @@
 <ol>
 <li>Bideratze-sistematik, bidea definitzean, erabili nahi dugun middleware bat adieraz dezakegu. Hori ibilbideen erregistrotik egin behar dugu, routes/web.php fitxategi bideratzailean, ondoren ikus dezakezun sintaxiaren bidez.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get('/test', ['middleware' =&gt; 'domingo', function(){</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;/test&#39;, [&#39;middleware&#39; =&gt; &#39;domingo&#39;, function(){</span>
 
-<span class="x">return 'Middleware ibilbidea frogatzen';</span>
+<span class="x">return &#39;Middleware ibilbidea frogatzen&#39;;</span>
 
 <span class="x">}]);</span>
 </code></pre></div>
 <ol>
 <li>Baita ere, bideratze-sistematik middleware hori exekutatzeko bide-multzo bat sor dezakegu.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="x">Route::group(['middleware' =&gt; 'domingo'], function(){</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::group([&#39;middleware&#39; =&gt; &#39;domingo&#39;], function(){</span>
 
-<span class="x">Route::get('/probando/ruta', function(){</span>
+<span class="x">Route::get(&#39;/probando/ruta&#39;, function(){</span>
 
 <span class="x">//código a ejecutar cuando se produzca esa ruta y el verbo</span>
 
-<span class="x">return 'get';</span>
+<span class="x">return &#39;get&#39;;</span>
 
 <span class="x">});</span>
 
-<span class="x">Route::post('/probando/ruta', function(){</span>
+<span class="x">Route::post(&#39;/probando/ruta&#39;, function(){</span>
 
 <span class="x">//código a ejecutar cuando se produzca esa ruta y el verbo POST</span>
 
-<span class="x">return 'post';</span>
+<span class="x">return &#39;post&#39;;</span>
 
 <span class="x">});</span>
 </code></pre></div>
@@ -2483,7 +2483,7 @@
 </ol>
 <div class="highlight"><pre><span></span><code><span class="x">public function __construct(){</span>
 
-<span class="x">$this-&gt;middleware('domingo');</span>
+<span class="x">$this-&gt;middleware(&#39;domingo&#39;);</span>
 
 <span class="x">}</span>
 </code></pre></div>
@@ -2554,7 +2554,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Arbelean kopiatuta", "clipboard.copy": "Kopiatu arbelean", "search.result.more.one": "Bat gehiago orri honetan", "search.result.more.other": "# gehiago orri honetan", "search.result.none": "Bat datorren dokumenturik ez", "search.result.one": "Bat datorren dokumentu bat", "search.result.other": "Bat datozen # dokumentu", "search.result.placeholder": "Idatzi bilatzen hasteko", "search.result.term.missing": "Falta da", "select.version": "Hautatu bertsioa"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

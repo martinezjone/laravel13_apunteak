@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2412,11 +2412,11 @@
 <div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>make:migration<span class="w"> </span>add_photo_to_pupils_table
 </code></pre></div>
 <p>Ikusten dugunez, migrazioa prest dago dagokion eremua gehitzeko. up() metodoan gehituko dugu eta down() metodoan ezabatu.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$table-&gt;string('photo')-&gt;nullable()-&gt;after('address');</span>
+<div class="highlight"><pre><span></span><code><span class="x">$table-&gt;string(&#39;photo&#39;)-&gt;nullable()-&gt;after(&#39;address&#39;);</span>
 </code></pre></div>
 <p>Honekin esaten diogu "photo" izeneko eremu berria sortzea, nullable() esaten diogu, null izan daitekelako (lehengo datuek ez dezaten akatsik eman) eta after('address'), address eremuaren ondoren gehitzeko timestamps eremuak baino lehen.</p>
 <p>Down() metodoan, alderantzizko ekintza zehazten dugu; kasu horretan, ezabatu up() metodoan gehitu dugun zutabea:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$table-&gt;dropColumn('photo');</span>
+<div class="highlight"><pre><span></span><code><span class="x">$table-&gt;dropColumn(&#39;photo&#39;);</span>
 </code></pre></div>
 <p><img alt="" src="../../assets/images/Irudi%20bat%20igo/e5469230605c1f9ba765a0cf3d64f7ff.jpg" /></p>
 <h2 id="file-storage">File Storage</h2>
@@ -2446,7 +2446,7 @@
 <p>Gauza biak idatzita, ziurtatuko dugu gure datu basean irudian bakarrik igoko dituztela.</p>
 <p>Storage Facade erabili ahal izateko, gogoratu, gehitu behar dugula: use Illuminate\Support\Facades\Storage;</p>
 <p>Bistan, gure irudia ikusteko url() metodoa ereabiliko dugu:</p>
-<div class="highlight"><pre><span></span><code><span class="x">&lt;img src="{{ url('storage/' . $pupil-&gt;photo)}}" alt="" width="80px" height="80px"/&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="x">&lt;img src=&quot;{{ url(&#39;storage/&#39; . $pupil-&gt;photo)}}&quot; alt=&quot;&quot; width=&quot;80px&quot; height=&quot;80px&quot;/&gt;</span>
 </code></pre></div>
 <h2 id="irudia-igo-kontroladorea-move">Irudia igo (Kontroladorea) - move</h2>
 <div class="highlight"><pre><span></span><code><span class="x">public function store(StorePupil $request){</span>
@@ -2454,9 +2454,9 @@
 <p>$new_pupil = $request-&gt;validated();</p>
 <p>// Irudia igoko dugu</p>
 <p>if ($request-&gt;hasFile('photo')) {</p>
-<div class="highlight"><pre><span></span><code><span class="x">$file = $request-&gt;file('photo');</span>
+<div class="highlight"><pre><span></span><code><span class="x">$file = $request-&gt;file(&#39;photo&#39;);</span>
 
-<span class="x">$destinationPath = public_path('storage/pupils');</span>
+<span class="x">$destinationPath = public_path(&#39;storage/pupils&#39;);</span>
 
 <span class="x">$filename = $file-&gt;getClientOriginalName();</span>
 
@@ -2465,7 +2465,7 @@
 <p>$new_pupil['photo'] = 'pupils/' . $filename; // Bide erlatiboa gordetzen dugu</p>
 <p>}</p>
 <p>Pupil::create($new_pupil);</p>
-<div class="highlight"><pre><span></span><code><span class="x">return redirect()-&gt;route('pupils.index')-&gt;with('success', 'Ikaslea ondo sortu da.');</span>
+<div class="highlight"><pre><span></span><code><span class="x">return redirect()-&gt;route(&#39;pupils.index&#39;)-&gt;with(&#39;success&#39;, &#39;Ikaslea ondo sortu da.&#39;);</span>
 
 <span class="x">}</span>
 </code></pre></div>
@@ -2521,7 +2521,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Arbelean kopiatuta", "clipboard.copy": "Kopiatu arbelean", "search.result.more.one": "Bat gehiago orri honetan", "search.result.more.other": "# gehiago orri honetan", "search.result.none": "Bat datorren dokumenturik ez", "search.result.one": "Bat datorren dokumentu bat", "search.result.other": "Bat datozen # dokumentu", "search.result.placeholder": "Idatzi bilatzen hasteko", "search.result.term.missing": "Falta da", "select.version": "Hautatu bertsioa"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

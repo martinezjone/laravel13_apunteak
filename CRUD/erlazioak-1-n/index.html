@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2574,19 +2574,19 @@
 <div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>make:model<span class="w"> </span>Teacher<span class="w"> </span>-mfsc
 </code></pre></div>
 <p>Eta migrazioa, zehaztuko diogu zelakoa gure dugu gure taula izatea:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$table-&gt;string('fullName', 75);</span>
+<div class="highlight"><pre><span></span><code><span class="x">$table-&gt;string(&#39;fullName&#39;, 75);</span>
 
-<span class="x">$table-&gt;string('profession', 100);</span>
+<span class="x">$table-&gt;string(&#39;profession&#39;, 100);</span>
 
-<span class="x">$table-&gt;string('academicDegree', 35)-&gt;nullable();</span>
+<span class="x">$table-&gt;string(&#39;academicDegree&#39;, 35)-&gt;nullable();</span>
 
-<span class="x">$table-&gt;string('phone', 35)-&gt;nullable();</span>
+<span class="x">$table-&gt;string(&#39;phone&#39;, 35)-&gt;nullable();</span>
 </code></pre></div>
 <h2 id="teacher-moduloa">Teacher Moduloa</h2>
 <p>Behin migrazioa eginda, gure moduloa sortuko dugu:</p>
 <div class="highlight"><pre><span></span><code><span class="x">use HasFactory;</span>
 
-<span class="x">protected $fillable = ['fullName', 'profession', 'academicDegree', 'phone'];</span>
+<span class="x">protected $fillable = [&#39;fullName&#39;, &#39;profession&#39;, &#39;academicDegree&#39;, &#39;phone&#39;];</span>
 </code></pre></div>
 <p>Oraingoan migrazioak fresh batekin exekutatuko ditugu.</p>
 <div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>migrate
@@ -2597,21 +2597,21 @@
 <div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>make:model<span class="w"> </span>Course<span class="w"> </span>-mfsc
 </code></pre></div>
 <p>Eta migrazioa, zehaztuko diogu zelakoa gure dugu gure taula izatea, kasu honetan eremu berezi bat dugu, gure teacher_id eremua, kasu honetan foreign key bat izango dena, teachers taularen id; hori zehazteko hurrengo adibidean dugun moduan jarriko dugu:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$table-&gt;string('name', 75);</span>
+<div class="highlight"><pre><span></span><code><span class="x">$table-&gt;string(&#39;name&#39;, 75);</span>
 
-<span class="x">$table-&gt;string('level', 35);</span>
+<span class="x">$table-&gt;string(&#39;level&#39;, 35);</span>
 
-<span class="x">$table-&gt;string('academicHours', 35)-&gt;nullable();</span>
+<span class="x">$table-&gt;string(&#39;academicHours&#39;, 35)-&gt;nullable();</span>
 
 <span class="x">// 1-N erlazioa egiteko (Modu 1)</span>
 
-<span class="x">$table-&gt;unsignedBigInteger('teacher_id');</span>
+<span class="x">$table-&gt;unsignedBigInteger(&#39;teacher_id&#39;);</span>
 
-<span class="x">$table-&gt;foreign('teacher_id')-&gt;references('id')-&gt;on('teachers');</span>
+<span class="x">$table-&gt;foreign(&#39;teacher_id&#39;)-&gt;references(&#39;id&#39;)-&gt;on(&#39;teachers&#39;);</span>
 
 <span class="x">// 1-N erlazioa egiteko (Modu 2, modernoagoa)</span>
 
-<span class="x">$table-&gt;foreignId('teacher_id')</span>
+<span class="x">$table-&gt;foreignId(&#39;teacher_id&#39;)</span>
 
 <span class="x">-&gt;nullable()</span>
 
@@ -2623,7 +2623,7 @@
 <p>Modeloa aldatzera goaz orain:</p>
 <div class="highlight"><pre><span></span><code><span class="x">use HasFactory;</span>
 
-<span class="x">protected $fillable = ['name', 'level', 'academicHours', 'teacher_id'];</span>
+<span class="x">protected $fillable = [&#39;name&#39;, &#39;level&#39;, &#39;academicHours&#39;, &#39;teacher_id&#39;];</span>
 </code></pre></div>
 <p>Exekutatuko ditugu gure migrazioak berriro:</p>
 <div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>migrate
@@ -2725,7 +2725,7 @@
 
 <span class="x">&lt;li&gt;</span>
 
-<span class="x">&lt;a href="{{ route('teachers.show', $course) }}"&gt;</span>
+<span class="x">&lt;a href=&quot;{{ route(&#39;teachers.show&#39;, $course) }}&quot;&gt;</span>
 
 <span class="x">{{ $course-&gt;name }}</span>
 
@@ -2790,7 +2790,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Arbelean kopiatuta", "clipboard.copy": "Kopiatu arbelean", "search.result.more.one": "Bat gehiago orri honetan", "search.result.more.other": "# gehiago orri honetan", "search.result.none": "Bat datorren dokumenturik ez", "search.result.one": "Bat datorren dokumentu bat", "search.result.other": "Bat datozen # dokumentu", "search.result.placeholder": "Idatzi bilatzen hasteko", "search.result.term.missing": "Falta da", "select.version": "Hautatu bertsioa"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

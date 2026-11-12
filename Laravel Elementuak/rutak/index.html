@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2537,9 +2537,9 @@
 </ul>
 <p>Gure ruta edo ibilbide guztiak route/web.php-n idatziko ditugu, hor egongo bai dira interfaz web erabiltzen diren ruta guztiak.</p>
 <p>Laravel instalatzean, lehenengo ruta aurkitzen duguna hurrengo hau da:</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get('/', function () {</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;/&#39;, function () {</span>
 
-<span class="x">return view('welcome');</span>
+<span class="x">return view(&#39;welcome&#39;);</span>
 
 <span class="x">});</span>
 </code></pre></div>
@@ -2550,27 +2550,27 @@
 <p>Laraveleko ruta guztiak, erroko direktorioa izango dute oinarri. Beraz, gure zerbitzari lokalean, aurreko rutara deitzeko, gure nabegatzailean horrelako zeozer idatziko genuke:</p>
 <p><a href="http://localhost/LARAVEL_PROIEKTUAK/eskola/public/">http://localhost/LARAVEL_PROIEKTUAK/eskola/public/</a></p>
 <p>Beste oinarrizko ruta batzuk ondorengo hauek dira adibidez:</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get('/froga/bidea', function () {</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;/froga/bidea&#39;, function () {</span>
 
-<span class="x">return 'GET metodoa';</span>
-
-<span class="x">});</span>
-
-<span class="x">Route::post('/froga/bidea', function () {</span>
-
-<span class="x">return 'POST metodoa';</span>
+<span class="x">return &#39;GET metodoa&#39;;</span>
 
 <span class="x">});</span>
 
-<span class="x">Route::put('/froga/bidea', function () {</span>
+<span class="x">Route::post(&#39;/froga/bidea&#39;, function () {</span>
 
-<span class="x">return 'PUT metodoa';</span>
+<span class="x">return &#39;POST metodoa&#39;;</span>
 
 <span class="x">});</span>
 
-<span class="x">Route::delete('/froga/bidea', function () {</span>
+<span class="x">Route::put(&#39;/froga/bidea&#39;, function () {</span>
 
-<span class="x">return 'DELETE metodoa';</span>
+<span class="x">return &#39;PUT metodoa&#39;;</span>
+
+<span class="x">});</span>
+
+<span class="x">Route::delete(&#39;/froga/bidea&#39;, function () {</span>
+
+<span class="x">return &#39;DELETE metodoa&#39;;</span>
 
 <span class="x">});</span>
 </code></pre></div>
@@ -2588,21 +2588,21 @@
 </li>
 </ol>
 <p>Horretarako 3 ibilibide sortu beharko genituzke, bat orri bakoitzeko:</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get('1', function () {</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;1&#39;, function () {</span>
 
-<span class="x">return 'Ni 1. orria naiz!';</span>
-
-<span class="x">});</span>
-
-<span class="x">Route::get('2', function () {</span>
-
-<span class="x">return 'Ni 2. orria naiz!';</span>
+<span class="x">return &#39;Ni 1. orria naiz!&#39;;</span>
 
 <span class="x">});</span>
 
-<span class="x">Route::get('3', function () {</span>
+<span class="x">Route::get(&#39;2&#39;, function () {</span>
 
-<span class="x">return 'Ni 3. orria naiz!';</span>
+<span class="x">return &#39;Ni 2. orria naiz!&#39;;</span>
+
+<span class="x">});</span>
+
+<span class="x">Route::get(&#39;3&#39;, function () {</span>
+
+<span class="x">return &#39;Ni 3. orria naiz!&#39;;</span>
 
 <span class="x">});</span>
 </code></pre></div>
@@ -2612,17 +2612,17 @@
 <p>Baina, hau ikusita, beharko genuke benetan 3 ibilbide sortu, aldaketa bakarra aldatzen den balioa denean?</p>
 <h2 id="rutak-parametroekin">Rutak parametroekin</h2>
 <p>Ibilibide edo ruta bat parametrizada dagoela esaten dugu, edozein balio hartu dezakeenean.</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get('{n}', function($n) {</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;{n}&#39;, function($n) {</span>
 
-<span class="x">return 'Nire orriaren zenbakia: ' . $n . ' !';</span>
+<span class="x">return &#39;Nire orriaren zenbakia: &#39; . $n . &#39; !&#39;;</span>
 
 <span class="x">});</span>
 </code></pre></div>
 <p><img alt="Irudia" src="../../assets/images/Rutak/90805bda7f1764506f7b4a6c5f4c143d.jpg" /></p>
 <p>Izan daiteke balio hau aukerakoa izatea, kasu horretan, galdera ikurra izan beharko du:</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get('{n?}', function($n = 1) {</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;{n?}&#39;, function($n = 1) {</span>
 
-<span class="x">return 'Nire orriaren zenbakia: ' . $n . ' !';</span>
+<span class="x">return &#39;Nire orriaren zenbakia: &#39; . $n . &#39; !&#39;;</span>
 
 <span class="x">});</span>
 </code></pre></div>
@@ -2639,25 +2639,25 @@
 <h2 id="izena-duten-rutak">Izena duten rutak</h2>
 <p>Laravelek aholkatzen digu gure rutei izenak ematea beti, horrela errezago egingo zaigu hauei deitzea; hurrengo adibidean ruta horreri deitzeko 'home' soilik idatzi beharko genuke.</p>
 <p>Sintaxia hurrengo hau izango litzateke:</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get('/', function() {</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;/&#39;, function() {</span>
 
-<span class="x">return 'Hasiera orria naiz!';</span>
+<span class="x">return &#39;Hasiera orria naiz!&#39;;</span>
 
-<span class="x">})-&gt;name('home');</span>
+<span class="x">})-&gt;name(&#39;home&#39;);</span>
 </code></pre></div>
 <h2 id="ibilibideen-ordena">Ibilibideen ordena</h2>
 <p>Oso garratzitsua da jakitea zein den ibilbideen ordena exekutatzerakoan, guk nahi duguna bistaratu dezan.</p>
 <p>Araua hau da: Ibilibideak ruta fitxategian duten ordenean analizatuko dira.</p>
 <p>Hurrengo kasuan adibidez:
-<div class="highlight"><pre><span></span><code><span class="x">Route::get('{n}', function($n) {</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;{n}&#39;, function($n) {</span>
 
-<span class="x">return 'Nire orriaren zenbakia: ' . $n . ' !';</span>
+<span class="x">return &#39;Nire orriaren zenbakia: &#39; . $n . &#39; !&#39;;</span>
 
 <span class="x">});</span>
 
-<span class="x">Route::get('contact', function() {</span>
+<span class="x">Route::get(&#39;contact&#39;, function() {</span>
 
-<span class="x">return "Hau nire kontaktua da";</span>
+<span class="x">return &quot;Hau nire kontaktua da&quot;;</span>
 
 <span class="x">});</span>
 </code></pre></div>
@@ -2668,17 +2668,17 @@ Lehenengo rutan, 'n'-k edozein balio har dezakeenez, 'contact' hitza ere hartu d
 <p>Adibidez CursoController kontroladorean exekutatuko diren ruta guztiak elkarrekin batzeko, group metodoa erabiliko genuke hurrengo adibidean moduan</p>
 <div class="highlight"><pre><span></span><code><span class="x">Route::controller(CursoController::class)-&gt;group(function () {</span>
 
-<span class="x">Route::get('cursos', 'index' );</span>
+<span class="x">Route::get(&#39;cursos&#39;, &#39;index&#39; );</span>
 
-<span class="x">Route::get('cursos/create',  'create');</span>
+<span class="x">Route::get(&#39;cursos/create&#39;,  &#39;create&#39;);</span>
 
-<span class="x">Route::get('cursos/{curso}', 'show');</span>
+<span class="x">Route::get(&#39;cursos/{curso}&#39;, &#39;show&#39;);</span>
 
 <span class="x">});</span>
 </code></pre></div>
 <h2 id="resource-ibilbideak">Resource ibilbideak</h2>
 <p>Laravelen ere, gure kontroladoreak resource metodoarekin egiterakoan, ikusi genuen zelan sortu zizkigun hainbat metodo kontroladore horren bidez CRUDa egin ahal izateko, ba kontroladore horren barruan dauden metodo guzti horiek deitzeko ibilibide bakar bategaz egin dezake, metodo hori resource metodoa da:</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::resource('ikasleak', IkasleController::class)-&gt;names('ikasleak');</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::resource(&#39;ikasleak&#39;, IkasleController::class)-&gt;names(&#39;ikasleak&#39;);</span>
 </code></pre></div>
 <p>Ikusten dugunez, honek asko errazten digu gure ibilibideen kudeaketa, Laravelek sortzen bait ditu beharrezko ruta guztiak. Hau konprobatzeko, artisanen bidez begiratu dezakegu sortuta ditugun ruta guztiak:</p>
 <div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>route:list
@@ -2736,7 +2736,7 @@ Lehenengo rutan, 'n'-k edozein balio har dezakeenez, 'contact' hitza ere hartu d
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Arbelean kopiatuta", "clipboard.copy": "Kopiatu arbelean", "search.result.more.one": "Bat gehiago orri honetan", "search.result.more.other": "# gehiago orri honetan", "search.result.none": "Bat datorren dokumenturik ez", "search.result.one": "Bat datorren dokumentu bat", "search.result.other": "Bat datozen # dokumentu", "search.result.placeholder": "Idatzi bilatzen hasteko", "search.result.term.missing": "Falta da", "select.version": "Hautatu bertsioa"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

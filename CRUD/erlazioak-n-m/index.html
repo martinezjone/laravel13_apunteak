@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2615,25 +2615,25 @@
 <div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>make:migration<span class="w"> </span>create_course_pupil_table
 </code></pre></div>
 <p>Migrazioan idatziko duguna, alde batetik id biak sortu eta bestetik klabe foraneak direla esango dugu:</p>
-<div class="highlight"><pre><span></span><code><span class="x">Schema::create('course_pupil', function (Blueprint $table) {</span>
+<div class="highlight"><pre><span></span><code><span class="x">Schema::create(&#39;course_pupil&#39;, function (Blueprint $table) {</span>
 
 <span class="x">$table-&gt;id();</span>
 
 <span class="x">// N-M erlazioa (Modu 1 - zaharra)</span>
 
-<span class="x">$table-&gt;unsignedBigInteger('course_id');</span>
+<span class="x">$table-&gt;unsignedBigInteger(&#39;course_id&#39;);</span>
 
-<span class="x">$table-&gt;foreign('course_id')-&gt;references('id')-&gt;on('courses')-&gt;onDelete('cascade');</span>
+<span class="x">$table-&gt;foreign(&#39;course_id&#39;)-&gt;references(&#39;id&#39;)-&gt;on(&#39;courses&#39;)-&gt;onDelete(&#39;cascade&#39;);</span>
 
-<span class="x">$table-&gt;unsignedBigInteger('pupil_id');</span>
+<span class="x">$table-&gt;unsignedBigInteger(&#39;pupil_id&#39;);</span>
 
-<span class="x">$table-&gt;foreign('pupil_id')-&gt;references('id')-&gt;on('pupils')-&gt;onDelete('cascade');</span>
+<span class="x">$table-&gt;foreign(&#39;pupil_id&#39;)-&gt;references(&#39;id&#39;)-&gt;on(&#39;pupils&#39;)-&gt;onDelete(&#39;cascade&#39;);</span>
 
 <span class="x">// N-M erlazioa (Modu 2 - modernoa)</span>
 
-<span class="x">$table-&gt;foreignId('course_id')-&gt;constrained()-&gt;onDelete('cascade');</span>
+<span class="x">$table-&gt;foreignId(&#39;course_id&#39;)-&gt;constrained()-&gt;onDelete(&#39;cascade&#39;);</span>
 
-<span class="x">$table-&gt;foreignId('pupil_id')-&gt;constrained()-&gt;onDelete('cascade');</span>
+<span class="x">$table-&gt;foreignId(&#39;pupil_id&#39;)-&gt;constrained()-&gt;onDelete(&#39;cascade&#39;);</span>
 
 <span class="x">$table-&gt;timestamps();</span>
 
@@ -2742,9 +2742,9 @@
 <li>attach() eta detach() erabili</li>
 </ul>
 <p>Horrelako zeozer egin beharko genuke horretarako:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$selectedCourses = $request-&gt;input('course_ids', []);</span>
+<div class="highlight"><pre><span></span><code><span class="x">$selectedCourses = $request-&gt;input(&#39;course_ids&#39;, []);</span>
 
-<span class="x">$currentCourses = $pupil-&gt;courses-&gt;pluck('id')-&gt;toArray();</span>
+<span class="x">$currentCourses = $pupil-&gt;courses-&gt;pluck(&#39;id&#39;)-&gt;toArray();</span>
 
 <span class="x">$toAttach = array_diff($selectedCourses, $currentCourses);</span>
 
@@ -2761,34 +2761,34 @@
 
 <span class="x">{</span>
 
-<span class="x">$pupil-&gt;courses()-&gt;sync($request-&gt;input('course_ids', []));</span>
+<span class="x">$pupil-&gt;courses()-&gt;sync($request-&gt;input(&#39;course_ids&#39;, []));</span>
 
-<span class="x">return redirect()-&gt;route('pupils.index')</span>
+<span class="x">return redirect()-&gt;route(&#39;pupils.index&#39;)</span>
 
-<span class="x">-&gt;with('success', 'Ikaslearen matrikulazioa eguneratu da!');</span>
+<span class="x">-&gt;with(&#39;success&#39;, &#39;Ikaslearen matrikulazioa eguneratu da!&#39;);</span>
 
 <span class="x">}</span>
 </code></pre></div>
 <h2 id="pivot-taulan-atributuak-gehitzea">Pivot taulan atributuak gehitzea</h2>
 <p>Batzuetan N-M erlazioan ez da nahikoa bi IDak gordetzea. Adibidez, ikasle batek ikastaro batean noiz matrikulatu den, nota, edo rola (ordezkaria, arrunta…) gorde nahi izan dezakegu.</p>
 <p>Horretarako, pivot taulan atributu gehigarriak gehituko ditugu: enrolled_at eta grade, bat date motatakoa eta bigarrena integer motakoa.</p>
-<div class="highlight"><pre><span></span><code><span class="x">Schema::create('course_pupil', function (Blueprint $table) {</span>
+<div class="highlight"><pre><span></span><code><span class="x">Schema::create(&#39;course_pupil&#39;, function (Blueprint $table) {</span>
 
 <span class="x">$table-&gt;id();</span>
 
-<span class="x">$table-&gt;unsignedBigInteger('course_id');</span>
+<span class="x">$table-&gt;unsignedBigInteger(&#39;course_id&#39;);</span>
 
-<span class="x">$table-&gt;foreign('course_id')-&gt;references('id')-&gt;on('courses')-&gt;onDelete('cascade');</span>
+<span class="x">$table-&gt;foreign(&#39;course_id&#39;)-&gt;references(&#39;id&#39;)-&gt;on(&#39;courses&#39;)-&gt;onDelete(&#39;cascade&#39;);</span>
 
-<span class="x">$table-&gt;unsignedBigInteger('pupil_id');</span>
+<span class="x">$table-&gt;unsignedBigInteger(&#39;pupil_id&#39;);</span>
 
-<span class="x">$table-&gt;foreign('pupil_id')-&gt;references('id')-&gt;on('pupils')-&gt;onDelete('cascade');</span>
+<span class="x">$table-&gt;foreign(&#39;pupil_id&#39;)-&gt;references(&#39;id&#39;)-&gt;on(&#39;pupils&#39;)-&gt;onDelete(&#39;cascade&#39;);</span>
 
 <span class="x">// Pivot atributuak</span>
 
-<span class="x">$table-&gt;date('enrolled_at')-&gt;nullable();</span>
+<span class="x">$table-&gt;date(&#39;enrolled_at&#39;)-&gt;nullable();</span>
 
-<span class="x">$table-&gt;integer('grade')-&gt;nullable();</span>
+<span class="x">$table-&gt;integer(&#39;grade&#39;)-&gt;nullable();</span>
 
 <span class="x">$table-&gt;timestamps();</span>
 
@@ -2802,7 +2802,7 @@
 
 <span class="x">return $this-&gt;belongsToMany(Course::class)</span>
 
-<span class="x">-&gt;withPivot('enrolled_at', 'grade')</span>
+<span class="x">-&gt;withPivot(&#39;enrolled_at&#39;, &#39;grade&#39;)</span>
 
 <span class="x">-&gt;withTimestamps(); // Horrela created_at eta updated_at gordeko ditu attach egitean.</span>
 
@@ -2815,7 +2815,7 @@
 
 <span class="x">return $this-&gt;belongsToMany(Pupil::class)</span>
 
-<span class="x">-&gt;withPivot('enrolled_at', 'grade')</span>
+<span class="x">-&gt;withPivot(&#39;enrolled_at&#39;, &#39;grade&#39;)</span>
 
 <span class="x">-&gt;withTimestamps();</span>
 
@@ -2903,7 +2903,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Arbelean kopiatuta", "clipboard.copy": "Kopiatu arbelean", "search.result.more.one": "Bat gehiago orri honetan", "search.result.more.other": "# gehiago orri honetan", "search.result.none": "Bat datorren dokumenturik ez", "search.result.one": "Bat datorren dokumentu bat", "search.result.other": "Bat datozen # dokumentu", "search.result.placeholder": "Idatzi bilatzen hasteko", "search.result.term.missing": "Falta da", "select.version": "Hautatu bertsioa"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

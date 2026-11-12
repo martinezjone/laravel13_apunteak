@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2388,10 +2388,10 @@
 
 <h1 id="3-json-erantzunak">3. JSON erantzunak</h1>
 <h2 id="response-json"><code>response()-&gt;json()</code></h2>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get('/mezua', function () {</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;/mezua&#39;, function () {</span>
 <span class="x">    return response()-&gt;json([</span>
-<span class="x">        'mezua' =&gt; 'Datuak behar bezala jaso dira',</span>
-<span class="x">        'kopurua' =&gt; 3,</span>
+<span class="x">        &#39;mezua&#39; =&gt; &#39;Datuak behar bezala jaso dira&#39;,</span>
+<span class="x">        &#39;kopurua&#39; =&gt; 3,</span>
 <span class="x">    ], 200);</span>
 <span class="x">});</span>
 </code></pre></div>
@@ -2399,13 +2399,13 @@
 <h2 id="eloquent-datuak-itzultzea">Eloquent datuak itzultzea</h2>
 <div class="highlight"><pre><span></span><code><span class="x">use App\Models\Jarduera;</span>
 
-<span class="x">Route::get('/jarduerak', function () {</span>
+<span class="x">Route::get(&#39;/jarduerak&#39;, function () {</span>
 <span class="x">    return Jarduera::all();</span>
 <span class="x">});</span>
 </code></pre></div>
 <p>Laravel-ek Eloquent bilduma JSON bihur dezake automatikoki. Hala ere, proiektuetan <strong>API Resource</strong> erabiltzea gomendatzen da, kanpora bidaltzen diren eremuak kontrolatzeko.</p>
 <h2 id="erantzunen-adibideak">Erantzunen adibideak</h2>
-<div class="highlight"><pre><span></span><code><span class="x">return response()-&gt;json(['mezua' =&gt; 'Sortuta'], 201);</span>
+<div class="highlight"><pre><span></span><code><span class="x">return response()-&gt;json([&#39;mezua&#39; =&gt; &#39;Sortuta&#39;], 201);</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="x">return response()-&gt;noContent(); // 204</span>
 </code></pre></div>
@@ -2469,7 +2469,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Arbelean kopiatuta", "clipboard.copy": "Kopiatu arbelean", "search.result.more.one": "Bat gehiago orri honetan", "search.result.more.other": "# gehiago orri honetan", "search.result.none": "Bat datorren dokumenturik ez", "search.result.one": "Bat datorren dokumentu bat", "search.result.other": "Bat datozen # dokumentu", "search.result.placeholder": "Idatzi bilatzen hasteko", "search.result.term.missing": "Falta da", "select.version": "Hautatu bertsioa"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

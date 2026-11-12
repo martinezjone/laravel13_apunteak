@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2283,9 +2283,9 @@
 <span class="x">// Ikastaroak egotekotan ezingo dugu ezabatu</span>
 </code></pre></div>
 <p>if ($cursosDelProfesor-&gt;isNotEmpty()) {</p>
-<div class="highlight"><pre><span></span><code><span class="x">return redirect()-&gt;route('profesores.index')</span>
+<div class="highlight"><pre><span></span><code><span class="x">return redirect()-&gt;route(&#39;profesores.index&#39;)</span>
 
-<span class="x">-&gt;with('error', 'Irakasleak ikastaroak ditu eta ezin da ezabatu.');</span>
+<span class="x">-&gt;with(&#39;error&#39;, &#39;Irakasleak ikastaroak ditu eta ezin da ezabatu.&#39;);</span>
 
 <span class="x">}</span>
 
@@ -2293,29 +2293,29 @@
 
 <span class="x">$profesor-&gt;delete();</span>
 
-<span class="x">return redirect()-&gt;route('profesores.index')</span>
+<span class="x">return redirect()-&gt;route(&#39;profesores.index&#39;)</span>
 
-<span class="x">-&gt;with('success', 'Irakaslea ongi ezabatu da');</span>
+<span class="x">-&gt;with(&#39;success&#39;, &#39;Irakaslea ongi ezabatu da&#39;);</span>
 
 <span class="x">}</span>
 </code></pre></div>
 <p>Adibidean ikusten dugunez, with metodoari deituko diogu "error" edo "success" pasatzen.</p>
 <p>Behin hori eginda, gure bistan jarriko dugu bata edo bestea idazteko, idatzi behar izanez gero:</p>
-<div class="highlight"><pre><span></span><code><span class="x">@if(session('error'))</span>
+<div class="highlight"><pre><span></span><code><span class="x">@if(session(&#39;error&#39;))</span>
 
-<span class="x">&lt;div class="alert alert-danger"&gt;</span>
+<span class="x">&lt;div class=&quot;alert alert-danger&quot;&gt;</span>
 
-<span class="x">{{ session('error') }}</span>
+<span class="x">{{ session(&#39;error&#39;) }}</span>
 
 <span class="x">&lt;/div&gt;</span>
 
 <span class="x">@endif</span>
 
-<span class="x">@if(session('success'))</span>
+<span class="x">@if(session(&#39;success&#39;))</span>
 
-<span class="x">&lt;div class="alert alert-success"&gt;</span>
+<span class="x">&lt;div class=&quot;alert alert-success&quot;&gt;</span>
 
-<span class="x">{{ session('success') }}</span>
+<span class="x">{{ session(&#39;success&#39;) }}</span>
 
 <span class="x">&lt;/div&gt;</span>
 
@@ -2374,7 +2374,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Arbelean kopiatuta", "clipboard.copy": "Kopiatu arbelean", "search.result.more.one": "Bat gehiago orri honetan", "search.result.more.other": "# gehiago orri honetan", "search.result.none": "Bat datorren dokumenturik ez", "search.result.one": "Bat datorren dokumentu bat", "search.result.other": "Bat datozen # dokumentu", "search.result.placeholder": "Idatzi bilatzen hasteko", "search.result.term.missing": "Falta da", "select.version": "Hautatu bertsioa"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

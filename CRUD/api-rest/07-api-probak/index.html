@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2412,16 +2412,16 @@
 <h2 id="zergatik-probatu-vue-sortu-aurretik">Zergatik probatu Vue sortu aurretik?</h2>
 <p>Backend-a eta frontend-a bereizita probatuz, akatsen jatorria errazago identifikatzen dugu.</p>
 <h2 id="curl-bidez"><code>curl</code> bidez</h2>
-<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-i<span class="w"> </span>-H<span class="w"> </span><span class="s2">"Accept: application/json"</span><span class="w"> </span>http://127.0.0.1:8000/api/jarduerak
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-i<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Accept: application/json&quot;</span><span class="w"> </span>http://127.0.0.1:8000/api/jarduerak
 </code></pre></div>
 <p>Windows PowerShell-en, <code>curl.exe</code> erabili daiteke benetako curl exekutagarria deitzeko:</p>
-<div class="highlight"><pre><span></span><code><span class="n">curl</span><span class="p">.</span><span class="n">exe</span> <span class="n">-i</span> <span class="n">-H</span> <span class="s2">"Accept: application/json"</span> <span class="n">http</span><span class="p">://</span><span class="n">127</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">1</span><span class="p">:</span><span class="n">8000</span><span class="p">/</span><span class="n">api</span><span class="p">/</span><span class="n">jarduerak</span>
+<div class="highlight"><pre><span></span><code><span class="n">curl</span><span class="p">.</span><span class="n">exe</span> <span class="n">-i</span> <span class="n">-H</span> <span class="s2">&quot;Accept: application/json&quot;</span> <span class="n">http</span><span class="p">://</span><span class="n">127</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">1</span><span class="p">:</span><span class="n">8000</span><span class="p">/</span><span class="n">api</span><span class="p">/</span><span class="n">jarduerak</span>
 </code></pre></div>
 <p>POST eskaera baten adibidea (PowerShell):</p>
-<div class="highlight"><pre><span></span><code><span class="n">curl</span><span class="p">.</span><span class="n">exe</span> <span class="n">-i</span> <span class="n">-X</span> <span class="n">POST</span> <span class="s2">"http://127.0.0.1:8000/api/jarduerak"</span> <span class="p">`</span>
-  <span class="n">-H</span> <span class="s2">"Accept: application/json"</span> <span class="p">`</span>
-  <span class="n">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="p">`</span>
-  <span class="n">-d</span> <span class="s1">'{"izena":"Dantza tailerra","plazak":20}'</span>
+<div class="highlight"><pre><span></span><code><span class="n">curl</span><span class="p">.</span><span class="n">exe</span> <span class="n">-i</span> <span class="n">-X</span> <span class="n">POST</span> <span class="s2">&quot;http://127.0.0.1:8000/api/jarduerak&quot;</span> <span class="p">`</span>
+  <span class="n">-H</span> <span class="s2">&quot;Accept: application/json&quot;</span> <span class="p">`</span>
+  <span class="n">-H</span> <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="p">`</span>
+  <span class="n">-d</span> <span class="s1">&#39;{&quot;izena&quot;:&quot;Dantza tailerra&quot;,&quot;plazak&quot;:20}&#39;</span>
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">PowerShell eta JSON</p>
@@ -2463,7 +2463,7 @@
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="x">public function test_jardueren_zerrenda_jaso_daiteke(): void</span>
 <span class="x">{</span>
-<span class="x">    $response = $this-&gt;getJson('/api/jarduerak');</span>
+<span class="x">    $response = $this-&gt;getJson(&#39;/api/jarduerak&#39;);</span>
 <span class="x">    $response-&gt;assertOk();</span>
 <span class="x">}</span>
 </code></pre></div>
@@ -2527,7 +2527,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Arbelean kopiatuta", "clipboard.copy": "Kopiatu arbelean", "search.result.more.one": "Bat gehiago orri honetan", "search.result.more.other": "# gehiago orri honetan", "search.result.none": "Bat datorren dokumenturik ez", "search.result.one": "Bat datorren dokumentu bat", "search.result.other": "Bat datozen # dokumentu", "search.result.placeholder": "Idatzi bilatzen hasteko", "search.result.term.missing": "Falta da", "select.version": "Hautatu bertsioa"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

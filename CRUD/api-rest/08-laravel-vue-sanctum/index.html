@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2466,34 +2466,34 @@ Datu-basea
 <div class="highlight"><pre><span></span><code>npm<span class="w"> </span>install<span class="w"> </span>axios
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="c1">// src/services/api.js</span>
-<span class="k">import</span><span class="w"> </span><span class="nx">axios</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'axios'</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">axios</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;axios&#39;</span>
 
 <span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">api</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">axios</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
-<span class="w">  </span><span class="nx">baseURL</span><span class="o">:</span><span class="w"> </span><span class="s1">'http://localhost:8000'</span><span class="p">,</span>
-<span class="w">  </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Accept</span><span class="o">:</span><span class="w"> </span><span class="s1">'application/json'</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nx">baseURL</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;http://localhost:8000&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Accept</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;application/json&#39;</span><span class="w"> </span><span class="p">},</span>
 <span class="p">})</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">setup</span><span class="p">&gt;</span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ref</span><span class="p">,</span><span class="w"> </span><span class="nx">onMounted</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'vue'</span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">api</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'@/services/api'</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ref</span><span class="p">,</span><span class="w"> </span><span class="nx">onMounted</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;vue&#39;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">api</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@/services/api&#39;</span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">jarduerak</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ref</span><span class="p">([])</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">errorea</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ref</span><span class="p">(</span><span class="s1">''</span><span class="p">)</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">errorea</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ref</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 
 <span class="nx">onMounted</span><span class="p">(</span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">api</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'/api/jarduerak'</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">api</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/api/jarduerak&#39;</span><span class="p">)</span>
 <span class="w">    </span><span class="nx">jarduerak</span><span class="p">.</span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="w"> </span><span class="c1">// API Resource bildumaren bilgarri lehenetsia</span>
 <span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">errorea</span><span class="p">.</span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Ezin izan dira jarduerak kargatu.'</span>
+<span class="w">    </span><span class="nx">errorea</span><span class="p">.</span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Ezin izan dira jarduerak kargatu.&#39;</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">})</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 
 <span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">p</span> <span class="na">v-if</span><span class="o">=</span><span class="s">"</span><span class="nx">errorea</span><span class="s">"</span><span class="p">&gt;</span><span class="cp">{{</span><span class="w"> </span><span class="nx">errorea</span><span class="w"> </span><span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span> <span class="na">v-if</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">errorea</span><span class="s">&quot;</span><span class="p">&gt;</span><span class="cp">{{</span><span class="w"> </span><span class="nx">errorea</span><span class="w"> </span><span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">ul</span> <span class="na">v-else</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">li</span> <span class="na">v-for</span><span class="o">=</span><span class="s">"</span><span class="nx">jarduera</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">jarduerak</span><span class="s">"</span> <span class="p">:</span><span class="na">key</span><span class="o">=</span><span class="s">"</span><span class="nx">jarduera</span><span class="p">.</span><span class="nx">id</span><span class="s">"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">li</span> <span class="na">v-for</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">jarduera</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">jarduerak</span><span class="s">&quot;</span> <span class="p">:</span><span class="na">key</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">jarduera</span><span class="p">.</span><span class="nx">id</span><span class="s">&quot;</span><span class="p">&gt;</span>
       <span class="cp">{{</span><span class="w"> </span><span class="nx">jarduera</span><span class="p">.</span><span class="nx">izena</span><span class="w"> </span><span class="cp">}}</span>
     <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
@@ -2522,9 +2522,9 @@ Datu-basea
 <span class="nx">api</span><span class="p">.</span><span class="nx">defaults</span><span class="p">.</span><span class="nx">withCredentials</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
 <span class="nx">api</span><span class="p">.</span><span class="nx">defaults</span><span class="p">.</span><span class="nx">withXSRFToken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="k">await</span><span class="w"> </span><span class="nx">api</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'/sanctum/csrf-cookie'</span><span class="p">)</span>
-<span class="k">await</span><span class="w"> </span><span class="nx">api</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">'/login'</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">email</span><span class="p">,</span><span class="w"> </span><span class="nx">password</span><span class="w"> </span><span class="p">})</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">api</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'/api/user'</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">await</span><span class="w"> </span><span class="nx">api</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/sanctum/csrf-cookie&#39;</span><span class="p">)</span>
+<span class="k">await</span><span class="w"> </span><span class="nx">api</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/login&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">email</span><span class="p">,</span><span class="w"> </span><span class="nx">password</span><span class="w"> </span><span class="p">})</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">api</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/api/user&#39;</span><span class="p">)</span>
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Konfigurazioa ez da kopiatzea bakarrik</p>
@@ -2557,7 +2557,7 @@ Datu-basea
 <div class="highlight"><pre><span></span><code><span class="x">use Illuminate\Http\Request;</span>
 <span class="x">use Illuminate\Support\Facades\Route;</span>
 
-<span class="x">Route::middleware('auth:sanctum')-&gt;get('/nire-profila', function (Request $request) {</span>
+<span class="x">Route::middleware(&#39;auth:sanctum&#39;)-&gt;get(&#39;/nire-profila&#39;, function (Request $request) {</span>
 <span class="x">    return $request-&gt;user();</span>
 <span class="x">});</span>
 </code></pre></div>
@@ -2624,7 +2624,7 @@ Datu-basea
       <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Arbelean kopiatuta", "clipboard.copy": "Kopiatu arbelean", "search.result.more.one": "Bat gehiago orri honetan", "search.result.more.other": "# gehiago orri honetan", "search.result.none": "Bat datorren dokumenturik ez", "search.result.one": "Bat datorren dokumentu bat", "search.result.other": "Bat datozen # dokumentu", "search.result.placeholder": "Idatzi bilatzen hasteko", "search.result.term.missing": "Falta da", "select.version": "Hautatu bertsioa"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

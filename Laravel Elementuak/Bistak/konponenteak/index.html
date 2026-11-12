@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2286,12 +2286,12 @@
 <p>Alert bat sortzeko, adibidez, tailwind-en alertak erabili ditzakegu, horretarako web honetara sartu gaitzeke: <a href="https://flowbite.com/docs/components/alerts/">https://flowbite.com/docs/components/alerts/</a></p>
 <p>Eta bestetik, tailwind erabili ahal izateko ere, nonbaiten deitu beharko diogu libreria horreri. Nola gehitu jakiteko, hurrengo estekan duzue informazioa: <a href="https://tailwindcss.com/docs/installation/play-cdn">https://tailwindcss.com/docs/installation/play-cdn</a></p>
 <p>Beraz, adibide honetarako, gure orrian tailwind sartuko genuke modu honetan:</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"&lt;https://cdn.tailwindcss.com&gt;"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;&lt;https://cdn.tailwindcss.com&gt;&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div>
 <p>Eta gure alert.blade.php fitxategian gure alerta sartuko genuke:</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400"</span> <span class="na">role</span><span class="o">=</span><span class="s">"alert"</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400&quot;</span> <span class="na">role</span><span class="o">=</span><span class="s">&quot;alert&quot;</span><span class="p">&gt;</span>
 
-<span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"font-medium"</span><span class="p">&gt;</span>Alerta!<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span> Kontuz izan egiten duzunarekin
+<span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;font-medium&quot;</span><span class="p">&gt;</span>Alerta!<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span> Kontuz izan egiten duzunarekin
 
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </code></pre></div>
@@ -2305,7 +2305,7 @@
 </code></pre></div>
 <p>Konponenteak aldagai batekin</p>
 <p>Kasu honetan gure konponenteari aldagai bat bidali nahiko diogu, horretarako, gure alertan, aldagaia non erakutsi nahi dugun esango dugu, aldagai bakarra bidaltzen dugunean, slot bat bidaltzen dugu.</p>
-<div class="highlight"><pre><span></span><code><span class="x">&lt;span class="font-medium"&gt;Alerta!&lt;/span&gt; {{ $slot }}</span>
+<div class="highlight"><pre><span></span><code><span class="x">&lt;span class=&quot;font-medium&quot;&gt;Alerta!&lt;/span&gt; {{ $slot }}</span>
 </code></pre></div>
 <p>eta deitzerakoan aldiz, x-alert etiketen artean aldagai horren balioa bidaliko genuke:</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">x-alert</span><span class="p">&gt;</span>
@@ -2317,7 +2317,7 @@
 <p>Alde batetik, aldagai orokorra izango dugu, slot izenekoa eta bestetik named slots izango ditugu, slots hauei izen bat jarri behar diegu,adibidez:</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">x-alert</span><span class="p">&gt;</span>
 
-<span class="p">&lt;</span><span class="nt">x-slot</span> <span class="na">name</span><span class="o">=</span><span class="s">"title"</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">x-slot</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;title&quot;</span><span class="p">&gt;</span>
 </code></pre></div>
 <p>Hau da goiburua</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;/</span><span class="nt">x-slot</span><span class="p">&gt;</span>
@@ -2326,15 +2326,15 @@
 <div class="highlight"><pre><span></span><code><span class="p">&lt;/</span><span class="nt">x-alert</span><span class="p">&gt;</span>
 </code></pre></div>
 <p>eta deitzerakoan aldiz, x-alert etiketen artean aldagai horren balioa bidaliko genuke:</p>
-<div class="highlight"><pre><span></span><code><span class="x">&lt;span class="font-medium"&gt;{{ $title ?? 'lehenetsiko titulua' }}&lt;/span&gt; {{ $slot }}</span>
+<div class="highlight"><pre><span></span><code><span class="x">&lt;span class=&quot;font-medium&quot;&gt;{{ $title ?? &#39;lehenetsiko titulua&#39; }}&lt;/span&gt; {{ $slot }}</span>
 </code></pre></div>
 <p>Zergaitik jarri ditugu galdera ikurrak eta komillak? Horrela jartzerakoan, gaude esaten title ez definitzekotan, komillen artean dagoen balioa izango duela.</p>
 <p>Konponenteen parametroak (konponente bakarra)</p>
 <p>Konponente bati aldagaiak pasatzeaz gain, parametroak ere pasatu ditzakegu, hori konponentearen etiketan egingo dugu, adibidez guk type izeneko parametro bat pasatuko dugu, modu honetan, segun eta zein mota den gure alerta, itxura bat edo bestea izango du.</p>
 <p>Horrela egingo genuke:</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">x-alert</span> <span class="na">type</span><span class="o">=</span><span class="s">"info"</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">x-alert</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;info&quot;</span><span class="p">&gt;</span>
 
-<span class="p">&lt;</span><span class="nt">x-slot</span> <span class="na">name</span><span class="o">=</span><span class="s">"title"</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">x-slot</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;title&quot;</span><span class="p">&gt;</span>
 </code></pre></div>
 <p>Hau da goiburua</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;/</span><span class="nt">x-slot</span><span class="p">&gt;</span>
@@ -2343,42 +2343,42 @@
 <div class="highlight"><pre><span></span><code><span class="p">&lt;/</span><span class="nt">x-alert</span><span class="p">&gt;</span>
 </code></pre></div>
 <p>Eta gure alert-ean alerta ezberdinak definituko ditugu segun eta tipoa zein den, horretarako blade badu direktiba bat, props izenekoa.  Beraz guk direktiva horreri deitzerakoan, array baten nire parametroen izenak sartuko ditut, eta Laravelek egingo duena da aldagai bat sortu nik pasatutako parametro bakoitzarekin:</p>
-<div class="highlight"><pre><span></span><code><span class="x">@props(['title'])</span>
+<div class="highlight"><pre><span></span><code><span class="x">@props([&#39;title&#39;])</span>
 
-<span class="x">@props(['type' =&gt; 'info') // Balio lehenetsia emateko</span>
+<span class="x">@props([&#39;type&#39; =&gt; &#39;info&#39;) // Balio lehenetsia emateko</span>
 </code></pre></div>
 <p>Eta orain gure konponente barruan php kodea sartuko dugu esateko zein alerta aterako lukeen mota bakoitzeko.</p>
 <div class="highlight"><pre><span></span><code><span class="x">@php</span>
 
 <span class="x">switch ($type) {</span>
 
-<span class="x">    case 'info':</span>
+<span class="x">    case &#39;info&#39;:</span>
 
-<span class="x">        $class = "bg-blue-50 text-blue-800";</span>
-
-<span class="x">        break;</span>
-
-<span class="x">    case 'danger':</span>
-
-<span class="x">        $class = "bg-red-50 text-red-800";</span>
+<span class="x">        $class = &quot;bg-blue-50 text-blue-800&quot;;</span>
 
 <span class="x">        break;</span>
 
-<span class="x">    case 'success':</span>
+<span class="x">    case &#39;danger&#39;:</span>
 
-<span class="x">        $class = "bg-green-50 text-green-800";</span>
-
-<span class="x">        break;</span>
-
-<span class="x">    case 'warning':</span>
-
-<span class="x">        $class = "bg-yellow-50 text-yellow-800";</span>
+<span class="x">        $class = &quot;bg-red-50 text-red-800&quot;;</span>
 
 <span class="x">        break;</span>
 
-<span class="x">    case 'dark':</span>
+<span class="x">    case &#39;success&#39;:</span>
 
-<span class="x">        $class = "bg-gray-50 text-gray-800";</span>
+<span class="x">        $class = &quot;bg-green-50 text-green-800&quot;;</span>
+
+<span class="x">        break;</span>
+
+<span class="x">    case &#39;warning&#39;:</span>
+
+<span class="x">        $class = &quot;bg-yellow-50 text-yellow-800&quot;;</span>
+
+<span class="x">        break;</span>
+
+<span class="x">    case &#39;dark&#39;:</span>
+
+<span class="x">        $class = &quot;bg-gray-50 text-gray-800&quot;;</span>
 
 <span class="x">        break;</span>
 
@@ -2392,18 +2392,18 @@
 
 <span class="x">@endphp</span>
 
-<span class="x">&lt;div class="p-4 mb-4 text-sm {{ $class }}  rounded-lg  dark:bg-gray-800 dark:text-blue-400" role="alert"&gt;</span>
+<span class="x">&lt;div class=&quot;p-4 mb-4 text-sm {{ $class }}  rounded-lg  dark:bg-gray-800 dark:text-blue-400&quot; role=&quot;alert&quot;&gt;</span>
 
-<span class="x">    &lt;span class="font-medium"&gt;{{ $title ?? '' }}&lt;/span&gt; {{ $slot }}</span>
+<span class="x">    &lt;span class=&quot;font-medium&quot;&gt;{{ $title ?? &#39;&#39; }}&lt;/span&gt; {{ $slot }}</span>
 
 <span class="x">&lt;/div&gt;</span>
 </code></pre></div>
 <p>Konponenteen parametroak (konponente bat baino gehiago)</p>
 <p>Konponente bati aldagaiak pasatzeaz gain, parametroak ere pasatu ditzakegu, hori konponentearen etiketan egingo dugu, adibidez guk type izeneko parametro bat pasatuko dugu, modu honetan, segun eta zein mota den gure alerta, itxura bat edo bestea izango du.</p>
 <p>Horrela egingo genuke:</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">x-alert</span> <span class="na">type</span><span class="o">=</span><span class="s">"info"</span> <span class="na">class</span><span class="o">=</span><span class="s">"mb-4"</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">x-alert</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;info&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;mb-4&quot;</span><span class="p">&gt;</span>
 
-<span class="p">&lt;</span><span class="nt">x-slot</span> <span class="na">name</span><span class="o">=</span><span class="s">"title"</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">x-slot</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;title&quot;</span><span class="p">&gt;</span>
 </code></pre></div>
 <p>Hau da goiburua</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;/</span><span class="nt">x-slot</span><span class="p">&gt;</span>
@@ -2411,7 +2411,7 @@
 <p>Hau da alerta mezuaren edukia</p>
 <div class="highlight"><pre><span></span><code><span class="x">&lt;/x-alert&gt;</span>
 
-<span class="x">Kasu honetan bigarren parametro hori, promps-en jaso beharrean $attributes-en jasoko genuke. Adibide honetan, gure konponentean  {{$attributes}} idaztekotan, pantailatik zuznean class="mb-4" agertuko litzateke.</span>
+<span class="x">Kasu honetan bigarren parametro hori, promps-en jaso beharrean $attributes-en jasoko genuke. Adibide honetan, gure konponentean  {{$attributes}} idaztekotan, pantailatik zuznean class=&quot;mb-4&quot; agertuko litzateke.</span>
 </code></pre></div>
 <p>"Clase komponenteak"</p>
 <p>Orain arte erabili duguna "componente anónimo" deitzen zaio, baina badago aukera gelako konponenteak egiteko. Horretarako artisan-en bidez sortuko dugu. Konponente anonimo baten, bista bat soilik zango dugu, baina gelako  konponentea sortzerakoan, alde batetik klase bat sortuko du, alertaren logika guztia izateko, eta bestetik bista bat, koponente horren itxura izateko.</p>
@@ -2473,7 +2473,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Arbelean kopiatuta", "clipboard.copy": "Kopiatu arbelean", "search.result.more.one": "Bat gehiago orri honetan", "search.result.more.other": "# gehiago orri honetan", "search.result.none": "Bat datorren dokumenturik ez", "search.result.one": "Bat datorren dokumentu bat", "search.result.other": "Bat datozen # dokumentu", "search.result.placeholder": "Idatzi bilatzen hasteko", "search.result.term.missing": "Falta da", "select.version": "Hautatu bertsioa"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

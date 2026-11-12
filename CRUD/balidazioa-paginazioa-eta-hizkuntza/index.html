@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2421,7 +2421,7 @@
 <div class="highlight"><pre><span></span><code><span class="x">$pupils = Pupil::paginate(10);</span>
 </code></pre></div>
 <p>Beste metodo bat erabili dezakeguna orderBy izango da, hau beste metodoekin eraili dezakegu, adibidez:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$pupils = Pupil::orderBy('id','desc')-&gt;paginate();</span>
+<div class="highlight"><pre><span></span><code><span class="x">$pupils = Pupil::orderBy(&#39;id&#39;,&#39;desc&#39;)-&gt;paginate();</span>
 </code></pre></div>
 <ol>
 <li>index.blade.php bistan paginazioaren linkak jarriko ditugu hurrengo direktiba erabiliz::</li>
@@ -2441,10 +2441,10 @@
 <p>Laravelek adierazi egiten du, momentu baten balidazioa betetzen ez baldin bada, ez da hurrengo kode lerrora pasatuko eta akatsa emango digu. Aldiz, balidazio guztiak ondo daudenean aurrera jarraituko du.</p>
 <p>Gure kasuan, store() metodoan idatziko dugu, gure datu guztiak balidatuko ditugu:</p>
 <div class="highlight"><pre><span></span><code><span class="x">$validated = $request-&gt;validate([</span>
-<span class="x">    'name' =&gt; 'required|string|max:75',</span>
-<span class="x">    'age' =&gt; 'required|integer|min:0',</span>
-<span class="x">    'phone' =&gt; 'required|string|max:20',</span>
-<span class="x">    'address' =&gt; 'required|string|max:75',</span>
+<span class="x">    &#39;name&#39; =&gt; &#39;required|string|max:75&#39;,</span>
+<span class="x">    &#39;age&#39; =&gt; &#39;required|integer|min:0&#39;,</span>
+<span class="x">    &#39;phone&#39; =&gt; &#39;required|string|max:20&#39;,</span>
+<span class="x">    &#39;address&#39; =&gt; &#39;required|string|max:75&#39;,</span>
 <span class="x">]);</span>
 
 <span class="x">Pupil::create($validated);</span>
@@ -2465,38 +2465,38 @@
 <li>create.blade.php bistan sortuko ditugu balidazio guztiak.</li>
 </ol>
 <p>Input elementuaren azpiko Izen-deiturak eremuan, eremu honetako baliozkotze-kodea gehitzen dugu Bladek eskaintzen digun zuzentarauarekin. @error aukerak eremu honi dagokion errore-mezua inprimatzeko aukera ematen digu.</p>
-<div class="highlight"><pre><span></span><code><span class="x">@error('name')</span>
-<span class="x">    &lt;p class="error-message"&gt;{{ $message }}&lt;/p&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="x">@error(&#39;name&#39;)</span>
+<span class="x">    &lt;p class=&quot;error-message&quot;&gt;{{ $message }}&lt;/p&gt;</span>
 <span class="x">@enderror</span>
 </code></pre></div>
 <ol>
 <li>Gure input-ari gehituko diogu old() metodoa, blade-ko direktiba bat dena. Honegaz lortuko dugu balidazioa egin baino lehen sartutako datua mantentzea.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="x">&lt;input type="text" name="name" placeholder="Izena" value="{{ old('name') }}"&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="x">&lt;input type=&quot;text&quot; name=&quot;name&quot; placeholder=&quot;Izena&quot; value=&quot;{{ old(&#39;name&#39;) }}&quot;&gt;</span>
 </code></pre></div>
 <ol>
 <li>Gauza berdina adina elementaun egingo dugu:</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="x">&lt;label&gt;Adina:&lt;/label&gt;</span>
 
-<span class="x">&lt;input type="text" name="age" placeholder="Adina" value="{{ old('age') }}"&gt;</span>
+<span class="x">&lt;input type=&quot;text&quot; name=&quot;age&quot; placeholder=&quot;Adina&quot; value=&quot;{{ old(&#39;age&#39;) }}&quot;&gt;</span>
 
-<span class="x">@error('age')</span>
-<span class="x">    &lt;p class="error-message"&gt;{{ $message }}&lt;/p&gt;&lt;br&gt;</span>
+<span class="x">@error(&#39;age&#39;)</span>
+<span class="x">    &lt;p class=&quot;error-message&quot;&gt;{{ $message }}&lt;/p&gt;&lt;br&gt;</span>
 <span class="x">@enderror</span>
 </code></pre></div>
 <ol>
 <li>Sartutako telefonoa eta helbidea ere mantenduko ditugu:</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="x">&lt;label&gt;Telefonoa:&lt;/label&gt;</span>
-<span class="x">&lt;input type="text" name="phone" placeholder="Telefonoa" value="{{ old('phone') }}"&gt;</span>
+<span class="x">&lt;input type=&quot;text&quot; name=&quot;phone&quot; placeholder=&quot;Telefonoa&quot; value=&quot;{{ old(&#39;phone&#39;) }}&quot;&gt;</span>
 <span class="x">&lt;label&gt;Helbidea:&lt;/label&gt;</span>
-<span class="x">&lt;input type="text" name="address" placeholder="Helbidea" value="{{ old('address') }}"&gt;</span>
+<span class="x">&lt;input type=&quot;text&quot; name=&quot;address&quot; placeholder=&quot;Helbidea&quot; value=&quot;{{ old(&#39;address&#39;) }}&quot;&gt;</span>
 </code></pre></div>
 <p>8.  Zer gertatzen da, balidazioa editatzerakoan egiten baldin badugu? Kasu horretan, formularioara sartzen garen lehenengo aldian, datu baseko datua atera nahi dugu, eta akatsa egotekoran old metodoan bueltatzen diguna, hori egiteko, old metodoari bigarren parametro bat sartuko diogu:</p>
 <div class="highlight"><pre><span></span><code><span class="x">&lt;label&gt;Telefonoa:&lt;/label&gt;</span>
 
-<span class="x">&lt;input type="text" name="phone" placeholder="Telefonoa" value="{{ old('phone', $pupil-&gt;phone) }}"&gt;</span>
+<span class="x">&lt;input type=&quot;text&quot; name=&quot;phone&quot; placeholder=&quot;Telefonoa&quot; value=&quot;{{ old(&#39;phone&#39;, $pupil-&gt;phone) }}&quot;&gt;</span>
 </code></pre></div>
 <p>Ikusten dugunez, mezuak ingeleraz aterako dira, hori aldatu nahi izatekotan, hizkuntza aldatu beharko dugu.</p>
 <ol>
@@ -2552,11 +2552,11 @@ APP_FALLBACK_LOCALE=eu
 <p>Baliozkotze-mezuetan Laravelrek automatikoki erabiltzen ditu formularioetako eremu-izenak (name, email, izen_abizen …).</p>
 <p>Eremu horiek modu “politean” erakutsi nahi baditugu,</p>
 <p>lang/eu/validation.php fitxategira joan eta bukaeran dagoen attributes atal honetan idazten ditugu:</p>
-<div class="highlight"><pre><span></span><code><span class="x">'attributes' =&gt; [</span>
-<span class="x">'izen\_abizen' =&gt; 'Izen Abizenak',</span>
-<span class="x">'email' =&gt; 'Posta Elektronikoa',</span>
-<span class="x">'password' =&gt; 'Pasahitza',</span>
-<span class="x">'name' =&gt; 'Izena',</span>
+<div class="highlight"><pre><span></span><code><span class="x">&#39;attributes&#39; =&gt; [</span>
+<span class="x">&#39;izen\_abizen&#39; =&gt; &#39;Izen Abizenak&#39;,</span>
+<span class="x">&#39;email&#39; =&gt; &#39;Posta Elektronikoa&#39;,</span>
+<span class="x">&#39;password&#39; =&gt; &#39;Pasahitza&#39;,</span>
+<span class="x">&#39;name&#39; =&gt; &#39;Izena&#39;,</span>
 <span class="x">];</span>
 </code></pre></div>
 <p>Horrela, errore-mezuak itzulita eta formatu egokian agertuko dira.</p>
@@ -2628,7 +2628,7 @@ php<span class="w"> </span>artisan<span class="w"> </span>lang:add<span class="w
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Arbelean kopiatuta", "clipboard.copy": "Kopiatu arbelean", "search.result.more.one": "Bat gehiago orri honetan", "search.result.more.other": "# gehiago orri honetan", "search.result.none": "Bat datorren dokumenturik ez", "search.result.one": "Bat datorren dokumentu bat", "search.result.other": "Bat datozen # dokumentu", "search.result.placeholder": "Idatzi bilatzen hasteko", "search.result.term.missing": "Falta da", "select.version": "Hautatu bertsioa"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

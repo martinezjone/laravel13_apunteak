@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2294,7 +2294,7 @@
 
 <span class="x">public function index(){</span>
 
-<span class="x">return "Hau da nire blog-aren lehenengo orria. Ongi etorri!!";</span>
+<span class="x">return &quot;Hau da nire blog-aren lehenengo orria. Ongi etorri!!&quot;;</span>
 
 <span class="x">}</span>
 </code></pre></div>
@@ -2302,19 +2302,19 @@
 <div class="highlight"><pre><span></span><code><span class="x">use App\Http\Controllers\HomeController;</span>
 </code></pre></div>
 <p>Eta ondoren jada, erabili ahal izango ditugu kontroladore horren klaseak dituen metodo guztiak, adibidez index.php adibide honetan adierazten den moduan:</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get('/', [HomeController::class, 'index']);</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;/&#39;, [HomeController::class, &#39;index&#39;]);</span>
 </code></pre></div>
 <p>Normalean kontroladore bakoitzak hainbat metodo izango ditu, baina bakarra izatekotan, gure metodoari index deitu beharrean __invoke() eta kasu horretan ruta definitzerakoan ez dugu zertan metodoaren izena jarri behar, zuzenean metodo horretara sartuko zelako.</p>
 <div class="highlight"><pre><span></span><code><span class="x">class HomeController extends Controller{</span>
 
 <span class="x">public function __invoke(){</span>
 
-<span class="x">return "Hau da nire blog-aren lehenengo orria. Ongi etorri!!";</span>
+<span class="x">return &quot;Hau da nire blog-aren lehenengo orria. Ongi etorri!!&quot;;</span>
 
 <span class="x">}</span>
 </code></pre></div>
 <p>Eta rutan, kontroladorearen izena jarriko genuke soilik</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get('/', HomeController::class);</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;/&#39;, HomeController::class);</span>
 </code></pre></div>
 <p>Resource Controller</p>
 <p>Gure kontroladorea CRUD bat egiteko erabiliko dugunean, badugu aukera artisanen bidez laraveleri esateko horretarako erabiliko dugula</p>
@@ -2373,7 +2373,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Arbelean kopiatuta", "clipboard.copy": "Kopiatu arbelean", "search.result.more.one": "Bat gehiago orri honetan", "search.result.more.other": "# gehiago orri honetan", "search.result.none": "Bat datorren dokumenturik ez", "search.result.one": "Bat datorren dokumentu bat", "search.result.other": "Bat datozen # dokumentu", "search.result.placeholder": "Idatzi bilatzen hasteko", "search.result.term.missing": "Falta da", "select.version": "Hautatu bertsioa"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
