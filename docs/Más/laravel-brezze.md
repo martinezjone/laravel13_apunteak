@@ -1,10 +1,10 @@
 # Laravel Brezze
 
-### Instalazioa
+## Instalazioa
 
 Laravel Breeze Laravelen kit bat da gure aplikazioan erabiltzaileen erregistroak kudeatzeko eta autentikatzeko balioko diguna.
 
-Laravel dokumentazio ofiziala: <https://laravel.com/docs/12.x/starter-kits#laravel-breeze>
+Laravel dokumentazio ofiziala (starter kit-ak): <https://laravel.com/framework/docs/13.x/starter-kits#community-maintained-starter-kits>
 
 Larabel Breeze instalatzeko hurrengo pausuak jarraitu behar dira:
 
@@ -34,7 +34,7 @@ Kontutan izan ere laravel breezek sortzen dituen bista guztiak Tailwinekin disei
 
 Erabiltzaile-interfazearen zati bakoitza pertsonaliza dezakezu, resources/view/auth karpetan bista-fitxategiak editatuta; erabiltzaile-interfazearen zati bat Blade osagaietan dago antolatuta, eta resources/view/components karpetan aurki dezakezu.
 
-### Rutak (web.php)
+## Rutak (web.php)
 
 Ikusten dugun moduan, Breezek bere rutak sortzen ditu, ProfileController-ek exekutatzen dituen rutak. Guk gureak sartuko ditugu ere, beraz hemen kopiatuko ditugu.
 

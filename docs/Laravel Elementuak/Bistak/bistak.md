@@ -86,13 +86,13 @@ Laraveleko bistak - blade
 
 Laravelek badu txantiloi motore bat, blade izenekoa, oso erabilgarria egingo zaiguna bistekin lan egiteko.
 
-Hau da Laraveleko orri ofiziala: <a href ="https://laravel.com/docs/12.x/blade" target="_blank">https://laravel.com/docs/12.x/blade</a>
+Hau da Laraveleko orri ofiziala: <a href ="https://laravel.com/framework/docs/13.x/blade" target="_blank">https://laravel.com/framework/docs/13.x/blade</a>
 
 - Bistak Laravelen, php eta html nahazten sortu daitezke.
 - Batzutan kode hibrido hau ulertzeko zaila izan daiteke.
 - Hori dela eta, txantiloiak erabiltzen dira, modu honetan aldagaia den kodea html-en sartzea errezagoa izango da.
 
-### Datuak erakutsi
+## Datuak erakutsi
 
 Bladen datuak erakustea oso erreza da, horretarako bakarrik giltza bikoitza erabili behar da {{ }} eta barruan erakutsi nahi dugun aldagaia edo funtzioa.
 
@@ -104,7 +104,7 @@ Momentu honetako ordua da: {{ time() }}.
 
 Php kode guztia giltza horen barruan idatzei behar dugu.
 
-### Datua erakutsi soilik existitzekotan
+## Datua erakutsi soilik existitzekotan
 
 Aldagai edo datu zehatz bat existitzen bada ziurtatzeko, hurrengo metodoa erabili dezakegu:
 
@@ -118,9 +118,8 @@ Edo bestela ere,  blade-ek  duen notazio honen bidez:
 {{ $name or 'Lehenetsiko balioa' }}
 ```
 
-###
 
-### Php kodea sartzeko
+## PHP kodea sartzeko
 
 Momentu baten gure bistan php kodea sartzeko, hurrengo etiketak erabili beharko ditugu:
 
@@ -132,7 +131,7 @@ Momentu baten gure bistan php kodea sartzeko, hurrengo etiketak erabili beharko 
 @endphp
 ```
 
-### Iruzkinak
+## Iruzkinak
 
 Laravelen barruan iruzkinak idazteko  {{-- eta --}} erabiliko dugu. Hauek iruzkinak ez dira HTML-n erakutsiko:
 
@@ -140,9 +139,8 @@ Laravelen barruan iruzkinak idazteko  {{-- eta --}} erabiliko dugu. Hauek iruzk
 {{-- Iruzkin hau ez da html-an erakutsiko --}}
 ```
 
-###
 
-### Kontrol estrukturak
+## Kontrol estrukturak
 
 Bladen IF estruktutak horrela erabili ditzakegu:
 
@@ -210,7 +208,7 @@ Bukleak (for, while eta foreach) horrela erabiliko genituzke blase barruan:
 @endwhile
 ```
 
-Aukera gehiago ikusteko, Laravelen estekan begiratu: <a href="https://laravel.com/docs/12.x/blade" target="_blank">https://laravel.com/docs/12.x/blade</a>
+Aukera gehiago ikusteko, Laravelen estekan begiratu: <a href="https://laravel.com/framework/docs/13.x/blade" target="_blank">https://laravel.com/framework/docs/13.x/blade</a>
 
 Txantiloi bat beste baten barruan sartu
 

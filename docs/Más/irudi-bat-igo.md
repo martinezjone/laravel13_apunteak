@@ -1,6 +1,6 @@
 # Irudi bat igo
 
-### Eremu berri bat sartzen (ikasles taulan)
+## Eremu berri bat sartzen (ikasles taulan)
 
 Ikaslearen argazkia igotzeko orain arte egindako adibidea erabiliko dugu. Horretarako gure datu baseko pupils taula aldatuko dugu "photo" izeneko eremu berria gehituz.
 
@@ -26,9 +26,9 @@ $table->dropColumn('photo');
 
 ![](../assets/images/Irudi%20bat%20igo/e5469230605c1f9ba765a0cf3d64f7ff.jpg)
 
-### File Storage
+## File Storage
 
-Laravel dokumentazioa: <https://laravel.com/docs/12.x/filesystem#main-content>
+Laravel dokumentazioa: <https://laravel.com/framework/docs/13.x/filesystem#main-content>
 
 Flysystem integrazioak, ematen dio Laraveleri fitxategiekin lan egiteko kontroladore pilo. Storage-k emango digu aukera beraz fitxategiekin lan egiteko.
 
@@ -50,7 +50,7 @@ php artisan storage:link
 
 Horrela public/storage → storage/app/public lotuko du.
 
-### Irudia igo (Bista eta kontroladorea) - Storage
+## Irudia igo (Bista eta kontroladorea) - Storage
 
 Lehenengo eta behin "pupils.create" bistan fitxategia igotzeko aukera emango dugu:
 
@@ -84,7 +84,7 @@ Bistan, gure irudia ikusteko url() metodoa ereabiliko dugu:
 <img src="{{ url('storage/' . $pupil->photo)}}" alt="" width="80px" height="80px"/>
 ```
 
-### Irudia igo (Kontroladorea) - move
+## Irudia igo (Kontroladorea) - move
 
 ```php
 public function store(StorePupil $request){

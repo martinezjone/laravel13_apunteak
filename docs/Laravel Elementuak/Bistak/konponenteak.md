@@ -1,8 +1,8 @@
-# KONPONENTEAK
+# Konponenteak
 
 Laravel-en konponenteak HTML-a eta PHP-a modu garbiago eta antolatuago batean konbinatzeko modu bat dira. Konponente hauek, berez, HTML eta PHP kode-blokeak dira eta, behin sortuta, erraz berrerabili daitezke beste plantilla edo orri askotan. Honek kodea errepikatu gabe diseinuak erabili eta mantentzea askoz ere errazago egiten du.
 
-Dokumentazio ofiziala: <https://laravel.com/docs/11.x/blade#components>
+Dokumentazio ofiziala: <https://laravel.com/framework/docs/13.x/blade#components>
 
 Konponente bat sortzeko, view karpetaren barruan, beste karpeta bat sortuko dugu components izenarekin, eta honen barruan gure konponentearen blade-a sortuko genuke, adibidez:
 
@@ -131,41 +131,41 @@ Eta orain gure konponente barruan php kodea sartuko dugu esateko zein alerta ate
 
 switch ($type) {
 
-case 'info':
+    case 'info':
 
-$class = "bg-blue-50 text-blue-800";
+        $class = "bg-blue-50 text-blue-800";
 
-break;
+        break;
 
-case 'danger':
+    case 'danger':
 
-$class = "bg-red-50 text-red-800";
+        $class = "bg-red-50 text-red-800";
 
-break;
+        break;
 
-case 'success':
+    case 'success':
 
-$class = "bg-green-50 text-green-800";
+        $class = "bg-green-50 text-green-800";
 
-break;
+        break;
 
-case 'warning':
+    case 'warning':
 
-$class = "bg-yellow-50 text-yellow-800";
+        $class = "bg-yellow-50 text-yellow-800";
 
-break;
+        break;
 
-case 'dark':
+    case 'dark':
 
-$class = "bg-gray-50 text-gray-800";
+        $class = "bg-gray-50 text-gray-800";
 
-break;
+        break;
 
-default:
+    default:
 
-# code...
+        # code...
 
-break;
+        break;
 
 }
 
@@ -173,7 +173,7 @@ break;
 
 <div class="p-4 mb-4 text-sm {{ $class }}  rounded-lg  dark:bg-gray-800 dark:text-blue-400" role="alert">
 
-<span class="font-medium">{{ $title ?? '' }}</span> {{ $slot }}
+    <span class="font-medium">{{ $title ?? '' }}</span> {{ $slot }}
 
 </div>
 ```
@@ -204,7 +204,7 @@ Hau da alerta mezuaren edukia
 Kasu honetan bigarren parametro hori, promps-en jaso beharrean $attributes-en jasoko genuke. Adibide honetan, gure konponentean  {{$attributes}} idaztekotan, pantailatik zuznean class="mb-4" agertuko litzateke.
 ```
 
-Componentes de clase
+"Clase komponenteak"
 
 Orain arte erabili duguna "componente anónimo" deitzen zaio, baina badago aukera gelako konponenteak egiteko. Horretarako artisan-en bidez sortuko dugu. Konponente anonimo baten, bista bat soilik zango dugu, baina gelako  konponentea sortzerakoan, alde batetik klase bat sortuko du, alertaren logika guztia izateko, eta bestetik bista bat, koponente horren itxura izateko.
 

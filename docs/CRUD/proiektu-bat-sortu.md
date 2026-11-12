@@ -1,12 +1,12 @@
 # Proiektu bat sortu
 
-### Aula aplikazioa
+## Aula aplikazioa
 
 Aula aplikazio bat sortuko dugu Laravelekin. Ikasleak, irakasleak eta kurtsoak izango ditugu aplikazio honetan, eta 3 taula horien kudeaketa egingo dugu.
 
 Horretarako lehenengo gauza egingo duguna gure Laravel proiektua sortzea izango da.
 
-### Laravel proiektu bat sortzeko
+## Laravel proiektu bat sortzeko
 
 Laravel proiektu bat sortzeko hurrengo pausuak jarraitu behar ditugu:
 
@@ -30,7 +30,7 @@ Horrelako orrialde bat topatuko dugu:
 
 ![](../assets/images/Proiektu%20bat%20sortu/e097dbca9101d55bd0f3905ab758e1f5.jpg)
 
-### Laravel proiektu bat sortzeko - Lavarel installer-ekin
+## Laravel proiektu bat sortzeko - Lavarel installer-ekin
 
 ```bash
 composer global require laravel/installer

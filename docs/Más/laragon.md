@@ -2,7 +2,7 @@
 
 ![Irudia](../assets/images/Laragon/99b43c2083051c0136fba016c3cead6b.jpg)
 
-# Laragon instalazioa
+## Laragon instalazioa
 
 Laragon-eko azkeneko bertsioetan lizentzia eskatzen du, horretarako,aurreko bertsio bat instalatu behar dugu, 8.0.0 baino aurrerako bertsio bat.
 

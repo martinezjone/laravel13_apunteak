@@ -60,7 +60,7 @@ Taula guztiak ezabatzen ditu FIZIKOKI, eta gero up() metodo guztiak exekutatzen 
 
 Ez du down() metodoa erabiltzen, eta horregatik arriskutsuagoa da.
 
-### Taula berri bat sortu migrazio bat erabiliz
+## Taula berri bat sortu migrazio bat erabiliz
 
 Taula berri bat sortzeko, migrazio berri bat sortuko genuke, hurrengo instrukzioa erabiliz:
 
@@ -71,42 +71,30 @@ php artisan make:migration create_posts_table
 Behin fitxategia sortuta dugunean, klase berri bat sortu digutela ikusi dezakegu, horren ostean up() eta down() metodoak aldatuko ditugu:
 
 ```php
-public function up(): void
+public function up(): void{
+    Schema::create('posts', function (Blueprint $table) {
 
-{
+        $table->id();
 
-Schema::create('posts', function (Blueprint $table) {
+        $table->string('title');
 
-$table->id();
+        $table->text('content');
 
-$table->string('title');
+        $table->timestamps();
+    });
+}
 
-$table->text('content');
+// Reverse the migrations.
 
-$table->timestamps();
 
-});
+public function down(): void{
+
+    Schema::dropIfExists('posts');
 
 }
 ```
 
-/\*\*
-
-\* Reverse the migrations.
-
-\*/
-
-```php
-public function down(): void
-
-{
-
-Schema::dropIfExists('posts');
-
-}
-```
-
-### Zelan egin taula baten eremu aldaketa taulak datuak izanda?
+## Zelan egin taula baten eremu aldaketa taulak datuak izanda?
 
 Taula baten eremuak aldatzeko, migrazioa sortuko genuke ere. Hau horrela egingo genuke datu basean datuak izanez gero, ez izatekotan zuzenean create migrazioa aldatuko genuke eta refresh batekin exekutatu guztiak.
 
@@ -142,6 +130,6 @@ Demagun email eremuaren ostean jarri nahi dugula:
 $table->string('avatar')->nullable()->after('email');
 ```
 
-Dokumentazio ofiziala hurrengo esteka honetan duzue: <https://laravel.com/docs/12.x/migrations>
+Dokumentazio ofiziala hurrengo esteka honetan duzue: <https://laravel.com/framework/docs/13.x/migrations>
 
 Hurrengoa: Eloquent

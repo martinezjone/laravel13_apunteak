@@ -4,7 +4,7 @@ Esan bezala, Laravelek 4 kontzepturekin egiten du lan, hurrengo irudian ikusi de
 
 ![](../assets/images/Zelan%20funtzionatzen%20du/4f323cafbe17ccd736212210ae8e6cef.jpg)
 
-## RUTAK
+## Rutak
 
 Rutak erabiltzea oso kontzeptu garrantzitsua da Laravel erabiltzen hasteko.
 
@@ -24,7 +24,7 @@ Aurrerago sakonduko dugu honetan, baina adibide bat jartzearren, hau izango zen 
 Route::get('/ikasleak', [IkasleController::class, 'index'])  ->name('ikasleak.index');
 ```
 
-## MODELOAK
+## Modeloak
 
 ![](../assets/images/Zelan%20funtzionatzen%20du/033cb0422ace1e74d71164280d73259d.jpg)
 
@@ -46,7 +46,7 @@ Kontua da, datu-baseko elementu guztiek objektu manipulagarri gisa duten irudika
 
 Eloquent-ekin, taula bat Model klasea handitzen duen klase baten bidez irudikatzen da.
 
-## bistak
+## Bistak
 
 Laravelek bere txantiloi-sistema du, blade izenekoa.
 
@@ -68,7 +68,7 @@ Orain, php kodea sartzeko, ez dugu php etiketa zabaldu eta itxi behar, aurreko a
 @foreach ($ikasleak as $ikasle)
 ```
 
-## kontroladoreak
+## Kontroladoreak
 
 Laraveleko kontrolatzaileak zure web aplikazioaren zati logiko gisa defini daitezke.
 

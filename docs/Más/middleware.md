@@ -1,6 +1,6 @@
 # Middleware
 
-### Zer da Middleware bat?
+## Zer da Middleware bat?
 
 Laraveleko middleware bat ibilbideetako filtro gisa funtzionatzen duen klase bat da, hau da, gure ibilbideari edo ibilbide-taldeari middelware bat gehitu diezaiokegu, adibidez, erabiltzaile bat gure aplikazioan autentifikatuta ez badago haietara sartzea murrizteko.
 
@@ -12,7 +12,7 @@ Laravelek baditu lehentsiko middleware batzuk, hauek: app>http>Middleware karpet
 
 Adbidez ikusi dezakegu zelan Laravelek baditu erabiltzen dituen bi, Providers > RouteServiceProvider.php-n api eta web, baina guk sortu ditzakegu gute Middleware propioak:
 
-### Middleware sortu:
+## Middleware sortu:
 
 Middleware bat sortzeko, artisan erabiliko dugu modu honetan:
 
@@ -40,7 +40,7 @@ return $next($request); // Honek esan nahi du aurrera jarraituko duela
 
 Adibide honetan mezua aterako dugu echo baten bidez, dakigunez hau ez da horrela egiten, adibide hau egiteko bakarrik egingo dugu, mezu guztiak bisten bidez atera beharko genituzkelako, eta bestetik Middleware-ak eginkizunak normalean erabiltzailea leku batera edo bestera eramateko erabili oi da.
 
-### Middlewarea erregistratu
+## Middlewarea erregistratu
 
 Orain, sisteman nola exekutatzen den ikusteko, middlewarea erregistratuko dugu. Modu globalean erregistratzen hasiko gara, gure aplikazioak aintzat hartzen dituen eskaera guztietan gauzatu dadin.
 
@@ -130,7 +130,7 @@ $this->middleware('domingo');
 
 Kasu honetan ez dugu bide-sistematik middlewarea aipatu behar; kontrolatzailearen eraikitzailetik soilik aipatuko dugu, bertan deklaratutako edozein ekintzatan exekutatzeko.
 
-### Middleware bat hurrengoarekin lotu:
+## Middleware bat hurrengoarekin lotu:
 
 Laraveleko middlewareen filosofiaren arabera, eskaera bakoitzerako katean, bata bestearen atzetik exekutatzen diren batzuk egon daitezke. Horregatik ziurtatu behar dugu kateatze hori gerta daitekeela. Egia esan, lan hori, dagoeneko, artisanekin sortzen den middlewarean egiten da, eta, beraz, ez gara gu kezkatu behar. Hala ere, kate-prozesamendu hori non lortzen den ikustea nahi dugu.
 
@@ -150,4 +150,4 @@ Berez, ez dugu ezer eskuz egin behar, Laravelek handle metodoan ematen baitizkio
 
 Lehenespen gisa agertzen den return hori uztea besterik ez litzateke izango gure lana, denak funtzionatzen jarrai dezan.
 
-<https://laravel.com/docs/12.x/middleware#defining-middleware>
+<https://laravel.com/framework/docs/13.x/middleware#defining-middleware>

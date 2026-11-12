@@ -6,9 +6,9 @@ Laravelen ibilbide-sistema nahiko erraza da, eta, beraz, pausu gutxitan, mota gu
 
 Rutak sortzeko, Laravelek badu fitxategi zehatz bat routes karpetan web.php izenekoa.
 
-Guk ruta orokorrak ikusiko ditugu, ala ere dokumentazio guztia hurrengo estekan duzue: <https://laravel.com/docs/11.x/routing>
+Guk ruta orokorrak ikusiko ditugu, ala ere dokumentazio guztia hurrengo estekan duzue: <https://laravel.com/framework/docs/13.x/routing>
 
-### Metodoak
+## Metodoak
 
 Sartzen den informazioa interpretatzen jakin behar du Laravel aplikazioak, eta nabarmen erabili bezeroak eskatzen duena itzultzeko. Beraz guk URI bat sartzerakoan ez dugu soilik esango zer den URI-an jarri behar dutena, baizik eta ere zein metodoarekin helduko diren gure rutara.
 
@@ -38,7 +38,7 @@ Hau izango da ruta orokorra da, kasu honetan welcome bista erakutsiko duen ruta.
 
 Hau da kontsulta zikloa
 
-### Oinarrizko bideratzea (Enrutamiento básico)
+## Oinarrizko bideratzea (Enrutamiento básico)
 
 Laraveleko ruta guztiak, erroko direktorioa izango dute oinarri. Beraz, gure zerbitzari lokalean, aurreko rutara deitzeko, gure nabegatzailean horrelako zeozer idatziko genuke:
 
@@ -73,7 +73,7 @@ return 'DELETE metodoa';
 ```
 
 
-### Ibilibide anitz
+## Ibilibide anitz
 
 Imagina dezakegun badugula web bat hiru orriekin, hau da, horrelako zeozer:
 
@@ -113,7 +113,7 @@ Lehenengo orri sartzeko, ez bagenuke domeinurik izango, horrelako zeozer izango 
 
 Baina, hau ikusita, beharko genuke benetan 3 ibilbide sortu, aldaketa bakarra aldatzen den balioa denean?
 
-### Rutak parametroekin
+## Rutak parametroekin
 
 Ibilibide edo ruta bat parametrizada dagoela esaten dugu, edozein balio hartu dezakeenean.
 
@@ -139,7 +139,7 @@ return 'Nire orriaren zenbakia: ' . $n . ' !';
 
 Adibidean ikusi daitekeenez, kasu honetan ere, lehenetistako balioa jarri dugu, hau da, parametrorik ez izanez gero, n-k 1 balioa hartuko du.
 
-### Exekuzio denboran emandako akatsak eta ibilibideen errestrikzioak
+## Exekuzio denboran emandako akatsak eta ibilibideen errestrikzioak
 
 Aurreko adibideetan, horrelako zeozer jartzerakoan 404 errorea emango liguke:
 
@@ -157,7 +157,7 @@ Hau izango zen emaitza:
 
 ¡Edozein gauza orria naiz!
 
-### Izena duten rutak
+## Izena duten rutak
 
 Laravelek aholkatzen digu gure rutei izenak ematea beti, horrela errezago egingo zaigu hauei deitzea; hurrengo adibidean ruta horreri deitzeko 'home' soilik idatzi beharko genuke.
 
@@ -171,7 +171,7 @@ return 'Hasiera orria naiz!';
 })->name('home');
 ```
 
-### Ibilibideen ordena
+## Ibilibideen ordena
 
 Oso garratzitsua da jakitea zein den ibilbideen ordena exekutatzerakoan, guk nahi duguna bistaratu dezan.
 
@@ -195,7 +195,7 @@ Lehenengo rutan, 'n'-k edozein balio har dezakeenez, 'contact' hitza ere hartu d
 
 Beraz, ruta biak ondo funtzionatu dezaten, lehenengo 'contact' ruta jarri beharko genuke eta ondoren bestea.
 
-### Ibilbide-taldeak kontrolatzailean
+## Ibilbide-taldeak kontrolatzailean
 
 Laravel 9-tik aurrera, controller() metodoa erabil dezakezu Kontroladore baten ruta guztiak honen barruan izateko. Horrela eginez gero, kodea txukunago geratuko litzateke.
 
@@ -213,7 +213,7 @@ Route::get('cursos/{curso}', 'show');
 });
 ```
 
-### Resource ibilbideak
+## Resource ibilbideak
 
 Laravelen ere, gure kontroladoreak resource metodoarekin egiterakoan, ikusi genuen zelan sortu zizkigun hainbat metodo kontroladore horren bidez CRUDa egin ahal izateko, ba kontroladore horren barruan dauden metodo guzti horiek deitzeko ibilibide bakar bategaz egin dezake, metodo hori resource metodoa da:
 

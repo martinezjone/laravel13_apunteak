@@ -1,6 +1,6 @@
-# ESKOLA ADIBIDEA
+# Eskola adibidea
 
-### Ikasle erregistro guztiak erakutsi
+## Ikasle erregistro guztiak erakutsi
 
 Gure ikasleen zerrenda bistaratzeko hurrengo pausuak eman beharko ditugu:
 
@@ -22,11 +22,9 @@ Route::get('/pupils', [PupilController::class, 'index'])->name('pupils.index');
 
 ```php
 public function index(){
+    $pupils= Pupil::all();
 
-$pupils= Pupil::all();
-
-return view('pupils.index',compact('pupils'));
-
+    return view('pupils.index',compact('pupils'));
 }
 ```
 
@@ -36,80 +34,62 @@ Laravelen, badaude beste konbentzio pare bat bistak sortzeko, alde batetik bista
 
 ```php
 @foreach($pupils as $pupil)
+    <label><strong>Izen abizenak:</strong> {{ $pupil->name}}</label><br>
 
-<label><strong>Izen abizenak:</strong> {{ $pupil->name}}</label><br>
+    <label><strong>Adina:</strong> {{ $pupil->age}}</label><br>
 
-<label><strong>Adina:</strong> {{ $pupil->age}}</label><br>
+    <label><strong>Telefonoa:</strong> {{ $pupil->phone}}</label><br>
 
-<label><strong>Telefonoa:</strong> {{ $pupil->phone}}</label><br>
-
-<label><strong>Helbidea:</strong> {{ $pupil->address}}</label>
+    <label><strong>Helbidea:</strong> {{ $pupil->address}}</label>
+@endforeach
 ```
 
-@endforeach
-
-5. Kasu honetan gure erregistro guztiak erakutsi ditugu, horretarako all() metodoa erabiliz. Baina baditugu hainbat metodo gure kontsultetan erabili ahal izateko. Query-ak zelan sortu ditzakegu Laravel dokumentazioa ikusi dezakezue, [Query builder](https://laravel.com/docs/12.x/queries).
+5. Kasu honetan gure erregistro guztiak erakutsi ditugu, horretarako all() metodoa erabiliz. Baina baditugu hainbat metodo gure kontsultetan erabili ahal izateko. Query-ak zelan sortu ditzakegu Laravel dokumentazioa ikusi dezakezue, [Query builder](https://laravel.com/framework/docs/13.x/queries).
 6. Adibide batzuk:
 
-// Izenetik ordenatu
-
 ```php
+
+// Izenetik ordenatu
 $pupils = Pupil::orderBy('name')->get();
 
 // Ikasle guztiak hartzen ditu baina bakarrik izena eta adina
-
 $pupils = Pupil::select('name', 'age')->get();
 
 // Where bat erabiliz
-
 $pupils = Pupil::where('address', 'Bilbao')->get();
 
 // Where konbinatuak: adina > 18 edo helbidea = 'Bilbao'
-
-$pupils = Pupil::where('age', '>', 18)
-
-->orWhere('address', '=', 'Bilbao')
-
-->get();
+$pupils = Pupil::where('age', '>', 18)->orWhere('address', '=', 'Bilbao')->get();
 
 // Name like '%Jon%'
-
 $pupils = Pupil::where('name', 'like', '%Jon%')->get();
 
 // Adina > 20 guztiak
-
 $pupils = Pupil::where('age', '>', 15)->get();
 
 // Adina > 20, lehenengoa bakarrik
-
 $pupil = Pupil::where('age', '>', 20)->first();
 
 // Zenbat erregistro dauden
-
 $pupilCount = Pupil::count();
 
 // Lehenengo 10 ikasleak
-
 $pupils = Pupil::limit(10)->get();
 
 // Adin maximoa
-
 $maxAge = Pupil::max('age');
 
 // Adin minimoa
-
 $minAge = Pupil::min('age');
 
 // Adin batazbestekoa
-
 $avgAge = Pupil::avg('age');
 
 // Adinen batura
-
 $totalAge = Pupil::sum('age');
 ```
 
-### Erregistro bat ikustaraztea
+## Erregistro bat ikustaraztea
 
 - Ruta sortu
 - Kontroladorean beharrezkoa den metodoa sortu eta datu basean ikaslea atera find() metodoarekin
@@ -123,7 +103,7 @@ Erregistro bakar bat erekusteko, show() metodoa erabiliko dugu:
 ```php
 public function show(Pupil $pupil){
 
-return view('pupils.show', compact('pupil'));
+    return view('pupils.show', compact('pupil'));
 
 }
 ```
@@ -152,7 +132,7 @@ Route::get('pupils/{pupil}', [PupilController::class, 'show'])->name('pupils.sho
 <a href="{{ route('pupils.show', $pupil->id) }}">{{ $pupil->name }}</a>
 ```
 
-### Ikasle berri bat sortu: Create eta store metodoak
+## Ikasle berri bat sortu: Create eta store metodoak
 
 - Ruta sortu
 - Kontroladorean beharrezkoa diren metodoak sortu eta datu basean ikaslea sortu: create() eta store() metodoak erabiliz.
@@ -165,22 +145,17 @@ Oraingo honetan, ikasle berri bat sortuko dugu gure datu basean, horretarako met
 2. Bista, "alumnos" karpetan sortuko dugu "create.blade.php" izenarekin
 3. Hurrengo hau izango da formulario izango duen bistaren kodea:
 
-```php
+```html
 <form action="{{ route('pupils.store') }}" method="POST">
 
-@csrf
-```
+    @csrf
 
-Izen Abizena <input type="text" name="izena" value=""><br>
+    Izen Abizena <input type="text" name="izena" value=""><br>
+    Adina <input type="text" name="adina" value=""><br>
+    Telefonoa <input type="text" name="telefonoa" value=""><br>
+    Helbidea<input type="text" name="helbidea"  value=""><br>
 
-Adina <input type="text" name="adina" value=""><br>
-
-Telefonoa <input type="text" name="telefonoa" value=""><br>
-
-Helbidea<input type="text" name="helbidea"  value=""><br>
-
-```html
-<button type="submit">Bidali</button>
+    <button type="submit">Bidali</button>
 
 </form>
 ```
@@ -201,7 +176,7 @@ Create() metodoa ikasle berri bat sortzeko behar dugun formularioa erakusteko:
 ```php
 public function create(){
 
-return view('pupils.create');
+    return view('pupils.create');
 
 }
 ```
@@ -210,21 +185,13 @@ Store() metodoa formularioak bidalitako informazioa datu basean gordetzeko:
 
 ```php
 public function store(Request $request){
-```
+    Pupil::create([
+    'name' => $request->name,
+    'age' => $request->age,
+    'phone' => $request->phone,
+    'address' => $request->address,
+    ]);
 
-Pupil::create([
-
-'name' => $request->name,
-
-'age' => $request->age,
-
-'phone' => $request->phone,
-
-'address' => $request->address,
-
-]);
-
-```php
 return redirect()->route('pupils.all');
 
 }
@@ -236,7 +203,7 @@ return redirect()->route('pupils.all');
 <a href="{{route('pupils.create')}}">Ikasle berria</a>
 ```
 
-### Ikasle baten datuak aldatu: Edit eta update metodoak
+## Ikasle baten datuak aldatu: Edit eta update metodoak
 
 - Ruta sortu
 - Kontroladorean beharrezkoa diren metodoak sortu eta datu basean ikaslea sortu: edit() eta update() metodoak erabiliz.
@@ -249,9 +216,7 @@ PupilController
 
 ```php
 public function edit(Pupil $pupil){
-
-return view('pupils.edit', compact('pupil'));
-
+    return view('pupils.edit', compact('pupil'));
 }
 ```
 
@@ -267,21 +232,14 @@ Route::get('pupils/edit/{pupil}',[PupilController::class,'edit'])->name('pupils.
 
 ```php
 <form action="{{ route('pupils.update', $pupil->id) }}" method="POST">
+    @csrf
 
-@csrf
-
-@method('put')
-
-<input type="text" id="izena" name="izena" value="{{$pupil->name}}">
-
-<input type="number" id="adina" name="adina" value="{{$pupil->age}}">
-
-<input type="tel" id="telefonoa" name="telefonoa" value="{{$pupil->phone}}">
-
-<textarea id="helbidea" name="helbidea" required>{{$pupil->address}}</textarea>
-
-<button type="submit">Gorde</button>
-
+    @method('put')
+    <input type="text" id="izena" name="izena" value="{{$pupil->name}}">
+    <input type="number" id="adina" name="adina" value="{{$pupil->age}}">
+    <input type="tel" id="telefonoa" name="telefonoa" value="{{$pupil->phone}}">
+    <textarea id="helbidea" name="helbidea" required>{{$pupil->address}}</textarea>
+    <button type="submit">Gorde</button>
 </form>
 ```
 
@@ -296,26 +254,18 @@ Route::put('pupils/update/{pupil}',[PupilController::class,'update'])->name('pup
 ```php
 public function update(Request $request, Pupil $pupil) {
 
-$pupil->update([
-```
+    $pupil->update([
+    'name' => $request->name,
+    'age' => $request->age,
+    'phone' => $request->phone,
+    'address' => $request->address,
+    ]);
 
-'name' => $request->name,
-
-'age' => $request->age,
-
-'phone' => $request->phone,
-
-'address' => $request->address,
-
-]);
-
-```php
-return redirect()->route('pupils.all');
-
+    return redirect()->route('pupils.all');
 }
 ```
 
-### Ikasle bat ezabatu: destroy() metodoa
+## Ikasle bat ezabatu: destroy() metodoa
 
 - Ruta sortu
 - Kontroladorean beharrezkoa den metodoa sortu, destroy() metodoa izago da hau
@@ -333,11 +283,8 @@ Ikusten dugunez, ruta hau delete metodoari deitzen dio, hau da ezabatzeko Larave
 
 ```php
 public function destroy(Pupil $pupil){
-
-$pupil->delete();
-
-return redirect()->route('pupils.all');
-
+    $pupil->delete();
+    return redirect()->route('pupils.all');
 }
 ```
 
@@ -345,27 +292,17 @@ return redirect()->route('pupils.all');
 
 ```php
 <form action="{{ route('pupils.destroy', $pupil->id) }}" method="POST" class="inline-block">
+    @csrf
 
-@csrf
+    @method('DELETE')
 
-@method('DELETE')
-
-<button type="submit">
-```
-
-```sql
-Delete
-```
-
-```html
-</button>
-
+    <button type="submit">Delete</button>
 </form>
 ```
 
 4. Ikusten dugunez, honek zuzenean ezabatzen du erregistroa.
 
-### Ikasle bat ezabatu - Ezabatzeko konfirmazioa eskatu
+## Ikasle bat ezabatu - Ezabatzeko konfirmazioa eskatu
 
 Baina, normalean badakigu zeozer ezabatu baino lehen aukera eman behar dugula ziurtatzeko erregistro hori ezabatu nahi dugula, zelan egingo genuke hori ordun?
 
@@ -384,7 +321,7 @@ Route::get('pupils/delete/{pupil}',[PupilController::class,'delete'])->name('pup
 ```php
 public function delete(Pupil $pupil){
 
-return view('pupils.delete', compact('pupil'));
+    return view('pupils.delete', compact('pupil'));
 
 }
 ```
@@ -395,25 +332,14 @@ Ziur zaude ezabatu nahi duzula?
 
 ```php
 <form action="{{ route('pupils.destroy', $pupil->id) }}" method="POST" class="inline-block">
+    @csrf
 
-@csrf
-
-@method('DELETE')
-
-<button type="submit">
-```
-
-```sql
-Delete
-```
-
-```html
-</button>
-
+    @method('DELETE')
+    <button type="submit">Delete</button>
 </form>
 ```
 
-### Resource rutak
+## Resource rutak
 
 Konbentzio guztiak jarraituz gero, ruta guzti hauek laburtu ditzakegu ruta bakar bategaz:
 
@@ -431,12 +357,9 @@ Resource bat baino gehiago sortu nahi badugu, gure resource rutari array baten p
 
 ```php
 Route::resources([
+    'photos' => PhotoController::class,
+    'posts' => PostController::class,
+]);
 ```
 
-'photos' => PhotoController::class,
-
-'posts' => PostController::class,
-
-]);
-
-Honen inguruko dokumentazio ofiziala: <https://laravel.com/docs/12.x/controllers#resource-controllers>
+Honen inguruko dokumentazio ofiziala: <https://laravel.com/framework/docs/13.x/controllers#resource-controllers>

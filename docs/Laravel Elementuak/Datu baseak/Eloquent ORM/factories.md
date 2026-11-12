@@ -1,6 +1,6 @@
-# FACTORIES
+# Factories
 
-Dokumentazioa: <https://laravel.com/docs/12.x/eloquent-factories>
+Dokumentazioa: <https://laravel.com/framework/docs/13.x/eloquent-factories>
 
 Seederrak aukera onak dira oso datu gutxi ditugunerako, baina badugu beste aukera bat, frogetarako datu asko behar ditugunerako, horretarako Factoriak ditugu, garapenerako pentsatutako klase batzuk dira hauek. Laravel 11-ak UserFactory izeneko factory-a sortuta du jada.
 
@@ -28,13 +28,11 @@ Faker sortu ahal dituen datu guztiak ikusteko [esteka honetan sartu](https://git
 use App\Models\Post;
 
 public function run()    {
+    $this->call(PostSeeder::class); // Seederrean sortutakoak  
 
-$this->call(PostSeeder::class); // Seederrean sortutakoak
-```
-
-Post::factory(10)->create();  // Gure factory-ari 10 biderretan deituko du, beraz, 10 erregistro sortuko ditu.
-
+    Post::factory(10)->create();  // Gure factory-ari 10 biderretan deituko du, beraz, 10 erregistro sortuko ditu.
 }
+```
 
 Behin hau eginda, seederra exekutatuko dugu berriro:
 

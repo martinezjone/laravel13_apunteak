@@ -1,6 +1,6 @@
-# BALIDAZIOAK
+# Balidazioak
 
-### Balidazioak
+## Balidazioak
 
 Laravelek baditu txertaturik balidazioetarako balio zaizkigun metodo batzuk. Hauek balidazioak datu basean datu bat sartu baino lehen egingo ditugu.
 
@@ -242,4 +242,4 @@ return [
 
 }
 
-Laravelen balidazio guztiak hurrengo estekan izango dituzue: <https://laravel.com/docs/12.x/validation#available-validation-rules>
+Laravelen balidazio guztiak hurrengo estekan izango dituzue: <https://laravel.com/framework/docs/13.x/validation#available-validation-rules>

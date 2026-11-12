@@ -1,4 +1,4 @@
-# mODELOAK
+# Modeloak
 
 Modeloak, MVC aplikazioen barruan datuekin lan egiten duten konponenteak dira. Datuak hainbat tokikoak izan daitezke, APIak, fitxategi sistema batekoak etab., baina normalean datu baseetako datuekin lan egingo dugu.
 
@@ -10,7 +10,7 @@ php artisan make:model Post
 
 Modeloa sortzerakoan, ikusi dezakegu, Eloquent erabiltzen duela, honi ezker, DB-ko taulak klase baten moduan erabili ditzakegu.
 
-Eloquent dokumentazioa: <https://laravel.com/docs/12.x/eloquent>
+Eloquent dokumentazioa: <https://laravel.com/framework/docs/13.x/eloquent>
 
 Sortutako klasea, Post gure kasuan, Eloquent-en Models klasetik hedatzen da:
 

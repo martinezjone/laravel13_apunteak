@@ -1,4 +1,4 @@
-# GIT
+# Git
 
 Web ofiziala: <https://git-scm.com/>
 

@@ -1,17 +1,27 @@
-site_name: DWS – Laravel apunteak
+site_name: DWS Apunteak Laravel 13 - 2026-2027  
 site_description: Laravel apunteak euskaraz
 theme:
   name: material
   language: eu
+  logo: images/logo.png
+  favicon: http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png
   palette:
   - scheme: default
-    primary: light blue
-    accent: deep orange
+    primary: '#004c95'
+    accent: '#e95f15'
+  - scheme: slate
+    primary: '#004c95'
+    accent: '#e95f15'
+    toggle:
+      icon: material/weather-night
+      name: Modu iluna
   features:
   - navigation.tabs
   - navigation.sections
   - navigation.expand
   - content.code.copy
+extra_css:
+- stylesheets/extra.css
 plugins:
 - search
 markdown_extensions:
@@ -36,7 +46,6 @@ nav:
     - Konponenteak: Laravel Elementuak/Bistak/konponenteak.md
     - Layouts: Laravel Elementuak/Bistak/layouts.md
   - Datu baseak:
-    - Datu baseak: Laravel Elementuak/Datu baseak/datu-baseak.md
     - Datu basea sortzen: Laravel Elementuak/Datu baseak/datu-basea-sortzen.md
     - Migrazioak: Laravel Elementuak/Datu baseak/migrazioak.md
     - Eloquent ORM:
@@ -51,6 +60,16 @@ nav:
   - Balidazioa, paginazioa eta hizkuntza: CRUD/balidazioa-paginazioa-eta-hizkuntza.md
   - Erlazioak (1-N): CRUD/erlazioak-1-n.md
   - Erlazioak (N-M): CRUD/erlazioak-n-m.md
+  - API REST eta JSON: CRUD/api-rest/01-api-rest-json.md
+  - API REST Laravel 13-rekin: 
+    - API REST eta JSON: CRUD/api-rest/01-api-rest-json.md
+    - API ibilbideak: CRUD/api-rest/02-api-ibilbideak.md
+    - JSON erantzunak: CRUD/api-rest/03-json-erantzunak.md
+    - API kontrolatzaileak eta CRUD: CRUD/api-rest/04-kontrolatzaileak-crud.md
+    - API Resources: CRUD/api-rest/05-api-resources.md
+    - Balidazioa eta erroreak: CRUD/api-rest/06-balidazioa-erroreak.md
+    - API probak: CRUD/api-rest/07-api-probak.md
+    - Laravel + Vue 3 + Sanctum: CRUD/api-rest/08-laravel-vue-sanctum.md
 - Más:
   - Zelan funtzionatzen du: Más/zelan-funtzionatzen-du.md
   - Laragon: Más/laragon.md
@@ -71,5 +90,3 @@ nav:
   - Laravel Dump Server: Más/laravel-dump-server.md
   - Laravel - Vue: Más/laravel-vue.md
   - Konponenteak_1: Más/konponenteak-1.md
-  - Copia de Balidazioa paginazioa eta hizkuntza: Más/copia-de-balidazioa-paginazioa-eta-hizkuntza.md
-  - Copia de Hasiera: Más/copia-de-hasiera.md

@@ -1,6 +1,6 @@
-# ESKOLA  ADIBIDEA
+# Eskola adibidea
 
-### N-M erlazioa
+## N-M erlazioa
 
 Aurreko datu basearekin jarraituz, ikusi dezakegu ikasturte eta ikasleen arteko erlazioa N-M erlazioa da, hau da, ikasle batek hainbat kurtso eman ditzake eta aldiz ikasturte batek hainbat ikasle izango ditu.
 
@@ -52,7 +52,7 @@ php artisan migrate
 
 ![](../assets/images/Erlazioak%20N-M/d3f908b413f8c5df0204ed448148b720.jpg)
 
-### Eloquent erlazioak
+## Eloquent erlazioak
 
 Erlazioak modeloetan adierazi behar dira ere. Horretarako hainbat gauza izan behar ditugu kontutan
 
@@ -80,7 +80,7 @@ return $this->belongsToMany(Pupil::class);
 }
 ```
 
-### Seeders - pupil\_course
+## Seeders - pupil\_course
 
 "Courses" Seeder
 
@@ -150,7 +150,7 @@ $course3->pupils()->attach([1,2,3,9]);
 }
 ```
 
-### Attach - Detach - Sync
+## Attach - Detach - Sync
 
 Ikasle baten ikastaroak eguneratzeko, bi eragiketa nagusi egin daitezke pivot taulan:
 
@@ -162,7 +162,7 @@ Adibidea: formulario batetik datozen ikastaroak
 
 Demagun formulario batek course\_ids array bat bidaltzen duela: course\_ids = [1, 3, 5] eta Ikasle hori ikastaro horietan matrikulatu nahi dugula.
 
-### attach() – erlazioak gehitzeko
+## attach() – erlazioak gehitzeko
 
 attach() metodoak pivot taulan erlazio berriak gehitzen ditu:
 
@@ -172,7 +172,7 @@ $pupil->courses()->attach([1, 3, 5]);
 
 Aurretik erlazioa bazegoen, bikoizketak sor daitezke, funtzioak ez du kontuan hartzen zein ikastaro kendu behar diren, horregatik, eguneraketa egiteko bakarrik ez da nahikoa. Beraz update egin bahi izatekotan, lehenago detach egin beharko genuke.
 
-### detach() – erlazioak kentzeko
+## detach() – erlazioak kentzeko
 
 detach() erabil dezakegu erlazioak ezabatzeko:
 
@@ -215,7 +215,7 @@ $pupil->courses()->detach($toDetach);
 
 Baina horrela eginez, kodea luzea eta konplexua bihurtzen da, beraz sync funtzioa erabiliko genuke.
 
-### sync() -  attach eta detach sinkronizatzen ditu
+## sync() -  attach eta detach sinkronizatzen ditu
 
 attach() eta detach() erabiliz, ematen zaizkion ID-ak bakarrik utziko ditu pivot taulan eta beste erlazio guztiak automatikoki ezabatuko ditu.
 
@@ -233,7 +233,7 @@ return redirect()->route('pupils.index')
 }
 ```
 
-### Pivot taulan atributuak gehitzea
+## Pivot taulan atributuak gehitzea
 
 Batzuetan N-M erlazioan ez da nahikoa bi IDak gordetzea. Adibidez, ikasle batek ikastaro batean noiz matrikulatu den, nota, edo rola (ordezkaria, arrunta…) gorde nahi izan dezakegu.
 
@@ -265,7 +265,7 @@ $table->timestamps();
 
 Gogoratu, taula dagoeneko sortuta badago, migrazio berri bat sortu beharko genuke add\_fields\_to\_course\_pupil\_table izenekoa erabiliz.
 
-### Pupil modeloa
+## Pupil modeloa
 
 ```php
 public function courses()
@@ -281,7 +281,7 @@ return $this->belongsToMany(Course::class)
 }
 ```
 
-### Course modeloa
+## Course modeloa
 
 ```php
 public function pupils()
@@ -297,7 +297,7 @@ return $this->belongsToMany(Pupil::class)
 }
 ```
 
-### attach atributuekin
+## attach atributuekin
 
 Lehen horrela egiten genuena:
 
@@ -319,7 +319,7 @@ $course1->pupils()->attach([
 
 ]);
 
-### sync() funtzioa
+## sync() funtzioa
 
 Lehen genuena:
 
@@ -341,7 +341,7 @@ $course1->pupils()->sync([
 
 ]);
 
-### Pivot taulan dagoen atributoa berrezkuratzeko
+## Pivot taulan dagoen atributoa berrezkuratzeko
 
 Pivot taulan dauden datuak hartzeko:
 

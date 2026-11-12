@@ -1,6 +1,6 @@
 # Layouts
 
-### Konponenteak
+## Konponenteak
 
 Gaur egun, programatzaile gehienek txantiloi bat egitean, konponenteak erabili ohi dute. Horrela egiteko, konponente arrunta bat izango balitz erabiliko genuke.
 
@@ -9,23 +9,23 @@ Abididez, sortuko genuke app-layout.blade.php fitxategia html estruktura orokorr
 ```php
 <body>
 
-<header>
+    <header>
 
-<h1>Webgunearen goiburua</h1>
+        <h1>Webgunearen goiburua</h1>
 
-</header>
+    </header>
 
-<main>
+    <main>
 
-{{ $slot }}
+        {{ $slot }}
 
-</main>
+    </main>
 
-<footer>
+    <footer>
 
-<p>Webgunearen oinarria</p>
+        <p>Webgunearen oinarria</p>
 
-</footer>
+    </footer>
 
 </body>
 ```
@@ -35,18 +35,16 @@ Eta gure home-en adibidez, erabiliko genuke hori koponentea orain arte ikusi dug
 ```html
 <x-app-layout>
 
-<h1 class="text-3xl font-bold underline px-20">
+    <h1 class="text-3xl font-bold underline px-20">
+        Hau da nire blog-aren lehenengo orria. Ongi etorri!!
+    </h1>
 
-Hau da nire blog-aren lehenengo orria. Ongi etorri!!
-
-</h1>
-
-Eta hemen kodea jarraitzen du
+    Eta hemen kodea jarraitzen du
 
 </x-app-layout>
 ```
 
-### Layouts
+## Layouts
 
 Layouts, gure bisten eraikuntza elkartzeko interegarriak izan daitezke.
 
@@ -73,7 +71,7 @@ Txantiloiaren barruan @yield direktiba erabiliz atalak (secciones) adierazi ditz
 ```php
 <main role="main" class="container">
 
-@yield('content')
+    @yield('content')
 
 </main>
 ```
@@ -83,13 +81,13 @@ Layouts-ak edozein izen izan ditzakete, baina beti .blade.php luzapena izan beha
 @yield direktiban hainbat modutan erabili daitezke, adibidez gure webgunearen titulua personalizatzeko.
 
 ```html
-<title>@yield('title') - Nireweb.net</title>
+    <title>@yield('title') - Nireweb.net</title>
 ```
 
 @yield direktibei ere, lehenetsiko balio eman diezaiokegu,adibidez:
 
 ```html
-<title> @yield('title', 'Lehenetsiko titulua')</title>
+    <title> @yield('title', 'Lehenetsiko titulua')</title>
 ```
 
 @section erabiliko dugu atalak zehazteko eta @yield direktiba, atal horiek gure txantiloian (gure layout-ean) kokatzeko.
@@ -112,7 +110,7 @@ Aurreko adibidean, title-ren kasuan, lerro bakarra denez, izenburua parametro mo
 @section('title', "Usuario {$id}")
 ```
 
-### Txantiloi bat luzatzea
+## Txantiloi bat luzatzea
 
 Banakako txantiloi bakoitzean, header edo footerra sartu beharrean, Laraveli esango diogu ikuspegia app.blade.php-z luzatu behar duela.
 
@@ -126,13 +124,11 @@ Behin hau eginda, atalak sortuko ditugu:
 
 ```php
 @section('content')
-
-<!-- Contenido de la sección -->
-
+    <!-- Contenido de la sección -->
 @endsection
 ```
 
-### @stack direktiba
+## @stack direktiba
 
 @yield() erabiliz gain, @stack direktiba ere erabili dezakegu. Normalean @yield erabiliko dugu edukia behin bakarrik erabiliko dugunean,a dibidez, title-rekin egin dugun moduan. Baina beste kasu batzuetan interesa diezaguke eduki horreri guazak gehitzen joatea, adibidez, css edo js koadea...
 
@@ -144,27 +140,21 @@ Eta horreri edukiak gehitzeko, @push direktiba erabiliko genuke, direktiba hau g
 
 ```php
 @push('css')
-
-<style> body {background-color: darkcyan}</style>
-
+    <style> body {background-color: darkcyan}</style>
 @endpush
 
 @section('content')
 
 @push('css')
-
-<style> h1 { color: rgb(16, 34, 133)}</style>
-
+    <style> h1 { color: rgb(16, 34, 133)}</style>
 @endpush
 
 <h1 class="text-3xl font-bold underline px-20">
-
-Hau da nire blog-aren lehenengo orria. Ongi etorri!!
-
+    Hau da nire blog-aren lehenengo orria. Ongi etorri!!
 </h1>
 ```
 
-### Partials
+## Partials
 
 Layouts erabiltzeaz gain, partials izeneko artxiboak ere badaude; artxibo horiek kode-segmentu txikiak dira, eta normalean sistemaren zati jakin batzuetan erabiltzen dira, menuak, footerrak etab.
 
@@ -172,12 +162,11 @@ Ondoko adibidea jarraituz, alumnos.blade.php txatiloain deiak hurrengo kodean ag
 
 ```php
 <body>
+    @include('partials.menu')
 
-@include('partials.menu')
+    @yield('content')
 
-@yield('content')
-
-@include('partials.footer')
+    @include('partials.footer')
 </body>
 ```
 

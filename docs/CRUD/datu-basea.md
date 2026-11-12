@@ -1,4 +1,4 @@
-# Datu baseak laravelen
+# Datu baseak Laravelen
 
 Segun eta ze Laravel bertsio erabiltzen den pausu hau ez da egin behar, berak zuzenean datu basea sortzen duelako, horrela ez izatekotan, hurrengo pausu hauek ezinbestekoak izango dira:
 
@@ -28,7 +28,7 @@ Laravel-en jarraipenetan, taulen izenak beti pluralean idatziko dira.
 
 ![](../assets/images/Datu%20basea/b31d03fcf0611b3ad5a7fb5f976b6b03.jpg)
 
-### Migrazioa
+## Migrazioa
 
 1. Behin hori eginda, migrazioa egingo dugu. Honi ezker, Laravelek guk adierazitako taulak sortuko ditu gure datu basean sql sententziak erabili barik. Hau guztia Artisani ezker oso errez egingo dugu.
 
@@ -100,7 +100,7 @@ public $timestamps = false;
 
 Ikusten dugunez, migrazioa sortzerakoan, gure Migration klaseak bi funtzio izango ditu, up() eta down(), lehenengoan taula sortuko da guk esandako eramuekin. Aldiz down() funtzioari deituko zaio migrazioa dezegin nahi izatekotan, hori dela eta funtzio honetan soilik taula ezabatuko da.
 
-### Seeder
+## Seeder
 
 Seeder-ak Laraveleko konponente batzuk dira datu basean datuak sartu ahal izateko. Hauek normalean garapen prozesuan datuak sartzeko edo aplikazioren hasieran behar diren datuak sartzeko balio dute.
 
@@ -140,9 +140,9 @@ Behin hori guztia eginda, gure datu basean datuak kargatzeko, seeder-a exekutatu
 php artisan db:seed
 ```
 
-### Factories
+## Factories
 
-Dokumentazioa: <https://laravel.com/docs/12.x/seeding>
+Dokumentazioa: <https://laravel.com/framework/docs/13.x/seeding>
 
 Seederrak aukera onak dira oso datu gutxi ditugunerako, baina badugu beste aukera bat, frogetarako datu asko behar ditugunerako, horretarako Factoriak ditugu, garapenerako pentsatutako klase batzuk dira hauek.
 

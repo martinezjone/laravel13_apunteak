@@ -1,6 +1,6 @@
-# ESKOLA ADIBIDEA
+# Eskola adibidea
 
-### 1. Paginazioa
+## 1. Paginazioa
 
 Laravel bere 9. bertsioan paginazioa egiteko oso modu erraza sortu zuen. Oraingoan gure ikasleak jasotzerakoan all() metodoari deitu beharrean, paginate() metodoari deituko diogu
 
@@ -32,7 +32,7 @@ $pupils = Pupil::orderBy('id','desc')->paginate();
 
 3. Eta horregaz jada, paginazioa eginda egongo litzateke
 
-### 2. Balidazioa
+## 2. Balidazioa
 
 Laravelek baditu hainbat funtzio datuen balidazioak egiteko lagungarri egingo zaizkigunak.
 
@@ -48,27 +48,23 @@ Gure kasuan, store() metodoan idatziko dugu, gure datu guztiak balidatuko ditugu
 
 ```php
 $validated = $request->validate([
-```
-
-'name' => 'required|string|max:75',
-
-'age' => 'required|integer|min:0',
-
-'phone' => 'required|string|max:20',
-
-'address' => 'required|string|max:75',
-
+    'name' => 'required|string|max:75',
+    'age' => 'required|integer|min:0',
+    'phone' => 'required|string|max:20',
+    'address' => 'required|string|max:75',
 ]);
 
 Pupil::create($validated);
+```
 
 Akatsak mezuetan adierazi
 
 2. Orain, gure inprimakiak ikusiko ditugu. Hor inprimatuko ditugu mezuak formularioko eremuetan, gure kontrolatzaileetan definitzen ditugun baliozkotze-akatsak daudenean.
 
 3. Inprimakiak baliozkotzen hasi aurretik, css kodea erantsiko diegu gure ikuspegi guztiei, errore-mezuei estiloa emateko.
-
+```html
 p { color: red; }
+```
 
 Inprimakia ikasleen ikuspegian (bistan) baliozkotzea
 
@@ -78,11 +74,9 @@ Input elementuaren azpiko Izen-deiturak eremuan, eremu honetako baliozkotze-kode
 
 ```php
 @error('name')
-
-<p class="error-message">{{ $message }}</p>
-```
-
+    <p class="error-message">{{ $message }}</p>
 @enderror
+```
 
 5. Gure input-ari gehituko diogu old() metodoa, blade-ko direktiba bat dena. Honegaz lortuko dugu balidazioa egin baino lehen sartutako datua mantentzea.
 
@@ -98,21 +92,16 @@ Input elementuaren azpiko Izen-deiturak eremuan, eremu honetako baliozkotze-kode
 <input type="text" name="age" placeholder="Adina" value="{{ old('age') }}">
 
 @error('age')
-
-<p class="error-message">{{ $message }}</p><br>
-```
-
+    <p class="error-message">{{ $message }}</p><br>
 @enderror
+```
 
 7. Sartutako telefonoa eta helbidea ere mantenduko ditugu:
 
 ```php
 <label>Telefonoa:</label>
-
 <input type="text" name="phone" placeholder="Telefonoa" value="{{ old('phone') }}">
-
 <label>Helbidea:</label>
-
 <input type="text" name="address" placeholder="Helbidea" value="{{ old('address') }}">
 ```
 
@@ -130,27 +119,21 @@ Ikusten dugunez, mezuak ingeleraz aterako dira, hori aldatu nahi izatekotan, hiz
 
 ```php
 @if ($errors->any())
-```
+    Errors:
 
-Errors:
+    <ul>
+        @foreach ($errors->all() as $error)
 
-```php
-<ul>
+         <li>{{ $error }}</li>
 
-@foreach ($errors->all() as $error)
+        @endforeach
 
-<li>{{ $error }}</li>
-```
-
-@endforeach
-
-```php
-</ul>
+    </ul>
 
 @endif
 ```
 
-### 3. Hizkuntza
+## 3. Hizkuntza
 
 Gure formularioko errore-mezuak probatzean ikusiko dugu nola ingelesez agertzen diren. Hori aldatzeko, Laravel-en hizkuntza konfiguratu behar dugu.
 
@@ -202,17 +185,14 @@ Eremu horiek modu “politean” erakutsi nahi baditugu,
 
 lang/eu/validation.php fitxategira joan eta bukaeran dagoen attributes atal honetan idazten ditugu:
 
+```php
 'attributes' => [
-
 'izen\_abizen' => 'Izen Abizenak',
-
 'email' => 'Posta Elektronikoa',
-
 'password' => 'Pasahitza',
-
 'name' => 'Izena',
-
 ];
+```
 
 Horrela, errore-mezuak itzulita eta formatu egokian agertuko dira.
 
@@ -232,12 +212,13 @@ Horrela euskarazko testuren bat falta bada, gaztelania erabiliko da, eta ez inge
 
 ```bash
 php artisan lang:publish
-
 composer require laravel-lang/common --dev
-
 php artisan lang:add es, php artisan lang:add eu
 ```
 
+
+```php
 .env → APP\_LOCALE=eu
+```
 
 validation.php → attributes atalean eremu-izenak pertsonalizatu

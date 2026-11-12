@@ -1,4 +1,4 @@
-# ESKOLA  ADIBIDEA
+# Eskola adibidea
 
 Behin ikusita zelan sortzen den proiektu bat eta zelan egin dezakegun lan horregaz, jarraituko dugu aurrera....
 
@@ -8,13 +8,13 @@ Adibide hau jarraitzeko taulak ingeleraz erabiliko ditugu eta baita euren propie
 
 ![](../assets/images/Erlazioak%201-N/b31d03fcf0611b3ad5a7fb5f976b6b03.jpg)
 
-### 1-N erlazioa
+## 1-N erlazioa
 
-### Teacher Migrazioa
+## Teacher Migrazioa
 
 Hasiko dugu beraz Teacher migrazioa sortzen, modeloa ere aldi berean egingo dugu, ikusten dugun moduan, laravel-en konbentzioa jarraitzerakoan, taula "teachers" izango da.
 
-# Generate a model and a migration, factory, seeder, and controller...
+## Generate a model and a migration, factory, seeder, and controller...
 
 ```bash
 php artisan make:model Teacher -mfsc
@@ -32,7 +32,7 @@ $table->string('academicDegree', 35)->nullable();
 $table->string('phone', 35)->nullable();
 ```
 
-### Teacher Moduloa
+## Teacher Moduloa
 
 Behin migrazioa eginda, gure moduloa sortuko dugu:
 
@@ -48,11 +48,11 @@ Oraingoan migrazioak fresh batekin exekutatuko ditugu.
 php artisan migrate
 ```
 
-### Curso Migrazioa
+## Curso Migrazioa
 
 Lehenengo esta behin Modeloa sortuko dugu, kasu honetan Course izenarekin:
 
-# Generate a model and a migration, factory, seeder, and controller...
+## Generate a model and a migration, factory, seeder, and controller...
 
 ```bash
 php artisan make:model Course -mfsc
@@ -84,7 +84,7 @@ $table->foreignId('teacher_id')
 ->cascadeOnDelete(); // o nullOnDelete()
 ```
 
-### Course Modeloa
+## Course Modeloa
 
 Modeloa aldatzera goaz orain:
 
@@ -106,7 +106,7 @@ Orain faltako litzaiguke ikasle eta ikastaroen-en artekoa sortzen; kasu honetan 
 
 ![](../assets/images/Erlazioak%201-N/1e58eab060ff47b7ec7256d75f44bc31.jpg)
 
-### Eloquent erlazioak - Modeloetan
+## Eloquent erlazioak - Modeloetan
 
 Erlazioak modeloetan adierazi behar dira ere. Horretarako hainbat gauza izan behar ditugu kontutan
 
@@ -138,7 +138,7 @@ return $this->belongsTo(Teacher::class);
 }
 ```
 
-### Factory - erlazioak
+## Factory - erlazioak
 
 Factory Teacher
 
@@ -238,7 +238,7 @@ Hori guztia egin ostean, Seederrak exekutatuko ditugu:
 php artisan db:seed
 ```
 
-### Course baten Teacher-a ateratzeko
+## Course baten Teacher-a ateratzeko
 
 Course eta Teacher modeloak sortzerakoan, bi metodo sortu ditugu euren arteko erlazioa egiteko, hori dela eta, course baten gaudenean, bere teacher zein den jakiteko, teacher() metodoari deitu dezakegu, hori oso modu errezean egingo dugu:
 
@@ -252,7 +252,7 @@ Ordu akademikoak: {{$course->academicHours}}<br>
 Irakaslea: {{$course->teacher->fullName}}
 ```
 
-### Teacher baten course guztiak ateratzeko
+## Teacher baten course guztiak ateratzeko
 
 Kasu honetan ikusiko dugu ia gure irakasleak ikastarorik duen a la ez, izatekotan, denak aterako ditugu
 

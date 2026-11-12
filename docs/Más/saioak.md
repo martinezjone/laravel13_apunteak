@@ -1,6 +1,6 @@
-# SAIOAK
+# Saioak
 
-<https://laravel.com/docs/12.x/session>
+<https://laravel.com/framework/docs/13.x/session>
 
 HTTP eskaerak iheskorrak direnez eta arrastorik uzten ez dutenez, garrantzitsua da bi eskaeren artean informazioa memorizatzea ahalbidetuko dion sistema bat izatea. Horixe da, hain zuzen ere, saioen helburua.
 
@@ -134,7 +134,7 @@ $request->session()->keep(['mensaje', 'email']);
 
 Kontuan hartu beharreko gauza garrantzitsuak
 
-Hauek dira saioetarako oinarrizko metodoak, dokumentazioan aurkituko duzu informazio osagarri guztia: <https://laravel.com/docs/12.x/session>
+Hauek dira saioetarako oinarrizko metodoak, dokumentazioan aurkituko duzu informazio osagarri guztia: <https://laravel.com/framework/docs/13.x/session>
 
 Kontutan izateko hainbat gauza:
 

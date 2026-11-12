@@ -1,4 +1,4 @@
-# MEZUAK BIDALI
+# Mezuak bidali
 
 Laravelek badu aukera bat ruta bati deitzerakoan mezuak bidaltzeko. Hau oso erabilgarria izaten da jakiteko ia guk esan dioguna bete duen ala ez.
 

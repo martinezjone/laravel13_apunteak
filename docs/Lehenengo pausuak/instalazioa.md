@@ -2,7 +2,7 @@
 
 Laravelek, Windows edo Mac-en instalatzeko hainbat modu eskaintzen ditu. Laravel instalatzeko modurik onena eta errazena Composer da. Composer php-rako mendekotasunen administratzailea da, eta bere web-zerbitzarian instala dezake.
 
-### Laravelekin lan egiteko aurrebaldintzak
+## Laravelekin lan egiteko aurrebaldintzak
 
 - Ikasturte honetan Laravel 12-rekin lan egingo dugu, eta horrek  PHP 8.2 - 8.4 edo goragokoa eskatzen du, PHPren PDO luzapena, datu-basearekin konektatzeko.
 - MySQL (edo datu-baseen beste iturri batzuk, SQLite t ere erabil dezakezu
@@ -24,7 +24,7 @@ C:\xampp\php> .\php -v
 
 ## Instalazioa
 
-- Webgune ofiziala: <https://laravel.com/docs/12.x/installation>
+- Webgune ofiziala: <https://laravel.com/framework/docs/13.x/installation>
 
 1.- Laraveleko instalatzailearen bidez
 

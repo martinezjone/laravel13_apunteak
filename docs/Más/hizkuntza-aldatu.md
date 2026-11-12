@@ -1,4 +1,4 @@
-# HIZKUNTZA ALDATU
+# Hizkuntza aldatu
 
 Gure formularioko errore-mezuak probatzean ikusiko dugu nola ingelesez agertzen diren. Hori aldatzeko, Laravel-en hizkuntza konfiguratu behar dugu.
 

@@ -12,7 +12,7 @@ Artisanekin, gainera, zure proiektuko cachea garbitu, localhost bat egin edo aut
 
 Artisauen dokumentazio ofiziala:
 
-<https://laravel.com/docs/12.x/artisan>
+<https://laravel.com/framework/docs/13.x/artisan>
 
 Laravelen beste alderdi garrantzitsu bat da Artisan CLI edo komando-lerroa da. Horrekin, Laravelen edozein zati sor edo alda dezakezu komando-lerrotik, karpeta eta fitxategietan nabigatu beharrik gabe.
 

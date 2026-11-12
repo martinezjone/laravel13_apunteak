@@ -1,4 +1,4 @@
-# SEEDER
+# Seeder
 
 Seeder Laraveleko konponente batzuk dira datu basean datuak sartu ahal izateko. Hauek normalean garapen prozesuan datuak sartzeko edo aplikazioren hasieran behar diren datuak sartzeko balio dute.
 
@@ -54,4 +54,4 @@ php artisan migrate:fresh --seed
 
 Kasu honetan egingo duena izango da, taula guztiak ezabatu, berriro sortu eta guk seederrean esandako datuak gorde.
 
-Dokumentazio ofiziala: <https://laravel.com/docs/12.x/seeding>
+Dokumentazio ofiziala: <https://laravel.com/framework/docs/13.x/seeding>

@@ -14,4 +14,4 @@ ORM honi ezker, datu baseko fila, erregistro, bakoitza objetu baten moduan erabi
 
 Eloquent erabili ahal izateko, modeloak sortu beharko ditugu.
 
-Dokumentazio ofiziala: <https://laravel.com/docs/12.x/eloquent-relationships>
+Dokumentazio ofiziala: <https://laravel.com/framework/docs/13.x/eloquent-relationships>

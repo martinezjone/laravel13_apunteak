@@ -11,7 +11,7 @@
       
       
       
-        <link rel="prev" href="../../CRUD/erlazioak-n-m/">
+        <link rel="prev" href="../../CRUD/api-rest/08-laravel-vue-sanctum/">
       
       
         <link rel="next" href="../laragon/">
@@ -20,12 +20,12 @@
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>Zelan funtzionatzen du - DWS – Laravel apunteak</title>
+        <title>Zelan funtzionatzen du - DWS Apunteak Laravel 13 - 2026-2027</title>
       
     
     
@@ -51,6 +51,8 @@
       
     
     
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -67,7 +69,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="deep-orange">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#004c95" data-md-color-accent="#e95f15">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -90,10 +92,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Atalburua">
-    <a href="../.." title="DWS – Laravel apunteak" class="md-header__button md-logo" aria-label="DWS – Laravel apunteak" data-md-component="logo">
+    <a href="../.." title="DWS Apunteak Laravel 13 - 2026-2027" class="md-header__button md-logo" aria-label="DWS Apunteak Laravel 13 - 2026-2027" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../../images/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -104,7 +105,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            DWS – Laravel apunteak
+            DWS Apunteak Laravel 13 - 2026-2027
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -123,7 +124,17 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="deep-orange"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="#004c95" data-md-color-accent="#e95f15"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="#004c95" data-md-color-accent="#e95f15"  aria-label="Modu iluna"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modu iluna" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
     
   
 </form>
@@ -312,13 +323,12 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Nabigazioa" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="DWS – Laravel apunteak" class="md-nav__button md-logo" aria-label="DWS – Laravel apunteak" data-md-component="logo">
+    <a href="../.." title="DWS Apunteak Laravel 13 - 2026-2027" class="md-nav__button md-logo" aria-label="DWS Apunteak Laravel 13 - 2026-2027" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../../images/logo.png" alt="logo">
 
     </a>
-    DWS – Laravel apunteak
+    DWS Apunteak Laravel 13 - 2026-2027
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -840,34 +850,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Laravel%20Elementuak/Datu%20baseak/datu-baseak/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Datu baseak
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../Laravel%20Elementuak/Datu%20baseak/datu-basea-sortzen/" class="md-nav__link">
         
   
@@ -939,10 +921,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_4_4" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_4_3" >
         
           
-          <label class="md-nav__link" for="__nav_3_4_4" id="__nav_3_4_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_4_3" id="__nav_3_4_3_label" tabindex="0">
             
   
   
@@ -960,8 +942,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_4_4">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_3">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1328,6 +1310,320 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CRUD/api-rest/01-api-rest-json/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API REST eta JSON
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API REST Laravel 13-rekin
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    API REST Laravel 13-rekin
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CRUD/api-rest/01-api-rest-json/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API REST eta JSON
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CRUD/api-rest/02-api-ibilbideak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API ibilbideak
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CRUD/api-rest/03-json-erantzunak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    JSON erantzunak
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CRUD/api-rest/04-kontrolatzaileak-crud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API kontrolatzaileak eta CRUD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CRUD/api-rest/05-api-resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CRUD/api-rest/06-balidazioa-erroreak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Balidazioa eta erroreak
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CRUD/api-rest/07-api-probak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API probak
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CRUD/api-rest/08-laravel-vue-sanctum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Laravel + Vue 3 + Sanctum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1462,7 +1758,7 @@
   <a href="#rutak" class="md-nav__link">
     <span class="md-ellipsis">
       
-        RUTAK
+        Rutak
       
     </span>
   </a>
@@ -1473,7 +1769,7 @@
   <a href="#modeloak" class="md-nav__link">
     <span class="md-ellipsis">
       
-        MODELOAK
+        Modeloak
       
     </span>
   </a>
@@ -1484,7 +1780,7 @@
   <a href="#bistak" class="md-nav__link">
     <span class="md-ellipsis">
       
-        bistak
+        Bistak
       
     </span>
   </a>
@@ -1495,12 +1791,12 @@
   <a href="#kontroladoreak" class="md-nav__link">
     <span class="md-ellipsis">
       
-        kontroladoreak
+        Kontroladoreak
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="kontroladoreak">
+    <nav class="md-nav" aria-label="Kontroladoreak">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2032,62 +2328,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../copia-de-balidazioa-paginazioa-eta-hizkuntza/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Copia de Balidazioa paginazioa eta hizkuntza
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../copia-de-hasiera/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Copia de Hasiera
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -2125,7 +2365,7 @@
   <a href="#rutak" class="md-nav__link">
     <span class="md-ellipsis">
       
-        RUTAK
+        Rutak
       
     </span>
   </a>
@@ -2136,7 +2376,7 @@
   <a href="#modeloak" class="md-nav__link">
     <span class="md-ellipsis">
       
-        MODELOAK
+        Modeloak
       
     </span>
   </a>
@@ -2147,7 +2387,7 @@
   <a href="#bistak" class="md-nav__link">
     <span class="md-ellipsis">
       
-        bistak
+        Bistak
       
     </span>
   </a>
@@ -2158,12 +2398,12 @@
   <a href="#kontroladoreak" class="md-nav__link">
     <span class="md-ellipsis">
       
-        kontroladoreak
+        Kontroladoreak
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="kontroladoreak">
+    <nav class="md-nav" aria-label="Kontroladoreak">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2202,7 +2442,7 @@
 <h1 id="zelan-funtzionatzen-du">Zelan funtzionatzen du?</h1>
 <p>Esan bezala, Laravelek 4 kontzepturekin egiten du lan, hurrengo irudian ikusi dezakegun moduan:</p>
 <p><img alt="" src="../../assets/images/Zelan%20funtzionatzen%20du/4f323cafbe17ccd736212210ae8e6cef.jpg" /></p>
-<h2 id="rutak">RUTAK</h2>
+<h2 id="rutak">Rutak</h2>
 <p>Rutak erabiltzea oso kontzeptu garrantzitsua da Laravel erabiltzen hasteko.</p>
 <p>Erabiltzaile bat web baten URL batetik bestera nabigatzen ari denean, zerbitzariari eskaerak egiten ari da. Zerbitzariak modu batera edo bestera erantzungo dizu, eskatutako URLaren arabera.</p>
 <p>Adibidez, erabiltzaile bat www.adib.com/perfil gunera sartzen bada, zerbitzariak profilaren orriarekin erantzungo dio, edo www.adib.com/blog gunera sartzen bada, zerbitzariak blogeko sarreren zerrenda ikusiko du.</p>
@@ -2212,7 +2452,7 @@
 <p>Aurrerago sakonduko dugu honetan, baina adibide bat jartzearren, hau izango zen get eskaera bat:</p>
 <div class="highlight"><pre><span></span><code><span class="x">Route::get('/ikasleak', [IkasleController::class, 'index'])  -&gt;name('ikasleak.index');</span>
 </code></pre></div>
-<h2 id="modeloak">MODELOAK</h2>
+<h2 id="modeloak">Modeloak</h2>
 <p><img alt="" src="../../assets/images/Zelan%20funtzionatzen%20du/033cb0422ace1e74d71164280d73259d.jpg" /></p>
 <p>Ereduak arduratzen dira datuekin lan egiteaz. Horrek esan nahi du datu-basean erregistroren bat lortu, gorde edo eguneratu nahi baduzu ereduak erabiliko ditugula.</p>
 <p>Gure datu-baserako sarbidea kudeatzeko, ereduek Eloquent erabiltzen dute.</p>
@@ -2223,7 +2463,7 @@
 <p>Eloquent eredua izanez gero, ereduak zuzenean lotuta daude entitate batekin eta, era berean, datu-baseko taula batekin. Beraz, User izeneko modelo bat zuzenean erlazionatuta dago datu-basean izen bera duen taula batekin, baina letra xehez eta pluraleko aketarekin, adibidez "users" izenarekin.</p>
 <p>Kontua da, datu-baseko elementu guztiek objektu manipulagarri gisa duten irudikapena izango dute.</p>
 <p>Eloquent-ekin, taula bat Model klasea handitzen duen klase baten bidez irudikatzen da.</p>
-<h2 id="bistak">bistak</h2>
+<h2 id="bistak">Bistak</h2>
 <p>Laravelek bere txantiloi-sistema du, blade izenekoa.</p>
 <p>Txantiloi horiek .blade.php luzapena izaten dute, eta, beraz, erraz identifika dezakezu zein fitxategi dagozkien ikuspegiei.</p>
 <p>Blade bidez, fitxategi ordenatu eta garbi bat sortzea lortzen dugu</p>
@@ -2234,7 +2474,7 @@
 <p>Orain, php kodea sartzeko, ez dugu php etiketa zabaldu eta itxi behar, aurreko adibidean ikusi dugun moduan, beste adibide bat hurrengo hau izan daiteke:</p>
 <div class="highlight"><pre><span></span><code><span class="x">@foreach ($ikasleak as $ikasle)</span>
 </code></pre></div>
-<h2 id="kontroladoreak">kontroladoreak</h2>
+<h2 id="kontroladoreak">Kontroladoreak</h2>
 <p>Laraveleko kontrolatzaileak zure web aplikazioaren zati logiko gisa defini daitezke.</p>
 <p>Ereduak gauzatuko dituzten ekintzak maneiatzen dituzte, eta zer ikuspegi itzuliko duten erabakitzen dute.</p>
 <p>HTTP eskaera egiten denean (adibidez, zure web aplikazioaren URL batera joatea), Laravelek erregistratu dituzun ibilbideetan bilatuko du. Oro har, ibilbideak erregistratzen dituzunean, kontrolatzaile baten metodoa lotuko duzu.</p>

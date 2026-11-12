@@ -1,4 +1,4 @@
-# Node.JS
+# Node.js
 
 Web ofiziala: <https://nodejs.org/en/>
 

@@ -1,4 +1,4 @@
-# CompoSer
+# Composer
 
 Web ofiziala: <https://getcomposer.org/>
 
@@ -16,13 +16,13 @@ Instalatu aurretik, konprobatuko dugu ia instalatuta dugun jada, horretarako gur
 composer -V
 ```
 
-### Composer instalazioa
+## Composer instalazioa
 
 Windowsen bazaude, deskargatu Composer instaladorea [esteka honetatik](https://getcomposer.org/download/).
 
 Composer exekutatzeko, terminalean composer komandoa idatzi eta Enter sakatu besterik ez duzu egin behar. Aurrelo irudian ikusten den moduko zeozer topatuko genuke.
 
-### Composer komandoak eta argudioak
+## Composer komandoak eta argudioak
 
 ![Irudia](../assets/images/Composer/d78b57c33ceac79a2991f6d7e52da99a.jpg)
 
@@ -74,7 +74,7 @@ $ php composer status -v
 
 -v aukera gehitzen baldin badugu, aldaketei buruzko informazio zehatzago emango liguke.
 
-# Resultado de ejecutar composer status -v
+## Resultado de ejecutar composer status -v
 
 You have changes in the following dependencies:
 

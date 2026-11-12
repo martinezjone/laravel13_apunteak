@@ -1,4 +1,4 @@
-# Zer da laravel eta zelan funtzionatzen du?
+# Zer da Laravel eta zelan funtzionatzen du?
 
 Laravel, PHPko frameworks erabilienetariko eta garatzaileen komunitateak hobekien baloratutakoetariko bat da.
 
@@ -6,7 +6,7 @@ Baina, zer da Framework bat? Lan-eskema bat da; proiektu bat egiteko, oinarrizko
 
 Haren software-diseinua MVC (Modelo Vista Controlador) ereduan oinarritzen da; beraz, garatzen hasteko oinarri egituratua emango dio zure kodeari.
 
-### MVC
+## MVC
 
 ![Eskema MVC (Modelo-Vista-Controlador)](../assets/images/Zer%20da/b7657af9ea422752e0cc78138848640c.jpg)
 

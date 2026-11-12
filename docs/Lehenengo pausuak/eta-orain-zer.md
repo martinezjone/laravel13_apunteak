@@ -1,4 +1,4 @@
-# ETA ORAIN ZER?
+# Eta orain zer?
 
 Behin proiektua eginda dugula, hainbat gauza konfiguratzen hasi beharko dugu. Momentu honetan bakarrik ahal izango dugu proiektu honen public/index.php fitxategira sartu.
 

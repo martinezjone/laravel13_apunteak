@@ -11,26 +11,28 @@
       
       
       
-        <link rel="prev" href="../copia-de-balidazioa-paginazioa-eta-hizkuntza/">
+        <link rel="prev" href="../06-balidazioa-erroreak/">
       
+      
+        <link rel="next" href="../08-laravel-vue-sanctum/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>Copia de Hasiera - DWS – Laravel apunteak</title>
+        <title>API probak - DWS Apunteak Laravel 13 - 2026-2027</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -49,7 +51,9 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -65,7 +69,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="deep-orange">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#004c95" data-md-color-accent="#e95f15">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -74,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#laravel-11-apunteak" class="md-skip">
+        <a href="#7-api-probak" class="md-skip">
           Joan zuzenean edukira
         </a>
       
@@ -88,10 +92,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Atalburua">
-    <a href="../.." title="DWS – Laravel apunteak" class="md-header__button md-logo" aria-label="DWS – Laravel apunteak" data-md-component="logo">
+    <a href="../../.." title="DWS Apunteak Laravel 13 - 2026-2027" class="md-header__button md-logo" aria-label="DWS Apunteak Laravel 13 - 2026-2027" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../../../images/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -102,13 +105,13 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            DWS – Laravel apunteak
+            DWS Apunteak Laravel 13 - 2026-2027
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Copia de Hasiera
+              API probak
             
           </span>
         </div>
@@ -121,7 +124,17 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="deep-orange"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="#004c95" data-md-color-accent="#e95f15"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="#004c95" data-md-color-accent="#e95f15"  aria-label="Modu iluna"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modu iluna" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
     
   
 </form>
@@ -193,7 +206,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
   
@@ -214,7 +227,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../Lehenengo%20pausuak/zer-da/" class="md-tabs__link">
+        <a href="../../../Lehenengo%20pausuak/zer-da/" class="md-tabs__link">
           
   
   
@@ -234,31 +247,11 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../Laravel%20Elementuak/rutak/" class="md-tabs__link">
+        <a href="../../../Laravel%20Elementuak/rutak/" class="md-tabs__link">
           
   
   
   Laravel Elementuak
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../CRUD/proiektu-bat-sortu/" class="md-tabs__link">
-          
-  
-  
-  CRUD
 
         </a>
       </li>
@@ -276,7 +269,27 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../zelan-funtzionatzen-du/" class="md-tabs__link">
+        <a href="../../proiektu-bat-sortu/" class="md-tabs__link">
+          
+  
+  
+  CRUD
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../M%C3%A1s/zelan-funtzionatzen-du/" class="md-tabs__link">
           
   
   
@@ -310,13 +323,12 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Nabigazioa" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="DWS – Laravel apunteak" class="md-nav__button md-logo" aria-label="DWS – Laravel apunteak" data-md-component="logo">
+    <a href="../../.." title="DWS Apunteak Laravel 13 - 2026-2027" class="md-nav__button md-logo" aria-label="DWS Apunteak Laravel 13 - 2026-2027" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../../../images/logo.png" alt="logo">
 
     </a>
-    DWS – Laravel apunteak
+    DWS Apunteak Laravel 13 - 2026-2027
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -328,7 +340,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -409,7 +421,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Lehenengo%20pausuak/zer-da/" class="md-nav__link">
+      <a href="../../../Lehenengo%20pausuak/zer-da/" class="md-nav__link">
         
   
   
@@ -437,7 +449,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Lehenengo%20pausuak/instalazioa/" class="md-nav__link">
+      <a href="../../../Lehenengo%20pausuak/instalazioa/" class="md-nav__link">
         
   
   
@@ -465,7 +477,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Lehenengo%20pausuak/laravel-proiektua-sortu/" class="md-nav__link">
+      <a href="../../../Lehenengo%20pausuak/laravel-proiektua-sortu/" class="md-nav__link">
         
   
   
@@ -493,7 +505,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Lehenengo%20pausuak/eta-orain-zer/" class="md-nav__link">
+      <a href="../../../Lehenengo%20pausuak/eta-orain-zer/" class="md-nav__link">
         
   
   
@@ -582,7 +594,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Laravel%20Elementuak/rutak/" class="md-nav__link">
+      <a href="../../../Laravel%20Elementuak/rutak/" class="md-nav__link">
         
   
   
@@ -610,7 +622,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Laravel%20Elementuak/kontroladoreak/" class="md-nav__link">
+      <a href="../../../Laravel%20Elementuak/kontroladoreak/" class="md-nav__link">
         
   
   
@@ -692,7 +704,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Laravel%20Elementuak/Bistak/bistak/" class="md-nav__link">
+      <a href="../../../Laravel%20Elementuak/Bistak/bistak/" class="md-nav__link">
         
   
   
@@ -720,7 +732,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Laravel%20Elementuak/Bistak/konponenteak/" class="md-nav__link">
+      <a href="../../../Laravel%20Elementuak/Bistak/konponenteak/" class="md-nav__link">
         
   
   
@@ -748,7 +760,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Laravel%20Elementuak/Bistak/layouts/" class="md-nav__link">
+      <a href="../../../Laravel%20Elementuak/Bistak/layouts/" class="md-nav__link">
         
   
   
@@ -838,35 +850,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Laravel%20Elementuak/Datu%20baseak/datu-baseak/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Datu baseak
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Laravel%20Elementuak/Datu%20baseak/datu-basea-sortzen/" class="md-nav__link">
+      <a href="../../../Laravel%20Elementuak/Datu%20baseak/datu-basea-sortzen/" class="md-nav__link">
         
   
   
@@ -894,7 +878,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Laravel%20Elementuak/Datu%20baseak/migrazioak/" class="md-nav__link">
+      <a href="../../../Laravel%20Elementuak/Datu%20baseak/migrazioak/" class="md-nav__link">
         
   
   
@@ -937,10 +921,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_4_4" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_4_3" >
         
           
-          <label class="md-nav__link" for="__nav_3_4_4" id="__nav_3_4_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_4_3" id="__nav_3_4_3_label" tabindex="0">
             
   
   
@@ -958,8 +942,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_4_4">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_3">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -976,7 +960,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Laravel%20Elementuak/Datu%20baseak/Eloquent%20ORM/eloquent-orm/" class="md-nav__link">
+      <a href="../../../Laravel%20Elementuak/Datu%20baseak/Eloquent%20ORM/eloquent-orm/" class="md-nav__link">
         
   
   
@@ -1004,7 +988,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Laravel%20Elementuak/Datu%20baseak/Eloquent%20ORM/modeloak/" class="md-nav__link">
+      <a href="../../../Laravel%20Elementuak/Datu%20baseak/Eloquent%20ORM/modeloak/" class="md-nav__link">
         
   
   
@@ -1032,7 +1016,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Laravel%20Elementuak/Datu%20baseak/Eloquent%20ORM/seeders/" class="md-nav__link">
+      <a href="../../../Laravel%20Elementuak/Datu%20baseak/Eloquent%20ORM/seeders/" class="md-nav__link">
         
   
   
@@ -1060,7 +1044,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Laravel%20Elementuak/Datu%20baseak/Eloquent%20ORM/factories/" class="md-nav__link">
+      <a href="../../../Laravel%20Elementuak/Datu%20baseak/Eloquent%20ORM/factories/" class="md-nav__link">
         
   
   
@@ -1108,28 +1092,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
-        
-          
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
@@ -1147,7 +1134,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1165,7 +1152,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../CRUD/proiektu-bat-sortu/" class="md-nav__link">
+      <a href="../../proiektu-bat-sortu/" class="md-nav__link">
         
   
   
@@ -1193,7 +1180,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../CRUD/datu-basea/" class="md-nav__link">
+      <a href="../../datu-basea/" class="md-nav__link">
         
   
   
@@ -1221,7 +1208,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../CRUD/all-show-create-edit-delete-adibideekin/" class="md-nav__link">
+      <a href="../../all-show-create-edit-delete-adibideekin/" class="md-nav__link">
         
   
   
@@ -1249,7 +1236,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../CRUD/balidazioa-paginazioa-eta-hizkuntza/" class="md-nav__link">
+      <a href="../../balidazioa-paginazioa-eta-hizkuntza/" class="md-nav__link">
         
   
   
@@ -1277,7 +1264,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../CRUD/erlazioak-1-n/" class="md-nav__link">
+      <a href="../../erlazioak-1-n/" class="md-nav__link">
         
   
   
@@ -1305,7 +1292,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../CRUD/erlazioak-n-m/" class="md-nav__link">
+      <a href="../../erlazioak-n-m/" class="md-nav__link">
         
   
   
@@ -1326,30 +1313,51 @@
 
               
             
-          </ul>
-        </nav>
-      
-    </li>
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-api-rest-json/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API REST eta JSON
   
 
     
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
       
-      
-  
-  
-    
-  
-  
-  
-    
-    
-    
-    
       
         
-        
-      
-      
+          
+          
         
       
     
@@ -1358,17 +1366,17 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" checked>
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4_8" id="__nav_4_8_label" tabindex="">
             
   
   
   <span class="md-ellipsis">
     
   
-    Más
+    API REST Laravel 13-rekin
   
 
     
@@ -1379,12 +1387,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_5">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_8">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Más
+    API REST Laravel 13-rekin
   
 
           </label>
@@ -1397,14 +1405,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../zelan-funtzionatzen-du/" class="md-nav__link">
+      <a href="../01-api-rest-json/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Zelan funtzionatzen du
+    API REST eta JSON
   
 
     
@@ -1425,14 +1433,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../laragon/" class="md-nav__link">
+      <a href="../02-api-ibilbideak/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Laragon
+    API ibilbideak
   
 
     
@@ -1453,14 +1461,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../composer/" class="md-nav__link">
+      <a href="../03-json-erantzunak/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Composer
+    JSON erantzunak
   
 
     
@@ -1481,14 +1489,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../nodejs/" class="md-nav__link">
+      <a href="../04-kontrolatzaileak-crud/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Nodejs
+    API kontrolatzaileak eta CRUD
   
 
     
@@ -1509,14 +1517,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../git/" class="md-nav__link">
+      <a href="../05-api-resources/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Git
+    API Resources
   
 
     
@@ -1537,406 +1545,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../gitbash/" class="md-nav__link">
+      <a href="../06-balidazioa-erroreak/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    GitBash
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../visualstudio-laravel/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    VisualStudio - Laravel
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../artisan/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Artisan
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../laravel-brezze/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Laravel Brezze
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../middleware/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Middleware
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../saioak/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Saioak
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../taulen-arteko-erlazioak/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Taulen arteko erlazioak
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../balidazioak/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Balidazioak
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../irudi-bat-igo/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Irudi bat igo
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../hizkuntza-aldatu/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Hizkuntza aldatu
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../mezuak-bidali-error-eta-success/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Mezuak bidali error eta success
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../laravel-dump-server/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Laravel Dump Server
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../laravel-vue/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Laravel - Vue
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../konponenteak-1/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Konponenteak_1
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../copia-de-balidazioa-paginazioa-eta-hizkuntza/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Copia de Balidazioa paginazioa eta hizkuntza
+    Balidazioa eta erroreak
   
 
     
@@ -1966,6 +1582,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API probak
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1973,7 +1607,7 @@
   <span class="md-ellipsis">
     
   
-    Copia de Hasiera
+    API probak
   
 
     
@@ -1983,6 +1617,698 @@
 
       </a>
       
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Edukiak">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Edukiak
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#zergatik-probatu-vue-sortu-aurretik" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Zergatik probatu Vue sortu aurretik?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#curl-bidez" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        curl bidez
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#probatu-beharreko-kasuak" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Probatu beharreko kasuak
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#laravel-en-test-automatizatua" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Laravel-en test automatizatua
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-laravel-vue-sanctum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Laravel + Vue 3 + Sanctum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Más
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Más
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../M%C3%A1s/zelan-funtzionatzen-du/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zelan funtzionatzen du
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../M%C3%A1s/laragon/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Laragon
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../M%C3%A1s/composer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Composer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../M%C3%A1s/nodejs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nodejs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../M%C3%A1s/git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../M%C3%A1s/gitbash/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GitBash
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../M%C3%A1s/visualstudio-laravel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VisualStudio - Laravel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../M%C3%A1s/artisan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Artisan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../M%C3%A1s/laravel-brezze/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Laravel Brezze
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../M%C3%A1s/middleware/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Middleware
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../M%C3%A1s/saioak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Saioak
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../M%C3%A1s/taulen-arteko-erlazioak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Taulen arteko erlazioak
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../M%C3%A1s/balidazioak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Balidazioak
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../M%C3%A1s/irudi-bat-igo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Irudi bat igo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../M%C3%A1s/hizkuntza-aldatu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hizkuntza aldatu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../M%C3%A1s/mezuak-bidali-error-eta-success/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mezuak bidali error eta success
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../M%C3%A1s/laravel-dump-server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Laravel Dump Server
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../M%C3%A1s/laravel-vue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Laravel - Vue
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../M%C3%A1s/konponenteak-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Konponenteak_1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -2015,6 +2341,58 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Edukiak
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#zergatik-probatu-vue-sortu-aurretik" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Zergatik probatu Vue sortu aurretik?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#curl-bidez" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        curl bidez
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#probatu-beharreko-kasuak" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Probatu beharreko kasuak
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#laravel-en-test-automatizatua" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Laravel-en test automatizatua
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2030,27 +2408,73 @@
 
 
 
-<h1 id="laravel-11-apunteak">LARAVEL 11 - APUNTEAK</h1>
-<h1 id="laravel-11">LARAVEL 11</h1>
-<p>Site honetan Laravel 11-ren manuala izango dugu. Ikasiko dugu Laravel zer den eta hasiko dugu proiektu bat sortzen pausuz pausu.</p>
-<p><img alt="Laravel kodea duen irudia" src="../../assets/images/Copia%20de%20Hasiera/a767185214ff79c4f5aa620e4e48ac8a.jpg" /></p>
-<p>Instalazioa</p>
-<p>Laravelen elementuak</p>
-<p>Rutak</p>
-<p>Kontroladoreak</p>
-<p>Bistak</p>
-<p>Datu baseak</p>
-<p>CRUD</p>
-<p>Proiektu bat sortu</p>
-<p>Datu basea</p>
-<p>Show, create, edit eta delete</p>
-<p>Erlazioak</p>
-<p>Gehiago</p>
-<p>Balidazioak</p>
-<p>Hizkuntzak</p>
-<p>Irudiak</p>
-<p>Saioak</p>
-<p>Middleware</p>
+<h1 id="7-api-probak">7. API probak</h1>
+<h2 id="zergatik-probatu-vue-sortu-aurretik">Zergatik probatu Vue sortu aurretik?</h2>
+<p>Backend-a eta frontend-a bereizita probatuz, akatsen jatorria errazago identifikatzen dugu.</p>
+<h2 id="curl-bidez"><code>curl</code> bidez</h2>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-i<span class="w"> </span>-H<span class="w"> </span><span class="s2">"Accept: application/json"</span><span class="w"> </span>http://127.0.0.1:8000/api/jarduerak
+</code></pre></div>
+<p>Windows PowerShell-en, <code>curl.exe</code> erabili daiteke benetako curl exekutagarria deitzeko:</p>
+<div class="highlight"><pre><span></span><code><span class="n">curl</span><span class="p">.</span><span class="n">exe</span> <span class="n">-i</span> <span class="n">-H</span> <span class="s2">"Accept: application/json"</span> <span class="n">http</span><span class="p">://</span><span class="n">127</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">1</span><span class="p">:</span><span class="n">8000</span><span class="p">/</span><span class="n">api</span><span class="p">/</span><span class="n">jarduerak</span>
+</code></pre></div>
+<p>POST eskaera baten adibidea (PowerShell):</p>
+<div class="highlight"><pre><span></span><code><span class="n">curl</span><span class="p">.</span><span class="n">exe</span> <span class="n">-i</span> <span class="n">-X</span> <span class="n">POST</span> <span class="s2">"http://127.0.0.1:8000/api/jarduerak"</span> <span class="p">`</span>
+  <span class="n">-H</span> <span class="s2">"Accept: application/json"</span> <span class="p">`</span>
+  <span class="n">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="p">`</span>
+  <span class="n">-d</span> <span class="s1">'{"izena":"Dantza tailerra","plazak":20}'</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">PowerShell eta JSON</p>
+<p>Windows-en komatxoen interpretazioa aldatu egin daiteke shell-aren eta curl bertsioaren arabera. Arazoak badaude, erabili JSON fitxategi bat: <code>curl.exe ... --data-binary '@jarduera.json'</code>.</p>
+</div>
+<h2 id="probatu-beharreko-kasuak">Probatu beharreko kasuak</h2>
+<table>
+<thead>
+<tr>
+<th>Proba</th>
+<th>Espero den emaitza</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET /api/jarduerak</code></td>
+<td>200 eta JSON zerrenda</td>
+</tr>
+<tr>
+<td><code>GET /api/jarduerak/999999</code></td>
+<td>404, IDa existitzen ez bada</td>
+</tr>
+<tr>
+<td><code>POST</code> datu egokiekin</td>
+<td>201</td>
+</tr>
+<tr>
+<td><code>POST</code> datu baliogabeekin</td>
+<td>422</td>
+</tr>
+<tr>
+<td><code>DELETE</code> arrakastatsua</td>
+<td>204</td>
+</tr>
+</tbody>
+</table>
+<h2 id="laravel-en-test-automatizatua">Laravel-en test automatizatua</h2>
+<div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>make:test<span class="w"> </span>JardueraApiTest
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="x">public function test_jardueren_zerrenda_jaso_daiteke(): void</span>
+<span class="x">{</span>
+<span class="x">    $response = $this-&gt;getJson('/api/jarduerak');</span>
+<span class="x">    $response-&gt;assertOk();</span>
+<span class="x">}</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Ikasgelarako</p>
+<p>Postman instalatu ezin bada, <code>curl.exe</code>, VS Code-ko HTTP eskaeren luzapen bat (instalatuta badago) edo Laravel-en HTTP testak erabil daitezke.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Ariketa</p>
+<p>Sortu bost kasuko proba-taula: eskaera, bidalitako datuak, espero den kodea eta lortutako kodea.</p>
+</div>
 
 
 
@@ -2100,10 +2524,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Arbelean kopiatuta", "clipboard.copy": "Kopiatu arbelean", "search.result.more.one": "Bat gehiago orri honetan", "search.result.more.other": "# gehiago orri honetan", "search.result.none": "Bat datorren dokumenturik ez", "search.result.one": "Bat datorren dokumentu bat", "search.result.other": "Bat datozen # dokumentu", "search.result.placeholder": "Idatzi bilatzen hasteko", "search.result.term.missing": "Falta da", "select.version": "Hautatu bertsioa"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Arbelean kopiatuta", "clipboard.copy": "Kopiatu arbelean", "search.result.more.one": "Bat gehiago orri honetan", "search.result.more.other": "# gehiago orri honetan", "search.result.none": "Bat datorren dokumenturik ez", "search.result.one": "Bat datorren dokumentu bat", "search.result.other": "Bat datozen # dokumentu", "search.result.placeholder": "Idatzi bilatzen hasteko", "search.result.term.missing": "Falta da", "select.version": "Hautatu bertsioa"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

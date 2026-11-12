@@ -4,7 +4,7 @@ Laravel 12k berez, datu base bat sortuko du proiektua sortzerakoan, sqlite datu 
 
 Baina, Laravelek hainbat datu base motekin egin dezake lan, dokumentazioan esaten digu zeinekin egin dezakeen:
 
-<https://laravel.com/docs/12.x/database>
+<https://laravel.com/framework/docs/13.x/database>
 
 Gure kasuan Mysql-rekin egingo dugu.
 
@@ -26,7 +26,7 @@ Horretarako, lehenengo eta behin gure datu basea sortuko dugu PhpyAdmin-en, hurr
 
 Kontutan izan XAMP erabiltzen baduzue password hutsik geratu behar dela era MAMP erabiliz gero, aldaketarik ez baduzue egin, root izango dela.
 
-```dotenv
+```php
 DB_CONNECTION=mysql
 
 DB_HOST=127.0.0.1
@@ -42,6 +42,8 @@ DB_PASSWORD=root
 
 Kontuz! Datu basea sortzerakoan, zein "cotejamiento" nahi dugun adierazi behar da, berez phpMyAdmin-en utf8mb4\_unicode\_ci jartzen du, Laravel-ek jartzen duen berdina, hori aldatzekotan, gure .env fitxategian ere adierazi beharko genuke.
 
+```php
 'collation' => env('DB\_COLLATION', 'utf8mb4\_unicode\_ci'),
+```
 
 Hurrengoa: Migrazioak

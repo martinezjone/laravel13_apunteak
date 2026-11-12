@@ -1,4 +1,4 @@
-# ERLAZIOAK
+# Erlazioak
 
 Gure aula-online adibidean ikusi ditugu taulen arteko erlazioak zelan egin, 1-N erlazioa eta baita N-M erlazioa ere.
 
@@ -8,4 +8,4 @@ Eloquent, Laravelek erabiltzen duen datu-basearen abstrakzio-geruza da eta honi 
 
 [Aula-online adibidea](../CRUD/erlazioak-1-n.md)
 
-Dokumentazio ofiziala: <https://laravel.com/docs/10.x/eloquent-relationships>
+Dokumentazio ofiziala: <https://laravel.com/framework/docs/13.x/eloquent-relationships>
