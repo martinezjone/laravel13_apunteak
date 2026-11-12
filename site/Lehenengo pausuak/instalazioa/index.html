@@ -512,10 +512,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#laravelekin-lan-egiteko-aurrebaldintzak" class="md-nav__link">
+  <a href="#aurrebaldintzak" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Laravelekin lan egiteko aurrebaldintzak
+        Aurrebaldintzak
       
     </span>
   </a>
@@ -523,10 +523,54 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#instalazioa_1" class="md-nav__link">
+  <a href="#laravel-installer-erabiliz-gomendatua" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Instalazioa
+        Laravel Installer erabiliz (gomendatua)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beste-aukera-bat-composer-bidez" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Beste aukera bat: Composer bidez
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#datu-basea-konfiguratzea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datu-basea konfiguratzea
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aplikazioa-abiaraztea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aplikazioa abiaraztea
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ohiko-arazoak" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ohiko arazoak
       
     </span>
   </a>
@@ -2323,10 +2367,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#laravelekin-lan-egiteko-aurrebaldintzak" class="md-nav__link">
+  <a href="#aurrebaldintzak" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Laravelekin lan egiteko aurrebaldintzak
+        Aurrebaldintzak
       
     </span>
   </a>
@@ -2334,10 +2378,54 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#instalazioa_1" class="md-nav__link">
+  <a href="#laravel-installer-erabiliz-gomendatua" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Instalazioa
+        Laravel Installer erabiliz (gomendatua)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beste-aukera-bat-composer-bidez" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Beste aukera bat: Composer bidez
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#datu-basea-konfiguratzea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datu-basea konfiguratzea
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aplikazioa-abiaraztea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aplikazioa abiaraztea
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ohiko-arazoak" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ohiko arazoak
       
     </span>
   </a>
@@ -2362,117 +2450,75 @@
 
 
 <h1 id="instalazioa">Instalazioa</h1>
-<p>Laravelek, Windows edo Mac-en instalatzeko hainbat modu eskaintzen ditu. Laravel instalatzeko modurik onena eta errazena Composer da. Composer php-rako mendekotasunen administratzailea da, eta bere web-zerbitzarian instala dezake.</p>
-<h2 id="laravelekin-lan-egiteko-aurrebaldintzak">Laravelekin lan egiteko aurrebaldintzak</h2>
+<p>Ikasturte honetan Laravel 13 erabiliko dugu. Laravel aplikazio bat sortzeko, PHP eta Composer behar dira. Aplikazioaren frontend-eko baliabideak (CSS eta JavaScript) lantzeko, Node.js eta npm ere erabiliko ditugu.</p>
+<p>Laravel instalatzeko modu errazena Laravel Installer erabiltzea da. Beste aukera gisa, Composer-en bidez sor dezakezu proiektua.</p>
+<p>Dokumentazio ofiziala: <a href="https://laravel.com/docs/13.x/installation">https://laravel.com/docs/13.x/installation</a></p>
+<h2 id="aurrebaldintzak">Aurrebaldintzak</h2>
 <ul>
-<li>Ikasturte honetan Laravel 13-rekin lan egingo dugu, eta horrek  PHP 8.2 - 8.4 edo goragokoa eskatzen du, PHPren PDO luzapena, datu-basearekin konektatzeko.</li>
-<li>MySQL (edo datu-baseen beste iturri batzuk, SQLite t ere erabil dezakezu</li>
-<li>Composer instalatuta izatea.</li>
-<li>Node.js (lagungarri baina ez beharrezkoa)</li>
-<li>Git (Laravel 11-tik aurrera beharrezkoa)</li>
+<li><strong>PHP 8.3 edo berriagoa</strong>, eta Laravel-ek behar dituen PHP luzapenak.</li>
+<li><strong>Composer 2</strong>, PHP mendekotasunak kudeatzeko.</li>
+<li><strong>Node.js eta npm</strong>, frontend-eko baliabideak instalatu eta konpilatzeko.</li>
+<li><strong>Datu-base bat</strong>: SQLite aukera lehenetsia da; MySQL ere erabil dezakezu.</li>
+<li><strong>Git</strong>, kode-biltegi batekin lan egin edo proiektu bat klonatu behar baduzu. Ez da beharrezkoa Laravel proiektu berri bat sortzeko.</li>
 </ul>
-<p>Zure ordenagailuan software horiek instalatuta dituzun egiaztatzeko, komando pare bat bota behar duzu kontsolaren bidez.</p>
-<ul>
-<li>PHP instalaturik dugun jakiteko. Komando hauetariko  bat erabili dezakezu:</li>
-</ul>
-<p>C:\xampp\php&gt; .\php -v</p>
-<ul>
-<li>PHP instalaturik dugun jakiteko ere php gfitxategi baten hurrengo funtzioa idatzi dezakegu:</li>
-</ul>
-<div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span> <span class="nb">phpinfo</span><span class="p">();</span> <span class="cp">?&gt;</span>
+<p>Instalazioak egiaztatzeko, ireki terminal bat eta exekutatu:</p>
+<div class="highlight"><pre><span></span><code>php<span class="w"> </span>-v
+composer<span class="w"> </span>--version
+node<span class="w"> </span>-v
+npm<span class="w"> </span>-v
 </code></pre></div>
-<h2 id="instalazioa_1">Instalazioa</h2>
-<ul>
-<li>Webgune ofiziala: <a href="https://laravel.com/framework/docs/13.x/installation">https://laravel.com/framework/docs/13.x/installation</a></li>
-</ul>
-<p>1.- Laraveleko instalatzailearen bidez</p>
-<p>Laravelen instalatzailea Composer-ekin deskarga dezakezu, komando hau erabiliz:</p>
+<p>Komando batek ez badu funtzionatzen, instalatu dagokion tresna eta egiaztatu terminalaren <code>PATH</code> aldagaian dagoela. Composer edo Node.js instalatzeko argibideak <a href="../../M%C3%A1s/composer/">Composer</a> eta <a href="../../M%C3%A1s/nodejs/">Node.js</a> ataletan daude. PHPren luzapenak egiaztatzeko, erabili <code>php -m</code>; Composerrek <code>zip</code> luzapenari buruzko errorea ematen badu, aktibatu luzapen hori zure PHP konfigurazioan.</p>
+<h2 id="laravel-installer-erabiliz-gomendatua">Laravel Installer erabiliz (gomendatua)</h2>
+<p>Instalatu Laravel Installer Composer bidez:</p>
 <div class="highlight"><pre><span></span><code>composer<span class="w"> </span>global<span class="w"> </span>require<span class="w"> </span>laravel/installer
 </code></pre></div>
-<p>Ziurtatu ~/.composer/vendor/bin direktorioko ibilbidea zure PATHen artean dagoela, horrela zure sistemak behar bezala Laravelen instalatzailea aurkitu eta exekutatu ahal izango du. Direktorio hori aldatu egin daiteke sistema eragilearen edo erabiltzen ari zaren banaketaren arabera.</p>
-<p>Gero, laravel new komandoa erabiliz, Laravelen azken bertsioaren kopia sor dezakezu. Adibidez, nombreProyectoizeneko proiektua sortuko dugu:</p>
-<p>laravel new nombreProyecto-app</p>
-<p>Proiektu berrirako nahi duzun izena aukera dezakezu.</p>
-<p>Kasu honetan hainbat galdera egingo dizkigu, adibidez ia Breeze edo Jetstream nahi badugu. Momentuz ezetz esango genioke.</p>
-<p>Frogak egiteko framework bat, ezetz momentuz ere</p>
-<p>Git repository, horreri adibidez yes esango genioke.</p>
-<p>Azkenean ere zein datu basearekin gure dugu sortu esango diogu.</p>
-<p>2.- Composer bidez (direktorioa nombreProyecto)</p>
-<p>Laravel Composer-ekin ere instala dezakezu, komando hau erabiliz:</p>
-<div class="highlight"><pre><span></span><code>composer<span class="w"> </span>create-project<span class="w"> </span>laravel/laravel<span class="w"> </span>izenaProiektua
+<p>Windows-en <code>laravel</code> komandoa ezagutzen ez badu, begiratu Composer-en komando globalen direktorioa:</p>
+<div class="highlight"><pre><span></span><code>composer<span class="w"> </span>global<span class="w"> </span>config<span class="w"> </span>bin-dir<span class="w"> </span>--absolute
 </code></pre></div>
-<p>--prefer-distint --prefer-install: Pakete bat deskargatu behar da batzuetan: source y dist.</p>
-<p>Composerrek dist erabiltzen du lehenespenez. Pasatzen bada --prefer-install=source (edo --prefer-source), Composer iturritik instalatuko da, bat egotekotan.</p>
-<p>Hori erabilgarria da proiektu bateko akats bat zuzendu eta mendekotasunaren tokiko git klon bat zuzenean lortu nahi baduzu. Composerrek paketeen garapen-bertsioetarako iturria automatikoki erabiltzen duen portaera heredatua lortzeko, erabili --prefer-install=auto. Ikus, halaber, config.preferred-install. Bandera hori pasatzeak konfigurazio-balioa baliogabetuko du.</p>
-<div class="highlight"><pre><span></span><code>composer<span class="w"> </span>create-project<span class="w"> </span>--prefer-dist<span class="w"> </span>laravel/laravel<span class="w"> </span>izenaProiektua
+<p>Gehitu komandoak erakutsitako direktorioa erabiltzailearen <code>PATH</code> ingurune-aldagaian, ireki terminal berri bat eta sortu proiektua:</p>
+<div class="highlight"><pre><span></span><code>laravel<span class="w"> </span>new<span class="w"> </span>nire-proiektua
+<span class="nb">cd</span><span class="w"> </span>nire-proiektua
 </code></pre></div>
-<ol>
-<li>-Laraveleko instalazioa Laravel Breezerekin</li>
-</ol>
-<p>Laravel Breezek abiapuntu bikaina eta erraza eskaintzen dizu Laravelen aplikazioak autentikatzeko. Breeze erabiltzen hasteko, lehenbizi Laravelen proiektu berri bat sortu behar duzu:</p>
-<p>Gero, zure proiektuaren erro-direktorioaren barruan, instalatu Breeze garapen-mendekotasun gisa:</p>
-<div class="highlight"><pre><span></span><code>composer<span class="w"> </span>require<span class="w"> </span>laravel/breeze<span class="w"> </span>--dev
+<p>Instalatzaileak hainbat aukera galdetuko dizkizu, hala nola datu-basea eta hasierako egitura. Aukerak ez badituzu ezagutzen, erabili proposatutako lehenetsiak; gero ere alda daitezke. Autentifikazioa behar baduzu, hautatu instalatzaileak eskaintzen duen hasierako egitura.</p>
+<h2 id="beste-aukera-bat-composer-bidez">Beste aukera bat: Composer bidez</h2>
+<p>Laravel Installer erabili nahi ez baduzu, sortu proiektua Composer-ekin:</p>
+<div class="highlight"><pre><span></span><code>composer<span class="w"> </span>create-project<span class="w"> </span>laravel/laravel<span class="w"> </span>nire-proiektua
+<span class="nb">cd</span><span class="w"> </span>nire-proiektua
 </code></pre></div>
-<p>Orain, erabili Artisanen breeze:install komandoa Breezek kautotze- eta ikuste-kontrolatzaile guztiak (Blade eta Tailwinden diseinatuak) kopiatu ditzan zure proiektuan:</p>
-<div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>breeze:install
-
-php<span class="w"> </span>artisan<span class="w"> </span>migrate
+<h2 id="datu-basea-konfiguratzea">Datu-basea konfiguratzea</h2>
+<p>Proiektu berriek SQLite erabil dezakete lehenespenez. MySQL erabili nahi baduzu, sortu datu-basea lehenik eta egokitu proiektuaren erroko <code>.env</code> fitxategiko balioak:</p>
+<div class="highlight"><pre><span></span><code><span class="na">DB_CONNECTION</span><span class="o">=</span><span class="s">mysql</span>
+<span class="na">DB_HOST</span><span class="o">=</span><span class="s">127.0.0.1</span>
+<span class="na">DB_PORT</span><span class="o">=</span><span class="s">3306</span>
+<span class="na">DB_DATABASE</span><span class="o">=</span><span class="s">laravel</span>
+<span class="na">DB_USERNAME</span><span class="o">=</span><span class="s">root</span>
+<span class="na">DB_PASSWORD</span><span class="o">=</span>
 </code></pre></div>
-<p>Eta, azkenik, ondorengo komandoa exekutatzen du Breezeko interfazeko asset guztiak konpilatzeko:</p>
-<div class="highlight"><pre><span></span><code>npm<span class="w"> </span>install<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>npm<span class="w"> </span>run<span class="w"> </span>dev
+<p>Erabili zure MySQL zerbitzariari dagozkion datuak, eta ziurtatu zerbitzaria martxan dagoela. Ondoren, exekutatu migrazioak:</p>
+<div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>migrate
 </code></pre></div>
-<p>Arazoak izanez gero, hurrengo estekan sartu:  <a href="https://www.cursosgis.com/como-instalar-node-js-y-npm-en-4-pasos/">https://www.cursosgis.com/como-instalar-node-js-y-npm-en-4-pasos/</a></p>
-<p>Gogoratu Breezeko kontrolatzaileak eta ikuspegiak pertsonaliza ditzakezula zure aplikazioaren beharretara egokitzeko.</p>
-<p>4.-Git bidezko instalazioa</p>
-<p>GitHub kodean edo Laravel beste proiektu batean hasiko gara. Hemen fase guztiak eskuz egin beharrekoak dira:</p>
+<p>SQLite erabiltzen baduzu, egiaztatu <code>.env</code> fitxategian <code>DB_CONNECTION=sqlite</code> dagoela. Beharrezkoa bada, sortu <code>database/database.sqlite</code> fitxategia proiektuaren barruan eta exekutatu migrazioak.</p>
+<h2 id="aplikazioa-abiaraztea">Aplikazioa abiaraztea</h2>
+<p>Frontend-eko paketeak instalatzeko, proiektuaren erro-direktorioan:</p>
+<div class="highlight"><pre><span></span><code>npm<span class="w"> </span>install
+</code></pre></div>
+<p>Ireki terminal bat frontend-a garapen-moduan exekutatzeko:</p>
+<div class="highlight"><pre><span></span><code>npm<span class="w"> </span>run<span class="w"> </span>dev
+</code></pre></div>
+<p>Ireki beste terminal bat, sartu proiektuaren direktoriora eta abiarazi Laravel:</p>
+<div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>serve
+</code></pre></div>
+<p>Terminalean erakutsitako helbidea ireki nabigatzailean; normalean <a href="http://127.0.0.1:8000">http://127.0.0.1:8000</a> izango da. Garapeneko zerbitzaria gelditzeko, sakatu <code>Ctrl+C</code>.</p>
+<p>Frontend-a garapen zerbitzaririk gabe konpilatu nahi baduzu, erabili <code>npm run build</code>.</p>
+<p><img alt="Laravel aplikazioaren hasierako orria" src="../../assets/images/Instalazioa/194de0111f563da58c9ea1c351300d76.jpg" /></p>
+<h2 id="ohiko-arazoak">Ohiko arazoak</h2>
 <ul>
-<li>Deskarga</li>
+<li><strong>Komando bat ez da aurkitzen:</strong> berrikusi tresna instalatuta dagoela eta terminalaren <code>PATH</code> aldagaian dagoela; ondoren, ireki terminal berri bat.</li>
+<li><strong>PHP luzapenen errorea:</strong> egiaztatu <code>php -m</code> komandoaren emaitza eta aktibatu falta den luzapena erabiltzen ari zaren PHP konfigurazioan.</li>
+<li><strong>Datu-basearekin konektatzeko errorea:</strong> egiaztatu zerbitzaria martxan dagoela, <code>.env</code> fitxategiko datuak zuzenak direla eta MySQL erabiltzen baduzu datu-basea sortuta dagoela.</li>
+<li><strong>Baimen-errorea:</strong> Laravel-ek idazteko baimena behar du <code>storage</code> eta <code>bootstrap/cache</code> direktorioetan. Eman baimenak zure erabiltzaileari; ez eman baimen zabalik direktorio horiei.</li>
 </ul>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/laravel/laravel.git<span class="w"> </span>nombreProyecto
-
-<span class="nb">cd</span><span class="w"> </span>nombreProyecto
-</code></pre></div>
-<ul>
-<li>Mendekotasun instalazioak</li>
-</ul>
-<div class="highlight"><pre><span></span><code>composer<span class="w"> </span>install
-</code></pre></div>
-<ul>
-<li>Sortu ingurune-fitxategia adibidetik abiatuta:</li>
-</ul>
-<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>.env.example<span class="w"> </span>.env
-</code></pre></div>
-<ul>
-<li>Zifratze-gakoa sortzea (.env ikusi).</li>
-</ul>
-<div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>key:generate
-</code></pre></div>
-<p>OHARRA</p>
-<p>Laravel proiektua abian jartzea, zerbitzari integratuarekin</p>
-<ul>
-<li>artisan modu orokorrean erabiltzen da. Adibidez, klase guztiak komando horrekin sortu behar dira.</li>
-<li>Exekutatuz zerbitzaririk gabe gara dezakegu:</li>
-</ul>
-<div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>serve<span class="w">              </span><span class="c1"># para iniciar el servicio</span>
-</code></pre></div>
-<p>ctrl+C                         # para cerrar</p>
-<p>Gure zerbitzarirako iragarritako URL hori zure nabigatzaile gogokoenarekin irekiz, Laravelekin instalatu berri den aplikazio baten ongietorriko orria ikusi beharko zenuke.</p>
-<p><img alt="Irudia" src="../../assets/images/Instalazioa/194de0111f563da58c9ea1c351300d76.jpg" /></p>
-<p>KONTUZ HONEKIN!</p>
-<p>Batzutan, segun eta zein terminal erabiltzen dugun, izan daiteke composer-en PATH-a ondo konfiguratuta ez egotea, hori gertatzekotan, terminalari adieraziko diogu PATH hori non dagoen.</p>
-<p>Visual Studion gertatzekotan, Settings zabaldu eta settings.json fitxategian hurrengo hau idatziko dugu.</p>
-<p>"terminal.integrated.env.windows": {</p>
-<p>"PATH": "C:/ProgramData/ComposerSetup/bin/composer;${env:PATH}"</p>
-<p>}</p>
-<p>Non instalatuta dagoen jakiteko, beste terminal baten galdetuko dugu, adibidez git bash-en:</p>
-<p>which composer</p>
-<p><img alt="Irudia" src="../../assets/images/Instalazioa/914620f87cb541578ce9b2d009be1ee7.jpg" /></p>
-<p>Visual Studio-ren terminala  erabiltzean, php-ini fitxategian ;extension=zip aktibatu behar dugu ; kentzen.</p>
-<p>extension=zip</p>
-<p>Baliteke Laravelen salbuespen bat jasotzea sartzeko behar adina pribilegio ez duzunean, normalean storagedirektorioan Laravelen log-fitxategia sortu ezin denean. Hori konpontzeko, pribilegioak doitu ditzakezu; adibidez, Linux-en chmodkomandoa erabil dezakezu erabiltzaileen irakurketa- eta idazketa-pribilegioak emateko.</p>
-<p>Zure proiektua duen direktoriotik, hauek egin ditzakezu:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>chmod<span class="w"> </span>-R<span class="w"> </span><span class="nv">o</span><span class="o">=</span>rwx<span class="w"> </span>storage
-</code></pre></div>
+<p>Laravel aplikazioa garapeneko zerbitzariarekin bakarrik probatu behar da. Benetako zerbitzarian argitaratzeko, jarraitu Laravel-en <a href="https://laravel.com/docs/13.x/deployment">hedapen-gida</a>.</p>
 
 
 
