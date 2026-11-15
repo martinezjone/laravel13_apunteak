@@ -1,69 +1,148 @@
 # Controladores
 
-En Laravel, los controladores contienen la lógica de nuestra aplicación.
+Una ruta vincula una solicitud HTTP con una acción. Hasta ahora, hemos escrito esa acción directamente en el archivo `routes/web.php`, dentro de una función anónima. **Los controladores (*controllers*) nos permiten organizar acciones relacionadas en una misma clase.** Así, la ruta indica qué método se debe llamar, y el método gestiona la solicitud y devuelve la respuesta.
 
-Podemos crear los controladores manualmente, pero con Artisan nos resultará más fácil. El nombre del controlador puede ser cualquiera, aunque normalmente (por convención) se escribe con mayúscula inicial y en singular, seguido de la palabra Controller: HomeController, IkasleController, KategoriaController, etc.
+## Crear un controlador
+
+En el directorio raíz del proyecto, ejecuta:
 
 ```bash
 php artisan make:controller HomeController
 ```
 
-Artisan crea un archivo PHP con el nombre que hemos indicado en la carpeta app>Http>Controllers.
+Artisan creará el archivo `app/Http/Controllers/HomeController.php`. Por convención, el nombre del controlador se escribe en singular y en formato PascalCase, con el sufijo `Controller`. Por ejemplo, `HomeController`, `StudentController` y `CategoryController`.
 
-Como vemos, en el archivo crea un namespace que indica dónde se encuentra nuestro controlador. También crearía una clase HomeController.
+## De la ruta al controlador
 
-En ese controlador crearemos los métodos que necesitemos.
+Añade el método `index()` a la clase `HomeController`. En la primera prueba, devolveremos un mensaje de texto.
 
 ```php
+<?php
+
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-class HomeController extends Controller{
-
-public function index(){
-
-return "Hau da nire blog-aren lehenengo orria. Ongi etorri!!";
-
+class HomeController extends Controller
+{
+    public function index(): string
+    {
+        return 'Esta es la página de inicio de mi blog. ¡Te doy la bienvenida!';
+    }
 }
 ```
 
-Si queremos utilizar un método de ese controlador, por ejemplo, para crear una ruta, primero tendremos que indicar que queremos utilizar un método de ese controlador; para ello añadiremos el namespace:
+La línea `namespace App\Http\Controllers;` indica en qué espacio de nombres está la clase. La expresión `extends Controller` indica que la clase `HomeController` hereda la clase base `Controller`. La palabra `public` permite llamar al método desde fuera de la clase. La expresión `: string` especifica el tipo de retorno del método.
 
-```php
-use App\Http\Controllers\HomeController;
-```
-
-Y después podremos utilizar todos los métodos que tiene la clase de ese controlador. Por ejemplo, como se indica en este ejemplo index.php:
+En el archivo `routes/web.php`, añade la línea `use App\Http\Controllers\HomeController;` junto con las demás importaciones. Después, sustituye la ruta `GET /` existente por esta:
 
 ```php
 Route::get('/', [HomeController::class, 'index']);
 ```
 
-Normalmente cada controlador tendrá varios métodos, pero si solo tiene uno, en vez de llamar index a nuestro método podemos llamarlo __invoke(); en ese caso, al definir la ruta no hace falta escribir el nombre del método, porque se accederá directamente a él.
+La línea `use` nos permite utilizar el nombre abreviado `HomeController` en el archivo. El array del segundo argumento de la ruta contiene dos elementos:
+
+| Elemento | ¿Qué indica? |
+| --- | --- |
+| `HomeController::class` | La clase del controlador que se debe utilizar. |
+| `'index'` | El método público al que llamará Laravel. |
+
+
+## Recibir un parámetro de ruta en un controlador
+
+Sustituye la función anónima de la ruta anterior `/welcome/{name?}` por un método del controlador. En el archivo `routes/web.php`:
 
 ```php
-class HomeController extends Controller{
+Route::get('/welcome/{name?}', [HomeController::class, 'welcome']);
+```
 
-public function __invoke(){
+Añade el método `welcome()` dentro de la clase `HomeController`:
 
-return "Hau da nire blog-aren lehenengo orria. Ongi etorri!!";
-
+```php
+public function welcome(string $name = 'invitado'): string
+{
+    return '¡Hola, ' . e($name) . '!';
 }
 ```
 
-Y en la ruta pondríamos solo el nombre del controlador.
+| Solicitud | Valor de `$name` | Respuesta |
+| --- | --- | --- |
+| `GET /welcome/Jon` | `'Jon'` | `¡Hola, Jon!` |
+| `GET /welcome` | `'invitado'` | `¡Hola, invitado!` |
+
+La expresión `{name?}` indica que el segmento de la URL es opcional. Si falta el segmento, el método utiliza el valor predeterminado `'invitado'`. El helper `e()` prepara el nombre recibido de la URL para mostrarlo como texto en HTML.
+
+## Del controlador a una vista Blade
+
+Ahora, el método `index()` preparará el título y el mensaje de la página de inicio y se los pasará a una vista Blade. Añade `use Illuminate\View\View;` en el archivo del controlador, después de la línea `namespace`. Después, sustituye el método `index()`:
 
 ```php
-Route::get('/', HomeController::class);
+public function index(): View
+{
+    $title = 'Inicio';
+    $message = 'Esta es la página de inicio de mi blog. ¡Te doy la bienvenida!';
+
+    return view('home', [
+        'title' => $title,
+        'message' => $message,
+    ]);
+}
 ```
 
-Controlador de recursos (Resource Controller)
+Crea el archivo `resources/views/home.blade.php`:
 
-Cuando vayamos a utilizar nuestro controlador para hacer un CRUD, podemos indicarle a Laravel mediante Artisan que ese será su propósito.
+```blade
+<h1>{{ $title }}</h1>
+<p>{{ $message }}</p>
+```
+
+La llamada `view('home', ...)` utiliza la vista `home.blade.php`. Las claves `'title'` y `'message'` del array indican los nombres de las variables `$title` y `$message` dentro de Blade. Blade escapa automáticamente para HTML los valores que muestra mediante `{{ ... }}`.
+
+
+## Controlador de una sola acción
+
+Cuando queremos diseñar un controlador para una sola acción, podemos utilizar el método `__invoke()`. Por ejemplo, crea `AboutController`:
 
 ```bash
-php artisan make:controller ProfesorController --resource
+php artisan make:controller AboutController --invokable
 ```
 
-Al hacerlo, como verás, escribirá los métodos que se suelen utilizar para hacer un CRUD.
+```php
+<?php
+
+namespace App\Http\Controllers;
+
+class AboutController extends Controller
+{
+    public function __invoke(): string
+    {
+        return 'Información sobre el blog';
+    }
+}
+```
+
+Añade la importación `use App\Http\Controllers\AboutController;` al principio del archivo `routes/web.php` y registra la ruta:
+
+```php
+Route::get('/about', AboutController::class);
+```
+
+En este caso, basta con proporcionar la clase del controlador. Laravel llamará al método `__invoke()`. Si la ruta general `/{number}` está activa, coloca `/about` antes de ella.
+
+## Controlador de recursos (*Resource controller*)
+
+Para un CRUD, Artisan puede crear un controlador con métodos para las acciones habituales:
+
+```bash
+php artisan make:controller TeacherController --resource
+```
+
+El comando prepara la estructura de los métodos `index`, `create`, `store`, `show`, `edit`, `update` y `destroy`. Nosotros escribiremos el contenido de cada método.
+
+Para registrar las rutas, añade la importación `use App\Http\Controllers\TeacherController;` y esta declaración al archivo `routes/web.php`:
+
+```php
+Route::resource('teachers', TeacherController::class);
+```
+
+La opción `--resource` crea la estructura de los métodos del controlador, y la llamada `Route::resource()` registra las rutas. Comprueba el resultado con el comando `php artisan route:list --path=teachers`. Puedes consultar el método HTTP, la URL y la acción de cada ruta en la sección [Rutas](rutak.md).
+
+[Documentación oficial de Laravel 13 · Controllers](https://laravel.com/framework/docs/13.x/controllers)
