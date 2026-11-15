@@ -753,6 +753,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Controladores
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -769,6 +787,91 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#crear-un-controlador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Crear un controlador
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#de-la-ruta-al-controlador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        De la ruta al controlador
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recibir-un-parametro-de-ruta-en-un-controlador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recibir un parámetro de ruta en un controlador
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#del-controlador-a-una-vista-blade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Del controlador a una vista Blade
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controlador-de-una-sola-accion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Controlador de una sola acción
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controlador-de-recursos-resource-controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Controlador de recursos (Resource controller)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2528,6 +2631,80 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#crear-un-controlador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Crear un controlador
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#de-la-ruta-al-controlador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        De la ruta al controlador
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recibir-un-parametro-de-ruta-en-un-controlador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recibir un parámetro de ruta en un controlador
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#del-controlador-a-una-vista-blade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Del controlador a una vista Blade
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controlador-de-una-sola-accion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Controlador de una sola acción
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controlador-de-recursos-resource-controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Controlador de recursos (Resource controller)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2544,48 +2721,129 @@
 
 
 <h1 id="controladores">Controladores</h1>
-<p>En Laravel, los controladores contienen la lógica de nuestra aplicación.</p>
-<p>Podemos crear los controladores manualmente, pero con Artisan nos resultará más fácil. El nombre del controlador puede ser cualquiera, aunque normalmente (por convención) se escribe con mayúscula inicial y en singular, seguido de la palabra Controller: HomeController, IkasleController, KategoriaController, etc.</p>
+<p>Una ruta vincula una solicitud HTTP con una acción. Hasta ahora, hemos escrito esa acción directamente en el archivo <code>routes/web.php</code>, dentro de una función anónima. <strong>Los controladores (<em>controllers</em>) nos permiten organizar acciones relacionadas en una misma clase.</strong> Así, la ruta indica qué método se debe llamar, y el método gestiona la solicitud y devuelve la respuesta.</p>
+<h2 id="crear-un-controlador">Crear un controlador</h2>
+<p>En el directorio raíz del proyecto, ejecuta:</p>
 <div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>make:controller<span class="w"> </span>HomeController
 </code></pre></div>
-<p>Artisan crea un archivo PHP con el nombre que hemos indicado en la carpeta app&gt;Http&gt;Controllers.</p>
-<p>Como vemos, en el archivo crea un namespace que indica dónde se encuentra nuestro controlador. También crearía una clase HomeController.</p>
-<p>En ese controlador crearemos los métodos que necesitemos.</p>
-<div class="highlight"><pre><span></span><code><span class="x">namespace App\Http\Controllers;</span>
+<p>Artisan creará el archivo <code>app/Http/Controllers/HomeController.php</code>. Por convención, el nombre del controlador se escribe en singular y en formato PascalCase, con el sufijo <code>Controller</code>. Por ejemplo, <code>HomeController</code>, <code>StudentController</code> y <code>CategoryController</code>.</p>
+<h2 id="de-la-ruta-al-controlador">De la ruta al controlador</h2>
+<p>Añade el método <code>index()</code> a la clase <code>HomeController</code>. En la primera prueba, devolveremos un mensaje de texto.</p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
 
-<span class="x">use Illuminate\Http\Request;</span>
+<span class="k">namespace</span> <span class="nx">App\Http\Controllers</span><span class="p">;</span>
 
-<span class="x">class HomeController extends Controller{</span>
-
-<span class="x">public function index(){</span>
-
-<span class="x">return &quot;Hau da nire blog-aren lehenengo orria. Ongi etorri!!&quot;;</span>
-
-<span class="x">}</span>
+<span class="k">class</span> <span class="nc">HomeController</span> <span class="k">extends</span> <span class="nx">Controller</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">index</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s1">&#39;Esta es la página de inicio de mi blog. ¡Te doy la bienvenida!&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
-<p>Si queremos utilizar un método de ese controlador, por ejemplo, para crear una ruta, primero tendremos que indicar que queremos utilizar un método de ese controlador; para ello añadiremos el namespace:</p>
-<div class="highlight"><pre><span></span><code><span class="x">use App\Http\Controllers\HomeController;</span>
-</code></pre></div>
-<p>Y después podremos utilizar todos los métodos que tiene la clase de ese controlador. Por ejemplo, como se indica en este ejemplo index.php:</p>
+<p>La línea <code>namespace App\Http\Controllers;</code> indica en qué espacio de nombres está la clase. La expresión <code>extends Controller</code> indica que la clase <code>HomeController</code> hereda la clase base <code>Controller</code>. La palabra <code>public</code> permite llamar al método desde fuera de la clase. La expresión <code>: string</code> especifica el tipo de retorno del método.</p>
+<p>En el archivo <code>routes/web.php</code>, añade la línea <code>use App\Http\Controllers\HomeController;</code> junto con las demás importaciones. Después, sustituye la ruta <code>GET /</code> existente por esta:</p>
 <div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;/&#39;, [HomeController::class, &#39;index&#39;]);</span>
 </code></pre></div>
-<p>Normalmente cada controlador tendrá varios métodos, pero si solo tiene uno, en vez de llamar index a nuestro método podemos llamarlo __invoke(); en ese caso, al definir la ruta no hace falta escribir el nombre del método, porque se accederá directamente a él.</p>
-<div class="highlight"><pre><span></span><code><span class="x">class HomeController extends Controller{</span>
-
-<span class="x">public function __invoke(){</span>
-
-<span class="x">return &quot;Hau da nire blog-aren lehenengo orria. Ongi etorri!!&quot;;</span>
-
+<p>La línea <code>use</code> nos permite utilizar el nombre abreviado <code>HomeController</code> en el archivo. El array del segundo argumento de la ruta contiene dos elementos:</p>
+<table>
+<thead>
+<tr>
+<th>Elemento</th>
+<th>¿Qué indica?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>HomeController::class</code></td>
+<td>La clase del controlador que se debe utilizar.</td>
+</tr>
+<tr>
+<td><code>'index'</code></td>
+<td>El método público al que llamará Laravel.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="recibir-un-parametro-de-ruta-en-un-controlador">Recibir un parámetro de ruta en un controlador</h2>
+<p>Sustituye la función anónima de la ruta anterior <code>/welcome/{name?}</code> por un método del controlador. En el archivo <code>routes/web.php</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;/welcome/{name?}&#39;, [HomeController::class, &#39;welcome&#39;]);</span>
+</code></pre></div>
+<p>Añade el método <code>welcome()</code> dentro de la clase <code>HomeController</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="x">public function welcome(string $name = &#39;invitado&#39;): string</span>
+<span class="x">{</span>
+<span class="x">    return &#39;¡Hola, &#39; . e($name) . &#39;!&#39;;</span>
 <span class="x">}</span>
 </code></pre></div>
-<p>Y en la ruta pondríamos solo el nombre del controlador.</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;/&#39;, HomeController::class);</span>
+<table>
+<thead>
+<tr>
+<th>Solicitud</th>
+<th>Valor de <code>$name</code></th>
+<th>Respuesta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET /welcome/Jon</code></td>
+<td><code>'Jon'</code></td>
+<td><code>¡Hola, Jon!</code></td>
+</tr>
+<tr>
+<td><code>GET /welcome</code></td>
+<td><code>'invitado'</code></td>
+<td><code>¡Hola, invitado!</code></td>
+</tr>
+</tbody>
+</table>
+<p>La expresión <code>{name?}</code> indica que el segmento de la URL es opcional. Si falta el segmento, el método utiliza el valor predeterminado <code>'invitado'</code>. El helper <code>e()</code> prepara el nombre recibido de la URL para mostrarlo como texto en HTML.</p>
+<h2 id="del-controlador-a-una-vista-blade">Del controlador a una vista Blade</h2>
+<p>Ahora, el método <code>index()</code> preparará el título y el mensaje de la página de inicio y se los pasará a una vista Blade. Añade <code>use Illuminate\View\View;</code> en el archivo del controlador, después de la línea <code>namespace</code>. Después, sustituye el método <code>index()</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="x">public function index(): View</span>
+<span class="x">{</span>
+<span class="x">    $title = &#39;Inicio&#39;;</span>
+<span class="x">    $message = &#39;Esta es la página de inicio de mi blog. ¡Te doy la bienvenida!&#39;;</span>
+
+<span class="x">    return view(&#39;home&#39;, [</span>
+<span class="x">        &#39;title&#39; =&gt; $title,</span>
+<span class="x">        &#39;message&#39; =&gt; $message,</span>
+<span class="x">    ]);</span>
+<span class="x">}</span>
 </code></pre></div>
-<p>Controlador de recursos (Resource Controller)</p>
-<p>Cuando vayamos a utilizar nuestro controlador para hacer un CRUD, podemos indicarle a Laravel mediante Artisan que ese será su propósito.</p>
-<div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>make:controller<span class="w"> </span>ProfesorController<span class="w"> </span>--resource
+<p>Crea el archivo <code>resources/views/home.blade.php</code>:</p>
+<div class="highlight"><pre><span></span><code>&lt;h1&gt;{{ $title }}&lt;/h1&gt;
+&lt;p&gt;{{ $message }}&lt;/p&gt;
 </code></pre></div>
-<p>Al hacerlo, como verás, escribirá los métodos que se suelen utilizar para hacer un CRUD.</p>
+<p>La llamada <code>view('home', ...)</code> utiliza la vista <code>home.blade.php</code>. Las claves <code>'title'</code> y <code>'message'</code> del array indican los nombres de las variables <code>$title</code> y <code>$message</code> dentro de Blade. Blade escapa automáticamente para HTML los valores que muestra mediante <code>{{ ... }}</code>.</p>
+<h2 id="controlador-de-una-sola-accion">Controlador de una sola acción</h2>
+<p>Cuando queremos diseñar un controlador para una sola acción, podemos utilizar el método <code>__invoke()</code>. Por ejemplo, crea <code>AboutController</code>:</p>
+<div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>make:controller<span class="w"> </span>AboutController<span class="w"> </span>--invokable
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Http\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">AboutController</span> <span class="k">extends</span> <span class="nx">Controller</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__invoke</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s1">&#39;Información sobre el blog&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Añade la importación <code>use App\Http\Controllers\AboutController;</code> al principio del archivo <code>routes/web.php</code> y registra la ruta:</p>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;/about&#39;, AboutController::class);</span>
+</code></pre></div>
+<p>En este caso, basta con proporcionar la clase del controlador. Laravel llamará al método <code>__invoke()</code>. Si la ruta general <code>/{number}</code> está activa, coloca <code>/about</code> antes de ella.</p>
+<h2 id="controlador-de-recursos-resource-controller">Controlador de recursos (<em>Resource controller</em>)</h2>
+<p>Para un CRUD, Artisan puede crear un controlador con métodos para las acciones habituales:</p>
+<div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>make:controller<span class="w"> </span>TeacherController<span class="w"> </span>--resource
+</code></pre></div>
+<p>El comando prepara la estructura de los métodos <code>index</code>, <code>create</code>, <code>store</code>, <code>show</code>, <code>edit</code>, <code>update</code> y <code>destroy</code>. Nosotros escribiremos el contenido de cada método.</p>
+<p>Para registrar las rutas, añade la importación <code>use App\Http\Controllers\TeacherController;</code> y esta declaración al archivo <code>routes/web.php</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="x">Route::resource(&#39;teachers&#39;, TeacherController::class);</span>
+</code></pre></div>
+<p>La opción <code>--resource</code> crea la estructura de los métodos del controlador, y la llamada <code>Route::resource()</code> registra las rutas. Comprueba el resultado con el comando <code>php artisan route:list --path=teachers</code>. Puedes consultar el método HTTP, la URL y la acción de cada ruta en la sección <a href="../rutak/">Rutas</a>.</p>
+<p><a href="https://laravel.com/framework/docs/13.x/controllers">Documentación oficial de Laravel 13 · Controllers</a></p>
 
 
 
