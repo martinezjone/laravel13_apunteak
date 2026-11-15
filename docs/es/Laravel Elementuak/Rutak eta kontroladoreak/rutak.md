@@ -1,230 +1,267 @@
 # Rutas
 
-Laravel establece la relación entre el usuario y el servidor mediante rutas.
+Una ruta (*route*) vincula una solicitud HTTP con una acción. Cuando llega una solicitud, Laravel busca una ruta que coincida con su método HTTP y la ruta de su URI, y ejecuta la acción de esa ruta.
 
-El sistema de rutas de Laravel es bastante sencillo, por lo que podemos crear rutas de todo tipo y bastante complejas en pocos pasos.
+Escribimos las rutas de la interfaz web en el archivo `routes/web.php`. Para utilizar la clase `Route` en los ejemplos, asegúrate de que esta importación aparece al principio del archivo:
 
-Para crear rutas, Laravel dispone de un archivo específico llamado web.php en la carpeta routes.
+```php
+use Illuminate\Support\Facades\Route;
+```
 
-Veremos las rutas generales; aun así, encontrarás toda la documentación en el siguiente enlace: <https://laravel.com/framework/docs/13.x/routing>
+[Documentación oficial de Laravel 13 · Routing](https://laravel.com/framework/docs/13.x/routing)
 
-## Métodos
+## Métodos HTTP
 
-La aplicación Laravel debe saber interpretar la información que recibe y utilizarla adecuadamente para devolver lo que solicita el cliente. Por tanto, al introducir un URI no solo indicaremos qué debe incluir ese URI, sino también con qué método se llegará a nuestra ruta.
+| Método | ¿Para qué se suele utilizar? |
+| --- | --- |
+| `GET` | Para obtener una página o algunos datos. |
+| `POST` | Para enviar datos. Por ejemplo, para crear un recurso nuevo. |
+| `PUT` | Para sustituir por completo el contenido de un recurso. |
+| `PATCH` | Para actualizar una parte de un recurso. |
+| `DELETE` | Para eliminar un recurso. |
 
-Es fundamental conocer los principales métodos HTTP. Estos son los verbos HTTP que utiliza Laravel:
+Se puede utilizar la misma URI con métodos diferentes. Por ejemplo, `GET /test` y `POST /test` son rutas distintas.
 
-- Get: Probablemente sea el tipo de ruta más utilizado. Se usa cuando no se envían variables o cuando se envían mediante el método get.
-- Post: Envía los datos presentes en la página. Estos datos no se verán en la solicitud, porque viajan en la información del protocolo.
-- Put / Patch: Normalmente se utiliza put cuando queremos cambiar datos, por ejemplo, para hacer una actualización.
-- Delete: Este tipo de ruta se utiliza para eliminar algo.
+```php
+Route::get('/test', function () {
+    return 'Método GET';
+});
 
-Escribiremos todas nuestras rutas en route/web.php; allí estarán las rutas que utilizan la interfaz web.
+Route::post('/test', function () {
+    return 'Método POST';
+});
 
-Al instalar Laravel, la primera ruta que encontramos es la siguiente:
+Route::put('/test', function () {
+    return 'Método PUT';
+});
 
+Route::patch('/test', function () {
+    return 'Método PATCH';
+});
+
+Route::delete('/test', function () {
+    return 'Método DELETE';
+});
+```
+
+Al escribir una URL en la barra de direcciones del navegador, este realiza una solicitud `GET`. Para probar `POST`, por ejemplo, podemos utilizar `method="POST"` y `@csrf` en un formulario Blade. Veremos los formularios correspondientes a los métodos `PUT`, `PATCH` y `DELETE` en la sección CRUD.
+
+## Enrutamiento básico
+
+En un proyecto Laravel nuevo, es habitual que las rutas iniciales muestren la vista `welcome`:
 
 ```php
 Route::get('/', function () {
-
-return view('welcome');
-
+    return view('welcome');
 });
 ```
 
-Esta será la ruta general; en este caso, la ruta que mostrará la vista welcome.
-
-![Imagen](../../../assets/images/Rutak/07ce8f0d8711ea19aa326f0b5232afd7.jpg)
-
-Este es el ciclo de consulta.
-
-## Enrutamiento básico (Enrutamiento básico)
-
-Todas las rutas de Laravel tendrán como base el directorio raíz. Por tanto, para acceder a la ruta anterior en nuestro servidor local, escribiríamos algo como esto en el navegador:
-
-<http://localhost/LARAVEL_PROIEKTUAK/eskola/public/>
-
-Otros ejemplos de rutas básicas son:
+Para probarlo, sustituye la ruta anterior por esta:
 
 ```php
-Route::get('/froga/bidea', function () {
-
-return 'GET metodoa';
-
-});
-
-Route::post('/froga/bidea', function () {
-
-return 'POST metodoa';
-
-});
-
-Route::put('/froga/bidea', function () {
-
-return 'PUT metodoa';
-
-});
-
-Route::delete('/froga/bidea', function () {
-
-return 'DELETE metodoa';
-
+Route::get('/', function () {
+    return '¡Bienvenido!';
 });
 ```
 
+El primer argumento de `Route::get()` es la ruta de la URI. El segundo es la acción que se ejecutará cuando una solicitud `GET` coincida con esa ruta. En el ejemplo, la acción es una función anónima y su `return` proporciona el contenido de la respuesta.
 
-## Varias rutas
+![La ruta de una solicitud](../../../assets/images/Rutak/07ce8f0d8711ea19aa326f0b5232afd7.jpg)
 
-Imaginemos que tenemos un sitio web con tres páginas, algo así:
 
-1. http://monsite.fr/ 1
+## Rutas fijas
 
-2. http://monsite.fr/ 2
-
-3. http://monsite.fr/ 3
-
-Para ello tendríamos que crear 3 rutas, una para cada página:
+Supongamos que queremos crear las direcciones `/1`, `/2` y `/3`. Podemos definir una ruta para cada dirección:
 
 ```php
-Route::get('1', function () {
-
-return 'Ni 1. orria naiz!';
-
+Route::get('/1', function () {
+    return '¡Soy la página 1!';
 });
 
-Route::get('2', function () {
-
-return 'Ni 2. orria naiz!';
-
+Route::get('/2', function () {
+    return '¡Soy la página 2!';
 });
 
-Route::get('3', function () {
-
-return 'Ni 3. orria naiz!';
-
+Route::get('/3', function () {
+    return '¡Soy la página 3!';
 });
 ```
 
-Como vemos, estas rutas no muestran una vista; cada una solo mostrará una frase.
-
-Para acceder a la primera página, si no tuviéramos dominio, sería algo así:
-
-<http://localhost/proiekto/public/1>
-
-Pero, visto esto, ¿de verdad tenemos que crear 3 rutas cuando lo único que cambia es el valor?
+Si lo único que cambia es el número de la página, podemos sustituir las tres rutas por una ruta con un parámetro.
 
 ## Rutas con parámetros
 
-Decimos que una ruta está parametrizada cuando puede tomar cualquier valor.
+### Un parámetro
+
+El parámetro `{number}`, escrito entre llaves, recibe el valor de un segmento de la URL. Laravel pasa ese valor a la función.
 
 ```php
-Route::get('{n}', function($n) {
-
-return 'Nire orriaren zenbakia: ' . $n . ' !';
-
+Route::get('/{id}', function (string $id) {
+    return 'El número de mi página: ' . e($id) . '!';
 });
 ```
 
-![Imagen](../../../assets/images/Rutak/90805bda7f1764506f7b4a6c5f4c143d.jpg)
+En la solicitud `GET /2`, la variable `$id` toma el valor `'2'`. La solicitud `GET /4` también coincide con la ruta. En cambio, si solo estuvieran definidas las tres rutas fijas anteriores, la dirección `/4` devolvería un error 404.
 
-Es posible que este valor sea opcional; en ese caso debe llevar un signo de interrogación:
+![Ejemplo de un parámetro de ruta](../../../assets/images/Rutak/90805bda7f1764506f7b4a6c5f4c143d.jpg)
+
+### Dos parámetros
 
 ```php
-Route::get('{n?}', function($n = 1) {
-
-return 'Nire orriaren zenbakia: ' . $n . ' !';
-
+Route::get('/posts/{category}/{id}', function (string $category, string $id) {
+    return 'Categoría: ' . e($category) . ', publicación: ' . e($id);
 });
 ```
 
-Como se puede ver en el ejemplo, también hemos asignado un valor predeterminado; es decir, si no se proporciona un parámetro, n tomará el valor 1.
+| Solicitud | Resultado |
+| --- | --- |
+| `GET /posts/technology/7` | `Categoría: technology, publicación: 7` |
+| `GET /posts/music/12` | `Categoría: music, publicación: 12` |
+| `GET /posts/music` | 404, si no hay otra ruta que coincida con la solicitud. |
 
-## Errores durante la ejecución y restricciones de rutas
+El helper `e()` prepara el valor recibido de la URL para mostrarlo como texto en HTML.
 
-En los ejemplos anteriores, si escribiéramos algo como esto, obtendríamos un error 404:
+### Parámetro opcional y valor predeterminado
 
-localhost/laravel/Proyecto/public/4
-
-![Imagen](../../../assets/images/Rutak/980af06441273c7000e40ace4bc0ec74.jpg)
-
-En cambio, en el caso en que hemos establecido un valor predeterminado, no daría error.
-
-Por otro lado, podemos comprobar que, tal como lo hemos definido, se puede introducir cualquier valor como parámetro; 'n' puede tomar cualquier valor si ponemos lo siguiente:
-
-localhost/laravel/Proyecto/public/edozein gauza
-
-Este sería el resultado:
-
-¡Edozein gauza orria naiz!
-
-## Rutas con nombre
-
-Laravel nos recomienda asignar siempre nombres a nuestras rutas; así será más fácil invocarlas. En el siguiente ejemplo, bastaría con escribir 'home' para invocar esa ruta.
-
-La sintaxis sería la siguiente:
+Para que un parámetro sea opcional, escribe `?` después del nombre y proporciona un valor predeterminado al argumento de la función.
 
 ```php
-Route::get('/', function() {
-
-return 'Hasiera orria naiz!';
-
-})->name('home');
+Route::get('/welcome/{name?}', function (string $name = 'invitado') {
+    return 'Hola, ' . e($name);
+});
 ```
+
+| Solicitud | Respuesta |
+| --- | --- |
+| `GET /welcome` | `Hola, invitado` |
+| `GET /welcome/Jon` | `Hola, Jon` |
+
+El valor predeterminado se utiliza cuando falta el segmento. Si también estás probando la ruta general anterior `/{id}`, coloca `/welcome/{name?}` antes de ella, ya que la dirección `/welcome` coincide con ambas rutas.
 
 ## Orden de las rutas
 
-Es muy importante saber cuál es el orden de las rutas para que se muestre lo que queremos al ejecutarlas.
+Cuando dos rutas pueden coincidir con el mismo método HTTP y la misma ruta, coloca **primero la ruta más específica**. En este ejemplo, la dirección `/contact` coincide con la ruta fija y con la ruta dinámica `/{number}`.
 
-La regla es la siguiente: las rutas se analizan en el orden en que aparecen en el archivo de rutas.
-
-Por ejemplo, en el siguiente caso:
-```php
-Route::get('{n}', function($n) {
-
-return 'Nire orriaren zenbakia: ' . $n . ' !';
-
-});
-
-Route::get('contact', function() {
-
-return "Hau nire kontaktua da";
-
-});
-```
-En la primera ruta, 'n' puede tomar cualquier valor, así que también puede tomar la palabra 'contact'. Por tanto, si escribimos localhost/laravel/Proyecto/public/contact, el resultado será "Nire orriaren zenbakia: contact " en lugar de "Hau nire kontaktua da".
-
-Por tanto, para que ambas rutas funcionen correctamente, primero deberíamos poner la ruta 'contact' y después la otra.
-
-## Grupos de rutas en un controlador
-
-Desde Laravel 9, puedes utilizar el método controller() para agrupar todas las rutas de un controlador. Así el código queda más ordenado.
-
-Por ejemplo, para agrupar todas las rutas que se ejecutarán en el controlador CursoController, utilizaríamos el método group como en el siguiente ejemplo:
+Para ver el orden, elimina la definición anterior de `/{id}` y utiliza este bloque:
 
 ```php
-Route::controller(CursoController::class)->group(function () {
+Route::get('/contact', function () {
+    return 'Página de contacto';
+});
 
-Route::get('cursos', 'index' );
-
-Route::get('cursos/create',  'create');
-
-Route::get('cursos/{curso}', 'show');
-
+Route::get('/{id}', function (string $id) {
+    return 'El número de mi página: ' . e($id) . '!';
 });
 ```
+
+- En este orden, la solicitud `GET /contact` muestra `Página de contacto`.
+- Si se intercambia el orden de las dos rutas, la primera recibe `contact` como parámetro y muestra `El número de mi página: contact!`.
+- La solicitud `GET /7` utiliza la ruta dinámica en ambos órdenes.
+
+## Restricciones de los parámetros
+
+El nombre del parámetro `{id}` no limita su contenido a números. Para ello, debemos añadir una restricción a la ruta.
+
+### Expresión regular con `where()`
+
+```php
+Route::get('/users/{id}', function (string $id) {
+    return 'Usuario: ' . $id;
+})->where('id', '[0-9]+');
+```
+
+La expresión `[0-9]+` acepta uno o más dígitos.
+
+### Helpers para restricciones
+
+Podemos sustituir la definición anterior de `/users/{id}` por `whereNumber()`:
+
+```php
+Route::get('/users/{id}', function (string $id) {
+    return 'Usuario: ' . $id;
+})->whereNumber('id');
+```
+
+La solicitud `GET /users/7` mostrará `Usuario: 7`. En cambio, la solicitud `GET /users/alex` devolverá un error 404 si no coincide con otra ruta. La ruta `/users/999` cumple la condición porque contiene dígitos. Comprobar si el usuario existe realmente es responsabilidad de la aplicación.
+
+| Helper | Valor que acepta |
+| --- | --- |
+| `whereNumber('id')` | Dígitos. |
+| `whereAlpha('category')` | Letras de `a–z` o `A–Z`. |
+| `whereAlphaNumeric('code')` | Letras y dígitos alfanuméricos (`a–z`, `A–Z`, `0–9`). |
+| `whereIn('category', ['music', 'technology'])` | Los valores que aparecen en la lista. |
+
+
+![Ejemplo de un error 404](../../../assets/images/Rutak/980af06441273c7000e40ace4bc0ec74.jpg)
+
+## Rutas con nombre
+
+Podemos asignar un nombre a una ruta mediante el método `name()`. Después, el helper `route()` genera su URL. Para probar el ejemplo de la ruta inicial, añade `->name('home')` a la definición existente:
+
+```php
+Route::get('/', function () {
+    return '¡Soy la página de inicio!';
+})->name('home');
+```
+
+En una vista Blade:
+
+```blade
+<a href="{{ route('home') }}">Inicio</a>
+```
+
+Si la ruta tiene un parámetro, podemos proporcionar su valor en el segundo argumento. Por ejemplo, si añadimos `->name('users.show')` a la ruta `/users/{id}`, la llamada `route('users.show', ['id' => 7])` genera la URL correspondiente a la ruta `/users/7`.
+
+## Grupos de rutas con un controlador
+
+Si varias rutas utilizan el mismo controlador, podemos usar `Route::controller()` y `group()` para escribir el nombre del controlador una sola vez. Este ejemplo necesita `CourseController` y los métodos `index`, `create` y `show` definidos en él.
+
+```php
+use App\Http\Controllers\CourseController;
+
+Route::controller(CourseController::class)->group(function () {
+    Route::get('/courses', 'index');
+    Route::get('/courses/create', 'create');
+    Route::get('/courses/{course}', 'show');
+});
+```
+
+La ruta fija `/courses/create` va antes que la ruta dinámica `/courses/{course}`.
 
 ## Rutas de recurso
 
-En Laravel, cuando creamos nuestros controladores con el método resource, vimos que se generaban varios métodos para poder hacer el CRUD mediante ese controlador. Pues bien, para invocar todos los métodos de ese controlador se puede utilizar una sola ruta; ese método es resource:
+El comando `php artisan make:controller StudentController --resource` crea un controlador con métodos para las acciones CRUD. El método `Route::resource()`, por su parte, registra las rutas correspondientes a esas acciones.
 
 ```php
-Route::resource('ikasleak', IkasleController::class)->names('ikasleak');
+use App\Http\Controllers\StudentController;
+
+Route::resource('students', StudentController::class);
 ```
 
-Como vemos, esto facilita mucho la gestión de nuestras rutas, porque Laravel crea todas las rutas necesarias. Para comprobarlo, podemos consultar con Artisan todas las rutas que hemos creado:
+| Método HTTP | Ruta | Método del controlador | Nombre de la ruta |
+| --- | --- | --- | --- |
+| `GET` | `/students` | `index` | `students.index` |
+| `GET` | `/students/create` | `create` | `students.create` |
+| `POST` | `/students` | `store` | `students.store` |
+| `GET` | `/students/{student}` | `show` | `students.show` |
+| `GET` | `/students/{student}/edit` | `edit` | `students.edit` |
+| `PUT` / `PATCH` | `/students/{student}` | `update` | `students.update` |
+| `DELETE` | `/students/{student}` | `destroy` | `students.destroy` |
+
+Si solo necesitamos la lista y la página de detalles, sustituye la declaración anterior por esta:
+
+```php
+Route::resource('students', StudentController::class)->only(['index', 'show']);
+```
+
+Si definimos una ruta adicional como `/students/featured`, colócala antes de la declaración `Route::resource()`. Así, la ruta generada `/students/{student}` no tomará `featured` como parámetro.
+
+## Comprobar las rutas
+
+En el directorio raíz del proyecto, podemos ejecutar estos comandos:
 
 ```bash
 php artisan route:list
 ```
 
-Laravel tiene varias convenciones para escribir los nombres al crear rutas. No son obligatorias, pero sí muy recomendables. Sin embargo, si las creamos con resource, los métodos del controlador sí deben seguir esas convenciones: create, store, destroy, etc.
+Comprueba el método, la URI, el nombre y la acción. Si al probar una ruta no obtienes la respuesta esperada, revisa el método de la solicitud, las restricciones de los parámetros y el orden de las rutas que pueden coincidir con la ruta.

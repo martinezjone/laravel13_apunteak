@@ -1,230 +1,267 @@
 # Rutak
 
-Laravelek erabiltzaile eta zerbitzari arteko erlazioa egiteko ruta edo ibilbideen bidez egiten du.
+Ibilbide batek (*route*) HTTP eskaera bat ekintza batekin lotzen du. Eskaera bat iristen denean, Laravelek haren HTTP metodoarekin eta URIaren bidearekin bat datorren ibilbidea bilatzen du, eta ibilbide horren ekintza exekutatzen du.
 
-Laravelen ibilbide-sistema nahiko erraza da, eta, beraz, pausu gutxitan, mota guztietako ibilbide nahiko konplexuak egin ditzakegu.
+Web-interfazeko ibilbideak `routes/web.php` fitxategian idazten ditugu. Adibideetan `Route` klasea erabiltzeko, ziurtatu fitxategiaren hasieran inportazio hau dagoela:
 
-Rutak sortzeko, Laravelek badu fitxategi zehatz bat routes karpetan web.php izenekoa.
+```php
+use Illuminate\Support\Facades\Route;
+```
 
-Guk ruta orokorrak ikusiko ditugu, ala ere dokumentazio guztia hurrengo estekan duzue: <https://laravel.com/framework/docs/13.x/routing>
+[Laravel 13ren dokumentazio ofiziala · Routing](https://laravel.com/framework/docs/13.x/routing)
 
-## Metodoak
+## HTTP metodoak
 
-Sartzen den informazioa interpretatzen jakin behar du Laravel aplikazioak, eta nabarmen erabili bezeroak eskatzen duena itzultzeko. Beraz guk URI bat sartzerakoan ez dugu soilik esango zer den URI-an jarri behar dutena, baizik eta ere zein metodoarekin helduko diren gure rutara.
+| Metodoa | Zertarako erabili ohi da? |
+| --- | --- |
+| `GET` | Orrialde bat edo datu batzuk eskuratzeko. |
+| `POST` | Datuak bidaltzeko. Adibidez, baliabide berri bat sortzeko. |
+| `PUT` | Baliabide baten edukia osorik ordezkatzeko. |
+| `PATCH` | Baliabide baten zati bat eguneratzeko. |
+| `DELETE` | Baliabide bat ezabatzeko. |
 
-Funtsezkoa da HTTP metodoaren metodo nagusiak ezagutzea. Hurrengo hauek dira Laravelek erabiltzen dituen HTTP aditzak:
+URI bera metodo desberdinekin erabil daiteke. Adibidez, `GET /test` eta `POST /test` ibilbide desberdinak dira.
 
-- Get: Seguruenik ruta mota hau da gehien erabiliko dena, hauek aldagiak bidaltzen ez direnean edota get metodoaren bidez bidaltzen dugunean erabiltzen dra.
-- Post: orrian bertan dauden datuak bidaliko ditu, datu hauek ez dira eskaeran ikusiko, protokoloaren informazioan bidaiatzen dute eta.
-- Put / Patch: Normalean put datuak aldatu nahi dugunean erabiltzen da, update bat egiteko adibidez.
-- Delete: zeozer ezabatzeko erabiltzen da ruta mota hau.
+```php
+Route::get('/test', function () {
+    return 'GET metodoa';
+});
 
-Gure ruta edo ibilbide guztiak route/web.php-n idatziko ditugu, hor egongo bai dira interfaz web erabiltzen diren ruta guztiak.
+Route::post('/test', function () {
+    return 'POST metodoa';
+});
 
-Laravel instalatzean, lehenengo ruta aurkitzen duguna hurrengo hau da:
+Route::put('/test', function () {
+    return 'PUT metodoa';
+});
 
+Route::patch('/test', function () {
+    return 'PATCH metodoa';
+});
+
+Route::delete('/test', function () {
+    return 'DELETE metodoa';
+});
+```
+
+Nabigatzailearen helbide-barran URL bat idaztean, nabigatzaileak `GET` eskaera bat egiten du. `POST` probatzeko, adibidez, Blade formulario batean `method="POST"` eta `@csrf` erabil ditzakegu. `PUT`, `PATCH` eta `DELETE` metodoei dagozkien formularioak CRUD atalean ikusiko ditugu.
+
+## Oinarrizko bideratzea
+
+Laravel proiektu berri batean, ohikoa da hasierako ibilbideak `welcome` bista erakustea:
 
 ```php
 Route::get('/', function () {
-
-return view('welcome');
-
+    return view('welcome');
 });
 ```
 
-Hau izango da ruta orokorra da, kasu honetan welcome bista erakutsiko duen ruta.
-
-![Irudia](../../../assets/images/Rutak/07ce8f0d8711ea19aa326f0b5232afd7.jpg)
-
-Hau da kontsulta zikloa
-
-## Oinarrizko bideratzea (Enrutamiento básico)
-
-Laraveleko ruta guztiak, erroko direktorioa izango dute oinarri. Beraz, gure zerbitzari lokalean, aurreko rutara deitzeko, gure nabegatzailean horrelako zeozer idatziko genuke:
-
-<http://localhost/LARAVEL_PROIEKTUAK/eskola/public/>
-
-Beste oinarrizko ruta batzuk ondorengo hauek dira adibidez:
+Proba egiteko, ordezkatu aurreko ibilbidea honako honekin:
 
 ```php
-Route::get('/froga/bidea', function () {
-
-return 'GET metodoa';
-
-});
-
-Route::post('/froga/bidea', function () {
-
-return 'POST metodoa';
-
-});
-
-Route::put('/froga/bidea', function () {
-
-return 'PUT metodoa';
-
-});
-
-Route::delete('/froga/bidea', function () {
-
-return 'DELETE metodoa';
-
+Route::get('/', function () {
+    return 'Welcome!!!';
 });
 ```
 
+`Route::get()`-en lehen argumentua URIaren bidea da. Bigarrena, `GET` eskaera bide horrekin bat datorrenean exekutatuko den ekintza. Adibidean, ekintza funtzio anonimo bat da, eta haren `return`-ak erantzunaren edukia ematen du.
 
-## Ibilibide anitz
+![Eskaera baten ibilbidea](../../../assets/images/Rutak/07ce8f0d8711ea19aa326f0b5232afd7.jpg)
 
-Imagina dezakegun badugula web bat hiru orriekin, hau da, horrelako zeozer:
 
-1. http://monsite.fr/ 1
+## Ibilbide finkoak
 
-2. http://monsite.fr/ 2
-
-3. http://monsite.fr/ 3
-
-Horretarako 3 ibilibide sortu beharko genituzke, bat orri bakoitzeko:
+Demagun `/1`, `/2` eta `/3` helbideak sortu nahi ditugula. Helbide bakoitzerako ibilbide bat defini dezakegu:
 
 ```php
-Route::get('1', function () {
-
-return 'Ni 1. orria naiz!';
-
+Route::get('/1', function () {
+    return 'Ni 1. orria naiz!';
 });
 
-Route::get('2', function () {
-
-return 'Ni 2. orria naiz!';
-
+Route::get('/2', function () {
+    return 'Ni 2. orria naiz!';
 });
 
-Route::get('3', function () {
-
-return 'Ni 3. orria naiz!';
-
+Route::get('/3', function () {
+    return 'Ni 3. orria naiz!';
 });
 ```
 
-Ikusten dugunez, ruta hauek ez dute bista bat erakusten, bakoitzak esaldi bat aterako du soilik.
+Aldatzen den gauza bakarra orriaren zenbakia bada, hiru ibilbideak parametro bakarreko ibilbide batekin ordezka ditzakegu.
 
-Lehenengo orri sartzeko, ez bagenuke domeinurik izango, horrelako zeozer izango zen:
+## Ibilbideak parametroekin
 
-<http://localhost/proiekto/public/1>
+### Parametro bat
 
-Baina, hau ikusita, beharko genuke benetan 3 ibilbide sortu, aldaketa bakarra aldatzen den balioa denean?
-
-## Rutak parametroekin
-
-Ibilibide edo ruta bat parametrizada dagoela esaten dugu, edozein balio hartu dezakeenean.
+Giltzen artean idatzitako `{number}` parametroak URLaren segmentu baten balioa jasotzen du. Laravelek balio hori funtzioari pasatzen dio.
 
 ```php
-Route::get('{n}', function($n) {
-
-return 'Nire orriaren zenbakia: ' . $n . ' !';
-
+Route::get('/{id}', function (string $id) {
+    return 'Nire orriaren zenbakia: ' . e($id) . '!';
 });
 ```
 
-![Irudia](../../../assets/images/Rutak/90805bda7f1764506f7b4a6c5f4c143d.jpg)
+`GET /2` eskaeran, `$id` aldagaiak `'2'` balioa hartzen du. `GET /4` eskaera ere ibilbidearekin bat dator. Aurreko hiru ibilbide finkoak soilik definituta bazeuden, berriz, `/4` helbideak 404 emango zuen.
 
-Izan daiteke balio hau aukerakoa izatea, kasu horretan, galdera ikurra izan beharko du:
+![Ibilbide baten parametroaren adibidea](../../../assets/images/Rutak/90805bda7f1764506f7b4a6c5f4c143d.jpg)
+
+### Bi parametro
 
 ```php
-Route::get('{n?}', function($n = 1) {
-
-return 'Nire orriaren zenbakia: ' . $n . ' !';
-
+Route::get('/posts/{category}/{id}', function (string $category, string $id) {
+    return 'Kategoria: ' . e($category) . ', argitalpena: ' . e($id);
 });
 ```
 
-Adibidean ikusi daitekeenez, kasu honetan ere, lehenetistako balioa jarri dugu, hau da, parametrorik ez izanez gero, n-k 1 balioa hartuko du.
+| Eskaera | Emaitza |
+| --- | --- |
+| `GET /posts/technology/7` | `Kategoria: technology, argitalpena: 7` |
+| `GET /posts/music/12` | `Kategoria: music, argitalpena: 12` |
+| `GET /posts/music` | 404, baldin eta eskaerarekin bat datorren beste ibilbiderik ez badago. |
 
-## Exekuzio denboran emandako akatsak eta ibilibideen errestrikzioak
+`e()` laguntzaileak URLtik jasotako balioa HTMLan testu gisa erakusteko prestatzen du.
 
-Aurreko adibideetan, horrelako zeozer jartzerakoan 404 errorea emango liguke:
+### Aukerako parametroa eta balio lehenetsia
 
-localhost/laravel/Proyecto/public/4
-
-![Irudia](../../../assets/images/Rutak/980af06441273c7000e40ace4bc0ec74.jpg)
-
-Baina aldiz, lehenetsiko balioa jarri dugun horretan ez luke errorea emango.
-
-Bestetik frogatu dezakegu zelan guk jarri dugun moduan, edozein balio sar daitekeen parametro moduan, 'n' horrek, edozein balio har dezake, hurrengo hau jarri ezkero:
-
-localhost/laravel/Proyecto/public/edozein gauza
-
-Hau izango zen emaitza:
-
-¡Edozein gauza orria naiz!
-
-## Izena duten rutak
-
-Laravelek aholkatzen digu gure rutei izenak ematea beti, horrela errezago egingo zaigu hauei deitzea; hurrengo adibidean ruta horreri deitzeko 'home' soilik idatzi beharko genuke.
-
-Sintaxia hurrengo hau izango litzateke:
+Parametroa aukerakoa izan dadin, idatzi `?` izenaren ondoren eta eman balio lehenetsi bat funtzioaren argumentuari.
 
 ```php
-Route::get('/', function() {
+Route::get('/welcome/{name?}', function (string $name = 'gonbidatua') {
+    return 'Kaixo, ' . e($name);
+});
+```
 
-return 'Hasiera orria naiz!';
+| Eskaera | Erantzuna |
+| --- | --- |
+| `GET /welcome` | `Kaixo, gonbidatua` |
+| `GET /welcome/Jon` | `Kaixo, Jon` |
 
+Balio lehenetsia segmentua falta denean erabiltzen da. Aurreko `/{id}` ibilbide orokorra ere probatzen ari bazara, jarri `/welcome/{name?}` haren aurretik, `/welcome` helbidea bi ibilbideekin bat baitator.
+
+## Ibilbideen ordena
+
+HTTP metodo eta bide berarekin bi ibilbide bat etor daitezkeenean, jarri **ibilbide zehatzena lehenengo**. Adibide honetan, `/contact` helbidea ibilbide finkoarekin eta `/{number}` ibilbide dinamikoarekin bat dator.
+
+Ordena ikusteko, kendu aurreko `/{id}` definizioa eta erabili bloke hau:
+
+```php
+Route::get('/contact', function () {
+    return 'Contact page';
+});
+
+Route::get('/{id}', function (string $id) {
+    return 'Nire orriaren zenbakia: ' . e($id) . '!';
+});
+```
+
+- Ordena horretan, `GET /contact` eskaerak `Contact page` erakusten du.
+- Bi ibilbideak lekuz aldatuz gero, lehenengoak `contact` hartzen du parametro gisa eta `Nire orriaren zenbakia: contact!` erakusten du.
+- `GET /7` eskaerak ibilbide dinamikoa erabiltzen du bi ordenetan.
+
+## Parametroen murrizketak
+
+`{id}` parametroaren izenak ez du haren edukia zenbakietara mugatzen. Horretarako, murrizketa bat gehitu behar diogu ibilbideari.
+
+### Adierazpen erregularra `where()` bidez
+
+```php
+Route::get('/users/{id}', function (string $id) {
+    return 'Erabiltzailea: ' . $id;
+})->where('id', '[0-9]+');
+```
+
+`[0-9]+` adierazpenak digitu bat edo gehiago onartzen ditu.
+
+### Murrizketetarako laguntzaileak
+
+Aurreko `/users/{id}` definizioa ordezkatu dezakegu `whereNumber()` erabiliz:
+
+```php
+Route::get('/users/{id}', function (string $id) {
+    return 'Erabiltzailea: ' . $id;
+})->whereNumber('id');
+```
+
+`GET /users/7` eskaerak `Erabiltzailea: 7` erakutsiko du. `GET /users/alex` eskaerak, berriz, 404 emango du beste ibilbiderik ez badator bat. `/users/999` bideak baldintza betetzen du, digituak dituelako. Erabiltzailea benetan existitzen den egiaztatzea aplikazioaren egitekoa da.
+
+| Laguntzailea | Onartzen duen balioa |
+| --- | --- |
+| `whereNumber('id')` | Digituak. |
+| `whereAlpha('category')` | `a–z` edo `A–Z` letrak. |
+| `whereAlphaNumeric('code')` | Letra eta digitu alfanumerikoak (`a–z`, `A–Z`, `0–9`). |
+| `whereIn('category', ['music', 'technology'])` | Zerrendan agertzen diren balioak. |
+
+
+![404 errorearen adibidea](../../../assets/images/Rutak/980af06441273c7000e40ace4bc0ec74.jpg)
+
+## Izena duten ibilbideak
+
+`name()` metodoaren bidez izena eman diezaiokegu ibilbide bati. Ondoren, `route()` laguntzaileak haren URLa sortzen du. Hasierako ibilbidearen adibidea probatzeko, gehitu `->name('home')` lehendik dagoen definizioari:
+
+```php
+Route::get('/', function () {
+    return 'Hasiera orria naiz!';
 })->name('home');
 ```
 
-## Ibilibideen ordena
+Blade bista batean:
 
-Oso garratzitsua da jakitea zein den ibilbideen ordena exekutatzerakoan, guk nahi duguna bistaratu dezan.
-
-Araua hau da: Ibilibideak ruta fitxategian duten ordenean analizatuko dira.
-
-Hurrengo kasuan adibidez:
-```php
-Route::get('{n}', function($n) {
-
-return 'Nire orriaren zenbakia: ' . $n . ' !';
-
-});
-
-Route::get('contact', function() {
-
-return "Hau nire kontaktua da";
-
-});
+```blade
+<a href="{{ route('home') }}">Hasiera</a>
 ```
-Lehenengo rutan, 'n'-k edozein balio har dezakeenez, 'contact' hitza ere hartu dezake, beraz, guk,  localhost/laravel/Proyecto/public/contact jarriz gero, emaitza: "Nire orriaren zenbakia: contact " izango da, "Hau nire kontaktua da" izan beharrean.
 
-Beraz, ruta biak ondo funtzionatu dezaten, lehenengo 'contact' ruta jarri beharko genuke eta ondoren bestea.
+Ibilbideak parametro bat badu, haren balioa bigarren argumentuan eman dezakegu. Adibidez, `/users/{id}` ibilbideari `->name('users.show')` gehituz gero, `route('users.show', ['id' => 7])` deialdiak `/users/7` bideari dagokion URLa sortzen du.
 
-## Ibilbide-taldeak kontrolatzailean
+## Ibilbide-taldeak kontrolatzailearekin
 
-Laravel 9-tik aurrera, controller() metodoa erabil dezakezu Kontroladore baten ruta guztiak honen barruan izateko. Horrela eginez gero, kodea txukunago geratuko litzateke.
-
-Adibidez CursoController kontroladorean exekutatuko diren ruta guztiak elkarrekin batzeko, group metodoa erabiliko genuke hurrengo adibidean moduan
+Hainbat ibilbidek kontrolatzaile bera erabiltzen badute, `Route::controller()` eta `group()` erabil ditzakegu kontrolatzailearen izena behin bakarrik idazteko. Adibide honek `CourseController` eta bertan definitutako `index`, `create` eta `show` metodoak behar ditu.
 
 ```php
-Route::controller(CursoController::class)->group(function () {
+use App\Http\Controllers\CourseController;
 
-Route::get('cursos', 'index' );
-
-Route::get('cursos/create',  'create');
-
-Route::get('cursos/{curso}', 'show');
-
+Route::controller(CourseController::class)->group(function () {
+    Route::get('/courses', 'index');
+    Route::get('/courses/create', 'create');
+    Route::get('/courses/{course}', 'show');
 });
 ```
+
+`/courses/create` ibilbide finkoa `/courses/{course}` dinamikoaren aurretik doa.
 
 ## Resource ibilbideak
 
-Laravelen ere, gure kontroladoreak resource metodoarekin egiterakoan, ikusi genuen zelan sortu zizkigun hainbat metodo kontroladore horren bidez CRUDa egin ahal izateko, ba kontroladore horren barruan dauden metodo guzti horiek deitzeko ibilibide bakar bategaz egin dezake, metodo hori resource metodoa da:
+`php artisan make:controller StudentController --resource` komandoak CRUD ekintzetarako metodoak dituen kontrolatzaile bat sortzen du. `Route::resource()` metodoak, berriz, ekintza horiei dagozkien ibilbideak erregistratzen ditu.
 
 ```php
-Route::resource('ikasleak', IkasleController::class)->names('ikasleak');
+use App\Http\Controllers\StudentController;
+
+Route::resource('students', StudentController::class);
 ```
 
-Ikusten dugunez, honek asko errazten digu gure ibilibideen kudeaketa, Laravelek sortzen bait ditu beharrezko ruta guztiak. Hau konprobatzeko, artisanen bidez begiratu dezakegu sortuta ditugun ruta guztiak:
+| HTTP metodoa | Bidea | Kontrolatzailearen metodoa | Ibilbidearen izena |
+| --- | --- | --- | --- |
+| `GET` | `/students` | `index` | `students.index` |
+| `GET` | `/students/create` | `create` | `students.create` |
+| `POST` | `/students` | `store` | `students.store` |
+| `GET` | `/students/{student}` | `show` | `students.show` |
+| `GET` | `/students/{student}/edit` | `edit` | `students.edit` |
+| `PUT` / `PATCH` | `/students/{student}` | `update` | `students.update` |
+| `DELETE` | `/students/{student}` | `destroy` | `students.destroy` |
+
+Zerrenda eta xehetasun-orria soilik behar baditugu, ordezkatu aurreko deklarazioa honekin:
+
+```php
+Route::resource('students', StudentController::class)->only(['index', 'show']);
+```
+
+`/students/featured` bezalako ibilbide gehigarri bat definituz gero, jarri `Route::resource()` deklarazioaren aurretik. Horrela, sortutako `/students/{student}` ibilbideak ez du `featured` parametro gisa hartuko.
+
+## Ibilbideak egiaztatzea
+
+Proiektuaren erroko direktorioan, komando hauek exekuta ditzakegu:
 
 ```bash
 php artisan route:list
 ```
 
-Laravelek baditu hainbat konbentzio rutak sortzerako momentuan, izenak modu zehatz baten idazteko, hauek ez dira derrigorrezkoak, baina bai oso gomendagarriak. Baina resource-ren bidez sortuz gero, kontroladorearen metodoek bai jarraitu behar dituztela konbentzio horiek: create, store, destroy etab...
+Begiratu metodoa, URIa, izena eta ekintza. Ibilbide bat probatzean espero duzun erantzuna jasotzen ez baduzu, egiaztatu eskaeraren metodoa, parametroen murrizketak eta bidearekin bat etor daitezkeen ibilbideen ordena.
