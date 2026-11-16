@@ -902,6 +902,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Componentes
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -918,6 +936,102 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#crear-un-componente-anonimo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Crear un componente anónimo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#slot-predeterminado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Slot predeterminado
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#slots-con-nombre" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Slots con nombre
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parametros-de-los-componentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parámetros de los componentes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atributos-adicionales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Atributos adicionales
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#componentes-basados-en-clases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Componentes basados en clases
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utilizar-un-layout-como-componente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Utilizar un layout como componente
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2528,6 +2642,91 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#crear-un-componente-anonimo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Crear un componente anónimo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#slot-predeterminado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Slot predeterminado
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#slots-con-nombre" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Slots con nombre
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parametros-de-los-componentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parámetros de los componentes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atributos-adicionales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Atributos adicionales
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#componentes-basados-en-clases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Componentes basados en clases
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utilizar-un-layout-como-componente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Utilizar un layout como componente
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2544,148 +2743,184 @@
 
 
 <h1 id="componentes">Componentes</h1>
-<p>Los componentes de Laravel son una forma de combinar HTML y PHP de manera más clara y organizada. Estos componentes son, en esencia, bloques de código HTML y PHP que, una vez creados, se pueden reutilizar fácilmente en muchas otras plantillas o páginas. Esto facilita mucho el uso y el mantenimiento de los diseños sin repetir código.</p>
-<p>Documentación oficial: <a href="https://laravel.com/framework/docs/13.x/blade#components">https://laravel.com/framework/docs/13.x/blade#components</a></p>
-<p>Para crear un componente, dentro de la carpeta view crearemos otra carpeta llamada components y, dentro de ella, crearíamos el archivo Blade de nuestro componente. Por ejemplo:</p>
-<p>views/components/alert.blade.php</p>
-<p>Por ejemplo, para crear una alerta podemos utilizar las alertas de Tailwind; para ello podemos visitar este sitio web: <a href="https://flowbite.com/docs/components/alerts/">https://flowbite.com/docs/components/alerts/</a></p>
-<p>Por otro lado, también tendremos que indicar en algún lugar que vamos a utilizar Tailwind. Encontrarás información sobre cómo añadirlo en este enlace: <a href="https://tailwindcss.com/docs/installation/play-cdn">https://tailwindcss.com/docs/installation/play-cdn</a></p>
-<p>Por tanto, para este ejemplo añadiríamos Tailwind a nuestra página de esta manera:</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;&lt;https://cdn.tailwindcss.com&gt;&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<p>Un componente es una plantilla Blade que podemos reutilizar en varias vistas. Por ejemplo, podemos definir una vez el HTML de una alerta y luego mostrar un mensaje distinto en cada página utilizando el mismo componente.</p>
+<p><a href="https://laravel.com/docs/13.x/blade#components">Documentación de Laravel 13</a></p>
+<h2 id="crear-un-componente-anonimo">Crear un componente anónimo</h2>
+<p>Crea el archivo <code>resources/views/components/alert.blade.php</code>. Un componente anónimo consta de una vista Blade.</p>
+<div class="highlight"><pre><span></span><code>&lt;div class=&quot;alerta&quot; role=&quot;alert&quot;&gt;
+    &lt;strong&gt;¡Alerta!&lt;/strong&gt; ¡Ten cuidado!
+&lt;/div&gt;
 </code></pre></div>
-<p>Y en nuestro archivo alert.blade.php añadiríamos nuestra alerta:</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400&quot;</span> <span class="na">role</span><span class="o">=</span><span class="s">&quot;alert&quot;</span><span class="p">&gt;</span>
-
-<span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;font-medium&quot;</span><span class="p">&gt;</span>Alerta!<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span> Kontuz izan egiten duzunarekin
-
-<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<p>Para utilizarlo en otra vista, añade el prefijo <code>x-</code> al nombre del archivo y elimina la extensión <code>.blade.php</code>.</p>
+<div class="highlight"><pre><span></span><code>&lt;x-alert /&gt;
 </code></pre></div>
-<p>Así ya podríamos utilizar este componente en todos los lugares donde lo necesitemos. Para utilizarlo, primero escribiremos "x-" para indicar que es un componente y, a continuación, el nombre de nuestro componente; en este caso, x-alert. Recuerda que siempre debemos cerrar el componente al invocarlo:</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">x-alert</span><span class="p">/&gt;</span>
+<p>Si no tenemos que pasar contenido, podemos cerrar la etiqueta en la misma línea. Para pasar contenido, utilizaremos las etiquetas de apertura y cierre.</p>
+<h2 id="slot-predeterminado">Slot predeterminado</h2>
+<p>El contenido escrito entre las etiquetas del componente se recibe mediante la variable <code>$slot</code>. Este contenido puede ser texto o HTML.</p>
+<p>Modifica el archivo <code>alert.blade.php</code>.</p>
+<div class="highlight"><pre><span></span><code>&lt;div class=&quot;alerta&quot; role=&quot;alert&quot;&gt;
+    &lt;strong&gt;¡Alerta!&lt;/strong&gt;
+    {{ $slot }}
+&lt;/div&gt;
 </code></pre></div>
-<p>o</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">x-alert</span><span class="p">&gt;</span>
-
-<span class="p">&lt;/</span><span class="nt">x-alert</span><span class="p">&gt;</span>
+<p>Ahora podemos proporcionar un mensaje cada vez que utilicemos la alerta.</p>
+<div class="highlight"><pre><span></span><code>&lt;x-alert&gt;
+    Comprueba los datos introducidos.
+&lt;/x-alert&gt;
 </code></pre></div>
-<p>Componentes con una variable</p>
-<p>En este caso queremos pasar una variable a nuestro componente; para ello indicaremos en nuestra alerta dónde queremos mostrarla. Cuando enviamos una sola variable, enviamos un slot.</p>
-<div class="highlight"><pre><span></span><code><span class="x">&lt;span class=&quot;font-medium&quot;&gt;Alerta!&lt;/span&gt; {{ $slot }}</span>
+<h2 id="slots-con-nombre">Slots con nombre</h2>
+<p>Para insertar el mensaje y el título en lugares diferentes del componente, podemos pasar el título como un slot con nombre. En este ejemplo, el contenido de <code>&lt;x-slot:title&gt;</code> se recibe mediante <code>$title</code> y el resto mediante <code>$slot</code>.</p>
+<div class="highlight"><pre><span></span><code>&lt;x-alert&gt;
+    &lt;x-slot:title&gt;
+        Problema al guardar los datos
+    &lt;/x-slot:title&gt;
+
+    Comprueba los datos introducidos.
+&lt;/x-alert&gt;
 </code></pre></div>
-<p>Y, al invocarlo, enviaríamos el valor de esa variable entre las etiquetas x-alert:</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">x-alert</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;div class=&quot;alerta&quot; role=&quot;alert&quot;&gt;
+    &lt;strong&gt;{{ $title ?? &#39;¡Alerta!&#39; }}&lt;/strong&gt;
+    {{ $slot }}
+&lt;/div&gt;
 </code></pre></div>
-<p>Este es el contenido del mensaje de alerta</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;/</span><span class="nt">x-alert</span><span class="p">&gt;</span>
+<p>Si la vista no proporciona el slot <code>title</code>, aparecerá «¡Alerta!».</p>
+<h2 id="parametros-de-los-componentes">Parámetros de los componentes</h2>
+<p>También podemos pasar atributos en la etiqueta. Por ejemplo, podemos utilizar <code>type</code> para elegir el aspecto de la alerta.</p>
+<div class="highlight"><pre><span></span><code>&lt;x-alert type=&quot;danger&quot;&gt;
+    &lt;x-slot:title&gt;
+        Problema al guardar los datos
+    &lt;/x-slot:title&gt;
+
+    Comprueba los datos introducidos.
+&lt;/x-alert&gt;
 </code></pre></div>
-<p>Componentes con más de una variable</p>
-<p>Por un lado tendremos la variable general, llamada slot, y por otro tendremos named slots. Hay que asignar un nombre a estos slots; por ejemplo:</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">x-alert</span><span class="p">&gt;</span>
+<p>Al principio del componente anónimo, indicaremos mediante la directiva <code>@props</code> qué atributos queremos recibir. Al escribir <code>@props(['type' =&gt; 'info'])</code>, el componente tendrá la variable <code>$type</code>. Si no proporcionamos <code>type</code> en la llamada, se utilizará <code>info</code>.</p>
+<p>Este es el archivo completo <code>resources/views/components/alert.blade.php</code>.</p>
+<div class="highlight"><pre><span></span><code>@props([&#39;type&#39; =&gt; &#39;info&#39;])
 
-<span class="p">&lt;</span><span class="nt">x-slot</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;title&quot;</span><span class="p">&gt;</span>
+@php
+    $clase = match ($type) {
+        &#39;danger&#39; =&gt; &#39;alerta-danger&#39;,
+        &#39;success&#39; =&gt; &#39;alerta-success&#39;,
+        default =&gt; &#39;alerta-info&#39;,
+    };
+@endphp
+
+&lt;div {{ $attributes-&gt;class([&#39;alerta&#39;, $clase]) }} role=&quot;alert&quot;&gt;
+    &lt;strong&gt;{{ $title ?? &#39;¡Alerta!&#39; }}&lt;/strong&gt;
+    {{ $slot }}
+&lt;/div&gt;
 </code></pre></div>
-<p>Este es el encabezado</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;/</span><span class="nt">x-slot</span><span class="p">&gt;</span>
+<p>Para ver los colores, añade estos estilos al archivo <code>public/css/style.css</code> asociado al layout.</p>
+<div class="highlight"><pre><span></span><code><span class="p">.</span><span class="nc">alerta</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">rem</span><span class="p">;</span>
+<span class="w">    </span><span class="k">border-radius</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="kt">rem</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">alerta-info</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#dbeafe</span><span class="p">;</span>
+<span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#1e40af</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">alerta-danger</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#fee2e2</span><span class="p">;</span>
+<span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#991b1b</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">alerta-success</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#dcfce7</span><span class="p">;</span>
+<span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#166534</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div>
-<p>Este es el contenido del mensaje de alerta</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;/</span><span class="nt">x-alert</span><span class="p">&gt;</span>
+<h2 id="atributos-adicionales">Atributos adicionales</h2>
+<p>Los atributos que no se reciben mediante <code>@props</code> están disponibles a través de <code>$attributes</code>. Por ejemplo, podemos asignar un <code>id</code> y una clase CSS adicional a una alerta concreta.</p>
+<div class="highlight"><pre><span></span><code>&lt;x-alert type=&quot;info&quot; id=&quot;mensaje-guardado&quot; class=&quot;resaltado&quot;&gt;
+    Para guardar los cambios, pulsa «Guardar».
+&lt;/x-alert&gt;
 </code></pre></div>
-<p>Y, al invocarlo, enviaríamos el valor de esa variable entre las etiquetas x-alert:</p>
-<div class="highlight"><pre><span></span><code><span class="x">&lt;span class=&quot;font-medium&quot;&gt;{{ $title ?? &#39;lehenetsiko titulua&#39; }}&lt;/span&gt; {{ $slot }}</span>
+<p>El atributo <code>type</code> se recibe como la variable <code>$type</code>. En cambio, <code>id</code> y <code>class</code> están dentro de <code>$attributes</code>. Al utilizar <code>$attributes-&gt;class(...)</code>, la clase <code>resaltado</code> pasada en la llamada se añade a las clases <code>alerta</code> y <code>alerta-info</code> del componente. El atributo <code>id</code> también se inserta en el elemento <code>&lt;div&gt;</code>.</p>
+<h2 id="componentes-basados-en-clases">Componentes basados en clases</h2>
+<p>Cuando un componente necesita más lógica PHP, podemos utilizar una clase PHP y una vista Blade. Para probar el ejemplo, crea el componente <code>Alert2</code>.</p>
+<div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>make:component<span class="w"> </span>Alert2
 </code></pre></div>
-<p>¿Por qué hemos puesto los signos de interrogación y las comillas? Al escribirlo así indicamos que, si no se define title, tendrá el valor que aparece entre las comillas.</p>
-<p>Parámetros de los componentes (componente único)</p>
-<p>Además de pasar variables a un componente, también podemos pasar parámetros; lo haremos en la etiqueta del componente. Por ejemplo, pasaremos un parámetro llamado type para que, según el tipo de alerta, tenga un aspecto u otro.</p>
-<p>Lo haríamos así:</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">x-alert</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;info&quot;</span><span class="p">&gt;</span>
+<p>El comando crea la clase <code>app/View/Components/Alert2.php</code> y la vista <code>resources/views/components/alert2.blade.php</code>. Las propiedades públicas recibidas en el constructor se pueden utilizar en la vista Blade. Por ejemplo, podemos calcular la clase CSS de la alerta en el constructor.</p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
 
-<span class="p">&lt;</span><span class="nt">x-slot</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;title&quot;</span><span class="p">&gt;</span>
+<span class="k">namespace</span> <span class="nx">App\View\Components</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Illuminate\Contracts\View\View</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Illuminate\View\Component</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Alert2</span> <span class="k">extends</span> <span class="nx">Component</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="nx">string</span> <span class="nv">$clase</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$type</span> <span class="o">=</span> <span class="s1">&#39;info&#39;</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">clase</span> <span class="o">=</span> <span class="k">match</span> <span class="p">(</span><span class="nv">$type</span><span class="p">)</span> <span class="p">{</span>
+            <span class="s1">&#39;danger&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;alerta-danger&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;success&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;alerta-success&#39;</span><span class="p">,</span>
+            <span class="k">default</span> <span class="o">=&gt;</span> <span class="s1">&#39;alerta-info&#39;</span><span class="p">,</span>
+        <span class="p">};</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">render</span><span class="p">()</span><span class="o">:</span> <span class="nx">View</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;components.alert2&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
-<p>Este es el encabezado</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;/</span><span class="nt">x-slot</span><span class="p">&gt;</span>
+<p>En el archivo <code>resources/views/components/alert2.blade.php</code>, podemos utilizar <code>$clase</code> directamente.</p>
+<div class="highlight"><pre><span></span><code>&lt;div {{ $attributes-&gt;class([&#39;alerta&#39;, $clase]) }} role=&quot;alert&quot;&gt;
+    &lt;strong&gt;{{ $title ?? &#39;¡Alerta!&#39; }}&lt;/strong&gt;
+    {{ $slot }}
+&lt;/div&gt;
 </code></pre></div>
-<p>Este es el contenido del mensaje de alerta</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;/</span><span class="nt">x-alert</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;x-alert2 type=&quot;success&quot;&gt;
+    Los datos se han guardado correctamente.
+&lt;/x-alert2&gt;
 </code></pre></div>
-<p>Y en nuestra alerta definiremos distintas alertas según cuál sea el tipo. Para ello, Blade tiene una directiva llamada props. Al invocarla, incluiré en un array los nombres de mis parámetros; Laravel creará una variable para cada parámetro que le haya pasado:</p>
-<div class="highlight"><pre><span></span><code><span class="x">@props([&#39;title&#39;])</span>
+<h2 id="utilizar-un-layout-como-componente">Utilizar un layout como componente</h2>
+<p>En la sección sobre layouts hemos utilizado <code>@extends</code>, <code>@section</code> y <code>@yield</code> para compartir la estructura común de las páginas. También podemos definir la misma estructura en un componente anónimo. En este caso, recibiremos el contenido principal de la página mediante <code>$slot</code>.</p>
+<p>Crea el archivo <code>resources/views/components/app-layout.blade.php</code>.</p>
+<div class="highlight"><pre><span></span><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;es&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;{{ $title ?? &#39;Mi blog&#39; }}&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;{{ asset(&#39;css/style.css&#39;) }}&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;p&gt;Mi blog&lt;/p&gt;
+        &lt;nav&gt;
+            &lt;a href=&quot;/&quot;&gt;Inicio&lt;/a&gt;
+            &lt;a href=&quot;/users&quot;&gt;Usuarios&lt;/a&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
 
-<span class="x">@props([&#39;type&#39; =&gt; &#39;info&#39;) // Balio lehenetsia emateko</span>
+    &lt;main&gt;
+        {{ $slot }}
+    &lt;/main&gt;
+
+    @include(&#39;partials.footer&#39;)
+&lt;/body&gt;
+&lt;/html&gt;
 </code></pre></div>
-<p>Ahora introduciremos código PHP dentro de nuestro componente para indicar qué alerta se mostraría para cada tipo.</p>
-<div class="highlight"><pre><span></span><code><span class="x">@php</span>
+<p>Hemos reutilizado el archivo <code>resources/views/partials/footer.blade.php</code>, creado en la sección sobre layouts, para incluir el pie de página. Ahora podemos utilizar el layout en el archivo <code>resources/views/home.blade.php</code>.</p>
+<div class="highlight"><pre><span></span><code>&lt;x-app-layout&gt;
+    &lt;x-slot:title&gt;Inicio&lt;/x-slot:title&gt;
 
-<span class="x">switch ($type) {</span>
+    &lt;h1&gt;¡Bienvenido a mi blog!&lt;/h1&gt;
+    &lt;p&gt;Esta es la página de inicio.&lt;/p&gt;
 
-<span class="x">    case &#39;info&#39;:</span>
-
-<span class="x">        $class = &quot;bg-blue-50 text-blue-800&quot;;</span>
-
-<span class="x">        break;</span>
-
-<span class="x">    case &#39;danger&#39;:</span>
-
-<span class="x">        $class = &quot;bg-red-50 text-red-800&quot;;</span>
-
-<span class="x">        break;</span>
-
-<span class="x">    case &#39;success&#39;:</span>
-
-<span class="x">        $class = &quot;bg-green-50 text-green-800&quot;;</span>
-
-<span class="x">        break;</span>
-
-<span class="x">    case &#39;warning&#39;:</span>
-
-<span class="x">        $class = &quot;bg-yellow-50 text-yellow-800&quot;;</span>
-
-<span class="x">        break;</span>
-
-<span class="x">    case &#39;dark&#39;:</span>
-
-<span class="x">        $class = &quot;bg-gray-50 text-gray-800&quot;;</span>
-
-<span class="x">        break;</span>
-
-<span class="x">    default:</span>
-
-<span class="x">        # code...</span>
-
-<span class="x">        break;</span>
-
-<span class="x">}</span>
-
-<span class="x">@endphp</span>
-
-<span class="x">&lt;div class=&quot;p-4 mb-4 text-sm {{ $class }}  rounded-lg  dark:bg-gray-800 dark:text-blue-400&quot; role=&quot;alert&quot;&gt;</span>
-
-<span class="x">    &lt;span class=&quot;font-medium&quot;&gt;{{ $title ?? &#39;&#39; }}&lt;/span&gt; {{ $slot }}</span>
-
-<span class="x">&lt;/div&gt;</span>
+    &lt;x-alert type=&quot;success&quot;&gt;
+        Los datos se han guardado correctamente.
+    &lt;/x-alert&gt;
+&lt;/x-app-layout&gt;
 </code></pre></div>
-<p>Parámetros de los componentes (más de un componente)</p>
-<p>Además de pasar variables a un componente, también podemos pasar parámetros; lo haremos en la etiqueta del componente. Por ejemplo, pasaremos un parámetro llamado type para que, según el tipo de alerta, tenga un aspecto u otro.</p>
-<p>Lo haríamos así:</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">x-alert</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;info&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;mb-4&quot;</span><span class="p">&gt;</span>
-
-<span class="p">&lt;</span><span class="nt">x-slot</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;title&quot;</span><span class="p">&gt;</span>
-</code></pre></div>
-<p>Este es el encabezado</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;/</span><span class="nt">x-slot</span><span class="p">&gt;</span>
-</code></pre></div>
-<p>Este es el contenido del mensaje de alerta</p>
-<div class="highlight"><pre><span></span><code><span class="x">&lt;/x-alert&gt;</span>
-
-<span class="x">Kasu honetan bigarren parametro hori, promps-en jaso beharrean $attributes-en jasoko genuke. Adibide honetan, gure konponentean  {{$attributes}} idaztekotan, pantailatik zuznean class=&quot;mb-4&quot; agertuko litzateke.</span>
-</code></pre></div>
-<p>"Componentes de clase"</p>
-<p>Hasta ahora hemos utilizado lo que se llama "componente anónimo", pero también existe la opción de crear componentes de clase. Para ello lo crearemos con Artisan. Un componente anónimo tendrá una sola vista, pero al crear un componente de clase se generará una clase para contener toda la lógica de la alerta y, por otro lado, una vista para definir el aspecto de ese componente.</p>
-<div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>make:component<span class="w"> </span>alert2
-</code></pre></div>
-<p>Se creará una clase en la carpeta app/View/Components. Se creará en minúsculas, pero para seguir las convenciones es mejor poner en mayúsculas tanto el archivo como la clase:</p>
-<div class="highlight"><pre><span></span><code><span class="x">class Alert2 extends Component</span>
-</code></pre></div>
-<p>Ahora incluiríamos en el método __construct de la clase la lógica que escribimos antes, y dejaríamos en la vista únicamente el código HTML.</p>
+<p>El slot <code>title</code> establece el título de la pestaña del navegador. El resto del contenido se inserta en el elemento <code>&lt;main&gt;</code> del layout.</p>
 
 
 
