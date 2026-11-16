@@ -1,221 +1,241 @@
 # Componentes
 
-Los componentes de Laravel son una forma de combinar HTML y PHP de manera más clara y organizada. Estos componentes son, en esencia, bloques de código HTML y PHP que, una vez creados, se pueden reutilizar fácilmente en muchas otras plantillas o páginas. Esto facilita mucho el uso y el mantenimiento de los diseños sin repetir código.
+Un componente es una plantilla Blade que podemos reutilizar en varias vistas. Por ejemplo, podemos definir una vez el HTML de una alerta y luego mostrar un mensaje distinto en cada página utilizando el mismo componente.
 
-Documentación oficial: <https://laravel.com/framework/docs/13.x/blade#components>
+[Documentación de Laravel 13](https://laravel.com/docs/13.x/blade#components)
 
-Para crear un componente, dentro de la carpeta view crearemos otra carpeta llamada components y, dentro de ella, crearíamos el archivo Blade de nuestro componente. Por ejemplo:
+## Crear un componente anónimo
 
-views/components/alert.blade.php
+Crea el archivo `resources/views/components/alert.blade.php`. Un componente anónimo consta de una vista Blade.
 
-Por ejemplo, para crear una alerta podemos utilizar las alertas de Tailwind; para ello podemos visitar este sitio web: <https://flowbite.com/docs/components/alerts/>
-
-Por otro lado, también tendremos que indicar en algún lugar que vamos a utilizar Tailwind. Encontrarás información sobre cómo añadirlo en este enlace: <https://tailwindcss.com/docs/installation/play-cdn>
-
-Por tanto, para este ejemplo añadiríamos Tailwind a nuestra página de esta manera:
-
-```html
-<script src="<https://cdn.tailwindcss.com>"></script>
-```
-
-Y en nuestro archivo alert.blade.php añadiríamos nuestra alerta:
-
-```html
-<div class="p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400" role="alert">
-
-<span class="font-medium">Alerta!</span> Kontuz izan egiten duzunarekin
-
+```blade
+<div class="alerta" role="alert">
+    <strong>¡Alerta!</strong> ¡Ten cuidado!
 </div>
 ```
 
-Así ya podríamos utilizar este componente en todos los lugares donde lo necesitemos. Para utilizarlo, primero escribiremos "x-" para indicar que es un componente y, a continuación, el nombre de nuestro componente; en este caso, x-alert. Recuerda que siempre debemos cerrar el componente al invocarlo:
+Para utilizarlo en otra vista, añade el prefijo `x-` al nombre del archivo y elimina la extensión `.blade.php`.
 
-```html
-<x-alert/>
+```blade
+<x-alert />
 ```
 
-o
+Si no tenemos que pasar contenido, podemos cerrar la etiqueta en la misma línea. Para pasar contenido, utilizaremos las etiquetas de apertura y cierre.
 
-```html
+## Slot predeterminado
+
+El contenido escrito entre las etiquetas del componente se recibe mediante la variable `$slot`. Este contenido puede ser texto o HTML.
+
+Modifica el archivo `alert.blade.php`.
+
+```blade
+<div class="alerta" role="alert">
+    <strong>¡Alerta!</strong>
+    {{ $slot }}
+</div>
+```
+
+Ahora podemos proporcionar un mensaje cada vez que utilicemos la alerta.
+
+```blade
 <x-alert>
-
+    Comprueba los datos introducidos.
 </x-alert>
 ```
 
-Componentes con una variable
+## Slots con nombre
 
-En este caso queremos pasar una variable a nuestro componente; para ello indicaremos en nuestra alerta dónde queremos mostrarla. Cuando enviamos una sola variable, enviamos un slot.
+Para insertar el mensaje y el título en lugares diferentes del componente, podemos pasar el título como un slot con nombre. En este ejemplo, el contenido de `<x-slot:title>` se recibe mediante `$title` y el resto mediante `$slot`.
 
-```php
-<span class="font-medium">Alerta!</span> {{ $slot }}
-```
-
-Y, al invocarlo, enviaríamos el valor de esa variable entre las etiquetas x-alert:
-
-```html
+```blade
 <x-alert>
-```
+    <x-slot:title>
+        Problema al guardar los datos
+    </x-slot:title>
 
-Este es el contenido del mensaje de alerta
-
-```html
+    Comprueba los datos introducidos.
 </x-alert>
 ```
 
-Componentes con más de una variable
-
-Por un lado tendremos la variable general, llamada slot, y por otro tendremos named slots. Hay que asignar un nombre a estos slots; por ejemplo:
-
-```html
-<x-alert>
-
-<x-slot name="title">
+```blade
+<div class="alerta" role="alert">
+    <strong>{{ $title ?? '¡Alerta!' }}</strong>
+    {{ $slot }}
+</div>
 ```
 
-Este es el encabezado
+Si la vista no proporciona el slot `title`, aparecerá «¡Alerta!».
 
-```html
-</x-slot>
-```
+## Parámetros de los componentes
 
-Este es el contenido del mensaje de alerta
+También podemos pasar atributos en la etiqueta. Por ejemplo, podemos utilizar `type` para elegir el aspecto de la alerta.
 
-```html
+```blade
+<x-alert type="danger">
+    <x-slot:title>
+        Problema al guardar los datos
+    </x-slot:title>
+
+    Comprueba los datos introducidos.
 </x-alert>
 ```
 
-Y, al invocarlo, enviaríamos el valor de esa variable entre las etiquetas x-alert:
+Al principio del componente anónimo, indicaremos mediante la directiva `@props` qué atributos queremos recibir. Al escribir `@props(['type' => 'info'])`, el componente tendrá la variable `$type`. Si no proporcionamos `type` en la llamada, se utilizará `info`.
 
-```php
-<span class="font-medium">{{ $title ?? 'lehenetsiko titulua' }}</span> {{ $slot }}
-```
+Este es el archivo completo `resources/views/components/alert.blade.php`.
 
-¿Por qué hemos puesto los signos de interrogación y las comillas? Al escribirlo así indicamos que, si no se define title, tendrá el valor que aparece entre las comillas.
+```blade
+@props(['type' => 'info'])
 
-Parámetros de los componentes (componente único)
-
-Además de pasar variables a un componente, también podemos pasar parámetros; lo haremos en la etiqueta del componente. Por ejemplo, pasaremos un parámetro llamado type para que, según el tipo de alerta, tenga un aspecto u otro.
-
-Lo haríamos así:
-
-```html
-<x-alert type="info">
-
-<x-slot name="title">
-```
-
-Este es el encabezado
-
-```html
-</x-slot>
-```
-
-Este es el contenido del mensaje de alerta
-
-```html
-</x-alert>
-```
-
-Y en nuestra alerta definiremos distintas alertas según cuál sea el tipo. Para ello, Blade tiene una directiva llamada props. Al invocarla, incluiré en un array los nombres de mis parámetros; Laravel creará una variable para cada parámetro que le haya pasado:
-
-```php
-@props(['title'])
-
-@props(['type' => 'info') // Balio lehenetsia emateko
-```
-
-Ahora introduciremos código PHP dentro de nuestro componente para indicar qué alerta se mostraría para cada tipo.
-
-```php
 @php
-
-switch ($type) {
-
-    case 'info':
-
-        $class = "bg-blue-50 text-blue-800";
-
-        break;
-
-    case 'danger':
-
-        $class = "bg-red-50 text-red-800";
-
-        break;
-
-    case 'success':
-
-        $class = "bg-green-50 text-green-800";
-
-        break;
-
-    case 'warning':
-
-        $class = "bg-yellow-50 text-yellow-800";
-
-        break;
-
-    case 'dark':
-
-        $class = "bg-gray-50 text-gray-800";
-
-        break;
-
-    default:
-
-        # code...
-
-        break;
-
-}
-
+    $clase = match ($type) {
+        'danger' => 'alerta-danger',
+        'success' => 'alerta-success',
+        default => 'alerta-info',
+    };
 @endphp
 
-<div class="p-4 mb-4 text-sm {{ $class }}  rounded-lg  dark:bg-gray-800 dark:text-blue-400" role="alert">
-
-    <span class="font-medium">{{ $title ?? '' }}</span> {{ $slot }}
-
+<div {{ $attributes->class(['alerta', $clase]) }} role="alert">
+    <strong>{{ $title ?? '¡Alerta!' }}</strong>
+    {{ $slot }}
 </div>
 ```
 
-Parámetros de los componentes (más de un componente)
+Para ver los colores, añade estos estilos al archivo `public/css/style.css` asociado al layout.
 
-Además de pasar variables a un componente, también podemos pasar parámetros; lo haremos en la etiqueta del componente. Por ejemplo, pasaremos un parámetro llamado type para que, según el tipo de alerta, tenga un aspecto u otro.
+```css
+.alerta {
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
 
-Lo haríamos así:
+.alerta-info {
+    background-color: #dbeafe;
+    color: #1e40af;
+}
 
-```html
-<x-alert type="info" class="mb-4">
+.alerta-danger {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
 
-<x-slot name="title">
+.alerta-success {
+    background-color: #dcfce7;
+    color: #166534;
+}
 ```
 
-Este es el encabezado
+## Atributos adicionales
 
-```html
-</x-slot>
-```
+Los atributos que no se reciben mediante `@props` están disponibles a través de `$attributes`. Por ejemplo, podemos asignar un `id` y una clase CSS adicional a una alerta concreta.
 
-Este es el contenido del mensaje de alerta
-
-```php
+```blade
+<x-alert type="info" id="mensaje-guardado" class="resaltado">
+    Para guardar los cambios, pulsa «Guardar».
 </x-alert>
-
-Kasu honetan bigarren parametro hori, promps-en jaso beharrean $attributes-en jasoko genuke. Adibide honetan, gure konponentean  {{$attributes}} idaztekotan, pantailatik zuznean class="mb-4" agertuko litzateke.
 ```
 
-"Componentes de clase"
+El atributo `type` se recibe como la variable `$type`. En cambio, `id` y `class` están dentro de `$attributes`. Al utilizar `$attributes->class(...)`, la clase `resaltado` pasada en la llamada se añade a las clases `alerta` y `alerta-info` del componente. El atributo `id` también se inserta en el elemento `<div>`.
 
-Hasta ahora hemos utilizado lo que se llama "componente anónimo", pero también existe la opción de crear componentes de clase. Para ello lo crearemos con Artisan. Un componente anónimo tendrá una sola vista, pero al crear un componente de clase se generará una clase para contener toda la lógica de la alerta y, por otro lado, una vista para definir el aspecto de ese componente.
+## Componentes basados en clases
+
+Cuando un componente necesita más lógica PHP, podemos utilizar una clase PHP y una vista Blade. Para probar el ejemplo, crea el componente `Alert2`.
 
 ```bash
-php artisan make:component alert2
+php artisan make:component Alert2
 ```
 
-Se creará una clase en la carpeta app/View/Components. Se creará en minúsculas, pero para seguir las convenciones es mejor poner en mayúsculas tanto el archivo como la clase:
+El comando crea la clase `app/View/Components/Alert2.php` y la vista `resources/views/components/alert2.blade.php`. Las propiedades públicas recibidas en el constructor se pueden utilizar en la vista Blade. Por ejemplo, podemos calcular la clase CSS de la alerta en el constructor.
 
 ```php
+<?php
+
+namespace App\View\Components;
+
+use Illuminate\Contracts\View\View;
+use Illuminate\View\Component;
+
 class Alert2 extends Component
+{
+    public string $clase;
+
+    public function __construct(string $type = 'info')
+    {
+        $this->clase = match ($type) {
+            'danger' => 'alerta-danger',
+            'success' => 'alerta-success',
+            default => 'alerta-info',
+        };
+    }
+
+    public function render(): View
+    {
+        return view('components.alert2');
+    }
+}
 ```
 
-Ahora incluiríamos en el método __construct de la clase la lógica que escribimos antes, y dejaríamos en la vista únicamente el código HTML.
+En el archivo `resources/views/components/alert2.blade.php`, podemos utilizar `$clase` directamente.
+
+```blade
+<div {{ $attributes->class(['alerta', $clase]) }} role="alert">
+    <strong>{{ $title ?? '¡Alerta!' }}</strong>
+    {{ $slot }}
+</div>
+```
+
+```blade
+<x-alert2 type="success">
+    Los datos se han guardado correctamente.
+</x-alert2>
+```
+
+## Utilizar un layout como componente
+
+En la sección sobre layouts hemos utilizado `@extends`, `@section` y `@yield` para compartir la estructura común de las páginas. También podemos definir la misma estructura en un componente anónimo. En este caso, recibiremos el contenido principal de la página mediante `$slot`.
+
+Crea el archivo `resources/views/components/app-layout.blade.php`.
+
+```blade
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ $title ?? 'Mi blog' }}</title>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+</head>
+<body>
+    <header>
+        <p>Mi blog</p>
+        <nav>
+            <a href="/">Inicio</a>
+            <a href="/users">Usuarios</a>
+        </nav>
+    </header>
+
+    <main>
+        {{ $slot }}
+    </main>
+
+    @include('partials.footer')
+</body>
+</html>
+```
+
+Hemos reutilizado el archivo `resources/views/partials/footer.blade.php`, creado en la sección sobre layouts, para incluir el pie de página. Ahora podemos utilizar el layout en el archivo `resources/views/home.blade.php`.
+
+```blade
+<x-app-layout>
+    <x-slot:title>Inicio</x-slot:title>
+
+    <h1>¡Bienvenido a mi blog!</h1>
+    <p>Esta es la página de inicio.</p>
+
+    <x-alert type="success">
+        Los datos se han guardado correctamente.
+    </x-alert>
+</x-app-layout>
+```
+
+El slot `title` establece el título de la pestaña del navegador. El resto del contenido se inserta en el elemento `<main>` del layout.
