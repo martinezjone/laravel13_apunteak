@@ -1,173 +1,151 @@
 # Layouts
 
-## Componentes
+Un layout es una plantilla básica que comparten varias vistas. En él colocamos la estructura común de las páginas, como la cabecera, el menú de navegación y el pie de página. Cada vista define su propio contenido y Blade lo inserta en el lugar correspondiente dentro del layout.
 
-Hoy en día, al crear una plantilla, la mayoría de los programadores suelen utilizar componentes. Para hacerlo, lo utilizaríamos como si fuera un componente normal.
+## Crear un layout
 
-Por ejemplo, crearíamos el archivo app-layout.blade.php con la estructura HTML general: html, head, body, footer, etc. Nuestro slot sería el contenido de la página:
+Crea el archivo `resources/views/layouts/app.blade.php` con la estructura general del HTML.
 
-```php
+```blade
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@yield('title', 'Mi blog')</title>
+</head>
 <body>
-
     <header>
-
-        <h1>Webgunearen goiburua</h1>
-
+        <p>Mi blog</p>
+        <nav>
+            <a href="/">Inicio</a>
+            <a href="/users">Usuarios</a>
+        </nav>
     </header>
 
     <main>
-
-        {{ $slot }}
-
+        @yield('content')
     </main>
 
     <footer>
-
-        <p>Webgunearen oinarria</p>
-
+        <p>Pie de página del sitio web</p>
     </footer>
-
 </body>
+</html>
 ```
 
-Y, por ejemplo, en nuestra página de inicio utilizaríamos ese componente como hemos visto hasta ahora:
+La directiva `@yield` indica dónde se insertará una sección dentro del layout. El primer argumento es el nombre de la sección. El segundo argumento es opcional y sirve para especificar un valor predeterminado.
 
-```html
-<x-app-layout>
-
-    <h1 class="text-3xl font-bold underline px-20">
-        Hau da nire blog-aren lehenengo orria. Ongi etorri!!
-    </h1>
-
-    Eta hemen kodea jarraitzen du
-
-</x-app-layout>
-```
-
-## Plantillas base (layouts)
-
-Los layouts pueden resultar útiles para combinar la construcción de nuestras vistas.
-
-Por un lado podemos utilizar @include para reutilizar código separado:
-
-```php
-@include('footer')
-
-//Hala, view-en zuzenean gordetako elementu bat sartuko dugu, php edo luzapena duena blade.php
-```
-
-Función auxiliar asset()
-
-El helper asset() nos proporciona la URL absoluta de nuestro archivo; de esta manera evitaremos tener que cambiar la ruta del archivo según la URL que tengamos.
-
-```php
-<link href="{{ asset('css/style.css') }}" rel="stylesheet">
-```
-
-Pero lo más útil sería utilizar layouts. En lugar de dividir nuestra plantilla en varios archivos, podemos crear una plantilla que contenga toda la estructura de nuestro sitio. Por ejemplo, podemos llamarla app.blade.php e incluir dentro todo el código de diseño. Normalmente se guardan en la subcarpeta layout.
-
-Dentro de la plantilla podemos indicar secciones con la directiva @yield, pasando como argumento el nombre de la sección; después, en cada plantilla, incluiríamos el código correspondiente a cada sección:
-
-```php
-<main role="main" class="container">
-
-    @yield('content')
-
-</main>
-```
-
-Los layouts pueden tener cualquier nombre, pero siempre deben tener la extensión .blade.php.
-
-La directiva @yield se puede utilizar de varias maneras; por ejemplo, para personalizar el título de nuestro sitio web.
-
-```html
-    <title>@yield('title') - Nireweb.net</title>
-```
-
-También podemos asignar un valor predeterminado a las directivas @yield; por ejemplo:
-
-```html
-    <title> @yield('title', 'Lehenetsiko titulua')</title>
-```
-
-Utilizaremos @section para definir las secciones y la directiva @yield para situarlas en nuestra plantilla (nuestro layout).
-
-Por tanto, las secciones utilizarán la directiva @section y le pasaremos como argumento el nombre correspondiente:
-
-```php
-@section('title') Usuario {{ $id }} @endsection
-
-@section('content')
-
-<!-- Contenido de la sección -->
-
-@endsection
-```
-
-En el ejemplo anterior, como title ocupa una sola línea, podemos pasar el título como parámetro:
-
-```php
-@section('title', "Usuario {$id}")
-```
+Por ejemplo, si la vista no define la sección `title`, en la pestaña del navegador aparecerá «Mi blog».
 
 ## Extender una plantilla
 
-En lugar de incluir el encabezado o el pie de página en cada plantilla individual, le indicaremos a Laravel que la vista extienda app.blade.php.
+Para que una vista utilice un layout, usaremos la directiva `@extends`. Por ejemplo, crea el archivo `resources/views/home.blade.php`.
 
-No es necesario incluir la extensión del archivo ni su ruta completa, porque Laravel buscará el archivo en resources/view de forma predeterminada. En nuestro caso, como hemos guardado la plantilla en la carpeta layouts, lo haríamos así:
-
-```php
+```blade
 @extends('layouts.app')
-```
 
-Una vez hecho esto, crearemos las secciones:
+@section('title', 'Inicio')
 
-```php
 @section('content')
-    <!-- Contenido de la sección -->
+    <h1>¡Bienvenido a mi blog!</h1>
+    <p>Esta es la página de inicio.</p>
 @endsection
 ```
 
-## Directiva @stack
+El nombre `layouts.app` indica el archivo `resources/views/layouts/app.blade.php`. El punto separa el nombre de la carpeta y el de la vista. En esta llamada de Blade escribimos el nombre sin la extensión del archivo.
 
-Además de @yield(), también podemos utilizar la directiva @stack. Normalmente utilizaremos @yield cuando vayamos a usar el contenido una sola vez, por ejemplo, como hemos hecho con title. En otros casos, puede interesarnos ir añadiendo elementos a ese contenido, como código CSS o JS...
+La directiva `@section` define el contenido de una sección. El nombre de la sección debe coincidir con el nombre utilizado en la directiva `@yield` del layout. Si el contenido es un texto breve, podemos pasarlo como segundo argumento. Si tenemos que escribir HTML o varias líneas, abriremos la sección con `@section` y la cerraremos con `@endsection`.
 
-```php
-@stack('css')
-```
+Para utilizar el mismo layout en otra vista, crea el archivo `resources/views/users.blade.php`.
 
-Para añadir contenido utilizaremos la directiva @push; podemos usar esta directiva varias veces a lo largo del código:
+```blade
+@extends('layouts.app')
 
-```php
-@push('css')
-    <style> body {background-color: darkcyan}</style>
-@endpush
+@section('title', 'Usuarios')
 
 @section('content')
+    <h1>Usuarios</h1>
 
-@push('css')
-    <style> h1 { color: rgb(16, 34, 133)}</style>
-@endpush
-
-<h1 class="text-3xl font-bold underline px-20">
-    Hau da nire blog-aren lehenengo orria. Ongi etorri!!
-</h1>
+    <ul>
+        @forelse ($users as $user)
+            <li>{{ $user->name }}</li>
+        @empty
+            <li>No hay usuarios.</li>
+        @endforelse
+    </ul>
+@endsection
 ```
 
-## Partials
-
-Además de los layouts, también existen archivos llamados partials; son pequeños fragmentos de código que normalmente se utilizan en partes concretas del sistema, como menús, pies de página, etc.
-
-Siguiendo el siguiente ejemplo, las llamadas desde la plantilla alumnos.blade.php deberían hacerse como se muestra en este código:
+Para probar ambas vistas, añade estas rutas al archivo `routes/web.php`.
 
 ```php
-<body>
-    @include('partials.menu')
+use Illuminate\Support\Facades\Route;
 
-    @yield('content')
+Route::view('/', 'home');
 
-    @include('partials.footer')
-</body>
+Route::get('/users', function () {
+    $users = [
+        (object) ['name' => 'Jon'],
+        (object) ['name' => 'Ane'],
+    ];
+
+    return view('users', compact('users'));
+});
 ```
 
-![Imagen](../../../assets/images/Layouts/3ec16cdc1e838032824e1a4c34a23d45.jpg)
+Abre `/` y `/users` en el navegador. Ambas páginas tienen la misma cabecera, menú y pie de página. Elimina la línea `@section('title', 'Usuarios')` y comprueba que en la pestaña del navegador aparece «Mi blog».
+
+## Vistas parciales (partials)
+
+Podemos guardar algunas partes del layout, como el menú o el pie de página, en archivos separados. Estos archivos se llaman **vistas parciales** o *partials*. Para incluirlas en otra vista, utilizaremos la directiva `@include`.
+
+Por ejemplo, extrae el pie de página al archivo `resources/views/partials/footer.blade.php`.
+
+```blade
+<footer>
+    <p>Pie de página del sitio web</p>
+</footer>
+```
+
+Después, sustituye el bloque `<footer>` del layout por esta línea.
+
+```blade
+@include('partials.footer')
+```
+
+## El helper asset()
+
+Si tenemos los estilos de todo el sitio web en el archivo `public/css/style.css`, podemos enlazar la hoja de estilos en la sección `<head>` del layout.
+
+```blade
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+```
+
+El helper `asset()` genera la URL de un archivo público. Como argumento, le pasamos la ruta del archivo desde la carpeta public. Por ejemplo, para enlazar el archivo `public/css/style.css`, utilizamos `asset('css/style.css')`. De esta manera, todas las páginas que utilizan el mismo layout reciben la misma URL para el archivo CSS.
+
+## La directiva @stack
+
+Si una vista concreta necesita un archivo CSS o JavaScript adicional (además de los que hemos incluido en el layout), podemos utilizar `@stack` y `@push`.
+
+Para ello, añadiríamos `@stack('styles')` en la sección `<head>` del layout, después de la hoja de estilos común.
+
+En la sección `<head>` del layout enlazamos el CSS que necesitan todas las páginas e indicamos dónde se insertarán los estilos adicionales; para ello utilizamos `@stack('styles')`.
+
+```blade
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+    @stack('styles')
+```
+
+En la vista `users.blade.php`, añadimos la etiqueta `<link>` a la pila styles para cargar `users.css`. Puedes colocar el bloque después de la línea `@extends`.
+
+```blade
+    @extends('layouts.app')
+
+    @push('styles')
+        <link rel="stylesheet" href="{{ asset('css/users.css') }}">
+    @endpush
+```
+
+`@push('styles')` indica qué se debe añadir y `@stack('styles')` dónde se debe insertar. Por eso, la etiqueta `<link>` escrita en la vista `users.blade.php` aparece en la sección `<head> ` del HTML final. Si la vista de inicio no añade nada a la pila styles, `@stack('styles')` no inserta nada.

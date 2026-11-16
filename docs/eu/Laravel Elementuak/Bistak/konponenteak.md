@@ -1,221 +1,241 @@
 # Konponenteak
 
-Laravel-en konponenteak HTML-a eta PHP-a modu garbiago eta antolatuago batean konbinatzeko modu bat dira. Konponente hauek, berez, HTML eta PHP kode-blokeak dira eta, behin sortuta, erraz berrerabili daitezke beste plantilla edo orri askotan. Honek kodea errepikatu gabe diseinuak erabili eta mantentzea askoz ere errazago egiten du.
+Konponentea (osagaia) hainbat bistatan berrerabil dezakegun Blade txantiloi bat da. Adibidez, alerta baten HTMLa behin definitu dezakegu, eta gero orri bakoitzean mezu desberdina erakutsi osagai bera erabilita.
 
-Dokumentazio ofiziala: <https://laravel.com/framework/docs/13.x/blade#components>
+[Laravel 13ko dokumentazioa](https://laravel.com/docs/13.x/blade#components)
 
-Konponente bat sortzeko, view karpetaren barruan, beste karpeta bat sortuko dugu components izenarekin, eta honen barruan gure konponentearen blade-a sortuko genuke, adibidez:
+## Konponente anonimo bat sortzea
 
-views/components/alert.blade.php
+Sortu `resources/views/components/alert.blade.php` fitxategia. Konponente anonimo batek Blade bista bat dauka.
 
-Alert bat sortzeko, adibidez, tailwind-en alertak erabili ditzakegu, horretarako web honetara sartu gaitzeke: <https://flowbite.com/docs/components/alerts/>
-
-Eta bestetik, tailwind erabili ahal izateko ere, nonbaiten deitu beharko diogu libreria horreri. Nola gehitu jakiteko, hurrengo estekan duzue informazioa: <https://tailwindcss.com/docs/installation/play-cdn>
-
-Beraz, adibide honetarako, gure orrian tailwind sartuko genuke modu honetan:
-
-```html
-<script src="<https://cdn.tailwindcss.com>"></script>
-```
-
-Eta gure alert.blade.php fitxategian gure alerta sartuko genuke:
-
-```html
-<div class="p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400" role="alert">
-
-<span class="font-medium">Alerta!</span> Kontuz izan egiten duzunarekin
-
+```blade
+<div class="alerta" role="alert">
+    <strong>Alerta!</strong> Kontuz!
 </div>
 ```
 
-Modu honetan jada, guk behar dugun leku guztietan erabili ahal izango genuke konponente hau, erabiltzeko lehenengo "x-" jarriko genuke, konponente bat dela esateko eta bestetik, gure konponentaren izena, kasu honetan  x-alert. Gogoratu konponente bat deitzerakoan beti itxi behar dugula:
+Beste bista batean erabiltzeko, gehitu `x-` aurrizkia fitxategiaren izenari eta kendu `.blade.php` luzapena.
 
-```html
-<x-alert/>
+```blade
+<x-alert />
 ```
 
-edo
+Edukirik pasatu behar ez badugu, etiketa berean itxi dezakegu. Edukia pasatzeko, hasierako eta amaierako etiketak erabiliko ditugu.
 
-```html
+## Slot lehenetsia
+
+Konponentearen etiketen artean idatzitako edukia `$slot` aldagaiaren bidez jasotzen da. Eduki hori testua edo HTMLa izan daiteke.
+
+Aldatu `alert.blade.php` fitxategia.
+
+```blade
+<div class="alerta" role="alert">
+    <strong>Alerta!</strong>
+    {{ $slot }}
+</div>
+```
+
+Orain, alerta erabiltzen dugun bakoitzean mezu bat eman diezaiokegu.
+
+```blade
 <x-alert>
-
+    Egiaztatu sartutako datuak.
 </x-alert>
 ```
 
-Konponenteak aldagai batekin
+## Izendun slotak
 
-Kasu honetan gure konponenteari aldagai bat bidali nahiko diogu, horretarako, gure alertan, aldagaia non erakutsi nahi dugun esango dugu, aldagai bakarra bidaltzen dugunean, slot bat bidaltzen dugu.
+Mezua eta izenburua konponentearen leku desberdinetan txertatzeko, izenburua izendun slot gisa pasa dezakegu. Adibide honetan, `<x-slot:title>` barruko edukia `$title` bidez jasotzen da eta gainerakoa `$slot` bidez.
 
-```php
-<span class="font-medium">Alerta!</span> {{ $slot }}
-```
-
-eta deitzerakoan aldiz, x-alert etiketen artean aldagai horren balioa bidaliko genuke:
-
-```html
+```blade
 <x-alert>
-```
+    <x-slot:title>
+        Datuak gordetzeko arazoa
+    </x-slot:title>
 
-Hau da alerta mezuaren edukia
-
-```html
+    Egiaztatu sartutako datuak.
 </x-alert>
 ```
 
-Konponenteak aldagai bat baino gehiagorekin
-
-Alde batetik, aldagai orokorra izango dugu, slot izenekoa eta bestetik named slots izango ditugu, slots hauei izen bat jarri behar diegu,adibidez:
-
-```html
-<x-alert>
-
-<x-slot name="title">
+```blade
+<div class="alerta" role="alert">
+    <strong>{{ $title ?? 'Alerta!' }}</strong>
+    {{ $slot }}
+</div>
 ```
 
-Hau da goiburua
+Bistak `title` slota ematen ez badu, «Alerta!» agertuko da.
 
-```html
-</x-slot>
-```
+## Konponenteen parametroak
 
-Hau da alerta mezuaren edukia
+Etiketan atributuak ere pasa ditzakegu. Adibidez, `type` erabil dezakegu alertaren itxura aukeratzeko.
 
-```html
+```blade
+<x-alert type="danger">
+    <x-slot:title>
+        Datuak gordetzeko arazoa
+    </x-slot:title>
+
+    Egiaztatu sartutako datuak.
 </x-alert>
 ```
 
-eta deitzerakoan aldiz, x-alert etiketen artean aldagai horren balioa bidaliko genuke:
+Konponente anonimoaren hasieran, `@props` direktibaren bidez adieraziko dugu zein atributu jaso nahi dugun. `@props(['type' => 'info'])` idatzita, osagaiak `$type` aldagaia izango du. Deian `type` ematen ez badugu, `info` erabiliko da.
 
-```php
-<span class="font-medium">{{ $title ?? 'lehenetsiko titulua' }}</span> {{ $slot }}
-```
+Hona hemen `resources/views/components/alert.blade.php` fitxategi osoa.
 
-Zergaitik jarri ditugu galdera ikurrak eta komillak? Horrela jartzerakoan, gaude esaten title ez definitzekotan, komillen artean dagoen balioa izango duela.
+```blade
+@props(['type' => 'info'])
 
-Konponenteen parametroak (konponente bakarra)
-
-Konponente bati aldagaiak pasatzeaz gain, parametroak ere pasatu ditzakegu, hori konponentearen etiketan egingo dugu, adibidez guk type izeneko parametro bat pasatuko dugu, modu honetan, segun eta zein mota den gure alerta, itxura bat edo bestea izango du.
-
-Horrela egingo genuke:
-
-```html
-<x-alert type="info">
-
-<x-slot name="title">
-```
-
-Hau da goiburua
-
-```html
-</x-slot>
-```
-
-Hau da alerta mezuaren edukia
-
-```html
-</x-alert>
-```
-
-Eta gure alert-ean alerta ezberdinak definituko ditugu segun eta tipoa zein den, horretarako blade badu direktiba bat, props izenekoa.  Beraz guk direktiva horreri deitzerakoan, array baten nire parametroen izenak sartuko ditut, eta Laravelek egingo duena da aldagai bat sortu nik pasatutako parametro bakoitzarekin:
-
-```php
-@props(['title'])
-
-@props(['type' => 'info') // Balio lehenetsia emateko
-```
-
-Eta orain gure konponente barruan php kodea sartuko dugu esateko zein alerta aterako lukeen mota bakoitzeko.
-
-```php
 @php
-
-switch ($type) {
-
-    case 'info':
-
-        $class = "bg-blue-50 text-blue-800";
-
-        break;
-
-    case 'danger':
-
-        $class = "bg-red-50 text-red-800";
-
-        break;
-
-    case 'success':
-
-        $class = "bg-green-50 text-green-800";
-
-        break;
-
-    case 'warning':
-
-        $class = "bg-yellow-50 text-yellow-800";
-
-        break;
-
-    case 'dark':
-
-        $class = "bg-gray-50 text-gray-800";
-
-        break;
-
-    default:
-
-        # code...
-
-        break;
-
-}
-
+    $klasea = match ($type) {
+        'danger' => 'alerta-danger',
+        'success' => 'alerta-success',
+        default => 'alerta-info',
+    };
 @endphp
 
-<div class="p-4 mb-4 text-sm {{ $class }}  rounded-lg  dark:bg-gray-800 dark:text-blue-400" role="alert">
-
-    <span class="font-medium">{{ $title ?? '' }}</span> {{ $slot }}
-
+<div {{ $attributes->class(['alerta', $klasea]) }} role="alert">
+    <strong>{{ $title ?? 'Alerta!' }}</strong>
+    {{ $slot }}
 </div>
 ```
 
-Konponenteen parametroak (konponente bat baino gehiago)
+Koloreak ikusteko, gehitu estilo hauek layoutari lotutako `public/css/style.css` fitxategian.
 
-Konponente bati aldagaiak pasatzeaz gain, parametroak ere pasatu ditzakegu, hori konponentearen etiketan egingo dugu, adibidez guk type izeneko parametro bat pasatuko dugu, modu honetan, segun eta zein mota den gure alerta, itxura bat edo bestea izango du.
+```css
+.alerta {
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
 
-Horrela egingo genuke:
+.alerta-info {
+    background-color: #dbeafe;
+    color: #1e40af;
+}
 
-```html
-<x-alert type="info" class="mb-4">
+.alerta-danger {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
 
-<x-slot name="title">
+.alerta-success {
+    background-color: #dcfce7;
+    color: #166534;
+}
 ```
 
-Hau da goiburua
+## Atributu gehigarriak
 
-```html
-</x-slot>
-```
+`@props` bidez jasotzen ez diren atributuak `$attributes` bidez ditugu eskura. Adibidez, alerta jakin bati `id` bat eta CSS klase gehigarri bat eman diezazkiokegu.
 
-Hau da alerta mezuaren edukia
-
-```php
+```blade
+<x-alert type="info" id="gordetze-mezua" class="nabarmendua">
+    Aldaketak gordetzeko, sakatu «Gorde».
 </x-alert>
-
-Kasu honetan bigarren parametro hori, promps-en jaso beharrean $attributes-en jasoko genuke. Adibide honetan, gure konponentean  {{$attributes}} idaztekotan, pantailatik zuznean class="mb-4" agertuko litzateke.
 ```
 
-"Clase komponenteak"
+`type` atributua `$type` aldagai gisa jasotzen da. `id` eta `class`, berriz, `$attributes` barruan daude. `$attributes->class(...)` erabilita, deian pasatutako `nabarmendua` klasea konponentearen `alerta` eta `alerta-info` klaseei gehitzen zaie. `id` atributua ere `<div>` elementuan txertatzen da.
 
-Orain arte erabili duguna "componente anónimo" deitzen zaio, baina badago aukera gelako konponenteak egiteko. Horretarako artisan-en bidez sortuko dugu. Konponente anonimo baten, bista bat soilik zango dugu, baina gelako  konponentea sortzerakoan, alde batetik klase bat sortuko du, alertaren logika guztia izateko, eta bestetik bista bat, koponente horren itxura izateko.
+## Klase bidezko konponenteak
+
+Konponenteak PHP logika gehiago behar duenean, PHP klase bat eta Blade bista bat erabil ditzakegu. Adibidea probatzeko, sortu `Alert2` konponentea.
 
 ```bash
-php artisan make:component alert2
+php artisan make:component Alert2
 ```
 
-Sortuko dugu klase bat: app/View/Components karpetan, sortuko du minuskuletan, baina konbentzioak jarraitzeko, hobeto maiuskuletan sortzen badugu, bai fitxategia, eta baita klasea ere:
+Komandoak `app/View/Components/Alert2.php` klasea eta `resources/views/components/alert2.blade.php` bista sortzen ditu. Klasearen eraikitzailean jasotako propietate publikoak Blade bistan erabil daitezke. Adibidez, alertaren CSS klasea eraikitzailean kalkula dezakegu.
 
 ```php
+<?php
+
+namespace App\View\Components;
+
+use Illuminate\Contracts\View\View;
+use Illuminate\View\Component;
+
 class Alert2 extends Component
+{
+    public string $klasea;
+
+    public function __construct(string $type = 'info')
+    {
+        $this->klasea = match ($type) {
+            'danger' => 'alerta-danger',
+            'success' => 'alerta-success',
+            default => 'alerta-info',
+        };
+    }
+
+    public function render(): View
+    {
+        return view('components.alert2');
+    }
+}
 ```
 
-Orain egingo genukeena izango litzateke klaseko \_\_construct metodoan, lehen idatzitako logika sartuko genuke eta bista soilik html kodea.
+`resources/views/components/alert2.blade.php` fitxategian, `$klasea` zuzenean erabil dezakegu.
+
+```blade
+<div {{ $attributes->class(['alerta', $klasea]) }} role="alert">
+    <strong>{{ $title ?? 'Alerta!' }}</strong>
+    {{ $slot }}
+</div>
+```
+
+```blade
+<x-alert2 type="success">
+    Datuak ondo gorde dira.
+</x-alert2>
+```
+
+## Layouta konponente gisa erabiltzea
+
+Layouten atalean `@extends`, `@section` eta `@yield` erabili ditugu orrien egitura komuna partekatzeko. Egitura bera konponente anonimo batean ere defini dezakegu. Kasu honetan, orriaren eduki nagusia `$slot` bidez jasoko dugu.
+
+Sortu `resources/views/components/app-layout.blade.php` fitxategia.
+
+```blade
+<!DOCTYPE html>
+<html lang="eu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ $title ?? 'Nire bloga' }}</title>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+</head>
+<body>
+    <header>
+        <p>Nire bloga</p>
+        <nav>
+            <a href="/">Hasiera</a>
+            <a href="/users">Erabiltzaileak</a>
+        </nav>
+    </header>
+
+    <main>
+        {{ $slot }}
+    </main>
+
+    @include('partials.footer')
+</body>
+</html>
+```
+
+Layouten atalean sortutako `resources/views/partials/footer.blade.php` berrerabili dugu orri-oina txertatzeko. Orain, `resources/views/home.blade.php` fitxategian layouta erabil dezakegu.
+
+```blade
+<x-app-layout>
+    <x-slot:title>Hasiera</x-slot:title>
+
+    <h1>Ongi etorri nire blogera!</h1>
+    <p>Hau da hasierako orria.</p>
+
+    <x-alert type="success">
+        Datuak ondo gorde dira.
+    </x-alert>
+</x-app-layout>
+```
+
+`title` slotak nabigatzaileko fitxaren izenburua betetzen du. Gainerako edukia layoutaren `<main>` elementuan txertatzen da.

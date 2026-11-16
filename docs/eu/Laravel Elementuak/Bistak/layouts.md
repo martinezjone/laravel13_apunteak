@@ -1,173 +1,153 @@
 # Layouts
 
-## Konponenteak
+Layouta hainbat bistak partekatzen duten oinarrizko txantiloia da. Bertan jartzen dugu orrialdeen egitura komuna, hala nola goiburua, nabigazio-menua eta orri-oina. Bista bakoitzak bere edukia definitzen du, eta Blade-k layoutaren barruan dagokion lekuan txertatzen du.
 
-Gaur egun, programatzaile gehienek txantiloi bat egitean, konponenteak erabili ohi dute. Horrela egiteko, konponente arrunta bat izango balitz erabiliko genuke.
+## Layouta sortzea
 
-Abididez, sortuko genuke app-layout.blade.php fitxategia html estruktura orokorrarekin, html, head, body, footer etc eta gure slot izango litzateke orriko mamia:
+Sortu `resources/views/layouts/app.blade.php` fitxategia HTMLaren egitura orokorrarekin.
 
-```php
+```blade
+<!DOCTYPE html>
+<html lang="eu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@yield('title', 'Nire bloga')</title>
+</head>
 <body>
-
     <header>
-
-        <h1>Webgunearen goiburua</h1>
-
+        <p>Nire bloga</p>
+        <nav>
+            <a href="/">Hasiera</a>
+            <a href="/users">Erabiltzaileak</a>
+        </nav>
     </header>
 
     <main>
-
-        {{ $slot }}
-
+        @yield('content')
     </main>
 
     <footer>
-
-        <p>Webgunearen oinarria</p>
-
+        <p>Webgunearen orri-oina</p>
     </footer>
-
 </body>
+</html>
 ```
 
-Eta gure home-en adibidez, erabiliko genuke hori koponentea orain arte ikusi dugun moduan:
+`@yield` direktibak atal bat layoutaren barruan non txertatuko den adierazten du. Lehenengo argumentua atalaren izena da. Bigarren argumentua aukerakoa da, eta balio lehenetsia zehazteko balio du.
 
-```html
-<x-app-layout>
-
-    <h1 class="text-3xl font-bold underline px-20">
-        Hau da nire blog-aren lehenengo orria. Ongi etorri!!
-    </h1>
-
-    Eta hemen kodea jarraitzen du
-
-</x-app-layout>
-```
-
-## Layouts
-
-Layouts, gure bisten eraikuntza elkartzeko interegarriak izan daitezke.
-
-Alde batetik @include erabili dezakegu, banatuta dagoen kodea erabili ahal izateko:
-
-```php
-@include('footer')
-
-//Hala, view-en zuzenean gordetako elementu bat sartuko dugu, php edo luzapena duena blade.php
-```
-
-Helper asset()
-
-Asset helperrak gure fitxategiaren url absolutua ematen digu, modu honetan saiestuko dugu fitxategiaren ruta aldatzea segun eta zein URL-a dugun.
-
-```php
-<link href="{{ asset('css/style.css') }}" rel="stylesheet">
-```
-
-Baina benetan erabilgarriena Layouts-ak erabiltzea izango litzateke. Gure txantiloia hainbat fitxategietan banandu beharrean, txantiloi bat sortu dezakegu gure lekuaren estruktura guztia duena. Adibidez app.blade.php izena jarri diezaiokegu eta barruan gure diseinuaren kode guztia sartu. Normalean hauek layout azpikarpetan gordetzen dira.
-
-Txantiloiaren barruan @yield direktiba erabiliz atalak (secciones) adierazi ditzakegu, argumentu bezala atalaren izena pasatuz, eta gero txantiloi bakoitzea atalari dagokion kodea sartuko genuke:
-
-```php
-<main role="main" class="container">
-
-    @yield('content')
-
-</main>
-```
-
-Layouts-ak edozein izen izan ditzakete, baina beti .blade.php luzapena izan behar dute.
-
-@yield direktiban hainbat modutan erabili daitezke, adibidez gure webgunearen titulua personalizatzeko.
-
-```html
-    <title>@yield('title') - Nireweb.net</title>
-```
-
-@yield direktibei ere, lehenetsiko balio eman diezaiokegu,adibidez:
-
-```html
-    <title> @yield('title', 'Lehenetsiko titulua')</title>
-```
-
-@section erabiliko dugu atalak zehazteko eta @yield direktiba, atal horiek gure txantiloian (gure layout-ean) kokatzeko.
-
-Beraz, atalek @section direktiba erabiliko dute, argumentu moduan dagokion izena pasatuko diogu:
-
-```php
-@section('title') Usuario {{ $id }} @endsection
-
-@section('content')
-
-<!-- Contenido de la sección -->
-
-@endsection
-```
-
-Aurreko adibidean, title-ren kasuan, lerro bakarra denez, izenburua parametro moduan pasatu dezakegu:
-
-```php
-@section('title', "Usuario {$id}")
-```
+Adibidez, bistak `title` atala definitzen ez badu, nabigatzaileko fitxan «Nire bloga» agertuko da.
 
 ## Txantiloi bat luzatzea
 
-Banakako txantiloi bakoitzean, header edo footerra sartu beharrean, Laraveli esango diogu ikuspegia app.blade.php-z luzatu behar duela.
+Bista batek layout bat erabiltzeko, `@extends` direktiba erabiliko dugu. Adibidez, sortu `resources/views/home.blade.php` fitxategia.
 
-Ez da beharrezkoa fitxategiaren luzapena jartzea, ezta ibilbide osoa jartzea ere ez, Laravelek, lehenespenez, resources/view  bilatuko baitu fitxategia, gure kasuan txantiloia layouts karpeta barruan sartu dugunez, horrela egingo genuke.
-
-```php
+```blade
 @extends('layouts.app')
-```
 
-Behin hau eginda, atalak sortuko ditugu:
+@section('title', 'Hasiera')
 
-```php
 @section('content')
-    <!-- Contenido de la sección -->
+    <h1>Ongi etorri nire blogera!</h1>
+    <p>Hau da hasierako orria.</p>
 @endsection
 ```
 
-## @stack direktiba
+`layouts.app` izenak `resources/views/layouts/app.blade.php` fitxategia adierazten du. Puntuak karpeta eta bistaren izena bereizten ditu. Blade dei horretan fitxategiaren luzapena kenduta idazten dugu izena.
 
-@yield() erabiliz gain, @stack direktiba ere erabili dezakegu. Normalean @yield erabiliko dugu edukia behin bakarrik erabiliko dugunean,a dibidez, title-rekin egin dugun moduan. Baina beste kasu batzuetan interesa diezaguke eduki horreri guazak gehitzen joatea, adibidez, css edo js koadea...
+`@section` direktibak atalaren edukia definitzen du. Atalaren izenak layoutaren `@yield` direktiban erabilitako izenarekin bat etorri behar du. Edukia testu laburra bada, bigarren argumentu gisa eman dezakegu. HTMLa edo hainbat lerro idatzi behar baditugu, atala `@section` bidez ireki eta `@endsection` bidez itxiko dugu.
 
-```php
-@stack('css')
-```
+Layout bera beste bista batean erabiltzeko, sortu `resources/views/users.blade.php` fitxategia.
 
-Eta horreri edukiak gehitzeko, @push direktiba erabiliko genuke, direktiba hau gure  kodean zehar behin baino gehiagotan erabili dezakegu:
+```blade
+@extends('layouts.app')
 
-```php
-@push('css')
-    <style> body {background-color: darkcyan}</style>
-@endpush
+@section('title', 'Erabiltzaileak')
 
 @section('content')
+    <h1>Erabiltzaileak</h1>
 
-@push('css')
-    <style> h1 { color: rgb(16, 34, 133)}</style>
-@endpush
-
-<h1 class="text-3xl font-bold underline px-20">
-    Hau da nire blog-aren lehenengo orria. Ongi etorri!!
-</h1>
+    <ul>
+        @forelse ($users as $user)
+            <li>{{ $user->name }}</li>
+        @empty
+            <li>Ez dago erabiltzailerik.</li>
+        @endforelse
+    </ul>
+@endsection
 ```
+
+Bi bistak probatzeko, `routes/web.php` fitxategian gehitu ibilbide hauek.
+
+```php
+use Illuminate\Support\Facades\Route;
+
+Route::view('/', 'home');
+
+Route::get('/users', function () {
+    $users = [
+        (object) ['name' => 'Jon'],
+        (object) ['name' => 'Ane'],
+    ];
+
+    return view('users', compact('users'));
+});
+```
+
+Ireki `/` eta `/users` nabigatzailean. Bi orriek goiburu, menu eta orri-oin bera dute. Kendu `@section('title', 'Erabiltzaileak')` lerroa eta egiaztatu nabigatzaileko fitxan «Nire bloga» agertzen dela.
 
 ## Partials
 
-Layouts erabiltzeaz gain, partials izeneko artxiboak ere badaude; artxibo horiek kode-segmentu txikiak dira, eta normalean sistemaren zati jakin batzuetan erabiltzen dira, menuak, footerrak etab.
+Layoutaren zati batzuk, hala nola menua edo orri-oina, aparteko fitxategietan gorde ditzakegu. Fitxategi horiei **bista partzialak** edo *partials* esaten zaie. Beste bista batean txertatzeko, `@include` direktiba erabiliko dugu.
 
-Ondoko adibidea jarraituz, alumnos.blade.php txatiloain deiak hurrengo kodean agertzen den moduan egin beharko genituzke:
+Adibidez, atera orri-oina `resources/views/partials/footer.blade.php` fitxategira.
 
-```php
-<body>
-    @include('partials.menu')
-
-    @yield('content')
-
-    @include('partials.footer')
-</body>
+```blade
+<footer>
+    <p>Webgunearen orri-oina</p>
+</footer>
 ```
 
-![Irudia](../../../assets/images/Layouts/3ec16cdc1e838032824e1a4c34a23d45.jpg)
+Ondoren, ordezkatu layoutaren `<footer>` blokea lerro honekin.
+
+```blade
+@include('partials.footer')
+```
+
+## asset() laguntzailea
+
+Webgune osoko estiloak `public/css/style.css` fitxategian baditugu, estilo-orria layoutaren `<head>` atalean lotu dezakegu.
+
+```blade
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+```
+
+`asset()` laguntzaileak fitxategi publiko baten URLa sortzen du. Argumentu gisa, fitxategiaren bidea ematen diogu, public karpetatik hasita. Adibidez, `public/css/style.css` fitxategia lotzeko, `asset('css/style.css')` erabiltzen dugu. Horrela, layout bera erabiltzen duten orrialde guztiek CSS fitxategiaren URL bera jasotzen dute.
+
+## @stack direktiba
+
+Bista jakin batek CSS edo JavaScript fitxategi gehigarri bat behar badu (layout-en jarri dugunaren aparte), `@stack` eta `@push` erabil ditzakegu. 
+
+Hori egiteko, gehituko genuke `@stack('styles')` layoutaren `<head>` atalean, estilo-orri komunaren ondoren.
+
+Layoutaren <head> atalean, orri guztiek behar duten CSSa lotzen dugu, eta estilo gehigarriak non txertatuko diren adierazten dugu, horretarako erabiltzen dugu `@stack('styles')`.
+
+
+```blade
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+    @stack('styles')
+```
+
+`users.blade.php` bistan, `users.css` kargatzeko `<link>` etiketa gehitzen dugu styles pilara. Blokea `@extends` lerroaren ondoren jar dezakezu.
+
+```blade
+    @extends('layouts.app')
+
+    @push('styles')
+        <link rel="stylesheet" href="{{ asset('css/users.css') }}">
+    @endpush
+```
+
+`@push('styles')`-ek zer gehitu adierazten du, eta `@stack('styles')`-ek non txertatu. Horregatik, `users.blade.php` bistan idatzitako `<link>` etiketa azken HTMLaren `<head> ` atalean agertzen da. Hasierako bistak styles pilara ezer gehitzen ez badu, `@stack('styles')`-ek ez du ezer txertatzen.
+
