@@ -753,6 +753,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kontroladoreak
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -769,6 +787,91 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Edukiak">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Edukiak
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#kontroladorea-sortzea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kontroladorea sortzea
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ibilbidetik-kontroladorera" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ibilbidetik kontroladorera
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ibilbideko-parametroa-kontroladorean-jasotzea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ibilbideko parametroa kontroladorean jasotzea
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kontroladoretik-blade-bistara" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kontroladoretik Blade bistara
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ekintza-bakarreko-kontroladorea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ekintza bakarreko kontroladorea
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#baliabide-kontroladorea-resource-controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Baliabide-kontroladorea (Resource controller)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2528,6 +2631,80 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Edukiak
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#kontroladorea-sortzea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kontroladorea sortzea
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ibilbidetik-kontroladorera" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ibilbidetik kontroladorera
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ibilbideko-parametroa-kontroladorean-jasotzea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ibilbideko parametroa kontroladorean jasotzea
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kontroladoretik-blade-bistara" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kontroladoretik Blade bistara
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ekintza-bakarreko-kontroladorea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ekintza bakarreko kontroladorea
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#baliabide-kontroladorea-resource-controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Baliabide-kontroladorea (Resource controller)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2544,48 +2721,129 @@
 
 
 <h1 id="kontroladoreak">Kontroladoreak</h1>
-<p>Kontroladoreek Laravelen, gure aplikazioaren logika izango dute.</p>
-<p>Kontroladoreak, eskuz sortu ditzakegu, baina artisan erabilita errezagoa egingo zaigu. Kontroladorearen izena edozein izan daiteke, baina normalean (konbentzioz) izena letra larriz eta singularrean idazten da eta jarraian Controller hitza: HomeController, IkasleController, KategoriaController etab.</p>
+<p>Ibilbideak HTTP eskaera bat ekintza batekin lotzen du. Orain arte, ekintza hori <code>routes/web.php</code> fitxategian bertan idatzi dugu, funtzio anonimo baten barruan. <strong>Kontroladoreek (<em>controllers</em>) erlazionatutako ekintzak klase berean antolatzeko aukera ematen digute.</strong> Horrela, ibilbideak zein metodo deitu adierazten du, eta metodoak eskaera kudeatu eta erantzuna itzultzen du.</p>
+<h2 id="kontroladorea-sortzea">Kontroladorea sortzea</h2>
+<p>Proiektuaren erroko direktorioan, exekutatu:</p>
 <div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>make:controller<span class="w"> </span>HomeController
 </code></pre></div>
-<p>Artisanek sortzen du php fitxategi bat guk ezarritako izenarekin app&gt;Http&gt;Controllers karpetan.</p>
-<p>Ikusten dugunez, fitxategian namespace bat sortzen du, horrek gure kontroladorea non dagoen kokatuta adierazten du. Eta HomeController klase bat sortuko luke ere.</p>
-<p>Kontroladore horretan guk behar izango ditugun metodoak sortuko ditugu.</p>
-<div class="highlight"><pre><span></span><code><span class="x">namespace App\Http\Controllers;</span>
+<p>Artisanek <code>app/Http/Controllers/HomeController.php</code> fitxategia sortuko du. Konbentzioz, kontroladorearen izena singularrean eta PascalCase formatuan idazten da, <code>Controller</code> atzizkiarekin. Adibidez, <code>HomeController</code>, <code>StudentController</code> eta <code>CategoryController</code>.</p>
+<h2 id="ibilbidetik-kontroladorera">Ibilbidetik kontroladorera</h2>
+<p>Gehitu <code>index()</code> metodoa <code>HomeController</code> klasean. Lehenengo proban, testu-mezu bat itzuliko dugu.</p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
 
-<span class="x">use Illuminate\Http\Request;</span>
+<span class="k">namespace</span> <span class="nx">App\Http\Controllers</span><span class="p">;</span>
 
-<span class="x">class HomeController extends Controller{</span>
-
-<span class="x">public function index(){</span>
-
-<span class="x">return &quot;Hau da nire blog-aren lehenengo orria. Ongi etorri!!&quot;;</span>
-
-<span class="x">}</span>
+<span class="k">class</span> <span class="nc">HomeController</span> <span class="k">extends</span> <span class="nx">Controller</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">index</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s1">&#39;Hau da nire blogaren hasierako orria. Ongi etorri!&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
-<p>Gero kontroladore horretan dagoen metodo bat erabili nahi izatekotan, adibidez ruta bat egiteko, lehenengo esta behin esan beharko dugu kontroladore horren metodoa erabili nahi dugula, horretarako namespacea gehituko dugu:</p>
-<div class="highlight"><pre><span></span><code><span class="x">use App\Http\Controllers\HomeController;</span>
-</code></pre></div>
-<p>Eta ondoren jada, erabili ahal izango ditugu kontroladore horren klaseak dituen metodo guztiak, adibidez index.php adibide honetan adierazten den moduan:</p>
+<p><code>namespace App\Http\Controllers;</code> lerroak klasea zein izen-eremutan dagoen adierazten du. <code>extends Controller</code> adierazpenak <code>HomeController</code> klaseak oinarrizko <code>Controller</code> klasea heredatzen duela adierazten du. <code>public</code> hitzari esker, metodoa klasetik kanpo dei daiteke. <code>: string</code> adierazpenak metodoaren itzulera mota zehazten du.</p>
+<p><code>routes/web.php</code> fitxategian, gehitu <code>use App\Http\Controllers\HomeController;</code> lerroa gainerako inportazioekin batera. Gero, ordezkatu lehendik zegoen <code>GET /</code> ibilbidea honako honekin:</p>
 <div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;/&#39;, [HomeController::class, &#39;index&#39;]);</span>
 </code></pre></div>
-<p>Normalean kontroladore bakoitzak hainbat metodo izango ditu, baina bakarra izatekotan, gure metodoari index deitu beharrean __invoke() eta kasu horretan ruta definitzerakoan ez dugu zertan metodoaren izena jarri behar, zuzenean metodo horretara sartuko zelako.</p>
-<div class="highlight"><pre><span></span><code><span class="x">class HomeController extends Controller{</span>
-
-<span class="x">public function __invoke(){</span>
-
-<span class="x">return &quot;Hau da nire blog-aren lehenengo orria. Ongi etorri!!&quot;;</span>
-
+<p><code>use</code> lerroari esker, fitxategian <code>HomeController</code> izen laburra erabil dezakegu. Ibilbidearen bigarren argumentuko arrayak bi elementu ditu:</p>
+<table>
+<thead>
+<tr>
+<th>Elementua</th>
+<th>Zer adierazten du?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>HomeController::class</code></td>
+<td>Erabili beharreko kontroladorearen klasea.</td>
+</tr>
+<tr>
+<td><code>'index'</code></td>
+<td>Laravelek deituko duen metodo publikoa.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ibilbideko-parametroa-kontroladorean-jasotzea">Ibilbideko parametroa kontroladorean jasotzea</h2>
+<p>Ordezkatu aurreko <code>/welcome/{name?}</code> ibilbideko funtzio anonimoa kontroladorearen metodoarekin. <code>routes/web.php</code> fitxategian:</p>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;/welcome/{name?}&#39;, [HomeController::class, &#39;welcome&#39;]);</span>
+</code></pre></div>
+<p>Gehitu <code>welcome()</code> metodoa <code>HomeController</code> klasearen barruan:</p>
+<div class="highlight"><pre><span></span><code><span class="x">public function welcome(string $name = &#39;gonbidatua&#39;): string</span>
+<span class="x">{</span>
+<span class="x">    return &#39;Kaixo, &#39; . e($name) . &#39;!&#39;;</span>
 <span class="x">}</span>
 </code></pre></div>
-<p>Eta rutan, kontroladorearen izena jarriko genuke soilik</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;/&#39;, HomeController::class);</span>
+<table>
+<thead>
+<tr>
+<th>Eskaera</th>
+<th><code>$name</code>-ren balioa</th>
+<th>Erantzuna</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET /welcome/Jon</code></td>
+<td><code>'Jon'</code></td>
+<td><code>Kaixo, Jon!</code></td>
+</tr>
+<tr>
+<td><code>GET /welcome</code></td>
+<td><code>'gonbidatua'</code></td>
+<td><code>Kaixo, gonbidatua!</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>{name?}</code> adierazpenak URLaren segmentua aukerakoa dela adierazten du. Segmentua falta denean, metodoak <code>'gonbidatua'</code> balio lehenetsia erabiltzen du. <code>e()</code> laguntzaileak URLtik jasotako izena HTMLan testu gisa erakusteko prestatzen du.</p>
+<h2 id="kontroladoretik-blade-bistara">Kontroladoretik Blade bistara</h2>
+<p>Orain, <code>index()</code> metodoak hasierako orriaren izenburua eta mezua prestatuko ditu, eta Blade bistari pasatuko dizkio. Gehitu <code>use Illuminate\View\View;</code> kontroladorearen fitxategian, <code>namespace</code> lerroaren ondoren. Gero, ordezkatu <code>index()</code> metodoa:</p>
+<div class="highlight"><pre><span></span><code><span class="x">public function index(): View</span>
+<span class="x">{</span>
+<span class="x">    $title = &#39;Hasiera&#39;;</span>
+<span class="x">    $message = &#39;Hau da nire blogaren hasierako orria. Ongi etorri!&#39;;</span>
+
+<span class="x">    return view(&#39;home&#39;, [</span>
+<span class="x">        &#39;title&#39; =&gt; $title,</span>
+<span class="x">        &#39;message&#39; =&gt; $message,</span>
+<span class="x">    ]);</span>
+<span class="x">}</span>
 </code></pre></div>
-<p>Resource Controller</p>
-<p>Gure kontroladorea CRUD bat egiteko erabiliko dugunean, badugu aukera artisanen bidez laraveleri esateko horretarako erabiliko dugula</p>
-<div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>make:controller<span class="w"> </span>ProfesorController<span class="w"> </span>--resource
+<p>Sortu <code>resources/views/home.blade.php</code> fitxategia:</p>
+<div class="highlight"><pre><span></span><code>&lt;h1&gt;{{ $title }}&lt;/h1&gt;
+&lt;p&gt;{{ $message }}&lt;/p&gt;
 </code></pre></div>
-<p>Horrela eginez gero, ikusiko duzuenez, CRUD bat egiteko erabiltzen ditugune metodoak idatziko dizkigu.</p>
+<p><code>view('home', ...)</code> deiak <code>home.blade.php</code> bista erabiltzen du. Arrayko <code>'title'</code> eta <code>'message'</code> gakoek Blade barruko <code>$title</code> eta <code>$message</code> aldagaien izenak zehazten dituzte. Blade-k <code>{{ ... }}</code> bidez erakusten dituen balioak automatikoki ihesten ditu HTMLrako.</p>
+<h2 id="ekintza-bakarreko-kontroladorea">Ekintza bakarreko kontroladorea</h2>
+<p>Kontroladore bat ekintza bakarrerako diseinatu nahi dugunean, <code>__invoke()</code> metodoa erabil dezakegu. Adibidez, sortu <code>AboutController</code>:</p>
+<div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>make:controller<span class="w"> </span>AboutController<span class="w"> </span>--invokable
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Http\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">AboutController</span> <span class="k">extends</span> <span class="nx">Controller</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__invoke</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s1">&#39;Blogari buruzko informazioa&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Gehitu <code>use App\Http\Controllers\AboutController;</code> inportazioa <code>routes/web.php</code> fitxategiaren hasieran eta erregistratu ibilbidea:</p>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;/about&#39;, AboutController::class);</span>
+</code></pre></div>
+<p>Kasu honetan, kontroladorearen klasea ematea nahikoa da. Laravelek <code>__invoke()</code> metodoari deituko dio. <code>/{number}</code> ibilbide orokorra aktibo badago, jarri <code>/about</code> haren aurretik.</p>
+<h2 id="baliabide-kontroladorea-resource-controller">Baliabide-kontroladorea (<em>Resource controller</em>)</h2>
+<p>CRUD baterako, Artisanek ohiko ekintzen metodoak dituen kontroladorea sor dezake:</p>
+<div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>make:controller<span class="w"> </span>TeacherController<span class="w"> </span>--resource
+</code></pre></div>
+<p>Komandoak <code>index</code>, <code>create</code>, <code>store</code>, <code>show</code>, <code>edit</code>, <code>update</code> eta <code>destroy</code> metodoen egitura prestatzen du. Metodo bakoitzaren edukia guk idatziko dugu.</p>
+<p>Ibilbideak erregistratzeko, gehitu <code>use App\Http\Controllers\TeacherController;</code> inportazioa eta deklarazio hau <code>routes/web.php</code> fitxategian:</p>
+<div class="highlight"><pre><span></span><code><span class="x">Route::resource(&#39;teachers&#39;, TeacherController::class);</span>
+</code></pre></div>
+<p><code>--resource</code> aukerak kontroladorearen metodoen egitura sortzen du, eta <code>Route::resource()</code> deiak ibilbideak erregistratzen ditu. Egiaztatu emaitza <code>php artisan route:list --path=teachers</code> komandoarekin. Ibilbide bakoitzaren HTTP metodoa, URLa eta ekintza <a href="../rutak/">Rutak</a> atalean ikus ditzakezu.</p>
+<p><a href="https://laravel.com/framework/docs/13.x/controllers">Laravel 13ren dokumentazio ofiziala · Controllers</a></p>
 
 
 

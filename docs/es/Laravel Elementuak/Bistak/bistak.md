@@ -1,42 +1,44 @@
 # Vistas
 
-Todas las vistas de Laravel se guardan en la carpeta /resources/views. Por convención, el nombre de la vista suele ser el mismo que el del método que la invoca.
+Todas las vistas de Laravel se guardan en la carpeta ```/resources/views ```. Y normalmente, por convención, el nombre de la vista será el mismo que el nombre del método que la ha invocado.
 
-Las vistas de Laravel pueden utilizar PHP o Blade; la extensión de la vista indica cuál se está utilizando.
+Las vistas de Laravel pueden utilizar php o blade; la extensión de la vista nos indicará cuál de los dos se está utilizando.
 
-bista\_izena.php
+```php
+nombre\_vista.php
 
-bista\_izena.blade.php // Siempre trabajaremos con vistas Blade
+nombre\_vista.blade.php // Siempre trabajaremos con vistas blade
+```
 
-BLADE es un motor de plantillas sencillo pero potente que viene incluido con Laravel. En este caso, nuestras plantillas Blade también admiten código PHP.
+Blade es un motor de plantillas sencillo pero potente que viene incluido con Laravel. En este caso, nuestras plantillas blade también admiten código php.
 
-Podemos invocar las vistas tanto desde las rutas como desde los controladores, aunque normalmente las invocan los controladores.
+Podemos invocar las vistas tanto desde las rutas como desde el controlador, pero normalmente las invocarán los controladores.
 
 ```php
 Route::get('user', function(){
 
-//user.php edo user.blade.php bistaratuko dugu
+// Mostraremos la vista user.php o user.blade.php
 
 return view('user');
 
 });
 ```
 
-Se recomienda utilizar subcarpetas para organizar las vistas. Para invocarlas, podemos utilizar tanto la barra como el punto. Una vista guardada en user/index.blade.php se puede invocar de las siguientes formas:
+Se recomienda utilizar subcarpetas para tener organizadas nuestras vistas. Para invocar estas vistas podemos utilizar tanto la barra como el punto. Una vista guardada en ```user/index.blade.php``` se puede invocar de las siguientes formas:
 
 ```php
 Route::get('user', function(){
 
 return view('user/index');
 
-return view('user.index'); // Normalean horrela erabiltzen da
+return view('user.index'); // Normalmente se utiliza así
 
 });
 ```
 
-Pasar variables a una vista
+## Pasar variables a una vista
 
-Para pasar variables a una vista utilizaremos un array asociativo: `return view('grupo.vista', $arrayAsociativo);`
+Para pasar variables a una vista lo haremos mediante un array asociativo: `return view('grupo.vista', $arrayAsociativo);`
 
 Por ejemplo:
 
@@ -56,126 +58,138 @@ return view('blog.history', [
 ]);
 ```
 
-También existe la opción de hacerlo con with:
+También existe la opción de hacerlo mediante with:
 
 ```php
 return view('greeting')->with('name', 'Victoria');
 ```
 
-También se puede usar compact. Da igual de qué manera pasemos los datos; normalmente depende de la forma de trabajar del programador o de la convención del equipo, aunque esta es la más utilizada:
+También se puede utilizar ```compact```. Da igual de qué manera pasemos los datos; normalmente depende de la forma de trabajar del programador o de la convención del equipo, pero esta es la más utilizada:
 
 ```php
-return view('users', compact('mes', 'ano', 'posts'));
+    return view('blog.history', compact('mes', 'ano', 'posts'));
 
-//hurrengo honen berdina da:
+    // Es equivalente a lo siguiente:
 
-return view('blog.history', [
+    return view('blog.history', [
+    'mes' => $mes,
+    'ano' => $ano,
+    'posts' => $posts
 
-'mes' => $mes,
-
-'ano' => $ano,
-
-'posts' => $posts
-
-]);
+    ]);
 ```
+**compact()** recibe los nombres de las variables como cadenas, sin el símbolo $. La función crea un array asociativo: la clave es el nombre de la variable y el valor es el valor de la variable.
 
-Compact envía, en realidad, un array asociativo.
+Por ejemplo, escribir ```compact('mes')``` equivale a escribir ```['mes' => $mes]```.
+Si queremos utilizar otro nombre en la vista, podemos especificar la clave manualmente. Por ejemplo, al pasar ```['mesEnVista' => $mes]```, en la plantilla Blade utilizaremos ```{{ $mesEnVista }} ```.
 
-Vistas de Laravel - Blade
 
-Laravel dispone de un motor de plantillas llamado Blade, que nos será muy útil para trabajar con vistas.
+## Vistas de Laravel - Blade
+
+Laravel tiene un motor de plantillas llamado Blade, que nos será muy útil para trabajar con vistas.
 
 Esta es la página oficial de Laravel: <a href ="https://laravel.com/framework/docs/13.x/blade" target="_blank">https://laravel.com/framework/docs/13.x/blade</a>
 
-- Las vistas de Laravel pueden crearse mezclando PHP y HTML.
+- Las vistas de Laravel se pueden crear mezclando php y html.
 - A veces, este código híbrido puede resultar difícil de entender.
-- Por eso se utilizan plantillas: así resulta más sencillo insertar en HTML el código que contiene variables.
+- Por eso se utilizan plantillas; de este modo, será más fácil insertar en html el código que contiene variables.
 
-## Mostrar datos
+### Mostrar datos
 
-Mostrar datos en Blade es muy sencillo: basta con utilizar llaves dobles {{ }} e incluir dentro la variable o función que queremos mostrar.
-
-```php
-Kaixo {{ $name }}.
-
-Momentu honetako ordua da: {{ time() }}.
-```
-
-Todo el código PHP debe escribirse dentro de esas llaves.
-
-## Mostrar un dato solo si existe
-
-Para comprobar si existe una variable o un dato concreto, podemos utilizar el siguiente método:
+Mostrar datos en Blade es muy sencillo; para ello solo hay que utilizar llaves dobles {{ }} e incluir dentro la variable o función que queremos mostrar.
 
 ```php
-{{ isset($name) ? $name : 'Lehenetsiko balioa' }}
+Hola {{ $name }}.
+
+La hora actual es: {{ time() }}.
 ```
 
-O también la siguiente notación de Blade:
+Todo el código php debe escribirse dentro de esas llaves.
+
+### Mostrar un dato solo si existe
+
+Para asegurarnos de que existe una variable o un dato concreto, podemos utilizar el siguiente método:
 
 ```php
-{{ $name or 'Lehenetsiko balioa' }}
+{{ isset($name) ? $name : 'Valor predeterminado' }}
+```
+
+O también podemos utilizar esta notación de Blade:
+
+```php
+{{ $name ?? 'Valor predeterminado' }}
+```
+
+| Estado de `$name` | Lo que aparece en la vista |
+|---|---|
+| `'Jon'` | `Jon` |
+| Sin definir | `Valor predeterminado` |
+| `null` | `Valor predeterminado` |
+| `''` (cadena vacía) | No aparece ningún texto |
+| `0` | `0` |
+
+Si queremos comprobar si la cadena está vacía:
+
+```php
+{{ isset($name) && $name !== '' ? $name : 'Valor predeterminado' }}
 ```
 
 
-## Insertar código PHP
+### Insertar código PHP
 
-Para insertar código PHP en una vista, debemos utilizar las siguientes etiquetas:
+Para insertar código php en nuestra vista en un momento dado, debemos utilizar las siguientes etiquetas:
 
 ```php
 @php
 
-    // Hemen kodea egongo litzateke
+    // Aquí iría el código
 
 @endphp
 ```
 
-## Comentarios
+### Comentarios
 
-Para escribir comentarios dentro de Laravel utilizaremos {{-- y --}}. Estos comentarios no se mostrarán en HTML:
+Para escribir comentarios dentro de Laravel utilizaremos {{-- y --}}. Estos comentarios no se mostrarán en el html:
 
 ```php
-{{-- Iruzkin hau ez da html-an erakutsiko --}}
+{{-- Este comentario no se mostrará en el html --}}
 ```
 
 
-## Estructuras de control
+### Estructuras de control
 
-En Blade podemos utilizar las estructuras IF de la siguiente manera:
-
-```php
-@if( count($users) == 1 )
-
-    Erabiltzaile bakarra dago!
-
-@elseif (count($users) > 1)
-
-    Erabiltzaile asko daude!
-
-@else
-
-    Ez dago erabiltzailerik :(
-
-@endif
-```
-
-// (if(!condicion){}) Para utilizar un if negativo, sería así
+En Blade podemos utilizar las estructuras **IF** de la siguiente manera:
 
 ```php
-@unless (Auth::check())
-
-    You are not signed in.
-
-@endunless
+    @if (count($users) === 1)
+        ¡Solo hay un usuario!
+    @elseif (count($users) > 1)
+        ¡Hay más de un usuario!
+    @else
+        No hay ningún usuario :(
+    @endif
 ```
 
-Los bucles (for, while y foreach) se utilizarían así dentro de Blade:
+### if(!condicion){} - If negativo
+
+Para utilizar un if negativo, sería así:
+
+```php
+    @unless (count($users) > 0)
+        No hay ningún usuario.
+    @endunless
+```
+
+La directiva @unless muestra el contenido que hay dentro cuando la condición es falsa. En este ejemplo, la condición count($users) > 0 es falsa cuando el número de usuarios es 0. Entonces aparece el mensaje «No hay ningún usuario».
+
+### Bucles (for, while y foreach)
+
+Así los utilizaríamos dentro de Blade:
 
 ```php
 @for ($i = 0; $i < 10; $i++)
 
-    Aldagaiaren balioa da: {{ $i }}
+    El valor de la variable es: {{ $i }}
 
 @endfor
 ```
@@ -183,10 +197,12 @@ Los bucles (for, while y foreach) se utilizarían así dentro de Blade:
 ```php
 @foreach ($users as $user)
 
-    <p>Erabiltzailea {{ $user->name }} bere id-arekin: {{ $user->id }}</p>
+    <p>El usuario {{ $user->name }} con su id: {{ $user->id }}</p>
 
 @endforeach
 ```
+
+**@forelse** funciona como un @foreach y, si la lista está vacía, muestra el mensaje del bloque @empty.
 
 ```php
 @forelse ($users as $user)
@@ -195,7 +211,7 @@ Los bucles (for, while y foreach) se utilizarían así dentro de Blade:
 
 @empty
 
-    <p>Ez dago erabiltzailerik</p>
+    <p>No hay ningún usuario</p>
 
 @endforelse
 ```
@@ -203,27 +219,9 @@ Los bucles (for, while y foreach) se utilizarían así dentro de Blade:
 ```php
 @while (true)
 
-    <p>Bukle infinito bat naiz!</p>
+    <p>¡Soy un bucle infinito!</p>
 
 @endwhile
 ```
 
 Para ver más opciones, consulta el enlace de Laravel: <a href="https://laravel.com/framework/docs/13.x/blade" target="_blank">https://laravel.com/framework/docs/13.x/blade</a>
-
-Incluir una plantilla dentro de otra
-
-En Laravel podemos indicar que una plantilla se incluya dentro de otra; para ello utilizaremos @include:
-
-```php
-@include('view_name')
-```
-
-También podemos pasarle un array en el segundo parámetro de include:
-
-```php
-@include('view_name', array('some'=>'data'))
-```
-
-Esto resulta muy útil para escribir código que utilizaremos más de una vez.
-
-Siguiente: layouts
