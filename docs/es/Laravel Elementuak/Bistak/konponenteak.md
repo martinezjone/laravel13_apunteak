@@ -22,7 +22,7 @@ Para utilizarlo en otra vista, añade el prefijo `x-` al nombre del archivo y el
 
 Si no tenemos que pasar contenido, podemos cerrar la etiqueta en la misma línea. Para pasar contenido, utilizaremos las etiquetas de apertura y cierre.
 
-## Slot predeterminado
+### Slot predeterminado
 
 El contenido escrito entre las etiquetas del componente se recibe mediante la variable `$slot`. Este contenido puede ser texto o HTML.
 
@@ -43,7 +43,7 @@ Ahora podemos proporcionar un mensaje cada vez que utilicemos la alerta.
 </x-alert>
 ```
 
-## Slots con nombre
+### Slots con nombre
 
 Para insertar el mensaje y el título en lugares diferentes del componente, podemos pasar el título como un slot con nombre. En este ejemplo, el contenido de `<x-slot:title>` se recibe mediante `$title` y el resto mediante `$slot`.
 
@@ -66,7 +66,7 @@ Para insertar el mensaje y el título en lugares diferentes del componente, pode
 
 Si la vista no proporciona el slot `title`, aparecerá «¡Alerta!».
 
-## Parámetros de los componentes
+### Parámetros de los componentes
 
 También podemos pasar atributos en la etiqueta. Por ejemplo, podemos utilizar `type` para elegir el aspecto de la alerta.
 
@@ -125,7 +125,7 @@ Para ver los colores, añade estos estilos al archivo `public/css/style.css` aso
 }
 ```
 
-## Atributos adicionales
+### Atributos adicionales
 
 Los atributos que no se reciben mediante `@props` están disponibles a través de `$attributes`. Por ejemplo, podemos asignar un `id` y una clase CSS adicional a una alerta concreta.
 

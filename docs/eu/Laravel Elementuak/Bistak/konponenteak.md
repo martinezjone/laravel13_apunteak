@@ -22,7 +22,7 @@ Beste bista batean erabiltzeko, gehitu `x-` aurrizkia fitxategiaren izenari eta 
 
 Edukirik pasatu behar ez badugu, etiketa berean itxi dezakegu. Edukia pasatzeko, hasierako eta amaierako etiketak erabiliko ditugu.
 
-## Slot lehenetsia
+### Slot lehenetsia
 
 Konponentearen etiketen artean idatzitako edukia `$slot` aldagaiaren bidez jasotzen da. Eduki hori testua edo HTMLa izan daiteke.
 
@@ -43,7 +43,7 @@ Orain, alerta erabiltzen dugun bakoitzean mezu bat eman diezaiokegu.
 </x-alert>
 ```
 
-## Izendun slotak
+### Izendun slotak
 
 Mezua eta izenburua konponentearen leku desberdinetan txertatzeko, izenburua izendun slot gisa pasa dezakegu. Adibide honetan, `<x-slot:title>` barruko edukia `$title` bidez jasotzen da eta gainerakoa `$slot` bidez.
 
@@ -66,7 +66,7 @@ Mezua eta izenburua konponentearen leku desberdinetan txertatzeko, izenburua ize
 
 Bistak `title` slota ematen ez badu, «Alerta!» agertuko da.
 
-## Konponenteen parametroak
+### Konponenteen parametroak
 
 Etiketan atributuak ere pasa ditzakegu. Adibidez, `type` erabil dezakegu alertaren itxura aukeratzeko.
 
@@ -125,7 +125,7 @@ Koloreak ikusteko, gehitu estilo hauek layoutari lotutako `public/css/style.css`
 }
 ```
 
-## Atributu gehigarriak
+### Atributu gehigarriak
 
 `@props` bidez jasotzen ez diren atributuak `$attributes` bidez ditugu eskura. Adibidez, alerta jakin bati `id` bat eta CSS klase gehigarri bat eman diezazkiokegu.
 
