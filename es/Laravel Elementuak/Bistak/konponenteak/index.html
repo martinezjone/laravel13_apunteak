@@ -961,9 +961,10 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Crear un componente anónimo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#slot-predeterminado" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -973,8 +974,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#slots-con-nombre" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -984,8 +985,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#parametros-de-los-componentes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -995,8 +996,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#atributos-adicionales" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1004,6 +1005,11 @@
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2657,9 +2663,10 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Crear un componente anónimo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#slot-predeterminado" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2669,8 +2676,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#slots-con-nombre" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2680,8 +2687,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#parametros-de-los-componentes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2691,8 +2698,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#atributos-adicionales" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2700,6 +2707,11 @@
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2755,7 +2767,7 @@
 <div class="highlight"><pre><span></span><code>&lt;x-alert /&gt;
 </code></pre></div>
 <p>Si no tenemos que pasar contenido, podemos cerrar la etiqueta en la misma línea. Para pasar contenido, utilizaremos las etiquetas de apertura y cierre.</p>
-<h2 id="slot-predeterminado">Slot predeterminado</h2>
+<h3 id="slot-predeterminado">Slot predeterminado</h3>
 <p>El contenido escrito entre las etiquetas del componente se recibe mediante la variable <code>$slot</code>. Este contenido puede ser texto o HTML.</p>
 <p>Modifica el archivo <code>alert.blade.php</code>.</p>
 <div class="highlight"><pre><span></span><code>&lt;div class=&quot;alerta&quot; role=&quot;alert&quot;&gt;
@@ -2768,7 +2780,7 @@
     Comprueba los datos introducidos.
 &lt;/x-alert&gt;
 </code></pre></div>
-<h2 id="slots-con-nombre">Slots con nombre</h2>
+<h3 id="slots-con-nombre">Slots con nombre</h3>
 <p>Para insertar el mensaje y el título en lugares diferentes del componente, podemos pasar el título como un slot con nombre. En este ejemplo, el contenido de <code>&lt;x-slot:title&gt;</code> se recibe mediante <code>$title</code> y el resto mediante <code>$slot</code>.</p>
 <div class="highlight"><pre><span></span><code>&lt;x-alert&gt;
     &lt;x-slot:title&gt;
@@ -2784,7 +2796,7 @@
 &lt;/div&gt;
 </code></pre></div>
 <p>Si la vista no proporciona el slot <code>title</code>, aparecerá «¡Alerta!».</p>
-<h2 id="parametros-de-los-componentes">Parámetros de los componentes</h2>
+<h3 id="parametros-de-los-componentes">Parámetros de los componentes</h3>
 <p>También podemos pasar atributos en la etiqueta. Por ejemplo, podemos utilizar <code>type</code> para elegir el aspecto de la alerta.</p>
 <div class="highlight"><pre><span></span><code>&lt;x-alert type=&quot;danger&quot;&gt;
     &lt;x-slot:title&gt;
@@ -2832,7 +2844,7 @@
 <span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#166534</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="atributos-adicionales">Atributos adicionales</h2>
+<h3 id="atributos-adicionales">Atributos adicionales</h3>
 <p>Los atributos que no se reciben mediante <code>@props</code> están disponibles a través de <code>$attributes</code>. Por ejemplo, podemos asignar un <code>id</code> y una clase CSS adicional a una alerta concreta.</p>
 <div class="highlight"><pre><span></span><code>&lt;x-alert type=&quot;info&quot; id=&quot;mensaje-guardado&quot; class=&quot;resaltado&quot;&gt;
     Para guardar los cambios, pulsa «Guardar».

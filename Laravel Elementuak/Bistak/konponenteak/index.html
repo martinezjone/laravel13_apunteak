@@ -961,9 +961,10 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Konponente anonimo bat sortzea">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#slot-lehenetsia" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -973,8 +974,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#izendun-slotak" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -984,8 +985,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#konponenteen-parametroak" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -995,8 +996,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#atributu-gehigarriak" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1004,6 +1005,11 @@
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2657,9 +2663,10 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Konponente anonimo bat sortzea">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#slot-lehenetsia" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2669,8 +2676,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#izendun-slotak" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2680,8 +2687,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#konponenteen-parametroak" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2691,8 +2698,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#atributu-gehigarriak" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2700,6 +2707,11 @@
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2755,7 +2767,7 @@
 <div class="highlight"><pre><span></span><code>&lt;x-alert /&gt;
 </code></pre></div>
 <p>Edukirik pasatu behar ez badugu, etiketa berean itxi dezakegu. Edukia pasatzeko, hasierako eta amaierako etiketak erabiliko ditugu.</p>
-<h2 id="slot-lehenetsia">Slot lehenetsia</h2>
+<h3 id="slot-lehenetsia">Slot lehenetsia</h3>
 <p>Konponentearen etiketen artean idatzitako edukia <code>$slot</code> aldagaiaren bidez jasotzen da. Eduki hori testua edo HTMLa izan daiteke.</p>
 <p>Aldatu <code>alert.blade.php</code> fitxategia.</p>
 <div class="highlight"><pre><span></span><code>&lt;div class=&quot;alerta&quot; role=&quot;alert&quot;&gt;
@@ -2768,7 +2780,7 @@
     Egiaztatu sartutako datuak.
 &lt;/x-alert&gt;
 </code></pre></div>
-<h2 id="izendun-slotak">Izendun slotak</h2>
+<h3 id="izendun-slotak">Izendun slotak</h3>
 <p>Mezua eta izenburua konponentearen leku desberdinetan txertatzeko, izenburua izendun slot gisa pasa dezakegu. Adibide honetan, <code>&lt;x-slot:title&gt;</code> barruko edukia <code>$title</code> bidez jasotzen da eta gainerakoa <code>$slot</code> bidez.</p>
 <div class="highlight"><pre><span></span><code>&lt;x-alert&gt;
     &lt;x-slot:title&gt;
@@ -2784,7 +2796,7 @@
 &lt;/div&gt;
 </code></pre></div>
 <p>Bistak <code>title</code> slota ematen ez badu, «Alerta!» agertuko da.</p>
-<h2 id="konponenteen-parametroak">Konponenteen parametroak</h2>
+<h3 id="konponenteen-parametroak">Konponenteen parametroak</h3>
 <p>Etiketan atributuak ere pasa ditzakegu. Adibidez, <code>type</code> erabil dezakegu alertaren itxura aukeratzeko.</p>
 <div class="highlight"><pre><span></span><code>&lt;x-alert type=&quot;danger&quot;&gt;
     &lt;x-slot:title&gt;
@@ -2832,7 +2844,7 @@
 <span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#166534</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="atributu-gehigarriak">Atributu gehigarriak</h2>
+<h3 id="atributu-gehigarriak">Atributu gehigarriak</h3>
 <p><code>@props</code> bidez jasotzen ez diren atributuak <code>$attributes</code> bidez ditugu eskura. Adibidez, alerta jakin bati <code>id</code> bat eta CSS klase gehigarri bat eman diezazkiokegu.</p>
 <div class="highlight"><pre><span></span><code>&lt;x-alert type=&quot;info&quot; id=&quot;gordetze-mezua&quot; class=&quot;nabarmendua&quot;&gt;
     Aldaketak gordetzeko, sakatu «Gorde».
