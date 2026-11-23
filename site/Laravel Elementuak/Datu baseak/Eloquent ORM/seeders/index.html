@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#seeder" class="md-skip">
+        <a href="#seederrak" class="md-skip">
           Joan zuzenean edukira
         </a>
       
@@ -1217,6 +1217,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Seeders
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1233,6 +1251,175 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Edukiak">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Edukiak
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#zer-dira-seederrak" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Zer dira Seederrak?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seeder-bat-sortzea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Seeder bat sortzea
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#datuak-sartzea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datuak sartzea
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Datuak sartzea">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-objektu-bat-sortu-eta-save-erabiltzea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Objektu bat sortu eta save() erabiltzea
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-create-metodoa-erabiltzea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. create() metodoa erabiltzea
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#postseeder-osoa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PostSeeder osoa
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#databaseseeder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DatabaseSeeder
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DatabaseSeeder">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#seeder-bat-baino-gehiago-exekutatzea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Seeder bat baino gehiago exekutatzea
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seederrak-exekutatzea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Seederrak exekutatzea
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Seederrak exekutatzea">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#seeder-zehatz-bat-exekutatzea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Seeder zehatz bat exekutatzea
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#migrazioak-eta-seederrak-batera-exekutatzea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migrazioak eta Seederrak batera exekutatzea
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seeder-en-komandoen-laburpena" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Seeder-en komandoen laburpena
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2528,6 +2715,164 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Edukiak
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#zer-dira-seederrak" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Zer dira Seederrak?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seeder-bat-sortzea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Seeder bat sortzea
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#datuak-sartzea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datuak sartzea
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Datuak sartzea">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-objektu-bat-sortu-eta-save-erabiltzea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Objektu bat sortu eta save() erabiltzea
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-create-metodoa-erabiltzea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. create() metodoa erabiltzea
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#postseeder-osoa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PostSeeder osoa
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#databaseseeder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DatabaseSeeder
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DatabaseSeeder">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#seeder-bat-baino-gehiago-exekutatzea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Seeder bat baino gehiago exekutatzea
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seederrak-exekutatzea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Seederrak exekutatzea
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Seederrak exekutatzea">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#seeder-zehatz-bat-exekutatzea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Seeder zehatz bat exekutatzea
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#migrazioak-eta-seederrak-batera-exekutatzea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migrazioak eta Seederrak batera exekutatzea
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seeder-en-komandoen-laburpena" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Seeder-en komandoen laburpena
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2543,36 +2888,221 @@
 
 
 
-<h1 id="seeder">Seeder</h1>
-<p>Seeder Laraveleko konponente batzuk dira datu basean datuak sartu ahal izateko. Hauek normalean garapen prozesuan datuak sartzeko edo aplikazioren hasieran behar diren datuak sartzeko balio dute.</p>
-<p>Zelan egingo genuke hau?</p>
-<p>Gure direktorioan egonda, artisaneko sententzia hau idatziko genuke IkasleSeeder sortzeko:</p>
-<div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>make:seeder<span class="w"> </span>UserSeeder
+<h1 id="seederrak">Seederrak</h1>
+<h2 id="zer-dira-seederrak">Zer dira Seederrak?</h2>
+<p><strong>Seeder-ak</strong> Laravel-ek datu-basean datuak sartzeko eskaintzen dituen klaseak dira.</p>
+<p>Normalean, bi egoeratan erabiltzen dira:</p>
+<ul>
+<li><strong>Garapen-prozesuan:</strong> aplikazioa probatzeko adibidezko datuak sartzeko.</li>
+<li><strong>Aplikazioaren hasieran:</strong> aplikazioak funtzionatzeko behar dituen hasierako datuak sartzeko, adibidez, kategoriak edo rolak.</li>
+</ul>
+<p>Aurreko ataletan ikusi dugun bezala, <strong>migrazioek datu-baseko taulen egitura sortzen dute</strong>, eta <strong>modeloek taula horietako datuekin lan egiteko aukera ematen digute</strong>.</p>
+<p>Seeder-en bidez, berriz, taula horietan datuak sartuko ditugu.</p>
+<h2 id="seeder-bat-sortzea">Seeder bat sortzea</h2>
+<p>Seeder berri bat sortzeko, Artisan komando hau erabiliko dugu:</p>
+<div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>make:seeder<span class="w"> </span>PostSeeder
 </code></pre></div>
-<p>database &gt; seeders-en sortuko du fitxategia.</p>
-<p>Fitxategian, gure modeloa zein den adieraziko diogu, horretarako Ikasle klasearen erreferentzia sortuko dugu:</p>
-<div class="highlight"><pre><span></span><code><span class="x">use App\Models\User;</span>
+<p>Komando honek <code>database/seeders</code> karpetan <code>PostSeeder.php</code> fitxategia sortuko du.</p>
+<p>Sortutako klaseak honako egitura izango du:</p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">Database\Seeders</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Illuminate\Database\Seeder</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">PostSeeder</span> <span class="k">extends</span> <span class="nx">Seeder</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span><span class="o">:</span> <span class="nx">void</span>
+    <span class="p">{</span>
+        <span class="c1">//</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
-<p>$user aldagaia sortu eta bere propietate guztiak beteko ditugu irudian agertzen den moduan, ikusten duzuenez gure datu baseko taulak objeto moduan erabiliko ditugu.</p>
-<p><img alt="Irudia" src="../../../../assets/images/Seeders/2c98a356f894a8e4b4b033a5d9bbc6e3.jpg" /></p>
-<p><img alt="Irudia" src="../../../../assets/images/Seeders/3e6f1081155bcebc50234a6df86be110.jpg" /></p>
-<p>Artisanek, Seederak exekutatzerakoan, bete DatabaseSeeder klasea deituko du; beraz, guk gure seederra exekutatzeko, klase horretako run() metodotik gure klasea "deituko" (instanciar) dugu.</p>
-<p>Bat baino gehiago deitu daiteke metodo honetatik, eskuz idatzitako ordenean exekutatko litzateke.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$this-&gt;call(UserSeeder::class);</span>
+<p>Ikus dezakegunez, <code>PostSeeder</code> klasea Laravel-en <code>Seeder</code> klasetik hedatzen da.</p>
+<p><strong><code>run()</code> metodoan idatziko dugu datu-basean zer datu sartu nahi ditugun.</strong> Metodo hori Seeder-a exekutatzen dugunean erabiliko da.</p>
+<h2 id="datuak-sartzea">Datuak sartzea</h2>
+<p>Datuak sartzeko, aurretik sortutako <code>Post</code> modeloa erabiliko dugu.</p>
+<p>Horretarako, lehenik modeloaren erreferentzia gehituko dugu fitxategiaren hasieran:</p>
+<div class="highlight"><pre><span></span><code><span class="x">use App\Models\Post;</span>
 </code></pre></div>
-<p>Behin hori guztia eginda, gure datu basean datuak kargatzeko, seeder-a exekutatuko dugu:</p>
+<p>Eloquent erabilita, datu-baseko erregistroak objektu moduan kudeatu ditzakegu.</p>
+<p>Datuak sartzeko hainbat modu daude. Bi aukera ikusiko ditugu.</p>
+<h3 id="1-objektu-bat-sortu-eta-save-erabiltzea">1. Objektu bat sortu eta <code>save()</code> erabiltzea</h3>
+<p>Lehenengo aukera <code>Post</code> klaseko objektu bat sortzea eta bere propietateak banan-banan betetzea da.</p>
+<div class="highlight"><pre><span></span><code><span class="x">public function run(): void</span>
+<span class="x">{</span>
+<span class="x">    $post = new Post();</span>
+
+<span class="x">    $post-&gt;title = 'Nire lehenego Post-a';</span>
+<span class="x">    $post-&gt;content = 'Hau izango da nire Post-aren edukia';</span>
+
+<span class="x">    $post-&gt;save();</span>
+<span class="x">}</span>
+</code></pre></div>
+<p>Kode honetan:</p>
+<ol>
+<li><code>new Post()</code> erabilita, <code>Post</code> modeloko objektu berri bat sortzen dugu.</li>
+<li><code>$post-&gt;title</code> eta <code>$post-&gt;content</code> erabilita, objektuaren atributuei balioak esleitzen dizkiegu.</li>
+<li><code>$post-&gt;save()</code> erabilita, erregistroa datu-baseko <code>posts</code> taulan gordetzen dugu.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>new Post()</code> instrukzioak objektua memorian sortzen du, baina ez du oraindik datu-basean gordetzen.</p>
+<p>Erregistroa datu-basean sartzeko, <code>save()</code> metodoa exekutatu behar dugu.</p>
+</div>
+<h3 id="2-create-metodoa-erabiltzea">2. <code>create()</code> metodoa erabiltzea</h3>
+<p>Beste aukera bat Eloquent-en <code>create()</code> metodoa erabiltzea da.</p>
+<p>Metodo honen bidez, erregistro berri bat sortu eta datu-basean gorde dezakegu instrukzio bakar batean.</p>
+<div class="highlight"><pre><span></span><code><span class="x">public function run(): void</span>
+<span class="x">{</span>
+<span class="x">    Post::create([</span>
+<span class="x">        'title' =&gt; 'Nire lehenego Post-a',</span>
+<span class="x">        'content' =&gt; 'Hau izango da nire Post-aren edukia'</span>
+<span class="x">    ]);</span>
+
+<span class="x">    Post::create([</span>
+<span class="x">        'title' =&gt; 'Bigarren Post-a',</span>
+<span class="x">        'content' =&gt; 'Hau izango da nire bigarren Post-aren edukia'</span>
+<span class="x">    ]);</span>
+<span class="x">}</span>
+</code></pre></div>
+<p>Kasu honetan, bi erregistro sortuko dira <code>posts</code> taulan.</p>
+<div class="admonition warning">
+<p class="admonition-title">Gogoratu <code>$fillable</code></p>
+<p><code>create()</code> metodoak esleipen masiboa erabiltzen duenez, <code>Post</code> modeloan zein atributu bete daitezkeen zehaztu behar dugu.</p>
+<div class="highlight"><pre><span></span><code><span class="x">protected $fillable = ['title', 'content'];</span>
+</code></pre></div>
+<p><code>save()</code> erabilita atributuak banan-banan esleitzen ditugunean, aldiz, <code>$fillable</code> ez da aplikatzen.</p>
+</div>
+<h3 id="postseeder-osoa"><code>PostSeeder</code> osoa</h3>
+<p>Beraz, <code>create()</code> erabilita, gure Seeder-ak honako itxura izango luke:</p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">Database\Seeders</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Illuminate\Database\Seeder</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">App\Models\Post</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">PostSeeder</span> <span class="k">extends</span> <span class="nx">Seeder</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span><span class="o">:</span> <span class="nx">void</span>
+    <span class="p">{</span>
+        <span class="nx">Post</span><span class="o">::</span><span class="na">create</span><span class="p">([</span>
+            <span class="s1">'title'</span> <span class="o">=&gt;</span> <span class="s1">'Laravel ikasten'</span><span class="p">,</span>
+            <span class="s1">'content'</span> <span class="o">=&gt;</span> <span class="s1">'Laravelen modeloak eta migrazioak ikasten'</span>
+        <span class="p">]);</span>
+
+        <span class="nx">Post</span><span class="o">::</span><span class="na">create</span><span class="p">([</span>
+            <span class="s1">'title'</span> <span class="o">=&gt;</span> <span class="s1">'Laravel aurreratua'</span><span class="p">,</span>
+            <span class="s1">'content'</span> <span class="o">=&gt;</span> <span class="s1">'Beste Laravel post-a iznago da hau'</span>
+        <span class="p">]);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="databaseseeder">DatabaseSeeder</h2>
+<p>Laravel-ek <code>database/seeders</code> karpetan <strong><code>DatabaseSeeder.php</code></strong> izeneko fitxategia sortzen du lehenespenez.</p>
+<p>Fitxategi hau Seeder nagusia da, eta beste Seeder batzuk exekutatzeko erabiltzen da.</p>
+<p><code>php artisan db:seed</code> komandoa exekutatzen dugunean, Laravel-ek <code>DatabaseSeeder</code> klaseko <code>run()</code> metodoari deitzen dio lehenespenez.</p>
+<p>Gure <code>PostSeeder</code> exekutatzeko, <code>DatabaseSeeder</code> klasearen barruan honako hau idatziko dugu:</p>
+<div class="highlight"><pre><span></span><code><span class="x">public function run(): void</span>
+<span class="x">{</span>
+<span class="x">    $this-&gt;call(PostSeeder::class);</span>
+<span class="x">}</span>
+</code></pre></div>
+<p>Horrela, <code>DatabaseSeeder</code> exekutatzean, <code>PostSeeder</code> ere exekutatuko da.</p>
+<h3 id="seeder-bat-baino-gehiago-exekutatzea">Seeder bat baino gehiago exekutatzea</h3>
+<p>Aplikazio batean hainbat Seeder izan ditzakegu, adibidez:</p>
+<ul>
+<li><code>UserSeeder</code></li>
+<li><code>PostSeeder</code></li>
+<li><code>CategorySeeder</code></li>
+</ul>
+<p>Horiek guztiak <code>DatabaseSeeder</code> klasetik exekutatzeko, <code>call()</code> metodoari array bat pasa diezaiokegu:</p>
+<div class="highlight"><pre><span></span><code><span class="x">public function run(): void</span>
+<span class="x">{</span>
+<span class="x">    $this-&gt;call([</span>
+<span class="x">        UserSeeder::class,</span>
+<span class="x">        CategorySeeder::class,</span>
+<span class="x">        PostSeeder::class,</span>
+<span class="x">    ]);</span>
+<span class="x">}</span>
+</code></pre></div>
+<p>Seeder-ak <strong>arrayan adierazitako ordenan</strong> exekutatuko dira.</p>
+<p>Beste aukera bat <code>call()</code> metodoari hainbat aldiz deitzea da:</p>
+<div class="highlight"><pre><span></span><code><span class="x">public function run(): void</span>
+<span class="x">{</span>
+<span class="x">    $this-&gt;call(UserSeeder::class);</span>
+<span class="x">    $this-&gt;call(CategorySeeder::class);</span>
+<span class="x">    $this-&gt;call(PostSeeder::class);</span>
+<span class="x">}</span>
+</code></pre></div>
+<p>Bi aukerek emaitza bera izango dute.</p>
+<div class="admonition tip">
+<p class="admonition-title">Exekuzio-ordena</p>
+<p>Seeder-en ordena garrantzitsua izan daiteke taulen artean erlazioak daudenean.</p>
+<p>Adibidez, <code>posts</code> taulako erregistro bakoitzak erabiltzaile baten IDa behar badu, lehenengo erabiltzaileak sortu beharko ditugu, eta ondoren postak.</p>
+</div>
+<h2 id="seederrak-exekutatzea">Seederrak exekutatzea</h2>
+<p>Seeder-ak sortu eta <code>DatabaseSeeder</code> klasean erregistratu ondoren, datu-basean datuak sartzeko komando hau erabiliko dugu:</p>
 <div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>db:seed
 </code></pre></div>
-<p>Irudian, bi seeder exekutatuko ditu, horretarako array batean sartuko ditugu biak. Egin genezakeen ere bi biderretan call metodoari deitu, hori bai, beti behar dugun ordenean:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$this-&gt;call(UserSeeder::class);</span>
-
-<span class="x">$this-&gt;call(PostSeeder::class);</span>
+<p>Komando honek <code>DatabaseSeeder</code> klaseko <code>run()</code> metodoa exekutatuko du eta bertatik deitutako Seeder guztiak ere bai.</p>
+<h3 id="seeder-zehatz-bat-exekutatzea">Seeder zehatz bat exekutatzea</h3>
+<p>Seeder bakar bat exekutatu nahi badugu, <code>--class</code> aukera erabil dezakegu:</p>
+<div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>db:seed<span class="w"> </span>--class<span class="o">=</span>PostSeeder
 </code></pre></div>
-<p>Horrela egitekotan, seederra bakarrik exekutatuko litzateke, baina askotan nahi dugu seederrak migrazioak exekutatzeko momentu berdinean egin, horretarako, hurrengo komandoa exekutatuko genuke:</p>
+<p>Kasu honetan, <code>PostSeeder</code> bakarrik exekutatuko da, <code>DatabaseSeeder</code> klasetik pasatu gabe.</p>
+<h3 id="migrazioak-eta-seederrak-batera-exekutatzea">Migrazioak eta Seederrak batera exekutatzea</h3>
+<p>Garapen-prozesuan, askotan datu-baseko taulak berriro sortu eta adibidezko datuak sartu nahi izaten ditugu.</p>
+<p>Horretarako, komando hau erabil dezakegu:</p>
 <div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>migrate:fresh<span class="w"> </span>--seed
 </code></pre></div>
-<p>Kasu honetan egingo duena izango da, taula guztiak ezabatu, berriro sortu eta guk seederrean esandako datuak gorde.</p>
-<p>Dokumentazio ofiziala: <a href="https://laravel.com/framework/docs/13.x/seeding">https://laravel.com/framework/docs/13.x/seeding</a></p>
+<p>Komando honek hiru urrats egiten ditu:</p>
+<ol>
+<li>Datu-baseko taula guztiak ezabatzen ditu.</li>
+<li>Migrazio guztiak berriro exekutatzen ditu, taulak sortzeko.</li>
+<li><code>DatabaseSeeder</code> exekutatzen du, taulak datuekin betetzeko.</li>
+</ol>
+<div class="admonition danger">
+<p class="admonition-title">Kontuz!</p>
+<p><code>migrate:fresh --seed</code> komandoak datu-baseko taula guztiak ezabatzen ditu, eta horiekin batera gordetako datuak ere bai.</p>
+<p>Horregatik, garapen-inguruneetan erabiltzeko egokia da, baina ez datuak mantendu behar ditugunean.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Seeder-ak behin baino gehiagotan exekutatzea</p>
+<p><code>php artisan db:seed</code> komandoak ez ditu aurretik sartutako datuak automatikoki ezabatzen.</p>
+<p>Beraz, Seeder bera hainbat aldiz exekutatzen badugu, erregistroak errepikatu daitezke.</p>
+<p>Adibidez, gure <code>PostSeeder</code>-ak bi erregistro sortzen baditu, bi aldiz exekutatzean lau erregistro izango ditugu, aurretik taula hutsik bazegoen eta murriztapenek eragozten ez badute.</p>
+</div>
+<h2 id="seeder-en-komandoen-laburpena">Seeder-en komandoen laburpena</h2>
+<table>
+<thead>
+<tr>
+<th>Komandoa</th>
+<th>Zer egiten du?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>php artisan make:seeder PostSeeder</code></td>
+<td>Seeder berri bat sortzen du.</td>
+</tr>
+<tr>
+<td><code>php artisan db:seed</code></td>
+<td><code>DatabaseSeeder</code> eta bertatik deitutako Seeder-ak exekutatzen ditu.</td>
+</tr>
+<tr>
+<td><code>php artisan db:seed --class=PostSeeder</code></td>
+<td>Seeder zehatz bat exekutatzen du.</td>
+</tr>
+<tr>
+<td><code>php artisan migrate:fresh --seed</code></td>
+<td>Taula guztiak ezabatu, migrazioak exekutatu eta datuak sartzen ditu.</td>
+</tr>
+</tbody>
+</table>
+<p>Dokumentazio ofiziala: <a href="https://laravel.com/docs/13.x/seeding">Database Seeding – Laravel 13</a></p>
+<p>Hurrengoa: Factories</p>
 
 
 
