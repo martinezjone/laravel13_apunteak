@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2703,23 +2703,23 @@
 <h2 id="crear-un-layout">Crear un layout</h2>
 <p>Crea el archivo <code>resources/views/layouts/app.blade.php</code> con la estructura general del HTML.</p>
 <div class="highlight"><pre><span></span><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;es&quot;&gt;
+&lt;html lang="es"&gt;
 &lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-    &lt;title&gt;@yield(&#39;title&#39;, &#39;Mi blog&#39;)&lt;/title&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;@yield('title', 'Mi blog')&lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
     &lt;header&gt;
         &lt;p&gt;Mi blog&lt;/p&gt;
         &lt;nav&gt;
-            &lt;a href=&quot;/&quot;&gt;Inicio&lt;/a&gt;
-            &lt;a href=&quot;/users&quot;&gt;Usuarios&lt;/a&gt;
+            &lt;a href="/"&gt;Inicio&lt;/a&gt;
+            &lt;a href="/users"&gt;Usuarios&lt;/a&gt;
         &lt;/nav&gt;
     &lt;/header&gt;
 
     &lt;main&gt;
-        @yield(&#39;content&#39;)
+        @yield('content')
     &lt;/main&gt;
 
     &lt;footer&gt;
@@ -2732,11 +2732,11 @@
 <p>Por ejemplo, si la vista no define la sección <code>title</code>, en la pestaña del navegador aparecerá «Mi blog».</p>
 <h2 id="extender-una-plantilla">Extender una plantilla</h2>
 <p>Para que una vista utilice un layout, usaremos la directiva <code>@extends</code>. Por ejemplo, crea el archivo <code>resources/views/home.blade.php</code>.</p>
-<div class="highlight"><pre><span></span><code>@extends(&#39;layouts.app&#39;)
+<div class="highlight"><pre><span></span><code>@extends('layouts.app')
 
-@section(&#39;title&#39;, &#39;Inicio&#39;)
+@section('title', 'Inicio')
 
-@section(&#39;content&#39;)
+@section('content')
     &lt;h1&gt;¡Bienvenido a mi blog!&lt;/h1&gt;
     &lt;p&gt;Esta es la página de inicio.&lt;/p&gt;
 @endsection
@@ -2744,11 +2744,11 @@
 <p>El nombre <code>layouts.app</code> indica el archivo <code>resources/views/layouts/app.blade.php</code>. El punto separa el nombre de la carpeta y el de la vista. En esta llamada de Blade escribimos el nombre sin la extensión del archivo.</p>
 <p>La directiva <code>@section</code> define el contenido de una sección. El nombre de la sección debe coincidir con el nombre utilizado en la directiva <code>@yield</code> del layout. Si el contenido es un texto breve, podemos pasarlo como segundo argumento. Si tenemos que escribir HTML o varias líneas, abriremos la sección con <code>@section</code> y la cerraremos con <code>@endsection</code>.</p>
 <p>Para utilizar el mismo layout en otra vista, crea el archivo <code>resources/views/users.blade.php</code>.</p>
-<div class="highlight"><pre><span></span><code>@extends(&#39;layouts.app&#39;)
+<div class="highlight"><pre><span></span><code>@extends('layouts.app')
 
-@section(&#39;title&#39;, &#39;Usuarios&#39;)
+@section('title', 'Usuarios')
 
-@section(&#39;content&#39;)
+@section('content')
     &lt;h1&gt;Usuarios&lt;/h1&gt;
 
     &lt;ul&gt;
@@ -2763,15 +2763,15 @@
 <p>Para probar ambas vistas, añade estas rutas al archivo <code>routes/web.php</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="x">use Illuminate\Support\Facades\Route;</span>
 
-<span class="x">Route::view(&#39;/&#39;, &#39;home&#39;);</span>
+<span class="x">Route::view('/', 'home');</span>
 
-<span class="x">Route::get(&#39;/users&#39;, function () {</span>
+<span class="x">Route::get('/users', function () {</span>
 <span class="x">    $users = [</span>
-<span class="x">        (object) [&#39;name&#39; =&gt; &#39;Jon&#39;],</span>
-<span class="x">        (object) [&#39;name&#39; =&gt; &#39;Ane&#39;],</span>
+<span class="x">        (object) ['name' =&gt; 'Jon'],</span>
+<span class="x">        (object) ['name' =&gt; 'Ane'],</span>
 <span class="x">    ];</span>
 
-<span class="x">    return view(&#39;users&#39;, compact(&#39;users&#39;));</span>
+<span class="x">    return view('users', compact('users'));</span>
 <span class="x">});</span>
 </code></pre></div>
 <p>Abre <code>/</code> y <code>/users</code> en el navegador. Ambas páginas tienen la misma cabecera, menú y pie de página. Elimina la línea <code>@section('title', 'Usuarios')</code> y comprueba que en la pestaña del navegador aparece «Mi blog».</p>
@@ -2783,26 +2783,26 @@
 &lt;/footer&gt;
 </code></pre></div>
 <p>Después, sustituye el bloque <code>&lt;footer&gt;</code> del layout por esta línea.</p>
-<div class="highlight"><pre><span></span><code>@include(&#39;partials.footer&#39;)
+<div class="highlight"><pre><span></span><code>@include('partials.footer')
 </code></pre></div>
 <h2 id="el-helper-asset">El helper asset()</h2>
 <p>Si tenemos los estilos de todo el sitio web en el archivo <code>public/css/style.css</code>, podemos enlazar la hoja de estilos en la sección <code>&lt;head&gt;</code> del layout.</p>
-<div class="highlight"><pre><span></span><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;{{ asset(&#39;css/style.css&#39;) }}&quot;&gt;
+<div class="highlight"><pre><span></span><code>&lt;link rel="stylesheet" href="{{ asset('css/style.css') }}"&gt;
 </code></pre></div>
 <p>El helper <code>asset()</code> genera la URL de un archivo público. Como argumento, le pasamos la ruta del archivo desde la carpeta public. Por ejemplo, para enlazar el archivo <code>public/css/style.css</code>, utilizamos <code>asset('css/style.css')</code>. De esta manera, todas las páginas que utilizan el mismo layout reciben la misma URL para el archivo CSS.</p>
 <h2 id="la-directiva-stack">La directiva @stack</h2>
 <p>Si una vista concreta necesita un archivo CSS o JavaScript adicional (además de los que hemos incluido en el layout), podemos utilizar <code>@stack</code> y <code>@push</code>.</p>
 <p>Para ello, añadiríamos <code>@stack('styles')</code> en la sección <code>&lt;head&gt;</code> del layout, después de la hoja de estilos común.</p>
 <p>En la sección <code>&lt;head&gt;</code> del layout enlazamos el CSS que necesitan todas las páginas e indicamos dónde se insertarán los estilos adicionales; para ello utilizamos <code>@stack('styles')</code>.</p>
-<div class="highlight"><pre><span></span><code>    &lt;link rel=&quot;stylesheet&quot; href=&quot;{{ asset(&#39;css/style.css&#39;) }}&quot;&gt;
+<div class="highlight"><pre><span></span><code>    &lt;link rel="stylesheet" href="{{ asset('css/style.css') }}"&gt;
 
-    @stack(&#39;styles&#39;)
+    @stack('styles')
 </code></pre></div>
 <p>En la vista <code>users.blade.php</code>, añadimos la etiqueta <code>&lt;link&gt;</code> a la pila styles para cargar <code>users.css</code>. Puedes colocar el bloque después de la línea <code>@extends</code>.</p>
-<div class="highlight"><pre><span></span><code>    @extends(&#39;layouts.app&#39;)
+<div class="highlight"><pre><span></span><code>    @extends('layouts.app')
 
-    @push(&#39;styles&#39;)
-        &lt;link rel=&quot;stylesheet&quot; href=&quot;{{ asset(&#39;css/users.css&#39;) }}&quot;&gt;
+    @push('styles')
+        &lt;link rel="stylesheet" href="{{ asset('css/users.css') }}"&gt;
     @endpush
 </code></pre></div>
 <p><code>@push('styles')</code> indica qué se debe añadir y <code>@stack('styles')</code> dónde se debe insertar. Por eso, la etiqueta <code>&lt;link&gt;</code> escrita en la vista <code>users.blade.php</code> aparece en la sección <code>&lt;head&gt;</code> del HTML final. Si la vista de inicio no añade nada a la pila styles, <code>@stack('styles')</code> no inserta nada.</p>
@@ -2858,7 +2858,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

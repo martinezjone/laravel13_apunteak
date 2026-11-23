@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2759,7 +2759,7 @@
 <p><a href="https://laravel.com/docs/13.x/blade#components">Documentación de Laravel 13</a></p>
 <h2 id="crear-un-componente-anonimo">Crear un componente anónimo</h2>
 <p>Crea el archivo <code>resources/views/components/alert.blade.php</code>. Un componente anónimo consta de una vista Blade.</p>
-<div class="highlight"><pre><span></span><code>&lt;div class=&quot;alerta&quot; role=&quot;alert&quot;&gt;
+<div class="highlight"><pre><span></span><code>&lt;div class="alerta" role="alert"&gt;
     &lt;strong&gt;¡Alerta!&lt;/strong&gt; ¡Ten cuidado!
 &lt;/div&gt;
 </code></pre></div>
@@ -2770,7 +2770,7 @@
 <h3 id="slot-predeterminado">Slot predeterminado</h3>
 <p>El contenido escrito entre las etiquetas del componente se recibe mediante la variable <code>$slot</code>. Este contenido puede ser texto o HTML.</p>
 <p>Modifica el archivo <code>alert.blade.php</code>.</p>
-<div class="highlight"><pre><span></span><code>&lt;div class=&quot;alerta&quot; role=&quot;alert&quot;&gt;
+<div class="highlight"><pre><span></span><code>&lt;div class="alerta" role="alert"&gt;
     &lt;strong&gt;¡Alerta!&lt;/strong&gt;
     {{ $slot }}
 &lt;/div&gt;
@@ -2790,15 +2790,15 @@
     Comprueba los datos introducidos.
 &lt;/x-alert&gt;
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>&lt;div class=&quot;alerta&quot; role=&quot;alert&quot;&gt;
-    &lt;strong&gt;{{ $title ?? &#39;¡Alerta!&#39; }}&lt;/strong&gt;
+<div class="highlight"><pre><span></span><code>&lt;div class="alerta" role="alert"&gt;
+    &lt;strong&gt;{{ $title ?? '¡Alerta!' }}&lt;/strong&gt;
     {{ $slot }}
 &lt;/div&gt;
 </code></pre></div>
 <p>Si la vista no proporciona el slot <code>title</code>, aparecerá «¡Alerta!».</p>
 <h3 id="parametros-de-los-componentes">Parámetros de los componentes</h3>
 <p>También podemos pasar atributos en la etiqueta. Por ejemplo, podemos utilizar <code>type</code> para elegir el aspecto de la alerta.</p>
-<div class="highlight"><pre><span></span><code>&lt;x-alert type=&quot;danger&quot;&gt;
+<div class="highlight"><pre><span></span><code>&lt;x-alert type="danger"&gt;
     &lt;x-slot:title&gt;
         Problema al guardar los datos
     &lt;/x-slot:title&gt;
@@ -2808,18 +2808,18 @@
 </code></pre></div>
 <p>Al principio del componente anónimo, indicaremos mediante la directiva <code>@props</code> qué atributos queremos recibir. Al escribir <code>@props(['type' =&gt; 'info'])</code>, el componente tendrá la variable <code>$type</code>. Si no proporcionamos <code>type</code> en la llamada, se utilizará <code>info</code>.</p>
 <p>Este es el archivo completo <code>resources/views/components/alert.blade.php</code>.</p>
-<div class="highlight"><pre><span></span><code>@props([&#39;type&#39; =&gt; &#39;info&#39;])
+<div class="highlight"><pre><span></span><code>@props(['type' =&gt; 'info'])
 
 @php
     $clase = match ($type) {
-        &#39;danger&#39; =&gt; &#39;alerta-danger&#39;,
-        &#39;success&#39; =&gt; &#39;alerta-success&#39;,
-        default =&gt; &#39;alerta-info&#39;,
+        'danger' =&gt; 'alerta-danger',
+        'success' =&gt; 'alerta-success',
+        default =&gt; 'alerta-info',
     };
 @endphp
 
-&lt;div {{ $attributes-&gt;class([&#39;alerta&#39;, $clase]) }} role=&quot;alert&quot;&gt;
-    &lt;strong&gt;{{ $title ?? &#39;¡Alerta!&#39; }}&lt;/strong&gt;
+&lt;div {{ $attributes-&gt;class(['alerta', $clase]) }} role="alert"&gt;
+    &lt;strong&gt;{{ $title ?? '¡Alerta!' }}&lt;/strong&gt;
     {{ $slot }}
 &lt;/div&gt;
 </code></pre></div>
@@ -2846,7 +2846,7 @@
 </code></pre></div>
 <h3 id="atributos-adicionales">Atributos adicionales</h3>
 <p>Los atributos que no se reciben mediante <code>@props</code> están disponibles a través de <code>$attributes</code>. Por ejemplo, podemos asignar un <code>id</code> y una clase CSS adicional a una alerta concreta.</p>
-<div class="highlight"><pre><span></span><code>&lt;x-alert type=&quot;info&quot; id=&quot;mensaje-guardado&quot; class=&quot;resaltado&quot;&gt;
+<div class="highlight"><pre><span></span><code>&lt;x-alert type="info" id="mensaje-guardado" class="resaltado"&gt;
     Para guardar los cambios, pulsa «Guardar».
 &lt;/x-alert&gt;
 </code></pre></div>
@@ -2867,28 +2867,28 @@
 <span class="p">{</span>
     <span class="k">public</span> <span class="nx">string</span> <span class="nv">$clase</span><span class="p">;</span>
 
-    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$type</span> <span class="o">=</span> <span class="s1">&#39;info&#39;</span><span class="p">)</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$type</span> <span class="o">=</span> <span class="s1">'info'</span><span class="p">)</span>
     <span class="p">{</span>
         <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">clase</span> <span class="o">=</span> <span class="k">match</span> <span class="p">(</span><span class="nv">$type</span><span class="p">)</span> <span class="p">{</span>
-            <span class="s1">&#39;danger&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;alerta-danger&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;success&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;alerta-success&#39;</span><span class="p">,</span>
-            <span class="k">default</span> <span class="o">=&gt;</span> <span class="s1">&#39;alerta-info&#39;</span><span class="p">,</span>
+            <span class="s1">'danger'</span> <span class="o">=&gt;</span> <span class="s1">'alerta-danger'</span><span class="p">,</span>
+            <span class="s1">'success'</span> <span class="o">=&gt;</span> <span class="s1">'alerta-success'</span><span class="p">,</span>
+            <span class="k">default</span> <span class="o">=&gt;</span> <span class="s1">'alerta-info'</span><span class="p">,</span>
         <span class="p">};</span>
     <span class="p">}</span>
 
     <span class="k">public</span> <span class="k">function</span> <span class="nf">render</span><span class="p">()</span><span class="o">:</span> <span class="nx">View</span>
     <span class="p">{</span>
-        <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;components.alert2&#39;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">'components.alert2'</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>En el archivo <code>resources/views/components/alert2.blade.php</code>, podemos utilizar <code>$clase</code> directamente.</p>
-<div class="highlight"><pre><span></span><code>&lt;div {{ $attributes-&gt;class([&#39;alerta&#39;, $clase]) }} role=&quot;alert&quot;&gt;
-    &lt;strong&gt;{{ $title ?? &#39;¡Alerta!&#39; }}&lt;/strong&gt;
+<div class="highlight"><pre><span></span><code>&lt;div {{ $attributes-&gt;class(['alerta', $clase]) }} role="alert"&gt;
+    &lt;strong&gt;{{ $title ?? '¡Alerta!' }}&lt;/strong&gt;
     {{ $slot }}
 &lt;/div&gt;
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>&lt;x-alert2 type=&quot;success&quot;&gt;
+<div class="highlight"><pre><span></span><code>&lt;x-alert2 type="success"&gt;
     Los datos se han guardado correctamente.
 &lt;/x-alert2&gt;
 </code></pre></div>
@@ -2896,19 +2896,19 @@
 <p>En la sección sobre layouts hemos utilizado <code>@extends</code>, <code>@section</code> y <code>@yield</code> para compartir la estructura común de las páginas. También podemos definir la misma estructura en un componente anónimo. En este caso, recibiremos el contenido principal de la página mediante <code>$slot</code>.</p>
 <p>Crea el archivo <code>resources/views/components/app-layout.blade.php</code>.</p>
 <div class="highlight"><pre><span></span><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;es&quot;&gt;
+&lt;html lang="es"&gt;
 &lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-    &lt;title&gt;{{ $title ?? &#39;Mi blog&#39; }}&lt;/title&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;{{ asset(&#39;css/style.css&#39;) }}&quot;&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;{{ $title ?? 'Mi blog' }}&lt;/title&gt;
+    &lt;link rel="stylesheet" href="{{ asset('css/style.css') }}"&gt;
 &lt;/head&gt;
 &lt;body&gt;
     &lt;header&gt;
         &lt;p&gt;Mi blog&lt;/p&gt;
         &lt;nav&gt;
-            &lt;a href=&quot;/&quot;&gt;Inicio&lt;/a&gt;
-            &lt;a href=&quot;/users&quot;&gt;Usuarios&lt;/a&gt;
+            &lt;a href="/"&gt;Inicio&lt;/a&gt;
+            &lt;a href="/users"&gt;Usuarios&lt;/a&gt;
         &lt;/nav&gt;
     &lt;/header&gt;
 
@@ -2916,7 +2916,7 @@
         {{ $slot }}
     &lt;/main&gt;
 
-    @include(&#39;partials.footer&#39;)
+    @include('partials.footer')
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre></div>
@@ -2927,7 +2927,7 @@
     &lt;h1&gt;¡Bienvenido a mi blog!&lt;/h1&gt;
     &lt;p&gt;Esta es la página de inicio.&lt;/p&gt;
 
-    &lt;x-alert type=&quot;success&quot;&gt;
+    &lt;x-alert type="success"&gt;
         Los datos se han guardado correctamente.
     &lt;/x-alert&gt;
 &lt;/x-app-layout&gt;
@@ -2985,7 +2985,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

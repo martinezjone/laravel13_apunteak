@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -1130,6 +1130,100 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#que-son-las-migraciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Qué son las migraciones?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#makemigration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        make:migration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migraterollback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        migrate:rollback
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migratereset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        migrate:reset
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migraterefresh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        migrate:refresh
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migratefresh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        migrate:fresh
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migratestatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        migrate:status
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="migrate:status">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resumen-de-los-comandos-de-migracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resumen de los comandos de migración
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#crear-una-tabla-nueva-usando-una-migracion" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1145,6 +1239,28 @@
     <span class="md-ellipsis">
       
         ¿Cómo cambiar un campo de una tabla que ya tiene datos?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tipos-de-columna-mas-habituales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tipos de columna más habituales
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#propiedades-de-las-columnas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Propiedades de las columnas
       
     </span>
   </a>
@@ -2594,6 +2710,100 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#que-son-las-migraciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Qué son las migraciones?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#makemigration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        make:migration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migraterollback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        migrate:rollback
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migratereset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        migrate:reset
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migraterefresh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        migrate:refresh
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migratefresh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        migrate:fresh
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migratestatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        migrate:status
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="migrate:status">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resumen-de-los-comandos-de-migracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resumen de los comandos de migración
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#crear-una-tabla-nueva-usando-una-migracion" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2609,6 +2819,28 @@
     <span class="md-ellipsis">
       
         ¿Cómo cambiar un campo de una tabla que ya tiene datos?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tipos-de-columna-mas-habituales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tipos de columna más habituales
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#propiedades-de-las-columnas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Propiedades de las columnas
       
     </span>
   </a>
@@ -2633,82 +2865,299 @@
 
 
 <h1 id="migraciones">Migraciones</h1>
-<p>¿Qué son las migraciones? Las migraciones son el sistema que utiliza Laravel para llevar el control de versiones de la base de datos. Gracias a ellas, los cambios realizados en la base de datos quedan documentados y controlados, de modo que otras personas también puedan ejecutarlos o, si surge algún problema, se pueda volver al estado anterior.</p>
+<h2 id="que-son-las-migraciones">¿Qué son las migraciones?</h2>
+<p>Las migraciones son el sistema que utiliza Laravel para llevar el control de versiones de la base de datos.</p>
+<p>Gracias a ellas, los cambios realizados en la base de datos quedan documentados y controlados, de modo que otras personas también puedan ejecutarlos o, si surge algún problema, se pueda volver al estado anterior.</p>
 <p>También podemos utilizar las migraciones para gestionar las tablas de la base de datos, es decir, para crear tablas nuevas, cambiar algún campo de una tabla o eliminarlo.</p>
-<p>Las migraciones se guardarán en la carpeta database&gt;migrations. Cada migración estará en un archivo PHP y, como podemos ver, contiene una clase Migration con dos métodos: up() y down(). Al ejecutar la migración, se invoca el método up(); al hacer reset, refresh u operaciones similares, se invoca down().</p>
-<p>Artisan dispone de varios métodos para trabajar con migraciones: make:migration, migrate:refresh, migrate:reset y migrate:rollback.</p>
-<p>make:migration</p>
+<p>Las migraciones se guardan en la carpeta <code>database&gt;migrations</code>.</p>
+<p>Cada migración está en un archivo PHP que contiene una clase Migration con dos métodos: <code>up() y down()</code>. Al ejecutar la migración, se invoca el método <code>up()</code>; al hacer reset, refresh u operaciones similares, se invoca el método <code>down()</code>.</p>
+<ul>
+<li><strong>up()</strong>: se utiliza para aplicar cambios en la base de datos (crear una tabla, añadir una columna...).</li>
+<li><strong>down()</strong>: se utiliza para deshacer los cambios realizados por el método up().</li>
+</ul>
+<p>Artisan dispone de varios métodos para trabajar con migraciones: <code>make:migration, migrate:refresh, migrate:reset y migrate:rollback</code>.</p>
+<h2 id="makemigration">make:migration</h2>
 <p>Se utiliza para crear una migración nueva.</p>
-<div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>make:migration<span class="w"> </span>create_pupils_taula
+<div class="highlight"><pre><span></span><code><span class="w">    </span>php<span class="w"> </span>artisan<span class="w"> </span>make:migration<span class="w"> </span>create_pupils_table
 
-php<span class="w"> </span>artisan<span class="w"> </span>migrate
+<span class="w">    </span>php<span class="w"> </span>artisan<span class="w"> </span>migrate
 </code></pre></div>
-<p>Ejecuta todas las migraciones que ya existen.</p>
-<p>Laravel ejecuta siempre y automáticamente solo las migraciones que aún no se han ejecutado. No volverá a ejecutar las que ya se ejecutaron (porque están registradas en la tabla migrations).</p>
+<ul>
+<li><code>make:migration:</code> crea el archivo PHP de la migración, pero no modifica la base de datos.</li>
+<li><code>migrate:</code> ejecuta las migraciones que aún no se han ejecutado y aplica los cambios en la base de datos.</li>
+</ul>
+<p>Ejecuta todas las migraciones existentes. Estas migraciones se ejecutan según su fecha de creación: primero se ejecuta la más antigua.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Laravel ejecuta automáticamente solo las migraciones que aún no se han ejecutado. No volverá a ejecutar las que ya se ejecutaron (porque están registradas en la tabla migrations).</p>
+</div>
 <div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>migrate
 </code></pre></div>
-<p>migrate:rollback</p>
+<h2 id="migraterollback">migrate:rollback</h2>
 <p>Deshace las migraciones que se ejecutaron en el último batch o "lote".</p>
 <p>Es decir, revierte todas las migraciones realizadas en la última ejecución (ejecutando down()).</p>
 <p>El batch puede verse en el campo batch de la tabla migrations.</p>
 <div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>migrate:rollback
 </code></pre></div>
-<p>migrate:reset</p>
+<h2 id="migratereset">migrate:reset</h2>
 <p>Deshace todas las migraciones (invocando down()), no solo las del último lote.</p>
 <div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>migrate:reset
 </code></pre></div>
-<p>migrate:refresh</p>
+<h2 id="migraterefresh">migrate:refresh</h2>
 <p>Primero ejecuta reset (todos los métodos down()) y después vuelve a ejecutar todas las migraciones (todos los métodos up()). Esto resulta muy útil durante el desarrollo para tener la base de datos "limpia".</p>
 <div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>migrate:refresh
 </code></pre></div>
-<p>migrate:fresh</p>
+<h2 id="migratefresh">migrate:fresh</h2>
 <p>Elimina FÍSICAMENTE todas las tablas y después ejecuta todos los métodos up().</p>
 <p>No utiliza el método down(), por lo que es más peligroso.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code>migrate:fresh</code> elimina todas las tablas de la base de datos, no solo las creadas por las migraciones. Por tanto, podríamos perder los datos que haya en la base de datos.</p>
+</div>
+<h2 id="migratestatus">migrate:status</h2>
+<p>Este comando permite <strong>consultar el estado de cada migración</strong>, es decir, comprobar si ya se ha ejecutado o si todavía está pendiente.</p>
+<div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>migrate:status
+</code></pre></div>
+<p>Al ejecutarlo, Laravel muestra una lista de todas las migraciones con su estado:</p>
+<ul>
+<li><strong>Ran</strong>: la migración ya se ha ejecutado y está registrada en la tabla <code>migrations</code>.</li>
+<li><strong>Pending</strong>: la migración está creada, pero todavía no se ha ejecutado.</li>
+</ul>
+<p>También podemos ver el número de <strong>batch</strong> o lote de las migraciones ejecutadas. Este número indica en qué lote de ejecución se aplicó cada migración.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Este comando resulta muy útil después de crear una migración para comprobar si hemos ejecutado <code>php artisan migrate</code>.</p>
+<p>Ten en cuenta que el comando <code>migrate:status</code> <strong>no realiza cambios en la base de datos</strong>; solo muestra información sobre el estado de las migraciones.</p>
+</div>
+<h3 id="resumen-de-los-comandos-de-migracion">Resumen de los comandos de migración</h3>
+<p>Laravel ofrece comandos de Artisan para crear, ejecutar y deshacer migraciones.</p>
+<p>En la siguiente tabla se resumen los principales comandos y su función:</p>
+<table>
+<thead>
+<tr>
+<th>Comando</th>
+<th>¿Qué hace?</th>
+<th>¿Se pueden perder datos?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>make:migration</code></td>
+<td>Crea un archivo de migración nuevo.</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>migrate</code></td>
+<td>Ejecuta las migraciones que aún no se han ejecutado.</td>
+<td>Depende del cambio</td>
+</tr>
+<tr>
+<td><code>migrate:status</code></td>
+<td>Muestra si cada migración se ha ejecutado.</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>migrate:rollback</code></td>
+<td>Deshace las migraciones ejecutadas en el último lote (batch).</td>
+<td>Sí</td>
+</tr>
+<tr>
+<td><code>migrate:reset</code></td>
+<td>Deshace todas las migraciones ejecutadas.</td>
+<td>Sí</td>
+</tr>
+<tr>
+<td><code>migrate:refresh</code></td>
+<td>Deshace todas las migraciones y vuelve a ejecutarlas.</td>
+<td>Sí</td>
+</tr>
+<tr>
+<td><code>migrate:fresh</code></td>
+<td>Elimina todas las tablas de la base de datos y vuelve a ejecutar todas las migraciones.</td>
+<td>Sí</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">¡Cuidado con los datos!</p>
+<p>Los comandos <code>rollback</code>, <code>reset</code>, <code>refresh</code> y <code>fresh</code> pueden provocar la eliminación de datos.</p>
+<p>En particular, los comandos <code>refresh</code> y <code>fresh</code> se utilizan en entornos de desarrollo para volver a crear la base de datos. No deben utilizarse si necesitamos conservar los datos.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">¿Cuál es la diferencia entre refresh y fresh?</p>
+<ul>
+<li><strong><code>migrate:refresh</code></strong>: deshace las migraciones utilizando los métodos <code>down()</code> y, después, vuelve a ejecutarlas mediante los métodos <code>up()</code>.</li>
+<li><strong><code>migrate:fresh</code></strong>: elimina directamente todas las tablas de la base de datos, sin utilizar los métodos <code>down()</code>, y después ejecuta todas las migraciones.</li>
+</ul>
+<p>Por tanto, <code>fresh</code> puede resultar útil incluso cuando los métodos <code>down()</code> de las migraciones no están definidos correctamente.</p>
+</div>
 <h2 id="crear-una-tabla-nueva-usando-una-migracion">Crear una tabla nueva usando una migración</h2>
 <p>Para crear una tabla nueva, crearíamos una migración nueva usando la siguiente instrucción:</p>
 <div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>make:migration<span class="w"> </span>create_posts_table
 </code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Al crear una migración, conviene que su nombre indique qué hará. En Laravel, para crear una tabla nueva, normalmente se utiliza esta estructura:</p>
+<p><code>create_nombre_table</code></p>
+<ul>
+<li><strong><code>create</code></strong>: indica que vamos a crear una tabla nueva.</li>
+<li><strong><code>posts</code></strong>: es el nombre de la tabla que vamos a crear. Por convención, se escribe en minúsculas y en plural.</li>
+<li><strong><code>table</code></strong>: indica que la migración afecta a una tabla de la base de datos.</li>
+</ul>
+<p>Por tanto, el nombre <code>create_posts_table</code> indica que vamos a crear una tabla llamada <strong>posts</strong>.</p>
+</div>
 <p>Una vez creado el archivo, podemos ver que se ha generado una clase nueva; después modificaremos los métodos up() y down():</p>
-<div class="highlight"><pre><span></span><code><span class="x">public function up(): void{</span>
-<span class="x">    Schema::create(&#39;posts&#39;, function (Blueprint $table) {</span>
+<div class="highlight"><pre><span></span><code><span class="x">    public function up(): void{</span>
+<span class="x">        Schema::create('posts', function (Blueprint $table) {</span>
+<span class="x">            $table-&gt;id();</span>
+<span class="x">            $table-&gt;string('title');</span>
+<span class="x">            $table-&gt;text('content');</span>
+<span class="x">            $table-&gt;timestamps();</span>
+<span class="x">        });</span>
+<span class="x">    }</span>
 
-<span class="x">        $table-&gt;id();</span>
+<span class="x">    // Reverse the migrations.</span>
 
-<span class="x">        $table-&gt;string(&#39;title&#39;);</span>
-
-<span class="x">        $table-&gt;text(&#39;content&#39;);</span>
-
-<span class="x">        $table-&gt;timestamps();</span>
-<span class="x">    });</span>
-<span class="x">}</span>
-
-<span class="x">// Reverse the migrations.</span>
-
-
-<span class="x">public function down(): void{</span>
-
-<span class="x">    Schema::dropIfExists(&#39;posts&#39;);</span>
-
-<span class="x">}</span>
+<span class="x">    public function down(): void{</span>
+<span class="x">        Schema::dropIfExists('posts');</span>
+<span class="x">    }</span>
 </code></pre></div>
 <h2 id="como-cambiar-un-campo-de-una-tabla-que-ya-tiene-datos">¿Cómo cambiar un campo de una tabla que ya tiene datos?</h2>
-<p>Para modificar los campos de una tabla también crearíamos una migración. Lo haríamos así si la base de datos contiene datos; si no los tiene, modificaríamos directamente la migración create y la ejecutaríamos toda con un refresh.</p>
+<p>Para modificar los campos de una tabla también crearíamos una migración.</p>
+<p>Lo haríamos así si la base de datos contiene datos; si no los tiene, modificaríamos directamente la migración create y la ejecutaríamos toda con un refresh.</p>
 <p>Por ejemplo, para añadir un campo nuevo a una tabla habría que crear una nueva migración. Como hemos dicho, el nombre de la migración puede ser cualquiera, pero, por "convención", lo escribiríamos así:</p>
 <div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>make:migration<span class="w"> </span>add_avatar_to_users_table
 </code></pre></div>
 <p><img alt="Imagen" src="../../../../assets/images/Migrazioak/f1de724cd6dd1ebc681b04a78174b068.jpg" /></p>
-<p>Se creará un documento de migración con los métodos anteriores; aquí añadiremos el campo como en el caso de create. Como la tabla ya tendrá datos, al crear el campo debemos indicar que puede ser null para evitar errores. Lo escribiremos en el método up().</p>
-<div class="highlight"><pre><span></span><code><span class="x">$table-&gt;string(&#39;avatar&#39;)-&gt;nullable();</span>
-</code></pre></div>
-<p>En el método down() también tendremos que eliminar la columna.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$table-&gt;dropColumn(&#39;avatar&#39;);</span>
+<p>Se creará un documento de migración con los métodos anteriores; aquí añadiremos el campo como en el caso de create.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Como la tabla ya tendrá datos, al crear el campo debemos indicar que puede ser null para evitar errores, o asignarle un valor por defecto. Lo escribiremos en el método up().</p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="x">    public function up(): void</span>
+<span class="x">    {</span>
+<span class="x">        Schema::table('users', function (Blueprint $table) {</span>
+<span class="x">            $table-&gt;string('avatar')-&gt;nullable();</span>
+<span class="x">        });</span>
+<span class="x">    }</span>
+
+<span class="x">    public function down(): void</span>
+<span class="x">    {</span>
+<span class="x">        Schema::table('users', function (Blueprint $table) {</span>
+<span class="x">            $table-&gt;dropColumn('avatar');</span>
+<span class="x">        });</span>
+<span class="x">    }</span>
 </code></pre></div>
 <p>Al ejecutar esta migración, se ha añadido la columna avatar al final de la tabla. Si no queremos que quede ahí, haremos rollback y después cambiaremos la migración.</p>
 <div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>migrate
 </code></pre></div>
 <p>Supongamos que queremos colocarla después del campo email:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$table-&gt;string(&#39;avatar&#39;)-&gt;nullable()-&gt;after(&#39;email&#39;);</span>
+<div class="highlight"><pre><span></span><code><span class="x">$table-&gt;string('avatar')-&gt;nullable()-&gt;after('email');</span>
 </code></pre></div>
+<h2 id="tipos-de-columna-mas-habituales">Tipos de columna más habituales</h2>
+<p>En las migraciones, al crear o modificar una tabla, debemos especificar <strong>qué tipo de datos se guardarán en cada columna</strong>.</p>
+<p>Laravel ofrece varios métodos para definir columnas. Estos son algunos de los más habituales:</p>
+<table>
+<thead>
+<tr>
+<th>Método</th>
+<th>Descripción</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>string()</code></td>
+<td>Texto corto (por defecto, de hasta 255 caracteres).</td>
+<td><code>$table-&gt;string('name');</code></td>
+</tr>
+<tr>
+<td><code>text()</code></td>
+<td>Para guardar texto largo.</td>
+<td><code>$table-&gt;text('description');</code></td>
+</tr>
+<tr>
+<td><code>integer()</code></td>
+<td>Para guardar números enteros.</td>
+<td><code>$table-&gt;integer('age');</code></td>
+</tr>
+<tr>
+<td><code>boolean()</code></td>
+<td>Para guardar valores de tipo verdadero/falso.</td>
+<td><code>$table-&gt;boolean('active');</code></td>
+</tr>
+<tr>
+<td><code>date()</code></td>
+<td>Para guardar fechas, sin hora.</td>
+<td><code>$table-&gt;date('birth_date');</code></td>
+</tr>
+<tr>
+<td><code>decimal()</code></td>
+<td>Para guardar números decimales con precisión fija.</td>
+<td><code>$table-&gt;decimal('price', 8, 2);</code></td>
+</tr>
+<tr>
+<td><code>foreignId()</code></td>
+<td>Crea una columna ID para hacer referencia a un registro de otra tabla.</td>
+<td><code>$table-&gt;foreignId('user_id');</code></td>
+</tr>
+<tr>
+<td><code>timestamps()</code></td>
+<td>Crea automáticamente las columnas <code>created_at</code> y <code>updated_at</code>.</td>
+<td><code>$table-&gt;timestamps();</code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Ten en cuenta</p>
+<ul>
+<li>Con <code>decimal('price', 8, 2)</code> se pueden guardar hasta 8 dígitos, de los cuales 2 son decimales.</li>
+<li>Con <code>foreignId()</code> se crea la columna ID, pero <strong>no se crea automáticamente la restricción de clave foránea</strong>. Para ello se puede utilizar <code>constrained()</code>.</li>
+<li>El método <code>timestamps()</code> crea dos columnas que Eloquent puede gestionar automáticamente.</li>
+</ul>
+</div>
+<h2 id="propiedades-de-las-columnas">Propiedades de las columnas</h2>
+<p>Además de definir el tipo de dato de una columna, también podemos establecer <strong>propiedades adicionales</strong>.</p>
+<p>Estas propiedades sirven para especificar qué valores acepta la columna o cómo se comporta.</p>
+<table>
+<thead>
+<tr>
+<th>Propiedad</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>nullable()</code></td>
+<td>Permite que la columna acepte el valor <code>NULL</code>.</td>
+</tr>
+<tr>
+<td><code>default()</code></td>
+<td>Establece el valor que se utilizará si no se especifica ninguno.</td>
+</tr>
+<tr>
+<td><code>unique()</code></td>
+<td>Impide que haya valores repetidos en la columna mediante una restricción de la base de datos.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ejemplo:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="x">$table-&gt;string('email')-&gt;unique();</span>
+<span class="x">$table-&gt;boolean('active')-&gt;default(true);</span>
+<span class="x">$table-&gt;string('avatar')-&gt;nullable();</span>
+</code></pre></div>
+<ul>
+<li><strong><code>email</code></strong>: la dirección de correo electrónico no se podrá repetir.</li>
+<li><strong><code>active</code></strong>: si no se indica ningún valor, será <code>true</code> por defecto.</li>
+<li><strong><code>avatar</code></strong>: si el usuario no tiene una imagen, la columna podrá tener el valor <code>NULL</code>.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Podemos encadenar varios métodos en la definición de una columna:</p>
+<div class="highlight"><pre><span></span><code><span class="x">$table-&gt;string('username', 50)-&gt;nullable()-&gt;unique();</span>
+</code></pre></div>
+<p>En este caso, la columna <code>username</code> tendrá un máximo de 50 caracteres, aceptará el valor <code>NULL</code> y no permitirá que se repitan los valores que no sean <code>NULL</code>.</p>
+</div>
 <p>Encontrarás la documentación oficial en el siguiente enlace: <a href="https://laravel.com/framework/docs/13.x/migrations">https://laravel.com/framework/docs/13.x/migrations</a></p>
 <p>Siguiente: Eloquent</p>
 
@@ -2763,7 +3212,7 @@ php<span class="w"> </span>artisan<span class="w"> </span>migrate
       <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>
