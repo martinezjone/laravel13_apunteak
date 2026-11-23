@@ -141,7 +141,7 @@ class PostSeeder extends Seeder
 
         Post::create([
             'title' => 'Laravel aurreratua',
-            'content' => 'Beste Laravel post-a iznago da hau'
+            'content' => 'Beste Laravel post-a iznago da'
         ]);
     }
 }
