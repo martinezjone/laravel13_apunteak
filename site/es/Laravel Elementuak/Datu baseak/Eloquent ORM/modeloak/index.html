@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2566,13 +2566,13 @@
 <p>Gracias a esto podemos utilizar todos los métodos de la clase Models: all(), find(), create(), update(), etc.</p>
 <p>Post::all();</p>
 <p>En el modelo configuraremos los ajustes de nuestra tabla:</p>
-<div class="highlight"><pre><span></span><code><span class="x">protected $table = &quot;posts&quot;;</span>
+<div class="highlight"><pre><span></span><code><span class="x">protected $table = "posts";</span>
 
-<span class="x">protected $primaryKey = &quot;id&quot;;</span>
+<span class="x">protected $primaryKey = "id";</span>
 
-<span class="x">protected $fillable = [&#39;title&#39;, &#39;content&#39;, &#39;categoria&#39;];</span>
+<span class="x">protected $fillable = ['title', 'content', 'categoria'];</span>
 
-<span class="x">protected $hidden = [&#39;id&#39;];</span>
+<span class="x">protected $hidden = ['id'];</span>
 </code></pre></div>
 <p>También podemos crear en el modelo funciones que utilizarán los controladores, aunque lo más habitual y recomendable es hacerlo en el controlador:</p>
 <div class="highlight"><pre><span></span><code><span class="x">public function postakLortu(){</span>
@@ -2588,7 +2588,7 @@
 <span class="x">}</span>
 </code></pre></div>
 <p>NOTA: Si queremos que nuestros modelos utilicen una tabla que no siga la convención de Eloquent, por ejemplo, que el modelo Ikasle trabaje con la tabla ikasleak en lugar de con la tabla ikasles, tendremos que indicarlo mediante la propiedad $table:</p>
-<div class="highlight"><pre><span></span><code><span class="x">protected $table = &quot;ikasleak&quot;;</span>
+<div class="highlight"><pre><span></span><code><span class="x">protected $table = "ikasleak";</span>
 </code></pre></div>
 <p>Siguiente: Seeders</p>
 
@@ -2643,7 +2643,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
     
     
-      <script src="../../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

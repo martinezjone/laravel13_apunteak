@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2737,7 +2737,7 @@
 </li>
 </ul>
 <p>//Para ver todos los estudiantes</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;/pupils&#39;, [PupilController::class, &#39;index&#39;])-&gt;name(&#39;pupils.index&#39;);</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get('/pupils', [PupilController::class, 'index'])-&gt;name('pupils.index');</span>
 </code></pre></div>
 <ol>
 <li>Crear PupilController</li>
@@ -2746,7 +2746,7 @@
 <div class="highlight"><pre><span></span><code><span class="x">public function index(){</span>
 <span class="x">    $pupils= Pupil::all();</span>
 
-<span class="x">    return view(&#39;pupils.index&#39;,compact(&#39;pupils&#39;));</span>
+<span class="x">    return view('pupils.index',compact('pupils'));</span>
 <span class="x">}</span>
 </code></pre></div>
 <ol>
@@ -2768,25 +2768,25 @@
 <li>Algunos ejemplos:</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="x">// Izenetik ordenatu</span>
-<span class="x">$pupils = Pupil::orderBy(&#39;name&#39;)-&gt;get();</span>
+<span class="x">$pupils = Pupil::orderBy('name')-&gt;get();</span>
 
 <span class="x">// Ikasle guztiak hartzen ditu baina bakarrik izena eta adina</span>
-<span class="x">$pupils = Pupil::select(&#39;name&#39;, &#39;age&#39;)-&gt;get();</span>
+<span class="x">$pupils = Pupil::select('name', 'age')-&gt;get();</span>
 
 <span class="x">// Where bat erabiliz</span>
-<span class="x">$pupils = Pupil::where(&#39;address&#39;, &#39;Bilbao&#39;)-&gt;get();</span>
+<span class="x">$pupils = Pupil::where('address', 'Bilbao')-&gt;get();</span>
 
-<span class="x">// Where konbinatuak: adina &gt; 18 edo helbidea = &#39;Bilbao&#39;</span>
-<span class="x">$pupils = Pupil::where(&#39;age&#39;, &#39;&gt;&#39;, 18)-&gt;orWhere(&#39;address&#39;, &#39;=&#39;, &#39;Bilbao&#39;)-&gt;get();</span>
+<span class="x">// Where konbinatuak: adina &gt; 18 edo helbidea = 'Bilbao'</span>
+<span class="x">$pupils = Pupil::where('age', '&gt;', 18)-&gt;orWhere('address', '=', 'Bilbao')-&gt;get();</span>
 
-<span class="x">// Name like &#39;%Jon%&#39;</span>
-<span class="x">$pupils = Pupil::where(&#39;name&#39;, &#39;like&#39;, &#39;%Jon%&#39;)-&gt;get();</span>
+<span class="x">// Name like '%Jon%'</span>
+<span class="x">$pupils = Pupil::where('name', 'like', '%Jon%')-&gt;get();</span>
 
 <span class="x">// Adina &gt; 20 guztiak</span>
-<span class="x">$pupils = Pupil::where(&#39;age&#39;, &#39;&gt;&#39;, 15)-&gt;get();</span>
+<span class="x">$pupils = Pupil::where('age', '&gt;', 15)-&gt;get();</span>
 
 <span class="x">// Adina &gt; 20, lehenengoa bakarrik</span>
-<span class="x">$pupil = Pupil::where(&#39;age&#39;, &#39;&gt;&#39;, 20)-&gt;first();</span>
+<span class="x">$pupil = Pupil::where('age', '&gt;', 20)-&gt;first();</span>
 
 <span class="x">// Zenbat erregistro dauden</span>
 <span class="x">$pupilCount = Pupil::count();</span>
@@ -2795,16 +2795,16 @@
 <span class="x">$pupils = Pupil::limit(10)-&gt;get();</span>
 
 <span class="x">// Adin maximoa</span>
-<span class="x">$maxAge = Pupil::max(&#39;age&#39;);</span>
+<span class="x">$maxAge = Pupil::max('age');</span>
 
 <span class="x">// Adin minimoa</span>
-<span class="x">$minAge = Pupil::min(&#39;age&#39;);</span>
+<span class="x">$minAge = Pupil::min('age');</span>
 
 <span class="x">// Adin batazbestekoa</span>
-<span class="x">$avgAge = Pupil::avg(&#39;age&#39;);</span>
+<span class="x">$avgAge = Pupil::avg('age');</span>
 
 <span class="x">// Adinen batura</span>
-<span class="x">$totalAge = Pupil::sum(&#39;age&#39;);</span>
+<span class="x">$totalAge = Pupil::sum('age');</span>
 </code></pre></div>
 <h2 id="mostrar-un-registro">Mostrar un registro</h2>
 <ul>
@@ -2819,14 +2819,14 @@
 </ol>
 <div class="highlight"><pre><span></span><code><span class="x">public function show(Pupil $pupil){</span>
 
-<span class="x">    return view(&#39;pupils.show&#39;, compact(&#39;pupil&#39;));</span>
+<span class="x">    return view('pupils.show', compact('pupil'));</span>
 
 <span class="x">}</span>
 </code></pre></div>
 <ol>
 <li>La ruta sería la siguiente:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;pupils/{pupil}&#39;, [PupilController::class, &#39;show&#39;])-&gt;name(&#39;pupils.show&#39;);</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get('pupils/{pupil}', [PupilController::class, 'show'])-&gt;name('pupils.show');</span>
 </code></pre></div>
 <ol>
 <li>Vista: show.blade.php</li>
@@ -2842,7 +2842,7 @@
 <ol>
 <li>Añadir un enlace en la vista anterior:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="x">&lt;a href=&quot;{{ route(&#39;pupils.show&#39;, $pupil-&gt;id) }}&quot;&gt;{{ $pupil-&gt;name }}&lt;/a&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="x">&lt;a href="{{ route('pupils.show', $pupil-&gt;id) }}"&gt;{{ $pupil-&gt;name }}&lt;/a&gt;</span>
 </code></pre></div>
 <h2 id="crear-un-nuevo-estudiante-metodos-create-y-store">Crear un nuevo estudiante: métodos create y store</h2>
 <ul>
@@ -2857,16 +2857,16 @@
 <li>Crearemos la vista en la carpeta "alumnos" con el nombre "create.blade.php".</li>
 <li>Este será el código de la vista que contendrá el formulario:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;{{ route(&#39;pupils.store&#39;) }}&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;POST&quot;</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">"{{ route('pupils.store') }}"</span> <span class="na">method</span><span class="o">=</span><span class="s">"POST"</span><span class="p">&gt;</span>
 
     @csrf
 
-    Izen Abizena <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;izena&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
-    Adina <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;adina&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
-    Telefonoa <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;telefonoa&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
-    Helbidea<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;helbidea&quot;</span>  <span class="na">value</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+    Izen Abizena <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">name</span><span class="o">=</span><span class="s">"izena"</span> <span class="na">value</span><span class="o">=</span><span class="s">""</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+    Adina <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">name</span><span class="o">=</span><span class="s">"adina"</span> <span class="na">value</span><span class="o">=</span><span class="s">""</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+    Telefonoa <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">name</span><span class="o">=</span><span class="s">"telefonoa"</span> <span class="na">value</span><span class="o">=</span><span class="s">""</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+    Helbidea<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">name</span><span class="o">=</span><span class="s">"helbidea"</span>  <span class="na">value</span><span class="o">=</span><span class="s">""</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
 
-    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">&gt;</span>Bidali<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">"submit"</span><span class="p">&gt;</span>Bidali<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 
 <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
 </code></pre></div>
@@ -2874,9 +2874,9 @@
 <li>Fijaos en que Laravel nos pide incluir el token @csrf dentro del formulario. Esto se hace por seguridad y se usa para evitar ataques. Crearemos un token de este tipo para cada formulario. Laravel exige que este token esté presente.</li>
 <li>Rutas. Necesitaremos dos: una GET para acceder al formulario y otra con el método POST para guardar en la base de datos los datos del formulario:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;pupils/create&#39;,[PupilController::class,&#39;create&#39;])-&gt;name(&#39;pupils.create&#39;);</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get('pupils/create',[PupilController::class,'create'])-&gt;name('pupils.create');</span>
 
-<span class="x">Route::post(&#39;pupils/store&#39;,[PupilController::class,&#39;store&#39;])-&gt;name(&#39;pupils.store&#39;);</span>
+<span class="x">Route::post('pupils/store',[PupilController::class,'store'])-&gt;name('pupils.store');</span>
 </code></pre></div>
 <ol>
 <li>PupilController:</li>
@@ -2884,27 +2884,27 @@
 <p>El método create() mostrará el formulario que necesitamos para crear un nuevo estudiante:</p>
 <div class="highlight"><pre><span></span><code><span class="x">public function create(){</span>
 
-<span class="x">    return view(&#39;pupils.create&#39;);</span>
+<span class="x">    return view('pupils.create');</span>
 
 <span class="x">}</span>
 </code></pre></div>
 <p>El método store() guardará en la base de datos la información enviada por el formulario:</p>
 <div class="highlight"><pre><span></span><code><span class="x">public function store(Request $request){</span>
 <span class="x">    Pupil::create([</span>
-<span class="x">    &#39;name&#39; =&gt; $request-&gt;name,</span>
-<span class="x">    &#39;age&#39; =&gt; $request-&gt;age,</span>
-<span class="x">    &#39;phone&#39; =&gt; $request-&gt;phone,</span>
-<span class="x">    &#39;address&#39; =&gt; $request-&gt;address,</span>
+<span class="x">    'name' =&gt; $request-&gt;name,</span>
+<span class="x">    'age' =&gt; $request-&gt;age,</span>
+<span class="x">    'phone' =&gt; $request-&gt;phone,</span>
+<span class="x">    'address' =&gt; $request-&gt;address,</span>
 <span class="x">    ]);</span>
 
-<span class="x">return redirect()-&gt;route(&#39;pupils.all&#39;);</span>
+<span class="x">return redirect()-&gt;route('pupils.all');</span>
 
 <span class="x">}</span>
 </code></pre></div>
 <ol>
 <li>También pondremos en la vista index un enlace para crear un nuevo estudiante:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="x">&lt;a href=&quot;{{route(&#39;pupils.create&#39;)}}&quot;&gt;Ikasle berria&lt;/a&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="x">&lt;a href="{{route('pupils.create')}}"&gt;Ikasle berria&lt;/a&gt;</span>
 </code></pre></div>
 <h2 id="modificar-los-datos-de-un-estudiante-metodos-edit-y-update">Modificar los datos de un estudiante: métodos edit y update</h2>
 <ul>
@@ -2920,33 +2920,33 @@
 </ul>
 <p>PupilController</p>
 <div class="highlight"><pre><span></span><code><span class="x">public function edit(Pupil $pupil){</span>
-<span class="x">    return view(&#39;pupils.edit&#39;, compact(&#39;pupil&#39;));</span>
+<span class="x">    return view('pupils.edit', compact('pupil'));</span>
 <span class="x">}</span>
 </code></pre></div>
 <p>Como podéis ver, ahora, en lugar de recibir una variable corriente, hemos puesto Alumno delante. Al escribirlo así, Laravel entiende que $alumno es una instancia de la clase Alumno.</p>
 <ol>
 <li>Necesitaremos una ruta que invoque este método:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;pupils/edit/{pupil}&#39;,[PupilController::class,&#39;edit&#39;])-&gt;name(&#39;pupils.edit&#39;);</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get('pupils/edit/{pupil}',[PupilController::class,'edit'])-&gt;name('pupils.edit');</span>
 </code></pre></div>
 <ol>
 <li>También crearemos en una vista el formulario necesario para modificar los datos del estudiante. En este formulario tendremos un par de particularidades: por un lado, esta vez mostraremos en los valores los datos que ya tiene ese estudiante y, por otro, tendremos que cambiar el método. Al realizar actualizaciones, Laravel prefiere que la ruta use el método PUT en lugar de POST, así que también debemos indicarlo en el formulario:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="x">&lt;form action=&quot;{{ route(&#39;pupils.update&#39;, $pupil-&gt;id) }}&quot; method=&quot;POST&quot;&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="x">&lt;form action="{{ route('pupils.update', $pupil-&gt;id) }}" method="POST"&gt;</span>
 <span class="x">    @csrf</span>
 
-<span class="x">    @method(&#39;put&#39;)</span>
-<span class="x">    &lt;input type=&quot;text&quot; id=&quot;izena&quot; name=&quot;izena&quot; value=&quot;{{$pupil-&gt;name}}&quot;&gt;</span>
-<span class="x">    &lt;input type=&quot;number&quot; id=&quot;adina&quot; name=&quot;adina&quot; value=&quot;{{$pupil-&gt;age}}&quot;&gt;</span>
-<span class="x">    &lt;input type=&quot;tel&quot; id=&quot;telefonoa&quot; name=&quot;telefonoa&quot; value=&quot;{{$pupil-&gt;phone}}&quot;&gt;</span>
-<span class="x">    &lt;textarea id=&quot;helbidea&quot; name=&quot;helbidea&quot; required&gt;{{$pupil-&gt;address}}&lt;/textarea&gt;</span>
-<span class="x">    &lt;button type=&quot;submit&quot;&gt;Gorde&lt;/button&gt;</span>
+<span class="x">    @method('put')</span>
+<span class="x">    &lt;input type="text" id="izena" name="izena" value="{{$pupil-&gt;name}}"&gt;</span>
+<span class="x">    &lt;input type="number" id="adina" name="adina" value="{{$pupil-&gt;age}}"&gt;</span>
+<span class="x">    &lt;input type="tel" id="telefonoa" name="telefonoa" value="{{$pupil-&gt;phone}}"&gt;</span>
+<span class="x">    &lt;textarea id="helbidea" name="helbidea" required&gt;{{$pupil-&gt;address}}&lt;/textarea&gt;</span>
+<span class="x">    &lt;button type="submit"&gt;Gorde&lt;/button&gt;</span>
 <span class="x">&lt;/form&gt;</span>
 </code></pre></div>
 <ol>
 <li>La ruta para la actualización sería así, usando el método PUT:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="x">Route::put(&#39;pupils/update/{pupil}&#39;,[PupilController::class,&#39;update&#39;])-&gt;name(&#39;pupils.update&#39;);</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::put('pupils/update/{pupil}',[PupilController::class,'update'])-&gt;name('pupils.update');</span>
 </code></pre></div>
 <ol>
 <li>En el controlador también prepararemos la función update, que modificará la base de datos con los datos enviados. Es decir, la vista edit llamará a la siguiente función; en este caso, el método recibirá tanto los datos enviados por el formulario como el objeto que tenemos que modificar.</li>
@@ -2954,13 +2954,13 @@
 <div class="highlight"><pre><span></span><code><span class="x">public function update(Request $request, Pupil $pupil) {</span>
 
 <span class="x">    $pupil-&gt;update([</span>
-<span class="x">    &#39;name&#39; =&gt; $request-&gt;name,</span>
-<span class="x">    &#39;age&#39; =&gt; $request-&gt;age,</span>
-<span class="x">    &#39;phone&#39; =&gt; $request-&gt;phone,</span>
-<span class="x">    &#39;address&#39; =&gt; $request-&gt;address,</span>
+<span class="x">    'name' =&gt; $request-&gt;name,</span>
+<span class="x">    'age' =&gt; $request-&gt;age,</span>
+<span class="x">    'phone' =&gt; $request-&gt;phone,</span>
+<span class="x">    'address' =&gt; $request-&gt;address,</span>
 <span class="x">    ]);</span>
 
-<span class="x">    return redirect()-&gt;route(&#39;pupils.all&#39;);</span>
+<span class="x">    return redirect()-&gt;route('pupils.all');</span>
 <span class="x">}</span>
 </code></pre></div>
 <h2 id="eliminar-un-estudiante-metodo-destroy">Eliminar un estudiante: método destroy()</h2>
@@ -2974,7 +2974,7 @@
 <p>Crear la ruta:</p>
 </li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="x">Route::delete(&#39;pupils/{pupil}&#39;,[PupilController::class,&#39;destroy&#39;])-&gt;name(&#39;pupils.destroy&#39;);</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::delete('pupils/{pupil}',[PupilController::class,'destroy'])-&gt;name('pupils.destroy');</span>
 </code></pre></div>
 <p>Como vemos, esta ruta invoca el método delete, que es el método que Laravel usa para eliminar.</p>
 <ol>
@@ -2982,18 +2982,18 @@
 </ol>
 <div class="highlight"><pre><span></span><code><span class="x">public function destroy(Pupil $pupil){</span>
 <span class="x">    $pupil-&gt;delete();</span>
-<span class="x">    return redirect()-&gt;route(&#39;pupils.all&#39;);</span>
+<span class="x">    return redirect()-&gt;route('pupils.all');</span>
 <span class="x">}</span>
 </code></pre></div>
 <ol>
 <li>Enlace para eliminar al estudiante. Como hemos visto al crear la ruta, Laravel usa el método delete para eliminar un registro de la base de datos. Por tanto, al llamar a esa ruta debemos indicar en HTML que vamos a usar ese método. Solo podemos hacerlo dentro de un formulario, así que siempre debemos llamar a una ruta destroy mediante un formulario.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="x">&lt;form action=&quot;{{ route(&#39;pupils.destroy&#39;, $pupil-&gt;id) }}&quot; method=&quot;POST&quot; class=&quot;inline-block&quot;&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="x">&lt;form action="{{ route('pupils.destroy', $pupil-&gt;id) }}" method="POST" class="inline-block"&gt;</span>
 <span class="x">    @csrf</span>
 
-<span class="x">    @method(&#39;DELETE&#39;)</span>
+<span class="x">    @method('DELETE')</span>
 
-<span class="x">    &lt;button type=&quot;submit&quot;&gt;Delete&lt;/button&gt;</span>
+<span class="x">    &lt;button type="submit"&gt;Delete&lt;/button&gt;</span>
 <span class="x">&lt;/form&gt;</span>
 </code></pre></div>
 <ol>
@@ -3011,14 +3011,14 @@
 <p>Crear la ruta:</p>
 </li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;pupils/delete/{pupil}&#39;,[PupilController::class,&#39;delete&#39;])-&gt;name(&#39;pupils.delete&#39;);</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get('pupils/delete/{pupil}',[PupilController::class,'delete'])-&gt;name('pupils.delete');</span>
 </code></pre></div>
 <ol>
 <li>Dentro de PupilController crearemos un método para confirmar la eliminación de un registro.</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="x">public function delete(Pupil $pupil){</span>
 
-<span class="x">    return view(&#39;pupils.delete&#39;, compact(&#39;pupil&#39;));</span>
+<span class="x">    return view('pupils.delete', compact('pupil'));</span>
 
 <span class="x">}</span>
 </code></pre></div>
@@ -3026,24 +3026,24 @@
 <li>confirm.blade.php - Crearemos una vista con un formulario que tendrá un botón para eliminar y también un enlace para cancelar.</li>
 </ol>
 <p>¿Seguro que quieres eliminarlo?</p>
-<div class="highlight"><pre><span></span><code><span class="x">&lt;form action=&quot;{{ route(&#39;pupils.destroy&#39;, $pupil-&gt;id) }}&quot; method=&quot;POST&quot; class=&quot;inline-block&quot;&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="x">&lt;form action="{{ route('pupils.destroy', $pupil-&gt;id) }}" method="POST" class="inline-block"&gt;</span>
 <span class="x">    @csrf</span>
 
-<span class="x">    @method(&#39;DELETE&#39;)</span>
-<span class="x">    &lt;button type=&quot;submit&quot;&gt;Delete&lt;/button&gt;</span>
+<span class="x">    @method('DELETE')</span>
+<span class="x">    &lt;button type="submit"&gt;Delete&lt;/button&gt;</span>
 <span class="x">&lt;/form&gt;</span>
 </code></pre></div>
 <h2 id="rutas-resource">Rutas resource</h2>
 <p>Si seguimos todas las convenciones, podemos resumir todas estas rutas en una sola:</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::resource(&#39;pupils&#39;,PupilController::class);</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::resource('pupils',PupilController::class);</span>
 </code></pre></div>
 <p>Para ver todas las rutas creadas por el proyecto, podemos listarlas mediante Artisan:</p>
 <div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>route:list
 </code></pre></div>
 <p>Si queremos crear más de un resource, podemos pasar a nuestra ruta resource un array con tantos elementos como queramos.</p>
 <div class="highlight"><pre><span></span><code><span class="x">Route::resources([</span>
-<span class="x">    &#39;photos&#39; =&gt; PhotoController::class,</span>
-<span class="x">    &#39;posts&#39; =&gt; PostController::class,</span>
+<span class="x">    'photos' =&gt; PhotoController::class,</span>
+<span class="x">    'posts' =&gt; PostController::class,</span>
 <span class="x">]);</span>
 </code></pre></div>
 <p>Documentación oficial sobre este tema: <a href="https://laravel.com/framework/docs/13.x/controllers#resource-controllers">https://laravel.com/framework/docs/13.x/controllers#resource-controllers</a></p>
@@ -3099,7 +3099,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>
