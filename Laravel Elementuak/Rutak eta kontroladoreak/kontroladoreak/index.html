@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2737,13 +2737,13 @@
 <span class="p">{</span>
     <span class="k">public</span> <span class="k">function</span> <span class="nf">index</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span>
     <span class="p">{</span>
-        <span class="k">return</span> <span class="s1">'Hau da nire blogaren hasierako orria. Ongi etorri!'</span><span class="p">;</span>
+        <span class="k">return</span> <span class="s1">&#39;Hau da nire blogaren hasierako orria. Ongi etorri!&#39;</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p><code>namespace App\Http\Controllers;</code> lerroak klasea zein izen-eremutan dagoen adierazten du. <code>extends Controller</code> adierazpenak <code>HomeController</code> klaseak oinarrizko <code>Controller</code> klasea heredatzen duela adierazten du. <code>public</code> hitzari esker, metodoa klasetik kanpo dei daiteke. <code>: string</code> adierazpenak metodoaren itzulera mota zehazten du.</p>
 <p><code>routes/web.php</code> fitxategian, gehitu <code>use App\Http\Controllers\HomeController;</code> lerroa gainerako inportazioekin batera. Gero, ordezkatu lehendik zegoen <code>GET /</code> ibilbidea honako honekin:</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get('/', [HomeController::class, 'index']);</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;/&#39;, [HomeController::class, &#39;index&#39;]);</span>
 </code></pre></div>
 <p><code>use</code> lerroari esker, fitxategian <code>HomeController</code> izen laburra erabil dezakegu. Ibilbidearen bigarren argumentuko arrayak bi elementu ditu:</p>
 <table>
@@ -2766,12 +2766,12 @@
 </table>
 <h2 id="ibilbideko-parametroa-kontroladorean-jasotzea">Ibilbideko parametroa kontroladorean jasotzea</h2>
 <p>Ordezkatu aurreko <code>/welcome/{name?}</code> ibilbideko funtzio anonimoa kontroladorearen metodoarekin. <code>routes/web.php</code> fitxategian:</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get('/welcome/{name?}', [HomeController::class, 'welcome']);</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;/welcome/{name?}&#39;, [HomeController::class, &#39;welcome&#39;]);</span>
 </code></pre></div>
 <p>Gehitu <code>welcome()</code> metodoa <code>HomeController</code> klasearen barruan:</p>
-<div class="highlight"><pre><span></span><code><span class="x">public function welcome(string $name = 'gonbidatua'): string</span>
+<div class="highlight"><pre><span></span><code><span class="x">public function welcome(string $name = &#39;gonbidatua&#39;): string</span>
 <span class="x">{</span>
-<span class="x">    return 'Kaixo, ' . e($name) . '!';</span>
+<span class="x">    return &#39;Kaixo, &#39; . e($name) . &#39;!&#39;;</span>
 <span class="x">}</span>
 </code></pre></div>
 <table>
@@ -2800,12 +2800,12 @@
 <p>Orain, <code>index()</code> metodoak hasierako orriaren izenburua eta mezua prestatuko ditu, eta Blade bistari pasatuko dizkio. Gehitu <code>use Illuminate\View\View;</code> kontroladorearen fitxategian, <code>namespace</code> lerroaren ondoren. Gero, ordezkatu <code>index()</code> metodoa:</p>
 <div class="highlight"><pre><span></span><code><span class="x">public function index(): View</span>
 <span class="x">{</span>
-<span class="x">    $title = 'Hasiera';</span>
-<span class="x">    $message = 'Hau da nire blogaren hasierako orria. Ongi etorri!';</span>
+<span class="x">    $title = &#39;Hasiera&#39;;</span>
+<span class="x">    $message = &#39;Hau da nire blogaren hasierako orria. Ongi etorri!&#39;;</span>
 
-<span class="x">    return view('home', [</span>
-<span class="x">        'title' =&gt; $title,</span>
-<span class="x">        'message' =&gt; $message,</span>
+<span class="x">    return view(&#39;home&#39;, [</span>
+<span class="x">        &#39;title&#39; =&gt; $title,</span>
+<span class="x">        &#39;message&#39; =&gt; $message,</span>
 <span class="x">    ]);</span>
 <span class="x">}</span>
 </code></pre></div>
@@ -2826,12 +2826,12 @@
 <span class="p">{</span>
     <span class="k">public</span> <span class="k">function</span> <span class="fm">__invoke</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span>
     <span class="p">{</span>
-        <span class="k">return</span> <span class="s1">'Blogari buruzko informazioa'</span><span class="p">;</span>
+        <span class="k">return</span> <span class="s1">&#39;Blogari buruzko informazioa&#39;</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Gehitu <code>use App\Http\Controllers\AboutController;</code> inportazioa <code>routes/web.php</code> fitxategiaren hasieran eta erregistratu ibilbidea:</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get('/about', AboutController::class);</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;/about&#39;, AboutController::class);</span>
 </code></pre></div>
 <p>Kasu honetan, kontroladorearen klasea ematea nahikoa da. Laravelek <code>__invoke()</code> metodoari deituko dio. <code>/{number}</code> ibilbide orokorra aktibo badago, jarri <code>/about</code> haren aurretik.</p>
 <h2 id="baliabide-kontroladorea-resource-controller">Baliabide-kontroladorea (<em>Resource controller</em>)</h2>
@@ -2840,7 +2840,7 @@
 </code></pre></div>
 <p>Komandoak <code>index</code>, <code>create</code>, <code>store</code>, <code>show</code>, <code>edit</code>, <code>update</code> eta <code>destroy</code> metodoen egitura prestatzen du. Metodo bakoitzaren edukia guk idatziko dugu.</p>
 <p>Ibilbideak erregistratzeko, gehitu <code>use App\Http\Controllers\TeacherController;</code> inportazioa eta deklarazio hau <code>routes/web.php</code> fitxategian:</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::resource('teachers', TeacherController::class);</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::resource(&#39;teachers&#39;, TeacherController::class);</span>
 </code></pre></div>
 <p><code>--resource</code> aukerak kontroladorearen metodoen egitura sortzen du, eta <code>Route::resource()</code> deiak ibilbideak erregistratzen ditu. Egiaztatu emaitza <code>php artisan route:list --path=teachers</code> komandoarekin. Ibilbide bakoitzaren HTTP metodoa, URLa eta ekintza <a href="../rutak/">Rutak</a> atalean ikus ditzakezu.</p>
 <p><a href="https://laravel.com/framework/docs/13.x/controllers">Laravel 13ren dokumentazio ofiziala · Controllers</a></p>
@@ -2896,7 +2896,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Arbelean kopiatuta", "clipboard.copy": "Kopiatu arbelean", "search.result.more.one": "Bat gehiago orri honetan", "search.result.more.other": "# gehiago orri honetan", "search.result.none": "Bat datorren dokumenturik ez", "search.result.one": "Bat datorren dokumentu bat", "search.result.other": "Bat datozen # dokumentu", "search.result.placeholder": "Idatzi bilatzen hasteko", "search.result.term.missing": "Falta da", "select.version": "Hautatu bertsioa"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

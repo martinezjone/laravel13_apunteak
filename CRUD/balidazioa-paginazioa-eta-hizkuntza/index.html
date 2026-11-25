@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#eskola-adibidea" class="md-skip">
+        <a href="#txurdigest-paginazioa-balidazioa-hizkuntza-eta-irudiak" class="md-skip">
           Joan zuzenean edukira
         </a>
       
@@ -1886,13 +1886,41 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="3. Hizkuntza">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#balidazio-mezuak-euskaraz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Balidazio-mezuak euskaraz
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interfazeko-testuak-itzulpen-fitxategira-eraman" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interfazeko testuak itzulpen-fitxategira eraman
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#laburpena" class="md-nav__link">
+  <a href="#4-aukerako-hedapena-ikaslearen-argazkia" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Laburpena
+        4. Aukerako hedapena · Ikaslearen argazkia
       
     </span>
   </a>
@@ -2626,13 +2654,41 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="3. Hizkuntza">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#balidazio-mezuak-euskaraz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Balidazio-mezuak euskaraz
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interfazeko-testuak-itzulpen-fitxategira-eraman" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interfazeko testuak itzulpen-fitxategira eraman
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#laburpena" class="md-nav__link">
+  <a href="#4-aukerako-hedapena-ikaslearen-argazkia" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Laburpena
+        4. Aukerako hedapena · Ikaslearen argazkia
       
     </span>
   </a>
@@ -2656,174 +2712,262 @@
 
 
 
-<h1 id="eskola-adibidea">Eskola adibidea</h1>
+<h1 id="txurdigest-paginazioa-balidazioa-hizkuntza-eta-irudiak">TxurdiGest · Paginazioa, balidazioa, hizkuntza eta irudiak</h1>
 <h2 id="1-paginazioa">1. Paginazioa</h2>
-<p>Laravel bere 9. bertsioan paginazioa egiteko oso modu erraza sortu zuen. Oraingoan gure ikasleak jasotzerakoan all() metodoari deitu beharrean, paginate() metodoari deituko diogu</p>
-<ol>
-<li>PupilController, index metodoan all() metodoa paginte() metodoarekin aldatuko dugu:</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="x">$pupils = Pupil::paginate();</span>
+<p><code>StudentController::index()</code> metodoan ordezkatu <code>Student::all()</code> kontsulta:</p>
+<div class="highlight"><pre><span></span><code><span class="x">$students = Student::query()-&gt;orderBy(&#39;name&#39;)-&gt;orderBy(&#39;id&#39;)-&gt;paginate(10);</span>
 </code></pre></div>
-<p>Aurrekoarekin soilik esan diogu gure ikasleak taldeka pasatzea, berez 15-naka pasatuko ditu datu baseko erregistroak, gure kasuan ikasleenak.</p>
-<p>Baina hori aldatu dezakegu, paginate metodoari parametroz zenbat erregistro jaso nahi ditugu esanez:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$pupils = Pupil::paginate(10);</span>
+<p><code>paginate(10)</code> metodoak orriko hamar ikasle berreskuratzen ditu. Izen bera duten ikasleak IDaren arabera ordenatzen dira. Gehitu ondokoa <code>resources/views/students/index.blade.php</code> fitxategian, zerrendaren azpian:</p>
+<div class="highlight"><pre><span></span><code>{{ $students-&gt;links(&#39;pagination.simple&#39;) }}
 </code></pre></div>
-<p>Beste metodo bat erabili dezakeguna orderBy izango da, hau beste metodoekin eraili dezakegu, adibidez:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$pupils = Pupil::orderBy('id','desc')-&gt;paginate();</span>
+<p>Ariketan CSS propioa erabili dugu. Sortu <code>resources/views/pagination/simple.blade.php</code> izeneko bista estekak euskaraz eta Tailwinden beharrik gabe erakusteko:</p>
+<div class="highlight"><pre><span></span><code>@if ($paginator-&gt;hasPages())
+    &lt;nav class=&quot;pagination&quot; aria-label=&quot;Paginazioa&quot;&gt;
+        @if ($paginator-&gt;previousPageUrl())
+            &lt;a href=&quot;{{ $paginator-&gt;previousPageUrl() }}&quot; rel=&quot;prev&quot;&gt;Aurrekoa&lt;/a&gt;
+        @endif
+        &lt;span&gt;{{ $paginator-&gt;currentPage() }} / {{ $paginator-&gt;lastPage() }}&lt;/span&gt;
+        @if ($paginator-&gt;nextPageUrl())
+            &lt;a href=&quot;{{ $paginator-&gt;nextPageUrl() }}&quot; rel=&quot;next&quot;&gt;Hurrengoa&lt;/a&gt;
+        @endif
+    &lt;/nav&gt;
+@endif
 </code></pre></div>
-<ol>
-<li>index.blade.php bistan paginazioaren linkak jarriko ditugu hurrengo direktiba erabiliz::</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="x">{{ $pupils -&gt;links() }}</span>
-</code></pre></div>
-<ol>
-<li>Eta horregaz jada, paginazioa eginda egongo litzateke</li>
-</ol>
+<p>Bista hau <code>paginate()</code> itzultzen duen orri kopurua dakien paginadorearekin erabiltzen da. Konprobatu bigarren orria seederrak sortutako ikasleekin. Bilaketa bat gehitzen baduzu, <code>-&gt;withQueryString()</code> erabil dezakezu iragazkia orri batetik bestera mantentzeko.</p>
 <h2 id="2-balidazioa">2. Balidazioa</h2>
-<p>Laravelek baditu hainbat funtzio datuen balidazioak egiteko lagungarri egingo zaizkigunak.</p>
-<p>Ezer baino lehen, begiratuko dugu gure datu basean zeintzuk datu dira derrigorrezkoak, zeintzuk dira datu horien mota etab.</p>
-<p><img alt="" src="../../assets/images/Balidazioa%20paginazioa%20eta%20hizkuntza/be04c2230966cf48a0e364ae9578d7fe.jpg" /></p>
-<ol>
-<li>Akatsak store() metodoaren barruan kontrolatuko ditugu. Formularioaren datu-guztiak jasotzen dituen Request objektua erabiltzen dugu store() metodoko parametro gisa. Ondoren, validate() metodoari ematen diogu array bat, non formularioaren eremuak eta horien balidazio-erregelak zehazten diren.</li>
-</ol>
-<p>Laravelek adierazi egiten du, momentu baten balidazioa betetzen ez baldin bada, ez da hurrengo kode lerrora pasatuko eta akatsa emango digu. Aldiz, balidazio guztiak ondo daudenean aurrera jarraituko du.</p>
-<p>Gure kasuan, store() metodoan idatziko dugu, gure datu guztiak balidatuko ditugu:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$validated = $request-&gt;validate([</span>
-<span class="x">    'name' =&gt; 'required|string|max:75',</span>
-<span class="x">    'age' =&gt; 'required|integer|min:0',</span>
-<span class="x">    'phone' =&gt; 'required|string|max:20',</span>
-<span class="x">    'address' =&gt; 'required|string|max:75',</span>
-<span class="x">]);</span>
-
-<span class="x">Pupil::create($validated);</span>
+<p>TxurdiGestek hasieratik erabiltzen du <code>$request-&gt;validate()</code>. Hemen bere portaera aztertuko dugu. $request objektutik jasotako eremu guztien ordez, metodotik itzulitako eremu baliozkotuak bakarrik pasatzen zaizkie <code>create()</code> eta <code>update()</code> metodoei.</p>
+<table>
+<thead>
+<tr>
+<th>Eremua</th>
+<th>Zer egiaztatzen da</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>Derrigorrezko testua, 100 karaktere gehienez.</td>
+</tr>
+<tr>
+<td><code>email</code></td>
+<td>Helbide elektroniko balioduna eta dagokion taulan bakarra. Edizioan, uneko erregistroaren helbidea onartu behar da.</td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td>Modulu-kode derrigorrezkoa eta bakarra, gehienez 20 karakterekoa.</td>
+</tr>
+<tr>
+<td><code>teacher_id</code></td>
+<td>Existitzen den irakasle baten IDa.</td>
+</tr>
+<tr>
+<td><code>module_id.*</code></td>
+<td>Bidalitako ID bakoitza osoa eta bakarra da zerrendan, eta modulu bati dagokio.</td>
+</tr>
+</tbody>
+</table>
+<p><code>Rule::unique('students', 'email')-&gt;ignore($student)</code> erabiltzean, salbuespena ibilbidetik kargatutako ikaslea da. Horrela, Jonen izena bakarrik aldatzeak ez du bikoiztasun-errorerik ematen. Migrazioetako <code>unique()</code> murriztapenek datu-basean ere bermatzen dute bakartasuna.</p>
+<p>Balidazioak huts egiten badu, Laravelek formulariora itzultzen du erabiltzailea. <code>@error('email')</code> direktibak eremuaren mezua erakusten du, eta <code>old('email', $student-&gt;email ?? '')</code> deiak bidalitako balioa leheneratzen du. Balidatu gabeko hasierako edizioan, bigarren argumentuko balioa erakutsiko da.</p>
+<p>Akats guztiak batera erakutsi nahi badituzu, jarri kode hau formularioaren hasieran. Eremuen azpiko mezuek errorea non gertatu den adierazten dute.</p>
+<div class="highlight"><pre><span></span><code>@if ($errors-&gt;any())
+    &lt;ul class=&quot;error&quot; role=&quot;alert&quot;&gt;
+        @foreach ($errors-&gt;all() as $error)
+            &lt;li&gt;{{ $error }}&lt;/li&gt;
+        @endforeach
+    &lt;/ul&gt;
+@endif
 </code></pre></div>
-<p>Akatsak mezuetan adierazi</p>
-<ol>
-<li>
-<p>Orain, gure inprimakiak ikusiko ditugu. Hor inprimatuko ditugu mezuak formularioko eremuetan, gure kontrolatzaileetan definitzen ditugun baliozkotze-akatsak daudenean.</p>
-</li>
-<li>
-<p>Inprimakiak baliozkotzen hasi aurretik, css kodea erantsiko diegu gure ikuspegi guztiei, errore-mezuei estiloa emateko.
-<div class="highlight"><pre><span></span><code>p { color: red; }
-</code></pre></div></p>
-</li>
-</ol>
-<p>Inprimakia ikasleen ikuspegian (bistan) baliozkotzea</p>
-<ol>
-<li>create.blade.php bistan sortuko ditugu balidazio guztiak.</li>
-</ol>
-<p>Input elementuaren azpiko Izen-deiturak eremuan, eremu honetako baliozkotze-kodea gehitzen dugu Bladek eskaintzen digun zuzentarauarekin. @error aukerak eremu honi dagokion errore-mezua inprimatzeko aukera ematen digu.</p>
-<div class="highlight"><pre><span></span><code><span class="x">@error('name')</span>
-<span class="x">    &lt;p class="error-message"&gt;{{ $message }}&lt;/p&gt;</span>
-<span class="x">@enderror</span>
-</code></pre></div>
-<ol>
-<li>Gure input-ari gehituko diogu old() metodoa, blade-ko direktiba bat dena. Honegaz lortuko dugu balidazioa egin baino lehen sartutako datua mantentzea.</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="x">&lt;input type="text" name="name" placeholder="Izena" value="{{ old('name') }}"&gt;</span>
-</code></pre></div>
-<ol>
-<li>Gauza berdina adina elementaun egingo dugu:</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="x">&lt;label&gt;Adina:&lt;/label&gt;</span>
-
-<span class="x">&lt;input type="text" name="age" placeholder="Adina" value="{{ old('age') }}"&gt;</span>
-
-<span class="x">@error('age')</span>
-<span class="x">    &lt;p class="error-message"&gt;{{ $message }}&lt;/p&gt;&lt;br&gt;</span>
-<span class="x">@enderror</span>
-</code></pre></div>
-<ol>
-<li>Sartutako telefonoa eta helbidea ere mantenduko ditugu:</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="x">&lt;label&gt;Telefonoa:&lt;/label&gt;</span>
-<span class="x">&lt;input type="text" name="phone" placeholder="Telefonoa" value="{{ old('phone') }}"&gt;</span>
-<span class="x">&lt;label&gt;Helbidea:&lt;/label&gt;</span>
-<span class="x">&lt;input type="text" name="address" placeholder="Helbidea" value="{{ old('address') }}"&gt;</span>
-</code></pre></div>
-<p>8.  Zer gertatzen da, balidazioa editatzerakoan egiten baldin badugu? Kasu horretan, formularioara sartzen garen lehenengo aldian, datu baseko datua atera nahi dugu, eta akatsa egotekoran old metodoan bueltatzen diguna, hori egiteko, old metodoari bigarren parametro bat sartuko diogu:</p>
-<div class="highlight"><pre><span></span><code><span class="x">&lt;label&gt;Telefonoa:&lt;/label&gt;</span>
-
-<span class="x">&lt;input type="text" name="phone" placeholder="Telefonoa" value="{{ old('phone', $pupil-&gt;phone) }}"&gt;</span>
-</code></pre></div>
-<p>Ikusten dugunez, mezuak ingeleraz aterako dira, hori aldatu nahi izatekotan, hizkuntza aldatu beharko dugu.</p>
-<ol>
-<li>Badugu beste modu bat akats guztiak hasieratik erakusteko:</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="x">@if ($errors-&gt;any())</span>
-<span class="x">    Errors:</span>
-
-<span class="x">    &lt;ul&gt;</span>
-<span class="x">        @foreach ($errors-&gt;all() as $error)</span>
-
-<span class="x">         &lt;li&gt;{{ $error }}&lt;/li&gt;</span>
-
-<span class="x">        @endforeach</span>
-
-<span class="x">    &lt;/ul&gt;</span>
-
-<span class="x">@endif</span>
-</code></pre></div>
+<p>Gelan, probatu helbide elektroniko bikoiztu batekin eta editatu ikasle bat posta aldatu gabe. Nabigatzaileko <code>required</code> edo <code>type="email"</code> atributuek balio bat bidaltzea eragozten badute, erabili aldi baterako <code>novalidate</code> formularioan zerbitzariko mezuak ikusteko.</p>
 <h2 id="3-hizkuntza">3. Hizkuntza</h2>
-<p>Gure formularioko errore-mezuak probatzean ikusiko dugu nola ingelesez agertzen diren. Hori aldatzeko, Laravel-en hizkuntza konfiguratu behar dugu.</p>
-<ol>
-<li>Lang fitxategiak publikatu</li>
-</ol>
-<p>Terminalean exekutatu:</p>
+<h3 id="balidazio-mezuak-euskaraz">Balidazio-mezuak euskaraz</h3>
 <div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>lang:publish
 </code></pre></div>
-<p>Honek lang karpetan en karpeta sortuko du.</p>
-<ol>
-<li>Hizkuntzak instalatu</li>
-</ol>
-<p>Ez dugu eskuz kopiatu eta itzuli behar; errazagoa da Laravel-Lang erabiliz hizkuntzak gehitzea:</p>
-<div class="highlight"><pre><span></span><code>composer<span class="w"> </span>require<span class="w"> </span>laravel-lang/common<span class="w"> </span>--dev
-</code></pre></div>
-<p>Ondoren, nahi ditugun hizkuntzak gehitzen ditugu:</p>
-<div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>lang:add<span class="w"> </span>es<span class="w">    </span>//<span class="w"> </span>Gaztelera
+<p>Ziurtatu <code>.env</code> fitxategian <code>APP_LOCALE=eu</code> eta <code>APP_FALLBACK_LOCALE=en</code> daudela. Sortu <code>lang/eu/validation.php</code>. Hona hemen ariketako arauetarako hiztegia, irudien ataleko arauak barne:</p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
 
-php<span class="w"> </span>artisan<span class="w"> </span>lang:add<span class="w"> </span>eu<span class="w">    </span>//<span class="w"> </span>Euskara
+<span class="k">return</span> <span class="p">[</span>
+    <span class="s1">&#39;required&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;:attribute eremua bete behar da.&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;string&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;:attribute eremuak testua izan behar du.&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Idatzi baliozko helbide elektroniko bat.&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;max&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+        <span class="s1">&#39;string&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;:attribute eremuak gehienez :max karaktere izan ditzake.&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;file&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Fitxategiak gehienez :max KB izan ditzake.&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="s1">&#39;between&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+        <span class="s1">&#39;numeric&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;:attribute eremuak :min eta :max artekoa izan behar du.&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="s1">&#39;unique&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;:attribute hori dagoeneko erabilita dago.&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;integer&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;:attribute eremuak zenbaki osoa izan behar du.&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;exists&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Hautatutako :attribute ez da existitzen.&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;array&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;:attribute eremuak zerrenda bat izan behar du.&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;list&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;:attribute eremuak zerrenda ordenatua izan behar du.&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;distinct&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;:attribute ezin da errepikatu.&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;image&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Aukeratu irudi-fitxategi bat.&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;mimes&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Aukeratu formatu hauetako fitxategi bat: :values.&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;uploaded&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Ezin izan da fitxategia igo.&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;attributes&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+        <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;izena&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;helbide elektronikoa&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;code&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;kodea&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;teacher_id&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;irakaslea&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;module_id&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;moduluen hautapena&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;module_id.*&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;modulua&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;grade&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;kalifikazioa&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;photo_path&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;argazkia&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">];</span>
 </code></pre></div>
-<p>Horrek lang/es eta lang/eu karpetak sortuko ditu guztiz itzulita.</p>
-<ol>
-<li>Laravel-i zein hizkuntza erabili behar duen esatea</li>
-</ol>
-<p>.env fitxategian honako hau aldatzen dugu:</p>
-<div class="highlight"><pre><span></span><code>APP_LOCALE=eu
+<p>Exekutatu <code>php artisan config:clear</code> eta probatu berriz posta bikoiztua. Mezuak euskaraz agertu behar du, nahiz eta zutabearen eta formulario-eremuaren izen teknikoa <code>email</code> izan.</p>
+<h3 id="interfazeko-testuak-itzulpen-fitxategira-eraman">Interfazeko testuak itzulpen-fitxategira eraman</h3>
+<p>Interfazeko testu gisa zuzenean idatzitako «Gorde» hitza itzulpen-gako batekin ordezkatuko dugu. Gakoak ingelesez idatziko ditugu. Hasteko, gehitu <code>lang/eu/ui.php</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
 
-APP_FALLBACK_LOCALE=eu
+<span class="k">return</span> <span class="p">[</span>
+    <span class="s1">&#39;home&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Hasiera&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;students&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Ikasleak&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;teachers&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Irakasleak&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;modules&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Moduluak&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;save&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Gorde&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;cancel&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Utzi&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;student_saved&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Ikaslea gorde da.&#39;</span><span class="p">,</span>
+<span class="p">];</span>
 </code></pre></div>
-<p>Horren ostean aplikazioa euskaraz egongo da.</p>
-<ol>
-<li>Formularioen eremu-izenak pertsonalizatzea</li>
-</ol>
-<p>Baliozkotze-mezuetan Laravelrek automatikoki erabiltzen ditu formularioetako eremu-izenak (name, email, izen_abizen …).</p>
-<p>Eremu horiek modu “politean” erakutsi nahi baditugu,</p>
-<p>lang/eu/validation.php fitxategira joan eta bukaeran dagoen attributes atal honetan idazten ditugu:</p>
-<div class="highlight"><pre><span></span><code><span class="x">'attributes' =&gt; [</span>
-<span class="x">'izen\_abizen' =&gt; 'Izen Abizenak',</span>
-<span class="x">'email' =&gt; 'Posta Elektronikoa',</span>
-<span class="x">'password' =&gt; 'Pasahitza',</span>
-<span class="x">'name' =&gt; 'Izena',</span>
-<span class="x">];</span>
+<p><code>lang/es/ui.php</code> fitxategian, gako berak erabili:</p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
+
+<span class="k">return</span> <span class="p">[</span>
+    <span class="s1">&#39;home&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Inicio&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;students&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Alumnado&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;teachers&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Profesorado&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;modules&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Módulos&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;save&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Guardar&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;cancel&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Cancelar&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;student_saved&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Se ha guardado el registro del alumno.&#39;</span><span class="p">,</span>
+<span class="p">];</span>
 </code></pre></div>
-<p>Horrela, errore-mezuak itzulita eta formatu egokian agertuko dira.</p>
-<p>Ez da ezer gehiago egin behar (ez JSON eguneratu, ez ezer berriro kargatu).</p>
-<ol>
-<li>Fallback hizkuntza gomendatua</li>
-</ol>
-<p>Gaztelania ere instalatuta badago, gomendagarria izan daiteke:</p>
-<div class="highlight"><pre><span></span><code>APP_FALLBACK_LOCALE=es
+<p>Ordezkatu, adibidez, botoia <code>&lt;button type="submit"&gt;{{ __('ui.save') }}&lt;/button&gt;</code> kodearekin. Ikaslea gordetzean, erabili <code>-&gt;with('status', __('ui.student_saved'))</code>. Probatu itzulpena Tinkerren, konfigurazio iraunkorra aldatu gabe:</p>
+<div class="highlight"><pre><span></span><code><span class="x">__(&#39;ui.save&#39;, [], &#39;eu&#39;);</span>
+<span class="x">__(&#39;ui.save&#39;, [], &#39;es&#39;);</span>
 </code></pre></div>
-<p>Horrela euskarazko testuren bat falta bada, gaztelania erabiliko da, eta ez ingelesa.</p>
-<h2 id="laburpena">Laburpena</h2>
-<div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>lang:publish
-composer<span class="w"> </span>require<span class="w"> </span>laravel-lang/common<span class="w"> </span>--dev
-php<span class="w"> </span>artisan<span class="w"> </span>lang:add<span class="w"> </span>es,<span class="w"> </span>php<span class="w"> </span>artisan<span class="w"> </span>lang:add<span class="w"> </span>eu
+<p>Gelan, eraman nabigazioko testuak eta izenburuak dagozkien gakoetara. Gaztelaniazko fitxategia bigarren hizkuntza gehitzeko adibidea da. Ariketaren interfazearen lehenetsitako hizkuntza euskara da.</p>
+<h2 id="4-aukerako-hedapena-ikaslearen-argazkia">4. Aukerako hedapena · Ikaslearen argazkia</h2>
+<p>Gelan, erabili probako irudi asmatuak. Ariketa honetan <code>public</code> diskoa erabiliko dugu; disko horretako argazkiak URL zuzena duen edonork ikus ditzake.</p>
+<div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>make:migration<span class="w"> </span>add_photo_path_to_students_table<span class="w"> </span>--table<span class="o">=</span>students
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="x">.env → APP\_LOCALE=eu</span>
+<div class="highlight"><pre><span></span><code><span class="x">public function up(): void</span>
+<span class="x">{</span>
+<span class="x">    Schema::table(&#39;students&#39;, function (Blueprint $table) {</span>
+<span class="x">        $table-&gt;string(&#39;photo_path&#39;)-&gt;nullable();</span>
+<span class="x">    });</span>
+<span class="x">}</span>
+
+<span class="x">public function down(): void</span>
+<span class="x">{</span>
+<span class="x">    Schema::table(&#39;students&#39;, function (Blueprint $table) {</span>
+<span class="x">        $table-&gt;dropColumn(&#39;photo_path&#39;);</span>
+<span class="x">    });</span>
+<span class="x">}</span>
 </code></pre></div>
-<p>validation.php → attributes atalean eremu-izenak pertsonalizatu</p>
+<div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>migrate
+php<span class="w"> </span>artisan<span class="w"> </span>storage:link
+php<span class="w"> </span>artisan<span class="w"> </span>make:controller<span class="w"> </span>StudentPhotoController<span class="w"> </span>--invokable
+</code></pre></div>
+<p><code>routes/web.php</code> fitxategian gehitu inportazioa eta ibilbidea:</p>
+<div class="highlight"><pre><span></span><code><span class="x">use App\Http\Controllers\StudentPhotoController;</span>
+
+<span class="x">Route::post(&#39;/students/{student}/photo&#39;, StudentPhotoController::class)</span>
+<span class="x">    -&gt;name(&#39;students.photo.store&#39;);</span>
+</code></pre></div>
+<p><code>app/Http/Controllers/StudentPhotoController.php</code></p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Http\Controllers</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">App\Models\Student</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Illuminate\Http\RedirectResponse</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Illuminate\Http\Request</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Illuminate\Support\Facades\DB</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Illuminate\Support\Facades\Storage</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Illuminate\Validation\ValidationException</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Throwable</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">StudentPhotoController</span> <span class="k">extends</span> <span class="nx">Controller</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__invoke</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">,</span> <span class="nx">Student</span> <span class="nv">$student</span><span class="p">)</span><span class="o">:</span> <span class="nx">RedirectResponse</span>
+    <span class="p">{</span>
+        <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">validate</span><span class="p">([</span>
+            <span class="s1">&#39;photo_path&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;required&#39;</span><span class="p">,</span> <span class="s1">&#39;image&#39;</span><span class="p">,</span> <span class="s1">&#39;mimes:jpg,jpeg,png,webp&#39;</span><span class="p">,</span> <span class="s1">&#39;max:2048&#39;</span><span class="p">],</span>
+        <span class="p">]);</span>
+
+        <span class="nv">$newPath</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">file</span><span class="p">(</span><span class="s1">&#39;photo_path&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">store</span><span class="p">(</span><span class="s1">&#39;students&#39;</span><span class="p">,</span> <span class="s1">&#39;public&#39;</span><span class="p">);</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$newPath</span> <span class="o">===</span> <span class="k">false</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">throw</span> <span class="nx">ValidationException</span><span class="o">::</span><span class="na">withMessages</span><span class="p">([</span>
+                <span class="s1">&#39;photo_path&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Ezin izan da argazkia gorde.&#39;</span><span class="p">,</span>
+            <span class="p">]);</span>
+        <span class="p">}</span>
+
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="nv">$previousPath</span> <span class="o">=</span> <span class="nx">DB</span><span class="o">::</span><span class="na">transaction</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$student</span><span class="p">,</span> <span class="nv">$newPath</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nv">$lockedStudent</span> <span class="o">=</span> <span class="nx">Student</span><span class="o">::</span><span class="na">query</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">lockForUpdate</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">findOrFail</span><span class="p">(</span><span class="nv">$student</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">);</span>
+                <span class="nv">$previousPath</span> <span class="o">=</span> <span class="nv">$lockedStudent</span><span class="o">-&gt;</span><span class="na">photo_path</span><span class="p">;</span>
+                <span class="nv">$lockedStudent</span><span class="o">-&gt;</span><span class="na">photo_path</span> <span class="o">=</span> <span class="nv">$newPath</span><span class="p">;</span>
+                <span class="nv">$lockedStudent</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">();</span>
+
+                <span class="k">return</span> <span class="nv">$previousPath</span><span class="p">;</span>
+            <span class="p">});</span>
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">Throwable</span> <span class="nv">$exception</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">Storage</span><span class="o">::</span><span class="na">disk</span><span class="p">(</span><span class="s1">&#39;public&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="nv">$newPath</span><span class="p">);</span>
+
+            <span class="k">throw</span> <span class="nv">$exception</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$previousPath</span> <span class="o">!==</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">Storage</span><span class="o">::</span><span class="na">disk</span><span class="p">(</span><span class="s1">&#39;public&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="nv">$previousPath</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="nx">to_route</span><span class="p">(</span><span class="s1">&#39;students.show&#39;</span><span class="p">,</span> <span class="nv">$student</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">with</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="s1">&#39;Argazkia gorde da.&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Gehitu argazki-formularioa <code>students/edit.blade.php</code> fitxategian, ikaslearen datuen formularioa itxi eta gero:</p>
+<div class="highlight"><pre><span></span><code>&lt;h2&gt;Ikaslearen argazkia&lt;/h2&gt;
+&lt;form method=&quot;POST&quot; enctype=&quot;multipart/form-data&quot; action=&quot;{{ route(&#39;students.photo.store&#39;, $student) }}&quot;&gt;
+    @csrf
+    &lt;label for=&quot;photo_path&quot;&gt;Argazkia&lt;/label&gt;
+    &lt;input type=&quot;file&quot; id=&quot;photo_path&quot; name=&quot;photo_path&quot; accept=&quot;image/jpeg,image/png,image/webp&quot; required&gt;
+    @error(&#39;photo_path&#39;)
+        &lt;p class=&quot;error&quot;&gt;{{ $message }}&lt;/p&gt;
+    @enderror
+    &lt;button type=&quot;submit&quot;&gt;Igo argazkia&lt;/button&gt;
+&lt;/form&gt;
+</code></pre></div>
+<p>Gehitu irudia ikaslearen fitxan:</p>
+<div class="highlight"><pre><span></span><code>@if ($student-&gt;photo_path)
+    &lt;img src=&quot;{{ asset(&#39;storage/&#39; . $student-&gt;photo_path) }}&quot; alt=&quot;{{ $student-&gt;name }} · Argazkia&quot; width=&quot;160&quot;&gt;
+@endif
+</code></pre></div>
+<p>Ikaslea ezabatzean argazkia ere kentzeko, gehitu <code>use Illuminate\Support\Facades\DB;</code> eta <code>use Illuminate\Support\Facades\Storage;</code> <code>StudentController</code> fitxategian eta ordezkatu <code>destroy()</code> metodoa:</p>
+<div class="highlight"><pre><span></span><code><span class="x">public function destroy(Student $student): RedirectResponse</span>
+<span class="x">{</span>
+<span class="x">    $photoPath = DB::transaction(function () use ($student) {</span>
+<span class="x">        $lockedStudent = Student::query()-&gt;lockForUpdate()-&gt;findOrFail($student-&gt;id);</span>
+<span class="x">        $photoPath = $lockedStudent-&gt;photo_path;</span>
+<span class="x">        $lockedStudent-&gt;delete();</span>
+
+<span class="x">        return $photoPath;</span>
+<span class="x">    });</span>
+
+<span class="x">    if ($photoPath !== null) {</span>
+<span class="x">        Storage::disk(&#39;public&#39;)-&gt;delete($photoPath);</span>
+<span class="x">    }</span>
+
+<span class="x">    return to_route(&#39;students.index&#39;)-&gt;with(&#39;status&#39;, &#39;Ikaslea ezabatu da.&#39;);</span>
+<span class="x">}</span>
+</code></pre></div>
+<p><code>photo_path</code> zutabean bidea gordetzen da; fitxategia diskoan gordetzen da. Probatu irudi bat igotzen, beste batekin ordezkatzen eta ikaslea ezabatzen. Erabili 2 MB baino gehiagoko irudi bat ere, balidazioa egiaztatzeko.</p>
+<p><a href="https://laravel.com/docs/13.x/pagination">Laravel 13 · Paginazioa</a> · <a href="https://laravel.com/docs/13.x/validation">Balidazioa</a> · <a href="https://laravel.com/docs/13.x/localization">Hizkuntza</a> · <a href="https://laravel.com/docs/13.x/filesystem">Fitxategiak</a></p>
+<p><a href="../erlazioak-n-m/">Aurrekoa · N:M erlazioa eta matrikulak</a></p>
 
 
 
@@ -2876,7 +3020,7 @@ php<span class="w"> </span>artisan<span class="w"> </span>lang:add<span class="w
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Arbelean kopiatuta", "clipboard.copy": "Kopiatu arbelean", "search.result.more.one": "Bat gehiago orri honetan", "search.result.more.other": "# gehiago orri honetan", "search.result.none": "Bat datorren dokumenturik ez", "search.result.one": "Bat datorren dokumentu bat", "search.result.other": "Bat datozen # dokumentu", "search.result.placeholder": "Idatzi bilatzen hasteko", "search.result.term.missing": "Falta da", "select.version": "Hautatu bertsioa"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

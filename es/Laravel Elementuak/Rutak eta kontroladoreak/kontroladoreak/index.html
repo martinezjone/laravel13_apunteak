@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2737,13 +2737,13 @@
 <span class="p">{</span>
     <span class="k">public</span> <span class="k">function</span> <span class="nf">index</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span>
     <span class="p">{</span>
-        <span class="k">return</span> <span class="s1">'Esta es la página de inicio de mi blog. ¡Te doy la bienvenida!'</span><span class="p">;</span>
+        <span class="k">return</span> <span class="s1">&#39;Esta es la página de inicio de mi blog. ¡Te doy la bienvenida!&#39;</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>La línea <code>namespace App\Http\Controllers;</code> indica en qué espacio de nombres está la clase. La expresión <code>extends Controller</code> indica que la clase <code>HomeController</code> hereda la clase base <code>Controller</code>. La palabra <code>public</code> permite llamar al método desde fuera de la clase. La expresión <code>: string</code> especifica el tipo de retorno del método.</p>
 <p>En el archivo <code>routes/web.php</code>, añade la línea <code>use App\Http\Controllers\HomeController;</code> junto con las demás importaciones. Después, sustituye la ruta <code>GET /</code> existente por esta:</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get('/', [HomeController::class, 'index']);</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;/&#39;, [HomeController::class, &#39;index&#39;]);</span>
 </code></pre></div>
 <p>La línea <code>use</code> nos permite utilizar el nombre abreviado <code>HomeController</code> en el archivo. El array del segundo argumento de la ruta contiene dos elementos:</p>
 <table>
@@ -2766,12 +2766,12 @@
 </table>
 <h2 id="recibir-un-parametro-de-ruta-en-un-controlador">Recibir un parámetro de ruta en un controlador</h2>
 <p>Sustituye la función anónima de la ruta anterior <code>/welcome/{name?}</code> por un método del controlador. En el archivo <code>routes/web.php</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get('/welcome/{name?}', [HomeController::class, 'welcome']);</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;/welcome/{name?}&#39;, [HomeController::class, &#39;welcome&#39;]);</span>
 </code></pre></div>
 <p>Añade el método <code>welcome()</code> dentro de la clase <code>HomeController</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="x">public function welcome(string $name = 'invitado'): string</span>
+<div class="highlight"><pre><span></span><code><span class="x">public function welcome(string $name = &#39;invitado&#39;): string</span>
 <span class="x">{</span>
-<span class="x">    return '¡Hola, ' . e($name) . '!';</span>
+<span class="x">    return &#39;¡Hola, &#39; . e($name) . &#39;!&#39;;</span>
 <span class="x">}</span>
 </code></pre></div>
 <table>
@@ -2800,12 +2800,12 @@
 <p>Ahora, el método <code>index()</code> preparará el título y el mensaje de la página de inicio y se los pasará a una vista Blade. Añade <code>use Illuminate\View\View;</code> en el archivo del controlador, después de la línea <code>namespace</code>. Después, sustituye el método <code>index()</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="x">public function index(): View</span>
 <span class="x">{</span>
-<span class="x">    $title = 'Inicio';</span>
-<span class="x">    $message = 'Esta es la página de inicio de mi blog. ¡Te doy la bienvenida!';</span>
+<span class="x">    $title = &#39;Inicio&#39;;</span>
+<span class="x">    $message = &#39;Esta es la página de inicio de mi blog. ¡Te doy la bienvenida!&#39;;</span>
 
-<span class="x">    return view('home', [</span>
-<span class="x">        'title' =&gt; $title,</span>
-<span class="x">        'message' =&gt; $message,</span>
+<span class="x">    return view(&#39;home&#39;, [</span>
+<span class="x">        &#39;title&#39; =&gt; $title,</span>
+<span class="x">        &#39;message&#39; =&gt; $message,</span>
 <span class="x">    ]);</span>
 <span class="x">}</span>
 </code></pre></div>
@@ -2826,12 +2826,12 @@
 <span class="p">{</span>
     <span class="k">public</span> <span class="k">function</span> <span class="fm">__invoke</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span>
     <span class="p">{</span>
-        <span class="k">return</span> <span class="s1">'Información sobre el blog'</span><span class="p">;</span>
+        <span class="k">return</span> <span class="s1">&#39;Información sobre el blog&#39;</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Añade la importación <code>use App\Http\Controllers\AboutController;</code> al principio del archivo <code>routes/web.php</code> y registra la ruta:</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get('/about', AboutController::class);</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;/about&#39;, AboutController::class);</span>
 </code></pre></div>
 <p>En este caso, basta con proporcionar la clase del controlador. Laravel llamará al método <code>__invoke()</code>. Si la ruta general <code>/{number}</code> está activa, coloca <code>/about</code> antes de ella.</p>
 <h2 id="controlador-de-recursos-resource-controller">Controlador de recursos (<em>Resource controller</em>)</h2>
@@ -2840,7 +2840,7 @@
 </code></pre></div>
 <p>El comando prepara la estructura de los métodos <code>index</code>, <code>create</code>, <code>store</code>, <code>show</code>, <code>edit</code>, <code>update</code> y <code>destroy</code>. Nosotros escribiremos el contenido de cada método.</p>
 <p>Para registrar las rutas, añade la importación <code>use App\Http\Controllers\TeacherController;</code> y esta declaración al archivo <code>routes/web.php</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::resource('teachers', TeacherController::class);</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::resource(&#39;teachers&#39;, TeacherController::class);</span>
 </code></pre></div>
 <p>La opción <code>--resource</code> crea la estructura de los métodos del controlador, y la llamada <code>Route::resource()</code> registra las rutas. Comprueba el resultado con el comando <code>php artisan route:list --path=teachers</code>. Puedes consultar el método HTTP, la URL y la acción de cada ruta en la sección <a href="../rutak/">Rutas</a>.</p>
 <p><a href="https://laravel.com/framework/docs/13.x/controllers">Documentación oficial de Laravel 13 · Controllers</a></p>
@@ -2896,7 +2896,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

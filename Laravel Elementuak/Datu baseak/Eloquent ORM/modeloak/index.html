@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2970,7 +2970,7 @@
 <p>Kasu horretan, Laravel-i zein taula erabili behar duen adierazi beharko diogu, <code>$table</code> propietatea erabiliz:</p>
 <div class="highlight"><pre><span></span><code><span class="x">class Post extends Model</span>
 <span class="x">{</span>
-<span class="x">    protected $table = 'blog_entries';</span>
+<span class="x">    protected $table = &#39;blog_entries&#39;;</span>
 <span class="x">}</span>
 </code></pre></div>
 <p>Horrela, <code>Post</code> modeloak <code>blog_entries</code> taularekin lan egingo du, <code>posts</code> taularekin egin beharrean.</p>
@@ -3006,8 +3006,8 @@
 </table>
 <h3 id="table-eta-primarykey"><code>$table</code> eta <code>$primaryKey</code></h3>
 <p>Lehen ikusi dugun bezala, Laravel-ek konbentzio batzuk erabiltzen ditu. Hala ere, beharrezkoa bada, balio horiek alda ditzakegu:</p>
-<div class="highlight"><pre><span></span><code><span class="x">protected $table = 'posts';</span>
-<span class="x">protected $primaryKey = 'id';</span>
+<div class="highlight"><pre><span></span><code><span class="x">protected $table = &#39;posts&#39;;</span>
+<span class="x">protected $primaryKey = &#39;id&#39;;</span>
 </code></pre></div>
 <p>Kasu honetan, bi propietateak soberan egongo lirateke, Laravel-ek lehenespenez balio horiek erabiltzen dituelako.</p>
 <h3 id="fillable"><code>$fillable</code></h3>
@@ -3016,13 +3016,13 @@
 <p>Adibidez, <code>posts</code> taulak <code>title</code> eta <code>content</code> zutabeak baditu, honela defini dezakegu modeloa:</p>
 <div class="highlight"><pre><span></span><code><span class="x">class Post extends Model</span>
 <span class="x">{</span>
-<span class="x">    protected $fillable = ['title', 'content'];</span>
+<span class="x">    protected $fillable = [&#39;title&#39;, &#39;content&#39;];</span>
 <span class="x">}</span>
 </code></pre></div>
 <p>Orain, erregistro berri bat sortzeko, <code>create()</code> metodoa erabil dezakegu:</p>
 <div class="highlight"><pre><span></span><code><span class="x">Post::create([</span>
-<span class="x">    'title' =&gt; 'My first post',</span>
-<span class="x">    'content' =&gt; 'This is the content of my first post.'</span>
+<span class="x">    &#39;title&#39; =&gt; &#39;My first post&#39;,</span>
+<span class="x">    &#39;content&#39; =&gt; &#39;This is the content of my first post.&#39;</span>
 <span class="x">]);</span>
 </code></pre></div>
 <p>Eloquent-ek arrayko datuak hartu eta <code>posts</code> taulan erregistro berri bat sortuko du.</p>
@@ -3084,7 +3084,7 @@
 <span class="x">{</span>
 <span class="x">    $posts = Post::all();</span>
 
-<span class="x">    return view('posts.index', compact('posts'));</span>
+<span class="x">    return view(&#39;posts.index&#39;, compact(&#39;posts&#39;));</span>
 <span class="x">}</span>
 </code></pre></div>
 <p>Kasu honetan, erregistro guztiak lortu eta <code>posts.index</code> bistara bidaltzen ditugu.</p>
@@ -3100,7 +3100,7 @@
 <p>Kasu honetan, erregistroa existitzen ez bada, Laravel-ek normalean <strong>404 errorea</strong> erakutsiko du web eskaera batean.</p>
 <h3 id="baldintza-batekin-bilatu-where">Baldintza batekin bilatu: <code>where()</code></h3>
 <p>Baldintza bat betetzen duten erregistroak lortzeko, <code>where()</code> erabil dezakegu:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$posts = Post::where('title', 'Laravel')-&gt;get();</span>
+<div class="highlight"><pre><span></span><code><span class="x">$posts = Post::where(&#39;title&#39;, &#39;Laravel&#39;)-&gt;get();</span>
 </code></pre></div>
 <p>Kontsulta honek <code>title</code> zutabean <code>Laravel</code> balioa duten erregistro guztiak lortuko ditu.</p>
 <div class="admonition note">
@@ -3118,7 +3118,7 @@
 <span class="x">{</span>
 <span class="x">    $posts = Post::all();</span>
 
-<span class="x">    return view('posts.index', compact('posts'));</span>
+<span class="x">    return view(&#39;posts.index&#39;, compact(&#39;posts&#39;));</span>
 <span class="x">}</span>
 </code></pre></div>
 <p>Hemen:</p>
@@ -3182,7 +3182,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Arbelean kopiatuta", "clipboard.copy": "Kopiatu arbelean", "search.result.more.one": "Bat gehiago orri honetan", "search.result.more.other": "# gehiago orri honetan", "search.result.none": "Bat datorren dokumenturik ez", "search.result.one": "Bat datorren dokumentu bat", "search.result.other": "Bat datozen # dokumentu", "search.result.placeholder": "Idatzi bilatzen hasteko", "search.result.term.missing": "Falta da", "select.version": "Hautatu bertsioa"}, "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

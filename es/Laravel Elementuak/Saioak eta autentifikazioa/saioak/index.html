@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2554,16 +2554,16 @@ SESSION_LIFETIME=120
 <p>De forma predeterminada, la información de la sesión se memoriza en un archivo (storage/framework/sessions ), pero también puedes utilizar cookies, base de datos, tabla (utilizada para pruebas), memcached, redis…</p>
 <p>Guardar datos (put)</p>
 <p>Independientemente del controlador utilizado, los helpers de sesión de Laravel permiten simplificar la gestión de sesiones. Por tanto, a partir de la solicitud, puedes crear una variable de sesión:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$request-&gt;session()-&gt;put('clave' , 'valor');</span>
+<div class="highlight"><pre><span></span><code><span class="x">$request-&gt;session()-&gt;put(&#39;clave&#39; , &#39;valor&#39;);</span>
 </code></pre></div>
 <p>O su helper (mediante helper):</p>
 <p>session ([ 'clave' = &gt; 'valor' ]) ;</p>
 <p>Leer datos (get)</p>
 <p>Para obtener su valor:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$valor = $request-&gt;session()-&gt;get('clave'); edo $valor = session ( 'clave' ) ;</span>
+<div class="highlight"><pre><span></span><code><span class="x">$valor = $request-&gt;session()-&gt;get(&#39;clave&#39;); edo $valor = session ( &#39;clave&#39; ) ;</span>
 </code></pre></div>
 <p>Se puede establecer un valor predeterminado:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$valor = session ( 'clave' , 'balio lehenetsia' ) ;</span>
+<div class="highlight"><pre><span></span><code><span class="x">$valor = session ( &#39;clave&#39; , &#39;balio lehenetsia&#39; ) ;</span>
 </code></pre></div>
 <p>Comprobar si existe un dato</p>
 <p>Para saber si una variable concreta está en la sesión, lo haríamos así:</p>
@@ -2574,15 +2574,15 @@ SESSION_LIFETIME=120
 <p>* Inyectando Request: para realizar la solicitud, es necesario inyectar la clase:</p>
 <div class="highlight"><pre><span></span><code><span class="x">public function showProfile(Request $request, $id){</span>
 
-<span class="x">$value = $request-&gt;session()-&gt;get('key');</span>
+<span class="x">$value = $request-&gt;session()-&gt;get(&#39;key&#39;);</span>
 
 <span class="x">}</span>
 </code></pre></div>
 <p>* Session Facade</p>
-<div class="highlight"><pre><span></span><code><span class="x">$value = Session::get('key');</span>
+<div class="highlight"><pre><span></span><code><span class="x">$value = Session::get(&#39;key&#39;);</span>
 </code></pre></div>
 <p>* La función helper session()</p>
-<div class="highlight"><pre><span></span><code><span class="x">$value = session('key');</span>
+<div class="highlight"><pre><span></span><code><span class="x">$value = session(&#39;key&#39;);</span>
 </code></pre></div>
 <p>Ver todos los datos de una sesión</p>
 <p>Para obtener todos los datos de una sesión:</p>
@@ -2592,12 +2592,12 @@ SESSION_LIFETIME=120
 </code></pre></div>
 <p>Guardar los datos de la sesión</p>
 <p>Podemos guardar los datos de la sesión de dos maneras:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$request-&gt;session()-&gt;put('email', 'me@example.com');</span>
+<div class="highlight"><pre><span></span><code><span class="x">$request-&gt;session()-&gt;put(&#39;email&#39;, &#39;me@example.com&#39;);</span>
 </code></pre></div>
 <p>session(['email' =&gt; 'me@example.com']); //usando el helper</p>
 <p>Eliminar datos</p>
 <p>También podemos eliminar los datos de la sesión:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$request-&gt;session()-&gt;forget('key'); //elementu bakarra</span>
+<div class="highlight"><pre><span></span><code><span class="x">$request-&gt;session()-&gt;forget(&#39;key&#39;); //elementu bakarra</span>
 
 <span class="x">$request-&gt;session()-&gt;flush(); // datu guztiak</span>
 </code></pre></div>
@@ -2614,7 +2614,7 @@ SESSION_LIFETIME=120
 </ul>
 <p>Para mensajes de error</p>
 <p>//flash datuak eskaera bakarrean irauten dute</p>
-<div class="highlight"><pre><span></span><code><span class="x">$request-&gt;session()-&gt;flash('mensaje', '¡El usuario fue eliminado!');</span>
+<div class="highlight"><pre><span></span><code><span class="x">$request-&gt;session()-&gt;flash(&#39;mensaje&#39;, &#39;¡El usuario fue eliminado!&#39;);</span>
 
 <span class="x">//Flash datuak eskaera 1 baino gehiago irauteko</span>
 
@@ -2622,7 +2622,7 @@ SESSION_LIFETIME=120
 
 <span class="x">//Flash datu zehatz batzuk mantentzeko</span>
 
-<span class="x">$request-&gt;session()-&gt;keep(['mensaje', 'email']);</span>
+<span class="x">$request-&gt;session()-&gt;keep([&#39;mensaje&#39;, &#39;email&#39;]);</span>
 </code></pre></div>
 <p>Aspectos importantes que hay que tener en cuenta</p>
 <p>Estos son los métodos básicos de las sesiones; encontrarás toda la información adicional en la documentación: <a href="https://laravel.com/framework/docs/13.x/session">https://laravel.com/framework/docs/13.x/session</a></p>
@@ -2692,7 +2692,7 @@ SESSION_LIFETIME=120
       <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

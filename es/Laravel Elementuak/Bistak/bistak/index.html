@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2807,50 +2807,50 @@
 </code></pre></div>
 <p>Blade es un motor de plantillas sencillo pero potente que viene incluido con Laravel. En este caso, nuestras plantillas blade también admiten código php.</p>
 <p>Podemos invocar las vistas tanto desde las rutas como desde el controlador, pero normalmente las invocarán los controladores.</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get('user', function(){</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;user&#39;, function(){</span>
 
 <span class="x">// Mostraremos la vista user.php o user.blade.php</span>
 
-<span class="x">return view('user');</span>
+<span class="x">return view(&#39;user&#39;);</span>
 
 <span class="x">});</span>
 </code></pre></div>
 <p>Se recomienda utilizar subcarpetas para tener organizadas nuestras vistas. Para invocar estas vistas podemos utilizar tanto la barra como el punto. Una vista guardada en <code>user/index.blade.php</code> se puede invocar de las siguientes formas:</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get('user', function(){</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;user&#39;, function(){</span>
 
-<span class="x">return view('user/index');</span>
+<span class="x">return view(&#39;user/index&#39;);</span>
 
-<span class="x">return view('user.index'); // Normalmente se utiliza así</span>
+<span class="x">return view(&#39;user.index&#39;); // Normalmente se utiliza así</span>
 
 <span class="x">});</span>
 </code></pre></div>
 <h2 id="pasar-variables-a-una-vista">Pasar variables a una vista</h2>
 <p>Para pasar variables a una vista lo haremos mediante un array asociativo: <code>return view('grupo.vista', $arrayAsociativo);</code></p>
 <p>Por ejemplo:</p>
-<div class="highlight"><pre><span></span><code><span class="x">return view('user.index', ['name' =&gt; 'James']);</span>
+<div class="highlight"><pre><span></span><code><span class="x">return view(&#39;user.index&#39;, [&#39;name&#39; =&gt; &#39;James&#39;]);</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="x">return view('blog.history', [</span>
+<div class="highlight"><pre><span></span><code><span class="x">return view(&#39;blog.history&#39;, [</span>
 
-<span class="x">'mes' =&gt; $mes,</span>
+<span class="x">&#39;mes&#39; =&gt; $mes,</span>
 
-<span class="x">'ano' =&gt; $ano,</span>
+<span class="x">&#39;ano&#39; =&gt; $ano,</span>
 
-<span class="x">'posts' =&gt; $posts</span>
+<span class="x">&#39;posts&#39; =&gt; $posts</span>
 
 <span class="x">]);</span>
 </code></pre></div>
 <p>También existe la opción de hacerlo mediante with:</p>
-<div class="highlight"><pre><span></span><code><span class="x">return view('greeting')-&gt;with('name', 'Victoria');</span>
+<div class="highlight"><pre><span></span><code><span class="x">return view(&#39;greeting&#39;)-&gt;with(&#39;name&#39;, &#39;Victoria&#39;);</span>
 </code></pre></div>
 <p>También se puede utilizar <code>compact</code>. Da igual de qué manera pasemos los datos; normalmente depende de la forma de trabajar del programador o de la convención del equipo, pero esta es la más utilizada:</p>
-<p><div class="highlight"><pre><span></span><code><span class="x">    return view('blog.history', compact('mes', 'ano', 'posts'));</span>
+<p><div class="highlight"><pre><span></span><code><span class="x">    return view(&#39;blog.history&#39;, compact(&#39;mes&#39;, &#39;ano&#39;, &#39;posts&#39;));</span>
 
 <span class="x">    // Es equivalente a lo siguiente:</span>
 
-<span class="x">    return view('blog.history', [</span>
-<span class="x">    'mes' =&gt; $mes,</span>
-<span class="x">    'ano' =&gt; $ano,</span>
-<span class="x">    'posts' =&gt; $posts</span>
+<span class="x">    return view(&#39;blog.history&#39;, [</span>
+<span class="x">    &#39;mes&#39; =&gt; $mes,</span>
+<span class="x">    &#39;ano&#39; =&gt; $ano,</span>
+<span class="x">    &#39;posts&#39; =&gt; $posts</span>
 
 <span class="x">    ]);</span>
 </code></pre></div>
@@ -2874,10 +2874,10 @@ Si queremos utilizar otro nombre en la vista, podemos especificar la clave manua
 <p>Todo el código php debe escribirse dentro de esas llaves.</p>
 <h3 id="mostrar-un-dato-solo-si-existe">Mostrar un dato solo si existe</h3>
 <p>Para asegurarnos de que existe una variable o un dato concreto, podemos utilizar el siguiente método:</p>
-<div class="highlight"><pre><span></span><code><span class="x">{{ isset($name) ? $name : 'Valor predeterminado' }}</span>
+<div class="highlight"><pre><span></span><code><span class="x">{{ isset($name) ? $name : &#39;Valor predeterminado&#39; }}</span>
 </code></pre></div>
 <p>O también podemos utilizar esta notación de Blade:</p>
-<div class="highlight"><pre><span></span><code><span class="x">{{ $name ?? 'Valor predeterminado' }}</span>
+<div class="highlight"><pre><span></span><code><span class="x">{{ $name ?? &#39;Valor predeterminado&#39; }}</span>
 </code></pre></div>
 <table>
 <thead>
@@ -2910,7 +2910,7 @@ Si queremos utilizar otro nombre en la vista, podemos especificar la clave manua
 </tbody>
 </table>
 <p>Si queremos comprobar si la cadena está vacía:</p>
-<div class="highlight"><pre><span></span><code><span class="x">{{ isset($name) &amp;&amp; $name !== '' ? $name : 'Valor predeterminado' }}</span>
+<div class="highlight"><pre><span></span><code><span class="x">{{ isset($name) &amp;&amp; $name !== &#39;&#39; ? $name : &#39;Valor predeterminado&#39; }}</span>
 </code></pre></div>
 <h3 id="insertar-codigo-php">Insertar código PHP</h3>
 <p>Para insertar código php en nuestra vista en un momento dado, debemos utilizar las siguientes etiquetas:</p>
@@ -3025,7 +3025,7 @@ Si queremos utilizar otro nombre en la vista, podemos especificar la clave manua
       <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

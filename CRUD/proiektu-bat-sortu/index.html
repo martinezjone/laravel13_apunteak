@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#proiektu-bat-sortu" class="md-skip">
+        <a href="#txurdigest-proiektua-sortu" class="md-skip">
           Joan zuzenean edukira
         </a>
       
@@ -1772,10 +1772,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#aula-aplikazioa" class="md-nav__link">
+  <a href="#laravel-13-instalatu" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Aula aplikazioa
+        Laravel 13 instalatu
       
     </span>
   </a>
@@ -1783,21 +1783,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#laravel-proiektu-bat-sortzeko" class="md-nav__link">
+  <a href="#lehen-ibilbidea-kontroladorea-eta-blade-bista" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Laravel proiektu bat sortzeko
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#laravel-proiektu-bat-sortzeko-lavarel-installer-ekin" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Laravel proiektu bat sortzeko - Lavarel installer-ekin
+        Lehen ibilbidea, kontroladorea eta Blade bista
       
     </span>
   </a>
@@ -2585,10 +2574,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#aula-aplikazioa" class="md-nav__link">
+  <a href="#laravel-13-instalatu" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Aula aplikazioa
+        Laravel 13 instalatu
       
     </span>
   </a>
@@ -2596,21 +2585,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#laravel-proiektu-bat-sortzeko" class="md-nav__link">
+  <a href="#lehen-ibilbidea-kontroladorea-eta-blade-bista" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Laravel proiektu bat sortzeko
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#laravel-proiektu-bat-sortzeko-lavarel-installer-ekin" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Laravel proiektu bat sortzeko - Lavarel installer-ekin
+        Lehen ibilbidea, kontroladorea eta Blade bista
       
     </span>
   </a>
@@ -2634,31 +2612,143 @@
 
 
 
-<h1 id="proiektu-bat-sortu">Proiektu bat sortu</h1>
-<h2 id="aula-aplikazioa">Aula aplikazioa</h2>
-<p>Aula aplikazio bat sortuko dugu Laravelekin. Ikasleak, irakasleak eta kurtsoak izango ditugu aplikazio honetan, eta 3 taula horien kudeaketa egingo dugu.</p>
-<p>Horretarako lehenengo gauza egingo duguna gure Laravel proiektua sortzea izango da.</p>
-<h2 id="laravel-proiektu-bat-sortzeko">Laravel proiektu bat sortzeko</h2>
-<p>Laravel proiektu bat sortzeko hurrengo pausuak jarraitu behar ditugu:</p>
-<ol>
-<li>XAMPP edo MAMP hasiko dugu</li>
-<li>Nahi dugun kontsola hasiko dugu ere, GitBash edo nahi duguna</li>
-<li>Hasiko dugu proiektu bat "eskola" izenekoa. Horretarako lehenengo gauza egin behar duguna da, gure kontsolan nahi dugun karpetan kokatu.</li>
-</ol>
-<p>$ cd c/xampp/htdocs/laravel_proiektuak</p>
-<div class="highlight"><pre><span></span><code>composer<span class="w"> </span>create-project<span class="w"> </span>laravel/laravel<span class="w"> </span>eskola
+<h1 id="txurdigest-proiektua-sortu">TxurdiGest · Proiektua sortu</h1>
+<p>TxurdiGest LHko ikastetxe baten kudeaketa-aplikazioa da. Ariketa gidatuan <strong>modulukako matrikula</strong> egingo dugu. Jon ikaslearen fitxan zer modulutan dagoen matrikulatuta ikusiko dugu. Moduluaren fitxan, berriz, irakaslea eta matrikulatutako ikasleak ikusiko ditugu.</p>
+<table>
+<thead>
+<tr>
+<th>Entitatea</th>
+<th>Modeloa</th>
+<th>Taula</th>
+<th>Hasierako eremuak</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ikaslea</td>
+<td><code>Student</code></td>
+<td><code>students</code></td>
+<td><code>id</code>, <code>name</code>, <code>email</code>, denbora-markak</td>
+</tr>
+<tr>
+<td>Irakaslea</td>
+<td><code>Teacher</code></td>
+<td><code>teachers</code></td>
+<td><code>id</code>, <code>name</code>, <code>email</code>, denbora-markak</td>
+</tr>
+<tr>
+<td>Modulua</td>
+<td><code>Module</code></td>
+<td><code>modules</code></td>
+<td><code>id</code>, <code>name</code>, <code>code</code>, <code>teacher_id</code>, denbora-markak</td>
+</tr>
+<tr>
+<td>Matrikula</td>
+<td>—</td>
+<td><code>module_student</code></td>
+<td><code>module_id</code>, <code>student_id</code></td>
+</tr>
+</tbody>
+</table>
+<p>Irakasle batek modulu bat baino gehiago izan dezake (1:N). Ikasle batek modulu bat baino gehiago izan dezake eta modulu batek ikasle bat baino gehiago (N:M). Ariketan matrikulak ikasturte bakarrekoak dira. Gelan datu asmatuak erabiliko ditugu.</p>
+<p><img alt="TxurdiGest-en entitate-erlazio diagrama" src="../../images/TxurdiGest_ER_eguneratua.png" /></p>
+<h2 id="laravel-13-instalatu">Laravel 13 instalatu</h2>
+<p>Ireki terminala proiektua gorde nahi duzun karpetan. Egiaztatu terminalak PHP 8.3 edo berriagoa eta Composer aurkitzen dituela.</p>
+<div class="highlight"><pre><span></span><code>php<span class="w"> </span>-v
+composer<span class="w"> </span>--version
+composer<span class="w"> </span>create-project<span class="w"> </span>laravel/laravel<span class="w"> </span>txurdigest<span class="w"> </span><span class="s2">&quot;^13.0&quot;</span>
+<span class="nb">cd</span><span class="w"> </span>txurdigest
+php<span class="w"> </span>artisan<span class="w"> </span>--version
+php<span class="w"> </span>artisan<span class="w"> </span>serve
 </code></pre></div>
-<p>Lan hau egiten denbora pizkatxo bat egongo da, gauza asko bait dira sortzen ari dituenak.</p>
-<ol>
-<li>Dena ondo egin duela konprobatuko dugu, horretarako, esandako karpetan topatuko dugu eskola karpeta bat, zabaldu Visual Studion eta ikusiko duzue zelan dauden karpeta pilo barruan.</li>
-</ol>
-<p>Bestetik, nabigatzaileak gure url sartzerakoan, nire kasuan: <a href="http://localhost/laravel2025-2026/eskola">http://localhost/laravel2025-2026/eskola</a></p>
-<p>Horrelako orrialde bat topatuko dugu:</p>
-<p><img alt="" src="../../assets/images/Proiektu%20bat%20sortu/e097dbca9101d55bd0f3905ab758e1f5.jpg" /></p>
-<h2 id="laravel-proiektu-bat-sortzeko-lavarel-installer-ekin">Laravel proiektu bat sortzeko - Lavarel installer-ekin</h2>
-<div class="highlight"><pre><span></span><code>composer<span class="w"> </span>global<span class="w"> </span>require<span class="w"> </span>laravel/installer
+<p>Laravel instalatzailea erabiltzen baduzu, beste aukera bat da <code>composer global require laravel/installer</code> eta gero <code>laravel new txurdigest</code> exekutatzea. Aukeratu starter kit gabeko instalazioa eta egiaztatu <code>php artisan --version</code> aginduarekin 13.x dela.</p>
+<p><a href="https://laravel.com/framework/docs/13.x/installation" target="_blank">Laravel 13 Installation</a></p>
+<h2 id="lehen-ibilbidea-kontroladorea-eta-blade-bista">Lehen ibilbidea, kontroladorea eta Blade bista</h2>
+<div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>make:controller<span class="w"> </span>HomeController
 </code></pre></div>
-<p>laravel new eskola</p>
+<p><code>routes/web.php</code></p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">App\Http\Controllers\HomeController</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Illuminate\Support\Facades\Route</span><span class="p">;</span>
+
+<span class="nx">Route</span><span class="o">::</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="p">[</span><span class="nx">HomeController</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;index&#39;</span><span class="p">])</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">(</span><span class="s1">&#39;home&#39;</span><span class="p">);</span>
+</code></pre></div>
+<p><code>app/Http/Controllers/HomeController.php</code></p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Http\Controllers</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Illuminate\View\View</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">HomeController</span> <span class="k">extends</span> <span class="nx">Controller</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">index</span><span class="p">()</span><span class="o">:</span> <span class="nx">View</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;home.index&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Sortu karpetak eta fitxategiak ondoko bideetan.</p>
+<p><code>resources/views/layouts/app.blade.php</code></p>
+<div class="highlight"><pre><span></span><code>&lt;!doctype html&gt;
+&lt;html lang=&quot;eu&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+    &lt;title&gt;@yield(&#39;title&#39;, &#39;TxurdiGest&#39;) · TxurdiGest&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;{{ asset(&#39;css/app.css&#39;) }}&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;nav aria-label=&quot;Nabigazio nagusia&quot;&gt;
+            &lt;a href=&quot;{{ route(&#39;home&#39;) }}&quot;&gt;TxurdiGest&lt;/a&gt;
+            &lt;!-- Hemen nabigazio menua jarriko dugu --&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+
+    &lt;main&gt;
+        @yield(&#39;content&#39;)
+    &lt;/main&gt;
+
+    &lt;footer&gt;FP Txurdinaga&lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div>
+<p><code>resources/views/home/index.blade.php</code></p>
+<div class="highlight"><pre><span></span><code>@extends(&#39;layouts.app&#39;)
+
+@section(&#39;title&#39;, &#39;Hasiera&#39;)
+
+@section(&#39;content&#39;)
+    &lt;h1&gt;TxurdiGest&lt;/h1&gt;
+    &lt;p&gt;Kudeatu ikasleak, irakasleak, moduluak eta matrikulak.&lt;/p&gt;
+@endsection
+</code></pre></div>
+<p><code>public/css/app.css</code></p>
+<div class="highlight"><pre><span></span><code><span class="nt">body</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">max-width</span><span class="p">:</span><span class="w"> </span><span class="mi">65</span><span class="kt">rem</span><span class="p">;</span>
+<span class="w">    </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span>
+<span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">rem</span><span class="p">;</span>
+<span class="w">    </span><span class="k">font</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">rem</span><span class="o">/</span><span class="mf">1.6</span><span class="w"> </span><span class="n">system-ui</span><span class="p">,</span><span class="w"> </span><span class="kc">sans-serif</span><span class="p">;</span>
+<span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#172533</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">nav</span><span class="o">,</span><span class="w"> </span><span class="p">.</span><span class="nc">pagination</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">flex</span><span class="p">;</span>
+<span class="w">    </span><span class="k">flex-wrap</span><span class="p">:</span><span class="w"> </span><span class="kc">wrap</span><span class="p">;</span>
+<span class="w">    </span><span class="k">gap</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">rem</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">main</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">margin-block</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="kt">rem</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="nt">footer</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">border-top</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#cbd5e1</span><span class="p">;</span><span class="w"> </span><span class="k">padding-top</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">rem</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="nt">label</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">block</span><span class="p">;</span><span class="w"> </span><span class="k">margin-top</span><span class="p">:</span><span class="w"> </span><span class="mf">.75</span><span class="kt">rem</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="nt">input</span><span class="o">,</span><span class="w"> </span><span class="nt">select</span><span class="o">,</span><span class="w"> </span><span class="nt">button</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">font</span><span class="p">:</span><span class="w"> </span><span class="kc">inherit</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="nt">button</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">margin-top</span><span class="p">:</span><span class="w"> </span><span class="mf">.75</span><span class="kt">rem</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">.</span><span class="nc">error</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#a31324</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<p>Azaleko testua agertzen bada eta <code>php artisan route:list</code> aginduak <code>home</code> ibilbidea erakusten badu, datu-basearekin has gaitezke.</p>
+<p><a href="../datu-basea/">Hurrengoa · Datu-basea</a></p>
 
 
 
@@ -2711,7 +2801,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Arbelean kopiatuta", "clipboard.copy": "Kopiatu arbelean", "search.result.more.one": "Bat gehiago orri honetan", "search.result.more.other": "# gehiago orri honetan", "search.result.none": "Bat datorren dokumenturik ez", "search.result.one": "Bat datorren dokumentu bat", "search.result.other": "Bat datozen # dokumentu", "search.result.placeholder": "Idatzi bilatzen hasteko", "search.result.term.missing": "Falta da", "select.version": "Hautatu bertsioa"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

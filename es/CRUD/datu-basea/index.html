@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2680,17 +2680,17 @@ DB_PASSWORD=root
 <ol>
 <li>Abriremos este archivo PHP e indicaremos cómo será la tabla. Como vemos, Laravel ya ha generado código en el método up(); en este caso, crearía una tabla de estudiantes con dos campos: id y timestamps. Lo cambiaremos por los datos que queremos:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="x">Schema::create('pupils', function (Blueprint $table) {</span>
+<div class="highlight"><pre><span></span><code><span class="x">Schema::create(&#39;pupils&#39;, function (Blueprint $table) {</span>
 
 <span class="x">$table-&gt;id();</span>
 
-<span class="x">$table-&gt;string('name', 75);</span>
+<span class="x">$table-&gt;string(&#39;name&#39;, 75);</span>
 
-<span class="x">$table-&gt;integer('age');</span>
+<span class="x">$table-&gt;integer(&#39;age&#39;);</span>
 
-<span class="x">$table-&gt;string('phone', 35)-&gt;nullable();</span>
+<span class="x">$table-&gt;string(&#39;phone&#39;, 35)-&gt;nullable();</span>
 
-<span class="x">$table-&gt;string('address', 75)-&gt;nullable();</span>
+<span class="x">$table-&gt;string(&#39;address&#39;, 75)-&gt;nullable();</span>
 
 <span class="x">$table-&gt;timestamps();</span>
 
@@ -2760,7 +2760,7 @@ DB_PASSWORD=root
 </ol>
 <div class="highlight"><pre><span></span><code><span class="x">use HasFactory;</span>
 
-<span class="x">protected $fillable = ['name', 'age', 'phone', 'address'];</span>
+<span class="x">protected $fillable = [&#39;name&#39;, &#39;age&#39;, &#39;phone&#39;, &#39;address&#39;];</span>
 </code></pre></div>
 <p><img alt="Modelo y campos fillable" src="../../../assets/images/Datu%20basea/96c5b823146a03e885e9737fcb695443.jpg" /></p>
 <p>Una vez hecho esto, volveremos a ejecutar el seeder:</p>
@@ -2818,7 +2818,7 @@ DB_PASSWORD=root
       <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

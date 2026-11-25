@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#datu-baseak-laravelen" class="md-skip">
+        <a href="#txurdigest-datu-basea" class="md-skip">
           Joan zuzenean edukira
         </a>
       
@@ -1800,6 +1800,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#mysql-konfiguratu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MySQL konfiguratu
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#migrazioa" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1808,13 +1819,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Migrazioa">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create_students_tablephp-migrazioa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        create_students_table.php migrazioa
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#seeder" class="md-nav__link">
+  <a href="#student-modeloa" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Seeder
+        Student Modeloa
       
     </span>
   </a>
@@ -1822,10 +1850,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#factories" class="md-nav__link">
+  <a href="#seederra-eta-factorya" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Factories
+        Seederra eta factorya
       
     </span>
   </a>
@@ -2585,6 +2613,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#mysql-konfiguratu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MySQL konfiguratu
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#migrazioa" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2593,13 +2632,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Migrazioa">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create_students_tablephp-migrazioa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        create_students_table.php migrazioa
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#seeder" class="md-nav__link">
+  <a href="#student-modeloa" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Seeder
+        Student Modeloa
       
     </span>
   </a>
@@ -2607,10 +2663,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#factories" class="md-nav__link">
+  <a href="#seederra-eta-factorya" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Factories
+        Seederra eta factorya
       
     </span>
   </a>
@@ -2634,138 +2690,133 @@
 
 
 
-<h1 id="datu-baseak-laravelen">Datu baseak Laravelen</h1>
-<p>Segun eta ze Laravel bertsio erabiltzen den pausu hau ez da egin behar, berak zuzenean datu basea sortzen duelako, horrela ez izatekotan, hurrengo pausu hauek ezinbestekoak izango dira:</p>
-<p>Datu base bat sortuko dugu, proiektu honetarako, gure phpAdmin-en datu base bat "eskola" izeneko datu basea sortuko dugu, momentuz inolako taularik gabe. Bakarrik databasea sortuko dugu, gainontzekoa, taulak, datuak etab. Artisanekin egingo dugu.</p>
-<p>Orain, Laraveleri, esan behar diogu zein den erabiliko dugun data basea, horretarako, erroko direktorioan, badago fitxategi bat ".env" izenekoa. Horretan esango diogu gure datu basea non dagoen esta izena ere.</p>
-<div class="highlight"><pre><span></span><code>DB_CONNECTION=mysql
+<h1 id="txurdigest-datu-basea">TxurdiGest · Datu-basea</h1>
+<p>Lehenengo <code>students</code> taula prestatuko dugu, hurrengo atalean ikasleen CRUDa egiteko. Irakasleak, moduluak eta matrikulak gero gehituko ditugu.</p>
+<h2 id="mysql-konfiguratu">MySQL konfiguratu</h2>
+<p>Abiarazi MySQL MAMPen eta sortu <code>txurdigest</code> izeneko datu-base hutsa phpMyAdminen. Egokitu <code>.env</code> fitxategia zure instalazioko ataka eta kredentzialekin.</p>
+<div class="highlight"><pre><span></span><code>APP_NAME=TxurdiGest
+APP_LOCALE=eu
+APP_FALLBACK_LOCALE=en
 
+DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
-
 DB_PORT=3306
-
-DB_DATABASE=eskola
-
+DB_DATABASE=txurdigest
 DB_USERNAME=root
-
-DB_PASSWORD=root
+DB_PASSWORD=root //MAMP erabiltzen dugulako
 </code></pre></div>
-<p>Gure DB-ak 3 taula izango ditu, hurrengo eskeman ikusi dezakezuenez, baina, momentuz guk "Alumnos" taularekin hasiko dugu. Gororatu laravelek ingeleseko nomenklatura erabiliko duela, beraz guk ere taulen izenak ingeleraz sortuko ditugu:</p>
-<p>pupils, courses, teachers eta users.</p>
-<p>Laravel-en jarraipenetan, taulen izenak beti pluralean idatziko dira.</p>
-<p><img alt="" src="../../assets/images/Datu%20basea/b31d03fcf0611b3ad5a7fb5f976b6b03.jpg" /></p>
 <h2 id="migrazioa">Migrazioa</h2>
-<ol>
-<li>Behin hori eginda, migrazioa egingo dugu. Honi ezker, Laravelek guk adierazitako taulak sortuko ditu gure datu basean sql sententziak erabili barik. Hau guztia Artisani ezker oso errez egingo dugu.</li>
-</ol>
-<p>Hau modeloarekin edo modelo barik egin daiteke. Erosoena modeloarekin egitea izango da, baina modu honetan, Laraveleko konbentzioaren arabera egingo da, hau da, taula modeloaren izena letra larriz eta singularrean eta aldiz taularen izena letra txikiz eta pluralean izango da, baina noski, ingelerazko plurala erabiliko du.</p>
-<p>Gogoratu migrazioa egiterakoan beti dagokigun direktorioan egon behar dugula kokatuta.</p>
-<ul>
-<li>Migrazioa + modeloa:</li>
-</ul>
-<div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>make:Model<span class="w"> </span>Pupil<span class="w"> </span>-m
+<p>Behin datu basearen konfigurazioa eginda dugula, migrazioa sortuko dugu, aurrekoan ikusi genuen bezela, horrela egingo genuke:</p>
+<div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>make:migration<span class="w"> </span>create_students_taula
 </code></pre></div>
-<ul>
-<li>Migrazioa bakarrik sortu nahi izango bagenu eran egingo dugu:</li>
-</ul>
-<div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>make:migration<span class="w"> </span>create_pupils_table
+<p>Baina artisanek beste aukera bat ematen digu, modeloa eta migrazioa aldi bereaz sortzea, horretarako, modeloa sortuko dugu eta "-m" jartzean bere migrazioa ere sortuko du:</p>
+<div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>make:model<span class="w"> </span>Student<span class="w"> </span>-m
 </code></pre></div>
-<p>Aurreko migrazioan jarritako izena konbentzio bat da, modu honetan, migrazioa sortzerakoan, up() metodoaren barruan create metodoa sortuko du, eta honen barruan pupils taula.</p>
-<div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>make:migration<span class="w"> </span>pupils
+<h3 id="create_students_tablephp-migrazioa">create_students_table.php migrazioa</h3>
+<p><code>database/migrations/…_create_students_table.php</code> fitxategia hartu eta ondorengo elementuak sartuko ditugu: name eta emaila</p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Illuminate\Database\Migrations\Migration</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Illuminate\Database\Schema\Blueprint</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Illuminate\Support\Facades\Schema</span><span class="p">;</span>
+
+<span class="k">return</span> <span class="k">new</span> <span class="k">class</span> <span class="k">extends</span> <span class="nx">Migration</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">up</span><span class="p">()</span><span class="o">:</span> <span class="nx">void</span>
+    <span class="p">{</span>
+        <span class="nx">Schema</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;students&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Blueprint</span> <span class="nv">$table</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">();</span>
+            <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">string</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+            <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">string</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">unique</span><span class="p">();</span>
+            <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">date</span><span class="p">(</span><span class="s1">&#39;birth_date&#39;</span><span class="p">);</span>
+            <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">string</span><span class="p">(</span><span class="s1">&#39;city&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+            <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">timestamps</span><span class="p">();</span>
+        <span class="p">});</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">down</span><span class="p">()</span><span class="o">:</span> <span class="nx">void</span>
+    <span class="p">{</span>
+        <span class="nx">Schema</span><span class="o">::</span><span class="na">dropIfExists</span><span class="p">(</span><span class="s1">&#39;students&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">};</span>
 </code></pre></div>
-<p>Horrela bakarrik jartzekotan, ez lituzke metodo horiek sortuko.</p>
-<p><img alt="" src="../../assets/images/Datu%20basea/0de43c3e50d9fac12c2ca5bfb60b8411.jpg" /></p>
-<p>Konprobatuko dugu zelan migrazioa ondo sortu duen, horretarako bagoaz: database &gt; migrations &gt; 2025_11_10_060212_create_pupils_table.php fitxategia zabaltzera.</p>
-<p>Momentuz data basean ez da ezer sortu.</p>
-<ol>
-<li>Gure php honetan sartuko gara eta taula zelakoa izango den adieraziko dugu. Ikusten dugunez, Laravelek, up metodoan kodea sortu du jada, kasu honetan ikasles taula bat sortuko luke bi eremurekin, id eta timestamps eramuak. Aldatuko dugu hori guk nahi dugun datuekin:</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="x">Schema::create('pupils', function (Blueprint $table) {</span>
-
-<span class="x">$table-&gt;id();</span>
-
-<span class="x">$table-&gt;string('name', 75);</span>
-
-<span class="x">$table-&gt;integer('age');</span>
-
-<span class="x">$table-&gt;string('phone', 35)-&gt;nullable();</span>
-
-<span class="x">$table-&gt;string('address', 75)-&gt;nullable();</span>
-
-<span class="x">$table-&gt;timestamps();</span>
-
-<span class="x">});</span>
-</code></pre></div>
-<p>Orain bai, artisanekin, migrazioa exekutatuko dugu:</p>
+<p>Orain migrazioa exekutatuko dugu:</p>
 <div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>migrate
 </code></pre></div>
-<p>Ondo egin duen ala ez jakiteko, datu basera sartuko gara. Fijatu zeitzuk diren sortutako eremuak.</p>
-<p>OHARRA: Ikusi dezakegunez, migrazioa sortzerakoan, Laravelek 3 zutabe sortuko ditu, lehenengoa id eta beste biak timestams-en bidez sortuko dituen beste bi, created_at eta updated_at. Bi zutabe hauek, datuak sortu eta aldatu egiten dituenean eguneratuko egiten ditu, datu horiek sartu edo aldatu diren data eta orduarekin.</p>
-<p>Hori nahi ez izatekotan, migrazioan ezabatu beharko dugu, baina gogoratu ere, modeloa sortzerakoan eremu hori false jartzen:</p>
-<div class="highlight"><pre><span></span><code><span class="x">public $timestamps = false;</span>
+<h2 id="student-modeloa">Student Modeloa</h2>
+<p><code>app/Models/Student.php</code></p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Models</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Illuminate\Database\Eloquent\Factories\HasFactory</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Illuminate\Database\Eloquent\Model</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Student</span> <span class="k">extends</span> <span class="nx">Model</span>
+<span class="p">{</span>
+    <span class="k">use</span> <span class="nx">HasFactory</span><span class="p">;</span>
+
+    <span class="k">protected</span> <span class="nv">$fillable</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">];</span>
+<span class="p">}</span>
 </code></pre></div>
-<p>Ikusten dugunez, migrazioa sortzerakoan, gure Migration klaseak bi funtzio izango ditu, up() eta down(), lehenengoan taula sortuko da guk esandako eramuekin. Aldiz down() funtzioari deituko zaio migrazioa dezegin nahi izatekotan, hori dela eta funtzio honetan soilik taula ezabatuko da.</p>
-<h2 id="seeder">Seeder</h2>
-<p>Seeder-ak Laraveleko konponente batzuk dira datu basean datuak sartu ahal izateko. Hauek normalean garapen prozesuan datuak sartzeko edo aplikazioren hasieran behar diren datuak sartzeko balio dute.</p>
-<p>Zelan egingo genuke hau?</p>
-<p>Gure direktorioan egonda, artisaneko sententzia hau idatziko genuke IkasleSeeder sortzeko:</p>
-<div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>make:seeder<span class="w"> </span>PupilSeeder
+<p>Eloquentek <code>Student</code> modeloa <code>students</code> taularekin lotzen du. <code>$fillable</code> zerrendak <code>create()</code> eta <code>update()</code> deietan batera esleitu daitezkeen atributuak zehazten ditu.</p>
+<h2 id="seederra-eta-factorya">Seederra eta factorya</h2>
+<p>Seederrarekin datu ezagunak sartuko ditugu. Factoryarekin, zerrenda eta paginazioa probatzeko erregistroak sortuko ditugu.</p>
+<div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>make:seeder<span class="w"> </span>StudentSeeder
+php<span class="w"> </span>artisan<span class="w"> </span>make:factory<span class="w"> </span>StudentFactory<span class="w"> </span>--model<span class="o">=</span>Student
 </code></pre></div>
-<p>database &gt; seeders-en sortuko du fitxategia.</p>
-<p>Fitxategian, gure modeloa zein den adieraziko diogu, horretarako Ikasle klasearen erreferentzia sortuko dugu:</p>
-<div class="highlight"><pre><span></span><code><span class="x">use App\Models\Pupil;</span>
+<p><code>database/seeders/StudentSeeder.php</code></p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">Database\Seeders</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">App\Models\Student</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Illuminate\Database\Seeder</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">StudentSeeder</span> <span class="k">extends</span> <span class="nx">Seeder</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span><span class="o">:</span> <span class="nx">void</span>
+    <span class="p">{</span>
+        <span class="nx">Student</span><span class="o">::</span><span class="na">firstOrCreate</span><span class="p">([</span><span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;jon@example.test&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Jon Bilbao&#39;</span><span class="p">]);</span>
+        <span class="nx">Student</span><span class="o">::</span><span class="na">firstOrCreate</span><span class="p">([</span><span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;ane@example.test&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Ane Etxeberria&#39;</span><span class="p">]);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
-<p>$pupil aldagaia sortu, Ikasle klasea ezarriz eta bere propietate guztiak beteko ditugu irudian agertzen den moduan, ikusten duzuenez gure datu baseko taulak objeto moduan erabiliko ditugu.</p>
-<p><img alt="" src="../../assets/images/Datu%20basea/37045aa61b6b7aa5ba214898b3cdea4b.jpg" /></p>
-<p><img alt="" src="../../assets/images/Datu%20basea/9abb0fc000f9bb1c46cf80827465225f.jpg" /></p>
-<p>Artisanek, Seederak exekutatzerakoan, beti DatabaseSeeder klasea deituko du; beraz, guk gure seederra exekutatzeko, klase horretako run() metodotik gure klasea "deituko" (instanciar) dugu.</p>
-<p>Bat baino gehiago deitu daiteke metodo honetatik, eskuz idatzitako ordenean exekutatko litzateke.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$this-&gt;call(PupilSeeder::class);</span>
+<p><code>database/factories/StudentFactory.php</code></p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">Database\Factories</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Illuminate\Database\Eloquent\Factories\Factory</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Illuminate\Support\Str</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">StudentFactory</span> <span class="k">extends</span> <span class="nx">Factory</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">definition</span><span class="p">()</span><span class="o">:</span> <span class="k">array</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="nx">fake</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">(),</span>
+            <span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="nx">Str</span><span class="o">::</span><span class="na">uuid</span><span class="p">()</span> <span class="o">.</span> <span class="s1">&#39;@example.test&#39;</span><span class="p">,</span>
+        <span class="p">];</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
-<p>Behin hori guztia eginda, gure datu basean datuak kargatzeko, seeder-a exekutatuko dugu:</p>
+<p><code>database/seeders/DatabaseSeeder.php</code> fitxategian ordezkatu hasierako <code>run()</code> metodoa. Gehitu <code>use App\Models\Student;</code> eta kendu erabili gabe geratzen den <code>User</code> inportazioa.</p>
+<div class="highlight"><pre><span></span><code><span class="x">public function run(): void</span>
+<span class="x">{</span>
+<span class="x">    $this-&gt;call(StudentSeeder::class);</span>
+
+<span class="x">    if (Student::count() &lt; 20) {</span>
+<span class="x">        Student::factory()-&gt;count(20 - Student::count())-&gt;create();</span>
+<span class="x">    }</span>
+<span class="x">}</span>
+</code></pre></div>
 <div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>db:seed
+php<span class="w"> </span>artisan<span class="w"> </span>tinker
 </code></pre></div>
-<h2 id="factories">Factories</h2>
-<p>Dokumentazioa: <a href="https://laravel.com/framework/docs/13.x/seeding">https://laravel.com/framework/docs/13.x/seeding</a></p>
-<p>Seederrak aukera onak dira oso datu gutxi ditugunerako, baina badugu beste aukera bat, frogetarako datu asko behar ditugunerako, horretarako Factoriak ditugu, garapenerako pentsatutako klase batzuk dira hauek.</p>
-<p>Factoriak nahiko errezak dira erabiltzeko, hurrengo pausuak jarraitu behar dira:</p>
-<ol>
-<li>IkasleFactory deitutako klase bat sortuko dugu:</li>
-</ol>
-<div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>make:factory<span class="w"> </span>PupilFactory
-</code></pre></div>
-<ol>
-<li>Ikusten dugunez, database &gt; factories karpetan fitxategi at sortu du PupilFactory.php</li>
-<li>Definition funtzio barruan, taulako eremu bakoitzeko balio aleatorio bat emango diogu, hau Faker konponentari ezker egin dezakegu.</li>
-<li>Faker, PHP libreria bat da, datu aleatorioak sortzen dituena, sortu ditzakegu, izenak, helbidek, telefonoan etab...</li>
-</ol>
-<p>Faker sortu ahal dituen datu guztiak ikusteko <a href="https://github.com/fzaninotto/Faker">esteka honetan sartu</a></p>
-<ol>
-<li>Gure adibidearekin jarraituz, guk horrelako erregistro bat sortuko genuke:</li>
-</ol>
-<p><img alt="" src="../../assets/images/Datu%20basea/0a5678144436ee140eefad70a19d36d7.jpg" /></p>
-<ol>
-<li>Baina orain, DatubaseSeeder-en adierazi behar diogu lehenengo Seederra deitu beharrean Factorya exekutatzea. Kodean ikusi daitekenez, adierazi diezaiokugu zenbat biderretan egingo duen:</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="x">use App\Models\Pupil;</span>
-
-<span class="x">public function run()    {</span>
-
-<span class="x">// $this-&gt;call(PupilSeeder::class);</span>
-</code></pre></div>
-<p>Pupil::factory(10)-&gt;create();</p>
-<p>}</p>
-<ol>
-<li>Behin hori guztia eginda dugula gure modeloan ere esan behar dugu factory erabiliko dela eta zeintzuk izango diren bete ahal izango diren eremuak, hau da, zeintzuk izango diren filleable</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="x">use HasFactory;</span>
-
-<span class="x">protected $fillable = ['name', 'age', 'phone', 'address'];</span>
-</code></pre></div>
-<p><img alt="" src="../../assets/images/Datu%20basea/96c5b823146a03e885e9737fcb695443.jpg" /></p>
-<p>Behin hau eginda, seederra exekutatuko dugu berriro:</p>
-<div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>db:seed
-</code></pre></div>
+<p>Tinker-en, probatu <code>App\Models\Student::where('email', 'jon@example.test')-&gt;first();</code>. Irten <code>exit</code> idatzita. <code>migrate:fresh --seed</code> aginduak taula guztiak ezabatzen eta berreraikitzen ditu; erabili soilik ariketako datuak berariaz berrabiarazi nahi dituzunean.</p>
+<p><a href="https://laravel.com/docs/13.x/migrations">Laravel 13 · Migrazioak</a> · <a href="https://laravel.com/docs/13.x/seeding">Seederrak</a> · <a href="https://laravel.com/docs/13.x/eloquent-factories">Factoryak</a></p>
+<p><a href="../proiektu-bat-sortu/">Aurrekoa · Proiektua sortu</a> | <a href="../all-show-create-edit-delete-adibideekin/">Hurrengoa · Ikasleen CRUDa</a></p>
 
 
 
@@ -2818,7 +2869,7 @@ DB_PASSWORD=root
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Arbelean kopiatuta", "clipboard.copy": "Kopiatu arbelean", "search.result.more.one": "Bat gehiago orri honetan", "search.result.more.other": "# gehiago orri honetan", "search.result.none": "Bat datorren dokumenturik ez", "search.result.one": "Bat datorren dokumentu bat", "search.result.other": "Bat datozen # dokumentu", "search.result.placeholder": "Idatzi bilatzen hasteko", "search.result.term.missing": "Falta da", "select.version": "Hautatu bertsioa"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

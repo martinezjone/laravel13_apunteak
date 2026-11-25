@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2970,7 +2970,7 @@
 <p>En ese caso, tendremos que indicar a Laravel qué tabla debe utilizar mediante la propiedad <code>$table</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="x">class Post extends Model</span>
 <span class="x">{</span>
-<span class="x">    protected $table = 'blog_entries';</span>
+<span class="x">    protected $table = &#39;blog_entries&#39;;</span>
 <span class="x">}</span>
 </code></pre></div>
 <p>Así, el modelo <code>Post</code> trabajará con la tabla <code>blog_entries</code> en lugar de con la tabla <code>posts</code>.</p>
@@ -3006,8 +3006,8 @@
 </table>
 <h3 id="table-y-primarykey"><code>$table</code> y <code>$primaryKey</code></h3>
 <p>Como hemos visto, Laravel utiliza algunas convenciones. Sin embargo, si es necesario, podemos cambiar esos valores:</p>
-<div class="highlight"><pre><span></span><code><span class="x">protected $table = 'posts';</span>
-<span class="x">protected $primaryKey = 'id';</span>
+<div class="highlight"><pre><span></span><code><span class="x">protected $table = &#39;posts&#39;;</span>
+<span class="x">protected $primaryKey = &#39;id&#39;;</span>
 </code></pre></div>
 <p>En este caso, ambas propiedades serían innecesarias, porque Laravel utiliza esos valores por defecto.</p>
 <h3 id="fillable"><code>$fillable</code></h3>
@@ -3016,13 +3016,13 @@
 <p>Por ejemplo, si la tabla <code>posts</code> tiene las columnas <code>title</code> y <code>content</code>, podemos definir el modelo de la siguiente manera:</p>
 <div class="highlight"><pre><span></span><code><span class="x">class Post extends Model</span>
 <span class="x">{</span>
-<span class="x">    protected $fillable = ['title', 'content'];</span>
+<span class="x">    protected $fillable = [&#39;title&#39;, &#39;content&#39;];</span>
 <span class="x">}</span>
 </code></pre></div>
 <p>Ahora podemos utilizar el método <code>create()</code> para crear un registro nuevo:</p>
 <div class="highlight"><pre><span></span><code><span class="x">Post::create([</span>
-<span class="x">    'title' =&gt; 'My first post',</span>
-<span class="x">    'content' =&gt; 'This is the content of my first post.'</span>
+<span class="x">    &#39;title&#39; =&gt; &#39;My first post&#39;,</span>
+<span class="x">    &#39;content&#39; =&gt; &#39;This is the content of my first post.&#39;</span>
 <span class="x">]);</span>
 </code></pre></div>
 <p>Eloquent tomará los datos del array y creará un registro nuevo en la tabla <code>posts</code>.</p>
@@ -3084,7 +3084,7 @@
 <span class="x">{</span>
 <span class="x">    $posts = Post::all();</span>
 
-<span class="x">    return view('posts.index', compact('posts'));</span>
+<span class="x">    return view(&#39;posts.index&#39;, compact(&#39;posts&#39;));</span>
 <span class="x">}</span>
 </code></pre></div>
 <p>En este caso, obtenemos todos los registros y los enviamos a la vista <code>posts.index</code>.</p>
@@ -3100,7 +3100,7 @@
 <p>En este caso, si el registro no existe, Laravel normalmente mostrará un <strong>error 404</strong> en una solicitud web.</p>
 <h3 id="buscar-con-una-condicion-where">Buscar con una condición: <code>where()</code></h3>
 <p>Para obtener los registros que cumplen una condición, podemos utilizar <code>where()</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$posts = Post::where('title', 'Laravel')-&gt;get();</span>
+<div class="highlight"><pre><span></span><code><span class="x">$posts = Post::where(&#39;title&#39;, &#39;Laravel&#39;)-&gt;get();</span>
 </code></pre></div>
 <p>Esta consulta obtendrá todos los registros que tengan el valor <code>Laravel</code> en la columna <code>title</code>.</p>
 <div class="admonition note">
@@ -3118,7 +3118,7 @@
 <span class="x">{</span>
 <span class="x">    $posts = Post::all();</span>
 
-<span class="x">    return view('posts.index', compact('posts'));</span>
+<span class="x">    return view(&#39;posts.index&#39;, compact(&#39;posts&#39;));</span>
 <span class="x">}</span>
 </code></pre></div>
 <p>En este caso:</p>
@@ -3182,7 +3182,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
     
     
-      <script src="../../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

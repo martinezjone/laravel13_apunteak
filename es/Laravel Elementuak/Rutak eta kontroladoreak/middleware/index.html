@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2722,30 +2722,30 @@
 <ol>
 <li>Desde el sistema de rutas, al definir la ruta podemos indicar qué middleware queremos utilizar. Hay que hacerlo desde el registro de rutas, en el archivo enrutador routes/web.php, utilizando la sintaxis que puedes ver a continuación.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get('/test', ['middleware' =&gt; 'domingo', function(){</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;/test&#39;, [&#39;middleware&#39; =&gt; &#39;domingo&#39;, function(){</span>
 
-<span class="x">return 'Middleware ibilbidea frogatzen';</span>
+<span class="x">return &#39;Middleware ibilbidea frogatzen&#39;;</span>
 
 <span class="x">}]);</span>
 </code></pre></div>
 <ol>
 <li>También podemos crear un grupo de rutas desde el sistema de rutas para ejecutar ese middleware.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="x">Route::group(['middleware' =&gt; 'domingo'], function(){</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::group([&#39;middleware&#39; =&gt; &#39;domingo&#39;], function(){</span>
 
-<span class="x">Route::get('/probando/ruta', function(){</span>
+<span class="x">Route::get(&#39;/probando/ruta&#39;, function(){</span>
 
 <span class="x">//código a ejecutar cuando se produzca esa ruta y el verbo</span>
 
-<span class="x">return 'get';</span>
+<span class="x">return &#39;get&#39;;</span>
 
 <span class="x">});</span>
 
-<span class="x">Route::post('/probando/ruta', function(){</span>
+<span class="x">Route::post(&#39;/probando/ruta&#39;, function(){</span>
 
 <span class="x">//código a ejecutar cuando se produzca esa ruta y el verbo POST</span>
 
-<span class="x">return 'post';</span>
+<span class="x">return &#39;post&#39;;</span>
 
 <span class="x">});</span>
 </code></pre></div>
@@ -2754,7 +2754,7 @@
 </ol>
 <div class="highlight"><pre><span></span><code><span class="x">public function __construct(){</span>
 
-<span class="x">$this-&gt;middleware('domingo');</span>
+<span class="x">$this-&gt;middleware(&#39;domingo&#39;);</span>
 
 <span class="x">}</span>
 </code></pre></div>
@@ -2825,7 +2825,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
