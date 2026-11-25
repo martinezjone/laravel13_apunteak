@@ -1,195 +1,169 @@
-# Datu baseak Laravelen
+# TxurdiGest · Datu-basea
 
-Segun eta ze Laravel bertsio erabiltzen den pausu hau ez da egin behar, berak zuzenean datu basea sortzen duelako, horrela ez izatekotan, hurrengo pausu hauek ezinbestekoak izango dira:
+Lehenengo `students` taula prestatuko dugu, hurrengo atalean ikasleen CRUDa egiteko. Irakasleak, moduluak eta matrikulak gero gehituko ditugu.
 
-Datu base bat sortuko dugu, proiektu honetarako, gure phpAdmin-en datu base bat "eskola" izeneko datu basea sortuko dugu, momentuz inolako taularik gabe. Bakarrik databasea sortuko dugu, gainontzekoa, taulak, datuak etab. Artisanekin egingo dugu.
+## MySQL konfiguratu
 
-Orain, Laraveleri, esan behar diogu zein den erabiliko dugun data basea, horretarako, erroko direktorioan, badago fitxategi bat ".env" izenekoa. Horretan esango diogu gure datu basea non dagoen esta izena ere.
+Abiarazi MySQL MAMPen eta sortu `txurdigest` izeneko datu-base hutsa phpMyAdminen. Egokitu `.env` fitxategia zure instalazioko ataka eta kredentzialekin.
 
 ```dotenv
+APP_NAME=TxurdiGest
+APP_LOCALE=eu
+APP_FALLBACK_LOCALE=en
+
 DB_CONNECTION=mysql
-
 DB_HOST=127.0.0.1
-
 DB_PORT=3306
-
-DB_DATABASE=eskola
-
+DB_DATABASE=txurdigest
 DB_USERNAME=root
-
-DB_PASSWORD=root
+DB_PASSWORD=root //MAMP erabiltzen dugulako
 ```
-
-Gure DB-ak 3 taula izango ditu, hurrengo eskeman ikusi dezakezuenez, baina, momentuz guk "Alumnos" taularekin hasiko dugu. Gororatu laravelek ingeleseko nomenklatura erabiliko duela, beraz guk ere taulen izenak ingeleraz sortuko ditugu:
-
-pupils, courses, teachers eta users.
-
-Laravel-en jarraipenetan, taulen izenak beti pluralean idatziko dira.
-
-![](../../assets/images/Datu%20basea/b31d03fcf0611b3ad5a7fb5f976b6b03.jpg)
 
 ## Migrazioa
 
-1. Behin hori eginda, migrazioa egingo dugu. Honi ezker, Laravelek guk adierazitako taulak sortuko ditu gure datu basean sql sententziak erabili barik. Hau guztia Artisani ezker oso errez egingo dugu.
-
-Hau modeloarekin edo modelo barik egin daiteke. Erosoena modeloarekin egitea izango da, baina modu honetan, Laraveleko konbentzioaren arabera egingo da, hau da, taula modeloaren izena letra larriz eta singularrean eta aldiz taularen izena letra txikiz eta pluralean izango da, baina noski, ingelerazko plurala erabiliko du.
-
-Gogoratu migrazioa egiterakoan beti dagokigun direktorioan egon behar dugula kokatuta.
-
-- Migrazioa + modeloa:
+Behin datu basearen konfigurazioa eginda dugula, migrazioa sortuko dugu, aurrekoan ikusi genuen bezela, horrela egingo genuke:
 
 ```bash
-php artisan make:Model Pupil -m
+php artisan make:migration create_students_taula
 ```
 
-- Migrazioa bakarrik sortu nahi izango bagenu eran egingo dugu:
+Baina artisanek beste aukera bat ematen digu, modeloa eta migrazioa aldi bereaz sortzea, horretarako, modeloa sortuko dugu eta "-m" jartzean bere migrazioa ere sortuko du:
 
 ```bash
-php artisan make:migration create_pupils_table
+php artisan make:model Student -m
 ```
 
-Aurreko migrazioan jarritako izena konbentzio bat da, modu honetan, migrazioa sortzerakoan, up() metodoaren barruan create metodoa sortuko du, eta honen barruan pupils taula.
+### create_students_table.php migrazioa
 
-```bash
-php artisan make:migration pupils
-```
-
-Horrela bakarrik jartzekotan, ez lituzke metodo horiek sortuko.
-
-![](../../assets/images/Datu%20basea/0de43c3e50d9fac12c2ca5bfb60b8411.jpg)
-
-Konprobatuko dugu zelan migrazioa ondo sortu duen, horretarako bagoaz: database > migrations > 2025\_11\_10\_060212\_create\_pupils\_table.php fitxategia zabaltzera.
-
-Momentuz data basean ez da ezer sortu.
-
-2. Gure php honetan sartuko gara eta taula zelakoa izango den adieraziko dugu. Ikusten dugunez, Laravelek, up metodoan kodea sortu du jada, kasu honetan ikasles taula bat sortuko luke bi eremurekin, id eta timestamps eramuak. Aldatuko dugu hori guk nahi dugun datuekin:
+`database/migrations/…_create_students_table.php` fitxategia hartu eta ondorengo elementuak sartuko ditugu: name eta emaila
 
 ```php
-Schema::create('pupils', function (Blueprint $table) {
+<?php
 
-$table->id();
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
-$table->string('name', 75);
+return new class extends Migration
+{
+    public function up(): void
+    {
+        Schema::create('students', function (Blueprint $table) {
+            $table->id();
+            $table->string('name', 100);
+            $table->string('email')->unique();
+            $table->date('birth_date');
+            $table->string('city', 100);
+            $table->timestamps();
+        });
+    }
 
-$table->integer('age');
-
-$table->string('phone', 35)->nullable();
-
-$table->string('address', 75)->nullable();
-
-$table->timestamps();
-
-});
+    public function down(): void
+    {
+        Schema::dropIfExists('students');
+    }
+};
 ```
 
-Orain bai, artisanekin, migrazioa exekutatuko dugu:
+Orain migrazioa exekutatuko dugu:
 
 ```bash
 php artisan migrate
 ```
 
-Ondo egin duen ala ez jakiteko, datu basera sartuko gara. Fijatu zeitzuk diren sortutako eremuak.
+## Student Modeloa
 
-OHARRA: Ikusi dezakegunez, migrazioa sortzerakoan, Laravelek 3 zutabe sortuko ditu, lehenengoa id eta beste biak timestams-en bidez sortuko dituen beste bi, created\_at eta updated\_at. Bi zutabe hauek, datuak sortu eta aldatu egiten dituenean eguneratuko egiten ditu, datu horiek sartu edo aldatu diren data eta orduarekin.
-
-Hori nahi ez izatekotan, migrazioan ezabatu beharko dugu, baina gogoratu ere, modeloa sortzerakoan eremu hori false jartzen:
+`app/Models/Student.php`
 
 ```php
-public $timestamps = false;
-```
+<?php
 
-Ikusten dugunez, migrazioa sortzerakoan, gure Migration klaseak bi funtzio izango ditu, up() eta down(), lehenengoan taula sortuko da guk esandako eramuekin. Aldiz down() funtzioari deituko zaio migrazioa dezegin nahi izatekotan, hori dela eta funtzio honetan soilik taula ezabatuko da.
+namespace App\Models;
 
-## Seeder
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-Seeder-ak Laraveleko konponente batzuk dira datu basean datuak sartu ahal izateko. Hauek normalean garapen prozesuan datuak sartzeko edo aplikazioren hasieran behar diren datuak sartzeko balio dute.
+class Student extends Model
+{
+    use HasFactory;
 
-Zelan egingo genuke hau?
-
-Gure direktorioan egonda, artisaneko sententzia hau idatziko genuke IkasleSeeder sortzeko:
-
-```bash
-php artisan make:seeder PupilSeeder
-```
-
-database > seeders-en sortuko du fitxategia.
-
-Fitxategian, gure modeloa zein den adieraziko diogu, horretarako Ikasle klasearen erreferentzia sortuko dugu:
-
-```php
-use App\Models\Pupil;
-```
-
-$pupil aldagaia sortu, Ikasle klasea ezarriz eta bere propietate guztiak beteko ditugu irudian agertzen den moduan, ikusten duzuenez gure datu baseko taulak objeto moduan erabiliko ditugu.
-
-![](../../assets/images/Datu%20basea/37045aa61b6b7aa5ba214898b3cdea4b.jpg)
-
-![](../../assets/images/Datu%20basea/9abb0fc000f9bb1c46cf80827465225f.jpg)
-
-Artisanek, Seederak exekutatzerakoan, beti DatabaseSeeder klasea deituko du; beraz, guk gure seederra exekutatzeko, klase horretako run() metodotik gure klasea "deituko" (instanciar) dugu.
-
-Bat baino gehiago deitu daiteke metodo honetatik, eskuz idatzitako ordenean exekutatko litzateke.
-
-```php
-$this->call(PupilSeeder::class);
-```
-
-Behin hori guztia eginda, gure datu basean datuak kargatzeko, seeder-a exekutatuko dugu:
-
-```bash
-php artisan db:seed
-```
-
-## Factories
-
-Dokumentazioa: <https://laravel.com/framework/docs/13.x/seeding>
-
-Seederrak aukera onak dira oso datu gutxi ditugunerako, baina badugu beste aukera bat, frogetarako datu asko behar ditugunerako, horretarako Factoriak ditugu, garapenerako pentsatutako klase batzuk dira hauek.
-
-Factoriak nahiko errezak dira erabiltzeko, hurrengo pausuak jarraitu behar dira:
-
-1. IkasleFactory deitutako klase bat sortuko dugu:
-
-```bash
-php artisan make:factory PupilFactory
-```
-
-2. Ikusten dugunez, database > factories karpetan fitxategi at sortu du PupilFactory.php
-3. Definition funtzio barruan, taulako eremu bakoitzeko balio aleatorio bat emango diogu, hau Faker konponentari ezker egin dezakegu.
-4. Faker, PHP libreria bat da, datu aleatorioak sortzen dituena, sortu ditzakegu, izenak, helbidek, telefonoan etab...
-
-Faker sortu ahal dituen datu guztiak ikusteko [esteka honetan sartu](https://github.com/fzaninotto/Faker)
-
-5. Gure adibidearekin jarraituz, guk horrelako erregistro bat sortuko genuke:
-
-![](../../assets/images/Datu%20basea/0a5678144436ee140eefad70a19d36d7.jpg)
-
-6. Baina orain, DatubaseSeeder-en adierazi behar diogu lehenengo Seederra deitu beharrean Factorya exekutatzea. Kodean ikusi daitekenez, adierazi diezaiokugu zenbat biderretan egingo duen:
-
-```php
-use App\Models\Pupil;
-
-public function run()    {
-
-// $this->call(PupilSeeder::class);
-```
-
-Pupil::factory(10)->create();
-
+    protected $fillable = ['name', 'email'];
 }
-
-7. Behin hori guztia eginda dugula gure modeloan ere esan behar dugu factory erabiliko dela eta zeintzuk izango diren bete ahal izango diren eremuak, hau da, zeintzuk izango diren filleable
-
-```php
-use HasFactory;
-
-protected $fillable = ['name', 'age', 'phone', 'address'];
 ```
 
-![](../../assets/images/Datu%20basea/96c5b823146a03e885e9737fcb695443.jpg)
+Eloquentek `Student` modeloa `students` taularekin lotzen du. `$fillable` zerrendak `create()` eta `update()` deietan batera esleitu daitezkeen atributuak zehazten ditu.
 
-Behin hau eginda, seederra exekutatuko dugu berriro:
+## Seederra eta factorya
+
+Seederrarekin datu ezagunak sartuko ditugu. Factoryarekin, zerrenda eta paginazioa probatzeko erregistroak sortuko ditugu.
+
+```bash
+php artisan make:seeder StudentSeeder
+php artisan make:factory StudentFactory --model=Student
+```
+
+`database/seeders/StudentSeeder.php`
+
+```php
+<?php
+
+namespace Database\Seeders;
+
+use App\Models\Student;
+use Illuminate\Database\Seeder;
+
+class StudentSeeder extends Seeder
+{
+    public function run(): void
+    {
+        Student::firstOrCreate(['email' => 'jon@example.test'], ['name' => 'Jon Bilbao']);
+        Student::firstOrCreate(['email' => 'ane@example.test'], ['name' => 'Ane Etxeberria']);
+    }
+}
+```
+
+`database/factories/StudentFactory.php`
+
+```php
+<?php
+
+namespace Database\Factories;
+
+use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
+
+class StudentFactory extends Factory
+{
+    public function definition(): array
+    {
+        return [
+            'name' => fake()->name(),
+            'email' => Str::uuid() . '@example.test',
+        ];
+    }
+}
+```
+
+`database/seeders/DatabaseSeeder.php` fitxategian ordezkatu hasierako `run()` metodoa. Gehitu `use App\Models\Student;` eta kendu erabili gabe geratzen den `User` inportazioa.
+
+```php
+public function run(): void
+{
+    $this->call(StudentSeeder::class);
+
+    if (Student::count() < 20) {
+        Student::factory()->count(20 - Student::count())->create();
+    }
+}
+```
 
 ```bash
 php artisan db:seed
+php artisan tinker
 ```
+
+Tinker-en, probatu `App\Models\Student::where('email', 'jon@example.test')->first();`. Irten `exit` idatzita. `migrate:fresh --seed` aginduak taula guztiak ezabatzen eta berreraikitzen ditu; erabili soilik ariketako datuak berariaz berrabiarazi nahi dituzunean.
+
+[Laravel 13 · Migrazioak](https://laravel.com/docs/13.x/migrations) · [Seederrak](https://laravel.com/docs/13.x/seeding) · [Factoryak](https://laravel.com/docs/13.x/eloquent-factories)
+
+[Aurrekoa · Proiektua sortu](proiektu-bat-sortu.md) | [Hurrengoa · Ikasleen CRUDa](all-show-create-edit-delete-adibideekin.md)

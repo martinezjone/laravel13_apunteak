@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2669,7 +2669,7 @@
 <div class="highlight"><pre><span></span><code><span class="x">$pupils = Pupil::paginate(10);</span>
 </code></pre></div>
 <p>Otro método que podemos usar es orderBy, que podemos combinar con otros métodos, por ejemplo:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$pupils = Pupil::orderBy('id','desc')-&gt;paginate();</span>
+<div class="highlight"><pre><span></span><code><span class="x">$pupils = Pupil::orderBy(&#39;id&#39;,&#39;desc&#39;)-&gt;paginate();</span>
 </code></pre></div>
 <ol>
 <li>En la vista index.blade.php pondremos los enlaces de paginación usando la siguiente directiva:</li>
@@ -2689,10 +2689,10 @@
 <p>Laravel indica que, si en algún momento no se cumple una validación, no se pasará a la siguiente línea de código y se mostrará un error. En cambio, cuando todas las validaciones sean correctas, se continuará.</p>
 <p>En nuestro caso, escribiremos esto en el método store() para validar todos nuestros datos:</p>
 <div class="highlight"><pre><span></span><code><span class="x">$validated = $request-&gt;validate([</span>
-<span class="x">    'name' =&gt; 'required|string|max:75',</span>
-<span class="x">    'age' =&gt; 'required|integer|min:0',</span>
-<span class="x">    'phone' =&gt; 'required|string|max:20',</span>
-<span class="x">    'address' =&gt; 'required|string|max:75',</span>
+<span class="x">    &#39;name&#39; =&gt; &#39;required|string|max:75&#39;,</span>
+<span class="x">    &#39;age&#39; =&gt; &#39;required|integer|min:0&#39;,</span>
+<span class="x">    &#39;phone&#39; =&gt; &#39;required|string|max:20&#39;,</span>
+<span class="x">    &#39;address&#39; =&gt; &#39;required|string|max:75&#39;,</span>
 <span class="x">]);</span>
 
 <span class="x">Pupil::create($validated);</span>
@@ -2713,40 +2713,40 @@
 <li>En la vista create.blade.php añadiremos todas las validaciones.</li>
 </ol>
 <p>En el campo Nombre y apellidos situado debajo del elemento Input, añadiremos el código de validación de ese campo con la directiva que nos ofrece Blade. La opción @error permite imprimir el mensaje de error correspondiente a ese campo.</p>
-<div class="highlight"><pre><span></span><code><span class="x">@error('name')</span>
-<span class="x">    &lt;p class="error-message"&gt;{{ $message }}&lt;/p&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="x">@error(&#39;name&#39;)</span>
+<span class="x">    &lt;p class=&quot;error-message&quot;&gt;{{ $message }}&lt;/p&gt;</span>
 <span class="x">@enderror</span>
 </code></pre></div>
 <ol>
 <li>Añadiremos al input el método old(), una directiva de Blade. Así conseguiremos conservar el dato introducido antes de la validación.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="x">&lt;input type="text" name="name" placeholder="Izena" value="{{ old('name') }}"&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="x">&lt;input type=&quot;text&quot; name=&quot;name&quot; placeholder=&quot;Izena&quot; value=&quot;{{ old(&#39;name&#39;) }}&quot;&gt;</span>
 </code></pre></div>
 <ol>
 <li>Haremos lo mismo con el campo de edad:</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="x">&lt;label&gt;Adina:&lt;/label&gt;</span>
 
-<span class="x">&lt;input type="text" name="age" placeholder="Adina" value="{{ old('age') }}"&gt;</span>
+<span class="x">&lt;input type=&quot;text&quot; name=&quot;age&quot; placeholder=&quot;Adina&quot; value=&quot;{{ old(&#39;age&#39;) }}&quot;&gt;</span>
 
-<span class="x">@error('age')</span>
-<span class="x">    &lt;p class="error-message"&gt;{{ $message }}&lt;/p&gt;&lt;br&gt;</span>
+<span class="x">@error(&#39;age&#39;)</span>
+<span class="x">    &lt;p class=&quot;error-message&quot;&gt;{{ $message }}&lt;/p&gt;&lt;br&gt;</span>
 <span class="x">@enderror</span>
 </code></pre></div>
 <ol>
 <li>También conservaremos el teléfono y la dirección introducidos:</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="x">&lt;label&gt;Telefonoa:&lt;/label&gt;</span>
-<span class="x">&lt;input type="text" name="phone" placeholder="Telefonoa" value="{{ old('phone') }}"&gt;</span>
+<span class="x">&lt;input type=&quot;text&quot; name=&quot;phone&quot; placeholder=&quot;Telefonoa&quot; value=&quot;{{ old(&#39;phone&#39;) }}&quot;&gt;</span>
 <span class="x">&lt;label&gt;Helbidea:&lt;/label&gt;</span>
-<span class="x">&lt;input type="text" name="address" placeholder="Helbidea" value="{{ old('address') }}"&gt;</span>
+<span class="x">&lt;input type=&quot;text&quot; name=&quot;address&quot; placeholder=&quot;Helbidea&quot; value=&quot;{{ old(&#39;address&#39;) }}&quot;&gt;</span>
 </code></pre></div>
 <ol>
 <li>¿Qué ocurre si hacemos la validación al editar? En ese caso, la primera vez que accedamos al formulario queremos obtener el dato de la base de datos y, si hay un error, el valor que nos devuelve el método old. Para hacerlo, pasaremos un segundo parámetro al método old:</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="x">&lt;label&gt;Telefonoa:&lt;/label&gt;</span>
 
-<span class="x">&lt;input type="text" name="phone" placeholder="Telefonoa" value="{{ old('phone', $pupil-&gt;phone) }}"&gt;</span>
+<span class="x">&lt;input type=&quot;text&quot; name=&quot;phone&quot; placeholder=&quot;Telefonoa&quot; value=&quot;{{ old(&#39;phone&#39;, $pupil-&gt;phone) }}&quot;&gt;</span>
 </code></pre></div>
 <p>Como vemos, los mensajes aparecerán en inglés. Si queremos cambiarlo, tendremos que cambiar el idioma.</p>
 <ol>
@@ -2802,11 +2802,11 @@ APP_FALLBACK_LOCALE=eu
 <p>En los mensajes de validación, Laravel usa automáticamente los nombres de los campos de los formularios (name, email, izen_abizen, etc.).</p>
 <p>Si queremos que estos campos se muestren de forma más “amable”,</p>
 <p>iremos al archivo lang/eu/validation.php y los escribiremos en la sección attributes, situada al final:</p>
-<div class="highlight"><pre><span></span><code><span class="x">'attributes' =&gt; [</span>
-<span class="x">'izen\_abizen' =&gt; 'Izen Abizenak',</span>
-<span class="x">'email' =&gt; 'Posta Elektronikoa',</span>
-<span class="x">'password' =&gt; 'Pasahitza',</span>
-<span class="x">'name' =&gt; 'Izena',</span>
+<div class="highlight"><pre><span></span><code><span class="x">&#39;attributes&#39; =&gt; [</span>
+<span class="x">&#39;izen\_abizen&#39; =&gt; &#39;Izen Abizenak&#39;,</span>
+<span class="x">&#39;email&#39; =&gt; &#39;Posta Elektronikoa&#39;,</span>
+<span class="x">&#39;password&#39; =&gt; &#39;Pasahitza&#39;,</span>
+<span class="x">&#39;name&#39; =&gt; &#39;Izena&#39;,</span>
 <span class="x">];</span>
 </code></pre></div>
 <p>Así, los mensajes de error aparecerán traducidos y con el formato adecuado.</p>
@@ -2878,7 +2878,7 @@ php<span class="w"> </span>artisan<span class="w"> </span>lang:add<span class="w
       <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

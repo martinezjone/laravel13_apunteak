@@ -1,356 +1,280 @@
-# Eskola adibidea
+# TxurdiGest · N:M erlazioa eta matrikulak
 
-## N-M erlazioa
+Ikasle batek hainbat modulu egin ditzake, eta modulu bakoitzean hainbat ikasle egon daitezke. Lotura bakoitza `module_student` tarteko taulako errenkada bat da.
 
-Aurreko datu basearekin jarraituz, ikusi dezakegu ikasturte eta ikasleen arteko erlazioa N-M erlazioa da, hau da, ikasle batek hainbat kurtso eman ditzake eta aldiz ikasturte batek hainbat ikasle izango ditu.
-
-Beraz, kasu honetan beste taula bat izango da beharrezkoa, pivot taula.
-
-Horretarako migrazio berri bat egingo dugu, Laravelen konbentzioa jarraituz, erlazionatzen diren bi taulen izenak izango ditu, singularrean eta alfabetikoki ordenaduta, kasu honetan pupils eta courses erlazionatuko ditugunez, taula course\_pupil izango da.
-
-Migrazioa sortzeko:
+## Tarteko taula eta Eloquent erlazioak
 
 ```bash
-php artisan make:migration create_course_pupil_table
+php artisan make:migration create_module_student_table
 ```
 
-Migrazioan idatziko duguna, alde batetik id biak sortu eta bestetik klabe foraneak direla esango dugu:
+Migrazioaren metodoak:
 
 ```php
-Schema::create('course_pupil', function (Blueprint $table) {
+public function up(): void
+{
+    Schema::create('module_student', function (Blueprint $table) {
+        $table->foreignId('module_id')->constrained()->cascadeOnDelete();
+        $table->foreignId('student_id')->constrained()->cascadeOnDelete();
+        $table->primary(['module_id', 'student_id']);
+    });
+}
 
-$table->id();
-
-// N-M erlazioa (Modu 1 - zaharra)
-
-$table->unsignedBigInteger('course_id');
-
-$table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
-
-$table->unsignedBigInteger('pupil_id');
-
-$table->foreign('pupil_id')->references('id')->on('pupils')->onDelete('cascade');
-
-// N-M erlazioa (Modu 2 - modernoa)
-
-$table->foreignId('course_id')->constrained()->onDelete('cascade');
-
-$table->foreignId('pupil_id')->constrained()->onDelete('cascade');
-
-$table->timestamps();
-
-});
+public function down(): void
+{
+    Schema::dropIfExists('module_student');
+}
 ```
 
-Ohartu zelan kasu honetan onDelete() egitareakoan "cascade" jarri dugula, kasu honetan, bai ikastaro bat, bai ikasle bat ezabatzerakoan gure dugulako taula honetatik ere ezabatu daitezen.
+Gako konposatuak matrikula bikoiztuak saihesten ditu. Ikasle edo modulu bat ezabatzean, bere matrikula-errenkadak ere ezabatuko dira. Beste aldeko erregistro nagusiak gordeko dira.
 
-Behin eginda, gogoratu exekutatzen.
+Exekutatu `php artisan migrate`. Gehitu `use Illuminate\Database\Eloquent\Relations\BelongsToMany;` bi modeloetan.
+
+`Student` modeloan:
+
+```php
+public function modules(): BelongsToMany
+{
+    return $this->belongsToMany(Module::class);
+}
+```
+
+`Module` modeloan:
+
+```php
+public function students(): BelongsToMany
+{
+    return $this->belongsToMany(Student::class);
+}
+```
+
+Eloquentek `module_student` izena ondorioztatzen du bi modeloen izen singularrak ordena alfabetikoan elkartuta.
+
+## Matrikulen seederra
 
 ```bash
-php artisan migrate
+php artisan make:seeder EnrollmentSeeder
 ```
 
-![](../../assets/images/Erlazioak%20N-M/d3f908b413f8c5df0204ed448148b720.jpg)
-
-## Eloquent erlazioak
-
-Erlazioak modeloetan adierazi behar dira ere. Horretarako hainbat gauza izan behar ditugu kontutan
-
-- Ikasle batek hainbat kurtsotan egon daiteke eta kurtso bakoitzean hainabt ikasle daude, beraz badugu N-M erlazioa bat.
-
-![](../../assets/images/Erlazioak%20N-M/454d84617f4971038fa4301bef27836b.jpg)
-
-Hori definitzeko, Pupil modeloan, belongsToMany metodoa erabiliko dugu, metodo honek definitzen bait du N-M erlazioak.
+`database/seeders/EnrollmentSeeder.php`
 
 ```php
-public function courses(){
+<?php
 
-return $this->belongsToMany(Course::class);
+namespace Database\Seeders;
 
+use App\Models\Module;
+use App\Models\Student;
+use Illuminate\Database\Seeder;
+
+class EnrollmentSeeder extends Seeder
+{
+    public function run(): void
+    {
+        $jon = Student::where('email', 'jon@example.test')->firstOrFail();
+        $ane = Student::where('email', 'ane@example.test')->firstOrFail();
+        $server = Module::where('code', 'DWS')->firstOrFail();
+        $client = Module::where('code', 'DWC')->firstOrFail();
+
+        $jon->modules()->syncWithoutDetaching([$server->id, $client->id]);
+        $ane->modules()->syncWithoutDetaching([$client->id]);
+    }
 }
 ```
 
-Eta modu berean ere, Course modeloan ere Ikasleekiko erlazioa definituko dugu:
+Gehitu `$this->call(EnrollmentSeeder::class);` `DatabaseSeeder::run()` metodoaren bukaeran, ikasleak eta moduluak sortu ondoren. Exekutatu `php artisan db:seed`. Seederra berriz exekutatzean probako matrikulak berriz agertuko dira, eskuz kendu badituzu.
 
-```php
-public function pupils(){
+## Ikaslearen eta moduluaren fitxak
 
-return $this->belongsToMany(Pupil::class);
+`StudentController::show()` metodoan, `return` aurretik, gehitu `$student->load('modules');`. Gehitu ondokoa `students/show.blade.php` fitxategiko edukiaren barruan:
 
-}
+```blade
+<h2>Matrikulatutako moduluak</h2>
+<ul>
+    @forelse ($student->modules as $module)
+        <li><a href="{{ route('modules.show', $module) }}">{{ $module->name }}</a></li>
+    @empty
+        <li>Ikaslea ez dago modulurik egiten.</li>
+    @endforelse
+</ul>
 ```
 
-## Seeders - pupil\_course
+`ModuleController::show()` metodoan ordezkatu `$module->load('teacher');` lerroa `$module->load(['teacher', 'students']);` lerroarekin. Gehitu moduluaren fitxan:
 
-"Courses" Seeder
+```blade
+<h2>Matrikulatutako ikasleak</h2>
+<ul>
+    @forelse ($module->students as $student)
+        <li><a href="{{ route('students.show', $student) }}">{{ $student->name }}</a></li>
+    @empty
+        <li>Ez dago matrikulatutako ikaslerik.</li>
+    @endforelse
+</ul>
+```
+
+## Matrikulak editatu
 
 ```bash
-php artisan make:seeder CourseSeeder
+php artisan make:controller EnrollmentController
 ```
 
-Gogoratu modelo biak gehitu behar ditugula.
+Gehitu inportazioa eta bi ibilbideak `routes/web.php` fitxategian:
 
 ```php
-use App\Models\Course;
+use App\Http\Controllers\EnrollmentController;
 
-use App\Models\Pupil;
+Route::get('/students/{student}/enrollments/edit', [EnrollmentController::class, 'edit'])
+    ->name('students.enrollments.edit');
+
+Route::put('/students/{student}/enrollments', [EnrollmentController::class, 'update'])
+    ->name('students.enrollments.update');
 ```
 
-Pivot taulan datuak sartzeko, gure kasuan course\_pupil, Eloquent baditu bere funtzioak, eta euren artean attach() dugu.
+`app/Http/Controllers/EnrollmentController.php`
 
 ```php
-$course1->pupils()->attach([1, 2, 3]);
+<?php
 
-$course2->pupils()->attach([2, 4]);
+namespace App\Http\Controllers;
 
-$course3->pupils()->attach([1, 3, 5]);
+use App\Models\Module;
+use App\Models\Student;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\View\View;
+
+class EnrollmentController extends Controller
+{
+    public function edit(Student $student): View
+    {
+        $modules = Module::orderBy('name')->get();
+        $enrolledModuleIds = $student->modules()->pluck('modules.id')->all();
+
+        return view('enrollments.edit', compact('student', 'modules', 'enrolledModuleIds'));
+    }
+
+    public function update(Request $request, Student $student): RedirectResponse
+    {
+        $validated = $request->validate([
+            'module_id' => ['sometimes', 'array', 'list'],
+            'module_id.*' => ['required', 'integer', 'distinct', 'exists:modules,id'],
+        ]);
+
+        DB::transaction(function () use ($student, $validated) {
+            $lockedStudent = Student::query()->lockForUpdate()->findOrFail($student->id);
+            $lockedStudent->modules()->sync($validated['module_id'] ?? []);
+        });
+
+        return to_route('students.show', $student)->with('status', 'Matrikulak gorde dira.');
+    }
+}
 ```
 
-DataBaseSeeder-a exekutatuko dugu, horretarako beharrezkoa den deia jarriko dugu:
+`module_id[]` izenak moduluko IDen zerrenda bidaltzen du eta `module_id` zutabearen izena mantentzen du. `student_id` ibilbidetik dator, `Student $student` parametroaren bidez. Laukitxo guztiak desmarkatzean nabigatzaileak `module_id` bidali gabe uzten du. Kasu horretan, `sync([])` deiak ikaslearen matrikula guztiak kentzen ditu. Transakzioak aldaketak batera gordetzen ditu; ikaslearen blokeoak ikasle beraren aldibereko formulario-bidalketak ordenatzen ditu.
 
-```php
-$this->call(CourseSeeder::class);
+`resources/views/enrollments/edit.blade.php`
+
+```blade
+@extends('layouts.app')
+
+@section('title', 'Matrikulak editatu')
+
+@section('content')
+    <h1>{{ $student->name }} · Matrikulak editatu</h1>
+
+    @php
+        $selectedModuleIds = old('enrollment_form')
+            ? collect(old('module_id', []))->filter(fn ($id) => is_scalar($id))->map(fn ($id) => (int) $id)->all()
+            : $enrolledModuleIds;
+    @endphp
+
+    <form method="POST" action="{{ route('students.enrollments.update', $student) }}">
+        @csrf
+        @method('PUT')
+        <input type="hidden" name="enrollment_form" value="1">
+
+        <fieldset>
+            <legend>Moduluak</legend>
+            @forelse ($modules as $module)
+                <label for="module_id_{{ $module->id }}">
+                    <input type="checkbox" id="module_id_{{ $module->id }}" name="module_id[]"
+                        value="{{ $module->id }}" @checked(in_array($module->id, $selectedModuleIds))>
+                    {{ $module->code }} · {{ $module->name }}
+                </label>
+            @empty
+                <p>Ez dago modulurik. Sortu modulu bat lehenik.</p>
+            @endforelse
+        </fieldset>
+
+        @foreach ($errors->all() as $error)
+            <p class="error">{{ $error }}</p>
+        @endforeach
+
+        <button type="submit">Gorde</button>
+        <a href="{{ route('students.show', $student) }}">Utzi</a>
+    </form>
+@endsection
 ```
 
-Eta orain bai exekutatu dezakegula gure Seederra:
+`enrollment_form` ez da datu-baseko eremu bat. Aurretik formularioa bidali den jakiteko marka da, balidazio-errore baten ondoren hautapena leheneratzeko.
+
+Gehitu esteka ikaslearen fitxan:
+
+```blade
+<a href="{{ route('students.enrollments.edit', $student) }}">Matrikulak editatu</a>
+```
+
+## attach(), detach() eta sync()
+
+| Metodoa | Eragina |
+| --- | --- |
+| `attach($moduleId)` | Matrikula bat gehitu. Lotura dagoeneko existitzen bada, gako konposatuak bikoizketa eragozten du. |
+| `detach($moduleId)` | Adierazitako lotura kendu. |
+| `sync([$firstId, $secondId])` | Zerrendako loturak mantendu edo sortu, eta gainerakoak kendu. |
+| `syncWithoutDetaching([$moduleId])` | Lotura erantsi falta bada, aurreko matrikulak gordez. |
+
+Probatu Joni modulu bat kentzen, berriz eransten eta biak kentzen. Begiratu aldaketa moduluaren fitxan ere.
+
+## Aukerako hedapena · Kalifikazioa eta matrikula-data
 
 ```bash
-php artisan db:seed
+php artisan make:migration add_enrollment_details_to_module_student_table --table=module_student
 ```
 
-![](../../assets/images/Erlazioak%20N-M/f32d76c068263a7fdf8ca44861babab3.jpg)
-
-Ikastaroak jada sortuta izatekotan, hartuko ditugu ikastaroren baten bat eta guk nahi ditugun ikasle gehituko ditugu, horretarako ondo legoke beste seeder berri bat sortu, CoursePupilSeeder adibidez.
-
 ```php
-use App\Models\Course;
-
-use App\Models\Pupil;
-
-class CoursePupilSeeder extends Seeder
-
+public function up(): void
 {
+    Schema::table('module_student', function (Blueprint $table) {
+        $table->date('enrolled_at')->nullable();
+        $table->unsignedTinyInteger('grade')->nullable();
+    });
+}
 
-public function run(): void
-
+public function down(): void
 {
-
-$course1 = Course::find(1);
-
-$course1->pupils()->attach([1,2,3]);
-
-$course2 = Course::find(2);
-
-$course2->pupils()->attach([4,6,10]);
-
-$course3 = Course::find(3);
-
-$course3->pupils()->attach([1,2,3,9]);
-
+    Schema::table('module_student', function (Blueprint $table) {
+        $table->dropColumn(['enrolled_at', 'grade']);
+    });
 }
 ```
 
-## Attach - Detach - Sync
+Exekutatu `php artisan migrate`. Gehitu `->withPivot('enrolled_at', 'grade')` bi `belongsToMany()` deien bukaeran. Lehendik dauden matrikulek `null` izango dute bi eremuetan.
 
-Ikasle baten ikastaroak eguneratzeko, bi eragiketa nagusi egin daitezke pivot taulan:
-
-Ikastaro berriak gehitu → attach()
-
-Ikastaroak kendu → detach()
-
-Adibidea: formulario batetik datozen ikastaroak
-
-Demagun formulario batek course\_ids array bat bidaltzen duela: course\_ids = [1, 3, 5] eta Ikasle hori ikastaro horietan matrikulatu nahi dugula.
-
-## attach() – erlazioak gehitzeko
-
-attach() metodoak pivot taulan erlazio berriak gehitzen ditu:
+Tinkerren, erabili dagoeneko matrikulatuta dagoen ikasle bat eta bere modulu baten IDa. `updateExistingPivot()` metodoak lotura horren datuak eguneratzen ditu:
 
 ```php
-$pupil->courses()->attach([1, 3, 5]);
-```
-
-Aurretik erlazioa bazegoen, bikoizketak sor daitezke, funtzioak ez du kontuan hartzen zein ikastaro kendu behar diren, horregatik, eguneraketa egiteko bakarrik ez da nahikoa. Beraz update egin bahi izatekotan, lehenago detach egin beharko genuke.
-
-## detach() – erlazioak kentzeko
-
-detach() erabil dezakegu erlazioak ezabatzeko:
-
-```php
-$pupil->courses()->detach([2, 4]);
-```
-
-Honek ikaslea 2. eta 4. ikastaroetatik desmatrikulatzen du.
-
-Era berean, erlazio guztiak ezabatzeko horrela egingo genuke:
-
-```php
-$pupil->courses()->detach();
-```
-
-Matrikularen edizioa egiteko attach + detach konbinatu bearko genuke
-
-Beraz ikaslearen matrikulazioa eguneratzeko, logika hau egin genezake:
-
-- Uneko ikastaroak lortu
-- Zein kendu behar diren kalkulatu
-- Zein gehitu behar diren kalkulatu
-- attach() eta detach() erabili
-
-Horrelako zeozer egin beharko genuke horretarako:
-
-```php
-$selectedCourses = $request->input('course_ids', []);
-
-$currentCourses = $pupil->courses->pluck('id')->toArray();
-
-$toAttach = array_diff($selectedCourses, $currentCourses);
-
-$toDetach = array_diff($currentCourses, $selectedCourses);
-
-$pupil->courses()->attach($toAttach);
-
-$pupil->courses()->detach($toDetach);
-```
-
-Baina horrela eginez, kodea luzea eta konplexua bihurtzen da, beraz sync funtzioa erabiliko genuke.
-
-## sync() -  attach eta detach sinkronizatzen ditu
-
-attach() eta detach() erabiliz, ematen zaizkion ID-ak bakarrik utziko ditu pivot taulan eta beste erlazio guztiak automatikoki ezabatuko ditu.
-
-```php
-public function enrollUpdate(Request $request, Pupil $pupil)
-
-{
-
-$pupil->courses()->sync($request->input('course_ids', []));
-
-return redirect()->route('pupils.index')
-
-->with('success', 'Ikaslearen matrikulazioa eguneratu da!');
-
-}
-```
-
-## Pivot taulan atributuak gehitzea
-
-Batzuetan N-M erlazioan ez da nahikoa bi IDak gordetzea. Adibidez, ikasle batek ikastaro batean noiz matrikulatu den, nota, edo rola (ordezkaria, arrunta…) gorde nahi izan dezakegu.
-
-Horretarako, pivot taulan atributu gehigarriak gehituko ditugu: enrolled\_at eta grade, bat date motatakoa eta bigarrena integer motakoa.
-
-```php
-Schema::create('course_pupil', function (Blueprint $table) {
-
-$table->id();
-
-$table->unsignedBigInteger('course_id');
-
-$table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
-
-$table->unsignedBigInteger('pupil_id');
-
-$table->foreign('pupil_id')->references('id')->on('pupils')->onDelete('cascade');
-
-// Pivot atributuak
-
-$table->date('enrolled_at')->nullable();
-
-$table->integer('grade')->nullable();
-
-$table->timestamps();
-
-});
-```
-
-Gogoratu, taula dagoeneko sortuta badago, migrazio berri bat sortu beharko genuke add\_fields\_to\_course\_pupil\_table izenekoa erabiliz.
-
-## Pupil modeloa
-
-```php
-public function courses()
-
-{
-
-return $this->belongsToMany(Course::class)
-
-->withPivot('enrolled_at', 'grade')
-
-->withTimestamps(); // Horrela created_at eta updated_at gordeko ditu attach egitean.
-
-}
-```
-
-## Course modeloa
-
-```php
-public function pupils()
-
-{
-
-return $this->belongsToMany(Pupil::class)
-
-->withPivot('enrolled_at', 'grade')
-
-->withTimestamps();
-
-}
-```
-
-## attach atributuekin
-
-Lehen horrela egiten genuena:
-
-```php
-$course1->pupils()->attach([1, 2, 3]);
-```
-
-Orain, atributuak izatean horrela egin beharko dugu:
-
-```php
-$course1->pupils()->attach([
-```
-
-1 => ['enrolled\_at' => '2024-09-01', 'grade' => 8],
-
-2 => ['enrolled\_at' => '2024-09-01', 'grade' => 6],
-
-3 => ['enrolled\_at' => '2024-09-01', 'grade' => 9],
-
+$student = App\Models\Student::where('email', 'jon@example.test')->firstOrFail();
+$module = $student->modules()->firstOrFail();
+
+$student->modules()->updateExistingPivot($module->id, [
+    'enrolled_at' => now()->toDateString(),
+    'grade' => 8,
 ]);
-
-## sync() funtzioa
-
-Lehen genuena:
-
-```php
-$course1->pupils()->sync([1, 2, 4]);
 ```
 
-Orain horrela egin beharko dugu:
+Ikaslearen fitxako moduluen begiztan erabil daiteke `{{ $module->pivot->grade ?? 'Kalifikatu gabe' }}`. Nota 0 izan daiteke; horregatik erabiltzen dugu `??`. Kalifikazio-formularioa gehituz gero, `name="grade"` erabili eta balidatu `nullable|integer|between:0,10`. Dagoeneko matrikulatuta dagoen modulua mantentzen bada, matrikula-formularioaren `sync()` deiak nota gordetzen du. Matrikula kentzean, haren nota ere ezabatzen da.
 
-```php
-$course1->pupils()->sync([
-```
+[Laravel 13 · N:M erlazioak](https://laravel.com/docs/13.x/eloquent-relationships#many-to-many)
 
-1 => ['enrolled\_at' => '2024-09-01', 'grade' => 7],
-
-2 => ['enrolled\_at' => '2024-09-01', 'grade' => 8],
-
-4 => ['enrolled\_at' => '2024-09-10', 'grade' => null],
-
-]);
-
-## Pivot taulan dagoen atributoa berrezkuratzeko
-
-Pivot taulan dauden datuak hartzeko:
-
-```php
-$enrolledPupil->pivot->enrolled_at
-
-$enrolledPupil->pivot->grade
-```
-
-Erabiltzen dugu ->pivot, enrolled\_at eta grade pivot taulan dauden datuak direlako.
-
-Aldiz, $enrolledPupil->courses erabiliko genuke, ->pivot erabili barik, courses Pupil Modeloan definituta dagoen erlazioa delako.
+[Aurrekoa · 1:N erlazioa](erlazioak-1-n.md) | [Hurrengoa · Paginazioa, balidazioa, hizkuntza eta irudiak](balidazioa-paginazioa-eta-hizkuntza.md)

@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2759,7 +2759,7 @@
 <p><a href="https://laravel.com/docs/13.x/blade#components">Laravel 13ko dokumentazioa</a></p>
 <h2 id="konponente-anonimo-bat-sortzea">Konponente anonimo bat sortzea</h2>
 <p>Sortu <code>resources/views/components/alert.blade.php</code> fitxategia. Konponente anonimo batek Blade bista bat dauka.</p>
-<div class="highlight"><pre><span></span><code>&lt;div class="alerta" role="alert"&gt;
+<div class="highlight"><pre><span></span><code>&lt;div class=&quot;alerta&quot; role=&quot;alert&quot;&gt;
     &lt;strong&gt;Alerta!&lt;/strong&gt; Kontuz!
 &lt;/div&gt;
 </code></pre></div>
@@ -2770,7 +2770,7 @@
 <h3 id="slot-lehenetsia">Slot lehenetsia</h3>
 <p>Konponentearen etiketen artean idatzitako edukia <code>$slot</code> aldagaiaren bidez jasotzen da. Eduki hori testua edo HTMLa izan daiteke.</p>
 <p>Aldatu <code>alert.blade.php</code> fitxategia.</p>
-<div class="highlight"><pre><span></span><code>&lt;div class="alerta" role="alert"&gt;
+<div class="highlight"><pre><span></span><code>&lt;div class=&quot;alerta&quot; role=&quot;alert&quot;&gt;
     &lt;strong&gt;Alerta!&lt;/strong&gt;
     {{ $slot }}
 &lt;/div&gt;
@@ -2790,15 +2790,15 @@
     Egiaztatu sartutako datuak.
 &lt;/x-alert&gt;
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>&lt;div class="alerta" role="alert"&gt;
-    &lt;strong&gt;{{ $title ?? 'Alerta!' }}&lt;/strong&gt;
+<div class="highlight"><pre><span></span><code>&lt;div class=&quot;alerta&quot; role=&quot;alert&quot;&gt;
+    &lt;strong&gt;{{ $title ?? &#39;Alerta!&#39; }}&lt;/strong&gt;
     {{ $slot }}
 &lt;/div&gt;
 </code></pre></div>
 <p>Bistak <code>title</code> slota ematen ez badu, «Alerta!» agertuko da.</p>
 <h3 id="konponenteen-parametroak">Konponenteen parametroak</h3>
 <p>Etiketan atributuak ere pasa ditzakegu. Adibidez, <code>type</code> erabil dezakegu alertaren itxura aukeratzeko.</p>
-<div class="highlight"><pre><span></span><code>&lt;x-alert type="danger"&gt;
+<div class="highlight"><pre><span></span><code>&lt;x-alert type=&quot;danger&quot;&gt;
     &lt;x-slot:title&gt;
         Datuak gordetzeko arazoa
     &lt;/x-slot:title&gt;
@@ -2808,18 +2808,18 @@
 </code></pre></div>
 <p>Konponente anonimoaren hasieran, <code>@props</code> direktibaren bidez adieraziko dugu zein atributu jaso nahi dugun. <code>@props(['type' =&gt; 'info'])</code> idatzita, osagaiak <code>$type</code> aldagaia izango du. Deian <code>type</code> ematen ez badugu, <code>info</code> erabiliko da.</p>
 <p>Hona hemen <code>resources/views/components/alert.blade.php</code> fitxategi osoa.</p>
-<div class="highlight"><pre><span></span><code>@props(['type' =&gt; 'info'])
+<div class="highlight"><pre><span></span><code>@props([&#39;type&#39; =&gt; &#39;info&#39;])
 
 @php
     $klasea = match ($type) {
-        'danger' =&gt; 'alerta-danger',
-        'success' =&gt; 'alerta-success',
-        default =&gt; 'alerta-info',
+        &#39;danger&#39; =&gt; &#39;alerta-danger&#39;,
+        &#39;success&#39; =&gt; &#39;alerta-success&#39;,
+        default =&gt; &#39;alerta-info&#39;,
     };
 @endphp
 
-&lt;div {{ $attributes-&gt;class(['alerta', $klasea]) }} role="alert"&gt;
-    &lt;strong&gt;{{ $title ?? 'Alerta!' }}&lt;/strong&gt;
+&lt;div {{ $attributes-&gt;class([&#39;alerta&#39;, $klasea]) }} role=&quot;alert&quot;&gt;
+    &lt;strong&gt;{{ $title ?? &#39;Alerta!&#39; }}&lt;/strong&gt;
     {{ $slot }}
 &lt;/div&gt;
 </code></pre></div>
@@ -2846,7 +2846,7 @@
 </code></pre></div>
 <h3 id="atributu-gehigarriak">Atributu gehigarriak</h3>
 <p><code>@props</code> bidez jasotzen ez diren atributuak <code>$attributes</code> bidez ditugu eskura. Adibidez, alerta jakin bati <code>id</code> bat eta CSS klase gehigarri bat eman diezazkiokegu.</p>
-<div class="highlight"><pre><span></span><code>&lt;x-alert type="info" id="gordetze-mezua" class="nabarmendua"&gt;
+<div class="highlight"><pre><span></span><code>&lt;x-alert type=&quot;info&quot; id=&quot;gordetze-mezua&quot; class=&quot;nabarmendua&quot;&gt;
     Aldaketak gordetzeko, sakatu «Gorde».
 &lt;/x-alert&gt;
 </code></pre></div>
@@ -2867,28 +2867,28 @@
 <span class="p">{</span>
     <span class="k">public</span> <span class="nx">string</span> <span class="nv">$klasea</span><span class="p">;</span>
 
-    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$type</span> <span class="o">=</span> <span class="s1">'info'</span><span class="p">)</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$type</span> <span class="o">=</span> <span class="s1">&#39;info&#39;</span><span class="p">)</span>
     <span class="p">{</span>
         <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">klasea</span> <span class="o">=</span> <span class="k">match</span> <span class="p">(</span><span class="nv">$type</span><span class="p">)</span> <span class="p">{</span>
-            <span class="s1">'danger'</span> <span class="o">=&gt;</span> <span class="s1">'alerta-danger'</span><span class="p">,</span>
-            <span class="s1">'success'</span> <span class="o">=&gt;</span> <span class="s1">'alerta-success'</span><span class="p">,</span>
-            <span class="k">default</span> <span class="o">=&gt;</span> <span class="s1">'alerta-info'</span><span class="p">,</span>
+            <span class="s1">&#39;danger&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;alerta-danger&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;success&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;alerta-success&#39;</span><span class="p">,</span>
+            <span class="k">default</span> <span class="o">=&gt;</span> <span class="s1">&#39;alerta-info&#39;</span><span class="p">,</span>
         <span class="p">};</span>
     <span class="p">}</span>
 
     <span class="k">public</span> <span class="k">function</span> <span class="nf">render</span><span class="p">()</span><span class="o">:</span> <span class="nx">View</span>
     <span class="p">{</span>
-        <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">'components.alert2'</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;components.alert2&#39;</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p><code>resources/views/components/alert2.blade.php</code> fitxategian, <code>$klasea</code> zuzenean erabil dezakegu.</p>
-<div class="highlight"><pre><span></span><code>&lt;div {{ $attributes-&gt;class(['alerta', $klasea]) }} role="alert"&gt;
-    &lt;strong&gt;{{ $title ?? 'Alerta!' }}&lt;/strong&gt;
+<div class="highlight"><pre><span></span><code>&lt;div {{ $attributes-&gt;class([&#39;alerta&#39;, $klasea]) }} role=&quot;alert&quot;&gt;
+    &lt;strong&gt;{{ $title ?? &#39;Alerta!&#39; }}&lt;/strong&gt;
     {{ $slot }}
 &lt;/div&gt;
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>&lt;x-alert2 type="success"&gt;
+<div class="highlight"><pre><span></span><code>&lt;x-alert2 type=&quot;success&quot;&gt;
     Datuak ondo gorde dira.
 &lt;/x-alert2&gt;
 </code></pre></div>
@@ -2896,19 +2896,19 @@
 <p>Layouten atalean <code>@extends</code>, <code>@section</code> eta <code>@yield</code> erabili ditugu orrien egitura komuna partekatzeko. Egitura bera konponente anonimo batean ere defini dezakegu. Kasu honetan, orriaren eduki nagusia <code>$slot</code> bidez jasoko dugu.</p>
 <p>Sortu <code>resources/views/components/app-layout.blade.php</code> fitxategia.</p>
 <div class="highlight"><pre><span></span><code>&lt;!DOCTYPE html&gt;
-&lt;html lang="eu"&gt;
+&lt;html lang=&quot;eu&quot;&gt;
 &lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;{{ $title ?? 'Nire bloga' }}&lt;/title&gt;
-    &lt;link rel="stylesheet" href="{{ asset('css/style.css') }}"&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;{{ $title ?? &#39;Nire bloga&#39; }}&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;{{ asset(&#39;css/style.css&#39;) }}&quot;&gt;
 &lt;/head&gt;
 &lt;body&gt;
     &lt;header&gt;
         &lt;p&gt;Nire bloga&lt;/p&gt;
         &lt;nav&gt;
-            &lt;a href="/"&gt;Hasiera&lt;/a&gt;
-            &lt;a href="/users"&gt;Erabiltzaileak&lt;/a&gt;
+            &lt;a href=&quot;/&quot;&gt;Hasiera&lt;/a&gt;
+            &lt;a href=&quot;/users&quot;&gt;Erabiltzaileak&lt;/a&gt;
         &lt;/nav&gt;
     &lt;/header&gt;
 
@@ -2916,7 +2916,7 @@
         {{ $slot }}
     &lt;/main&gt;
 
-    @include('partials.footer')
+    @include(&#39;partials.footer&#39;)
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre></div>
@@ -2927,7 +2927,7 @@
     &lt;h1&gt;Ongi etorri nire blogera!&lt;/h1&gt;
     &lt;p&gt;Hau da hasierako orria.&lt;/p&gt;
 
-    &lt;x-alert type="success"&gt;
+    &lt;x-alert type=&quot;success&quot;&gt;
         Datuak ondo gorde dira.
     &lt;/x-alert&gt;
 &lt;/x-app-layout&gt;
@@ -2985,7 +2985,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Arbelean kopiatuta", "clipboard.copy": "Kopiatu arbelean", "search.result.more.one": "Bat gehiago orri honetan", "search.result.more.other": "# gehiago orri honetan", "search.result.none": "Bat datorren dokumenturik ez", "search.result.one": "Bat datorren dokumentu bat", "search.result.other": "Bat datozen # dokumentu", "search.result.placeholder": "Idatzi bilatzen hasteko", "search.result.term.missing": "Falta da", "select.version": "Hautatu bertsioa"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

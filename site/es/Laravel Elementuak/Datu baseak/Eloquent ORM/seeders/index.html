@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2933,8 +2933,8 @@
 <span class="x">{</span>
 <span class="x">    $post = new Post();</span>
 
-<span class="x">    $post-&gt;title = 'Mi primer post';</span>
-<span class="x">    $post-&gt;content = 'Este será el contenido de mi post';</span>
+<span class="x">    $post-&gt;title = &#39;Mi primer post&#39;;</span>
+<span class="x">    $post-&gt;content = &#39;Este será el contenido de mi post&#39;;</span>
 
 <span class="x">    $post-&gt;save();</span>
 <span class="x">}</span>
@@ -2956,13 +2956,13 @@
 <div class="highlight"><pre><span></span><code><span class="x">public function run(): void</span>
 <span class="x">{</span>
 <span class="x">    Post::create([</span>
-<span class="x">        'title' =&gt; 'Mi primer post',</span>
-<span class="x">        'content' =&gt; 'Este será el contenido de mi post'</span>
+<span class="x">        &#39;title&#39; =&gt; &#39;Mi primer post&#39;,</span>
+<span class="x">        &#39;content&#39; =&gt; &#39;Este será el contenido de mi post&#39;</span>
 <span class="x">    ]);</span>
 
 <span class="x">    Post::create([</span>
-<span class="x">        'title' =&gt; 'Segundo post',</span>
-<span class="x">        'content' =&gt; 'Este será el contenido de mi segundo post'</span>
+<span class="x">        &#39;title&#39; =&gt; &#39;Segundo post&#39;,</span>
+<span class="x">        &#39;content&#39; =&gt; &#39;Este será el contenido de mi segundo post&#39;</span>
 <span class="x">    ]);</span>
 <span class="x">}</span>
 </code></pre></div>
@@ -2970,7 +2970,7 @@
 <div class="admonition warning">
 <p class="admonition-title">Recuerda <code>$fillable</code></p>
 <p>Como el método <code>create()</code> utiliza asignación masiva, debemos especificar en el modelo <code>Post</code> qué atributos se pueden rellenar.</p>
-<div class="highlight"><pre><span></span><code><span class="x">protected $fillable = ['title', 'content'];</span>
+<div class="highlight"><pre><span></span><code><span class="x">protected $fillable = [&#39;title&#39;, &#39;content&#39;];</span>
 </code></pre></div>
 <p>En cambio, al asignar los atributos uno por uno utilizando <code>save()</code>, no se aplica <code>$fillable</code>.</p>
 </div>
@@ -2988,13 +2988,13 @@
     <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span><span class="o">:</span> <span class="nx">void</span>
     <span class="p">{</span>
         <span class="nx">Post</span><span class="o">::</span><span class="na">create</span><span class="p">([</span>
-            <span class="s1">'title'</span> <span class="o">=&gt;</span> <span class="s1">'Aprendiendo Laravel'</span><span class="p">,</span>
-            <span class="s1">'content'</span> <span class="o">=&gt;</span> <span class="s1">'Aprendiendo modelos y migraciones en Laravel'</span>
+            <span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Aprendiendo Laravel&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;content&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Aprendiendo modelos y migraciones en Laravel&#39;</span>
         <span class="p">]);</span>
 
         <span class="nx">Post</span><span class="o">::</span><span class="na">create</span><span class="p">([</span>
-            <span class="s1">'title'</span> <span class="o">=&gt;</span> <span class="s1">'Laravel avanzado'</span><span class="p">,</span>
-            <span class="s1">'content'</span> <span class="o">=&gt;</span> <span class="s1">'Este será otro post sobre Laravel'</span>
+            <span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Laravel avanzado&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;content&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Este será otro post sobre Laravel&#39;</span>
         <span class="p">]);</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -3155,7 +3155,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
     
     
-      <script src="../../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
