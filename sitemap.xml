@@ -71,13 +71,6 @@
         <xhtml:link rel="alternate" hreflang="es" href="Nonees/API/08-laravel-vue-sanctum/"/>
     </url>
     <url>
-        <loc>NoneCRUD/all-show-create-edit-delete-adibideekin%20copy/</loc>
-        <lastmod>2026-11-26</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="NoneCRUD/all-show-create-edit-delete-adibideekin%20copy/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="Nonees/CRUD/all-show-create-edit-delete-adibideekin%20copy/"/>
-    </url>
-    <url>
         <loc>NoneCRUD/all-show-create-edit-delete-adibideekin/</loc>
         <lastmod>2026-11-26</lastmod>
         <changefreq>daily</changefreq>
@@ -678,12 +671,5 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="es" href="Nonees/Tresnak/visualstudio-laravel/"/>
         <xhtml:link rel="alternate" hreflang="eu" href="NoneTresnak/visualstudio-laravel/"/>
-    </url>
-    <url>
-        <loc>Nonees/CRUD/all-show-create-edit-delete-adibideekin%20copy/</loc>
-        <lastmod>2026-11-26</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="es" href="Nonees/CRUD/all-show-create-edit-delete-adibideekin%20copy/"/>
-        <xhtml:link rel="alternate" hreflang="eu" href="NoneCRUD/all-show-create-edit-delete-adibideekin%20copy/"/>
     </url>
 </urlset>
