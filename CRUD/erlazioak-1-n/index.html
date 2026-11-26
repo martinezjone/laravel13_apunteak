@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2688,18 +2688,18 @@ php<span class="w"> </span>artisan<span class="w"> </span>make:controller<span c
 <p>Irakasleen migrazioaren <code>up()</code> eta <code>down()</code> metodoak:</p>
 <div class="highlight"><pre><span></span><code><span class="x">public function up(): void</span>
 <span class="x">{</span>
-<span class="x">    Schema::create(&#39;teachers&#39;, function (Blueprint $table) {</span>
+<span class="x">    Schema::create('teachers', function (Blueprint $table) {</span>
 <span class="x">        $table-&gt;id();</span>
-<span class="x">        $table-&gt;string(&#39;name&#39;, 100);</span>
-<span class="x">        $table-&gt;string(&#39;email&#39;)-&gt;unique();</span>
-<span class="x">        $table-&gt;string(&#39;department&#39;, 50);</span>
+<span class="x">        $table-&gt;string('name', 100);</span>
+<span class="x">        $table-&gt;string('email')-&gt;unique();</span>
+<span class="x">        $table-&gt;string('department', 50);</span>
 <span class="x">        $table-&gt;timestamps();</span>
 <span class="x">    });</span>
 <span class="x">}</span>
 
 <span class="x">public function down(): void</span>
 <span class="x">{</span>
-<span class="x">    Schema::dropIfExists(&#39;teachers&#39;);</span>
+<span class="x">    Schema::dropIfExists('teachers');</span>
 <span class="x">}</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>migrate
@@ -2709,18 +2709,18 @@ php<span class="w"> </span>artisan<span class="w"> </span>make:controller<span c
 <p>Moduluen migrazioaren <code>up()</code> eta <code>down()</code> metodoak:</p>
 <div class="highlight"><pre><span></span><code><span class="x">public function up(): void</span>
 <span class="x">{</span>
-<span class="x">    Schema::create(&#39;modules&#39;, function (Blueprint $table) {</span>
+<span class="x">    Schema::create('modules', function (Blueprint $table) {</span>
 <span class="x">        $table-&gt;id();</span>
-<span class="x">        $table-&gt;string(&#39;name&#39;, 100);</span>
-<span class="x">        $table-&gt;string(&#39;code&#39;, 20)-&gt;unique();</span>
-<span class="x">        $table-&gt;foreignId(&#39;teacher_id&#39;)-&gt;constrained()-&gt;restrictOnDelete();</span>
+<span class="x">        $table-&gt;string('name', 100);</span>
+<span class="x">        $table-&gt;string('code', 20)-&gt;unique();</span>
+<span class="x">        $table-&gt;foreignId('teacher_id')-&gt;constrained()-&gt;restrictOnDelete();</span>
 <span class="x">        $table-&gt;timestamps();</span>
 <span class="x">    });</span>
 <span class="x">}</span>
 
 <span class="x">public function down(): void</span>
 <span class="x">{</span>
-<span class="x">    Schema::dropIfExists(&#39;modules&#39;);</span>
+<span class="x">    Schema::dropIfExists('modules');</span>
 <span class="x">}</span>
 </code></pre></div>
 <p><code>restrictOnDelete()</code> aukerak irakaslea babesten du moduluak esleituta dituen bitartean. Irakaslea ezabatu aurretik, esleitu moduluak beste irakasle bati moduluen edizio-pantailan.</p>
@@ -2739,7 +2739,7 @@ php<span class="w"> </span>artisan<span class="w"> </span>make:controller<span c
 <span class="p">{</span>
     <span class="k">use</span> <span class="nx">HasFactory</span><span class="p">;</span>
 
-    <span class="k">protected</span> <span class="nv">$fillable</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">];</span>
+    <span class="k">protected</span> <span class="nv">$fillable</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'name'</span><span class="p">,</span> <span class="s1">'email'</span><span class="p">];</span>
 
     <span class="k">public</span> <span class="k">function</span> <span class="nf">modules</span><span class="p">()</span><span class="o">:</span> <span class="nx">HasMany</span>
     <span class="p">{</span>
@@ -2760,7 +2760,7 @@ php<span class="w"> </span>artisan<span class="w"> </span>make:controller<span c
 <span class="p">{</span>
     <span class="k">use</span> <span class="nx">HasFactory</span><span class="p">;</span>
 
-    <span class="k">protected</span> <span class="nv">$fillable</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="s1">&#39;teacher_id&#39;</span><span class="p">];</span>
+    <span class="k">protected</span> <span class="nv">$fillable</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'name'</span><span class="p">,</span> <span class="s1">'code'</span><span class="p">,</span> <span class="s1">'teacher_id'</span><span class="p">];</span>
 
     <span class="k">public</span> <span class="k">function</span> <span class="nf">teacher</span><span class="p">()</span><span class="o">:</span> <span class="nx">BelongsTo</span>
     <span class="p">{</span>
@@ -2773,8 +2773,8 @@ php<span class="w"> </span>artisan<span class="w"> </span>make:controller<span c
 <div class="highlight"><pre><span></span><code><span class="x">public function definition(): array</span>
 <span class="x">{</span>
 <span class="x">    return [</span>
-<span class="x">        &#39;name&#39; =&gt; fake()-&gt;name(),</span>
-<span class="x">        &#39;email&#39; =&gt; Str::uuid() . &#39;@example.test&#39;,</span>
+<span class="x">        'name' =&gt; fake()-&gt;name(),</span>
+<span class="x">        'email' =&gt; Str::uuid() . '@example.test',</span>
 <span class="x">    ];</span>
 <span class="x">}</span>
 </code></pre></div>
@@ -2782,9 +2782,9 @@ php<span class="w"> </span>artisan<span class="w"> </span>make:controller<span c
 <div class="highlight"><pre><span></span><code><span class="x">public function definition(): array</span>
 <span class="x">{</span>
 <span class="x">    return [</span>
-<span class="x">        &#39;name&#39; =&gt; fake()-&gt;words(3, true),</span>
-<span class="x">        &#39;code&#39; =&gt; Str::upper(Str::random(12)),</span>
-<span class="x">        &#39;teacher_id&#39; =&gt; Teacher::factory(),</span>
+<span class="x">        'name' =&gt; fake()-&gt;words(3, true),</span>
+<span class="x">        'code' =&gt; Str::upper(Str::random(12)),</span>
+<span class="x">        'teacher_id' =&gt; Teacher::factory(),</span>
 <span class="x">    ];</span>
 <span class="x">}</span>
 </code></pre></div>
@@ -2805,18 +2805,18 @@ php<span class="w"> </span>artisan<span class="w"> </span>make:controller<span c
     <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span><span class="o">:</span> <span class="nx">void</span>
     <span class="p">{</span>
         <span class="nv">$teacher</span> <span class="o">=</span> <span class="nx">Teacher</span><span class="o">::</span><span class="na">firstOrCreate</span><span class="p">(</span>
-            <span class="p">[</span><span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;maialen@example.test&#39;</span><span class="p">],</span>
-            <span class="p">[</span><span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Maialen Agirre&#39;</span><span class="p">],</span>
+            <span class="p">[</span><span class="s1">'email'</span> <span class="o">=&gt;</span> <span class="s1">'maialen@example.test'</span><span class="p">],</span>
+            <span class="p">[</span><span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'Maialen Agirre'</span><span class="p">],</span>
         <span class="p">);</span>
 
-        <span class="nx">Module</span><span class="o">::</span><span class="na">firstOrCreate</span><span class="p">([</span><span class="s1">&#39;code&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;DWS&#39;</span><span class="p">],</span> <span class="p">[</span>
-            <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Web-garapena zerbitzari-ingurunean&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;teacher_id&#39;</span> <span class="o">=&gt;</span> <span class="nv">$teacher</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">,</span>
+        <span class="nx">Module</span><span class="o">::</span><span class="na">firstOrCreate</span><span class="p">([</span><span class="s1">'code'</span> <span class="o">=&gt;</span> <span class="s1">'DWS'</span><span class="p">],</span> <span class="p">[</span>
+            <span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'Web-garapena zerbitzari-ingurunean'</span><span class="p">,</span>
+            <span class="s1">'teacher_id'</span> <span class="o">=&gt;</span> <span class="nv">$teacher</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">,</span>
         <span class="p">]);</span>
 
-        <span class="nx">Module</span><span class="o">::</span><span class="na">firstOrCreate</span><span class="p">([</span><span class="s1">&#39;code&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;DWC&#39;</span><span class="p">],</span> <span class="p">[</span>
-            <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Web-garapena bezero-ingurunean&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;teacher_id&#39;</span> <span class="o">=&gt;</span> <span class="nv">$teacher</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">,</span>
+        <span class="nx">Module</span><span class="o">::</span><span class="na">firstOrCreate</span><span class="p">([</span><span class="s1">'code'</span> <span class="o">=&gt;</span> <span class="s1">'DWC'</span><span class="p">],</span> <span class="p">[</span>
+            <span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'Web-garapena bezero-ingurunean'</span><span class="p">,</span>
+            <span class="s1">'teacher_id'</span> <span class="o">=&gt;</span> <span class="nv">$teacher</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">,</span>
         <span class="p">]);</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -2829,12 +2829,12 @@ php<span class="w"> </span>artisan<span class="w"> </span>make:controller<span c
 <span class="x">use App\Http\Controllers\TeacherController;</span>
 
 <span class="x">Route::resources([</span>
-<span class="x">    &#39;teachers&#39; =&gt; TeacherController::class,</span>
-<span class="x">    &#39;modules&#39; =&gt; ModuleController::class,</span>
+<span class="x">    'teachers' =&gt; TeacherController::class,</span>
+<span class="x">    'modules' =&gt; ModuleController::class,</span>
 <span class="x">]);</span>
 
-<span class="x">Route::get(&#39;/teachers/{teacher}/delete&#39;, [TeacherController::class, &#39;delete&#39;])-&gt;name(&#39;teachers.delete&#39;);</span>
-<span class="x">Route::get(&#39;/modules/{module}/delete&#39;, [ModuleController::class, &#39;delete&#39;])-&gt;name(&#39;modules.delete&#39;);</span>
+<span class="x">Route::get('/teachers/{teacher}/delete', [TeacherController::class, 'delete'])-&gt;name('teachers.delete');</span>
+<span class="x">Route::get('/modules/{module}/delete', [ModuleController::class, 'delete'])-&gt;name('modules.delete');</span>
 </code></pre></div>
 <p>Irakasleen CRUDak ikasleen egitura bera du. Moduluen zerrendan <code>with('teacher')</code> erabiliko dugu: zerrendako moduluen irakasleak batera kargatzen ditu, lerro bakoitzean kontsulta bat egin beharrean.</p>
 <p><code>app/Http/Controllers/TeacherController.php</code></p>
@@ -2854,80 +2854,80 @@ php<span class="w"> </span>artisan<span class="w"> </span>make:controller<span c
     <span class="p">{</span>
         <span class="nv">$teachers</span> <span class="o">=</span> <span class="nx">Teacher</span><span class="o">::</span><span class="na">all</span><span class="p">();</span>
 
-        <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;teachers.index&#39;</span><span class="p">,</span> <span class="nb">compact</span><span class="p">(</span><span class="s1">&#39;teachers&#39;</span><span class="p">));</span>
+        <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">'teachers.index'</span><span class="p">,</span> <span class="nb">compact</span><span class="p">(</span><span class="s1">'teachers'</span><span class="p">));</span>
     <span class="p">}</span>
 
     <span class="k">public</span> <span class="k">function</span> <span class="nf">show</span><span class="p">(</span><span class="nx">Teacher</span> <span class="nv">$teacher</span><span class="p">)</span><span class="o">:</span> <span class="nx">View</span>
     <span class="p">{</span>
-        <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;teachers.show&#39;</span><span class="p">,</span> <span class="nb">compact</span><span class="p">(</span><span class="s1">&#39;teacher&#39;</span><span class="p">));</span>
+        <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">'teachers.show'</span><span class="p">,</span> <span class="nb">compact</span><span class="p">(</span><span class="s1">'teacher'</span><span class="p">));</span>
     <span class="p">}</span>
 
     <span class="k">public</span> <span class="k">function</span> <span class="nf">create</span><span class="p">()</span><span class="o">:</span> <span class="nx">View</span>
     <span class="p">{</span>
-        <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;teachers.create&#39;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">'teachers.create'</span><span class="p">);</span>
     <span class="p">}</span>
 
     <span class="k">public</span> <span class="k">function</span> <span class="nf">store</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">)</span><span class="o">:</span> <span class="nx">RedirectResponse</span>
     <span class="p">{</span>
         <span class="nv">$teacher</span> <span class="o">=</span> <span class="nx">Teacher</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">validate</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">rules</span><span class="p">()));</span>
 
-        <span class="k">return</span> <span class="nx">to_route</span><span class="p">(</span><span class="s1">&#39;teachers.show&#39;</span><span class="p">,</span> <span class="nv">$teacher</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">with</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="s1">&#39;Irakaslea gorde da.&#39;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nx">to_route</span><span class="p">(</span><span class="s1">'teachers.show'</span><span class="p">,</span> <span class="nv">$teacher</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">with</span><span class="p">(</span><span class="s1">'status'</span><span class="p">,</span> <span class="s1">'Irakaslea gorde da.'</span><span class="p">);</span>
     <span class="p">}</span>
 
     <span class="k">public</span> <span class="k">function</span> <span class="nf">edit</span><span class="p">(</span><span class="nx">Teacher</span> <span class="nv">$teacher</span><span class="p">)</span><span class="o">:</span> <span class="nx">View</span>
     <span class="p">{</span>
-        <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;teachers.edit&#39;</span><span class="p">,</span> <span class="nb">compact</span><span class="p">(</span><span class="s1">&#39;teacher&#39;</span><span class="p">));</span>
+        <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">'teachers.edit'</span><span class="p">,</span> <span class="nb">compact</span><span class="p">(</span><span class="s1">'teacher'</span><span class="p">));</span>
     <span class="p">}</span>
 
     <span class="k">public</span> <span class="k">function</span> <span class="nf">update</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">,</span> <span class="nx">Teacher</span> <span class="nv">$teacher</span><span class="p">)</span><span class="o">:</span> <span class="nx">RedirectResponse</span>
     <span class="p">{</span>
         <span class="nv">$teacher</span><span class="o">-&gt;</span><span class="na">update</span><span class="p">(</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">validate</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">rules</span><span class="p">(</span><span class="nv">$teacher</span><span class="p">)));</span>
 
-        <span class="k">return</span> <span class="nx">to_route</span><span class="p">(</span><span class="s1">&#39;teachers.show&#39;</span><span class="p">,</span> <span class="nv">$teacher</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">with</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="s1">&#39;Irakaslea gorde da.&#39;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nx">to_route</span><span class="p">(</span><span class="s1">'teachers.show'</span><span class="p">,</span> <span class="nv">$teacher</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">with</span><span class="p">(</span><span class="s1">'status'</span><span class="p">,</span> <span class="s1">'Irakaslea gorde da.'</span><span class="p">);</span>
     <span class="p">}</span>
 
     <span class="k">public</span> <span class="k">function</span> <span class="nf">delete</span><span class="p">(</span><span class="nx">Teacher</span> <span class="nv">$teacher</span><span class="p">)</span><span class="o">:</span> <span class="nx">View</span>
     <span class="p">{</span>
-        <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;teachers.delete&#39;</span><span class="p">,</span> <span class="nb">compact</span><span class="p">(</span><span class="s1">&#39;teacher&#39;</span><span class="p">));</span>
+        <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">'teachers.delete'</span><span class="p">,</span> <span class="nb">compact</span><span class="p">(</span><span class="s1">'teacher'</span><span class="p">));</span>
     <span class="p">}</span>
 
     <span class="k">public</span> <span class="k">function</span> <span class="nf">destroy</span><span class="p">(</span><span class="nx">Teacher</span> <span class="nv">$teacher</span><span class="p">)</span><span class="o">:</span> <span class="nx">RedirectResponse</span>
     <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="nv">$teacher</span><span class="o">-&gt;</span><span class="na">modules</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">exists</span><span class="p">())</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="nx">to_route</span><span class="p">(</span><span class="s1">&#39;teachers.show&#39;</span><span class="p">,</span> <span class="nv">$teacher</span><span class="p">)</span>
-                <span class="o">-&gt;</span><span class="na">with</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="s1">&#39;Esleitu moduluak beste irakasle bati lehenik.&#39;</span><span class="p">);</span>
+            <span class="k">return</span> <span class="nx">to_route</span><span class="p">(</span><span class="s1">'teachers.show'</span><span class="p">,</span> <span class="nv">$teacher</span><span class="p">)</span>
+                <span class="o">-&gt;</span><span class="na">with</span><span class="p">(</span><span class="s1">'status'</span><span class="p">,</span> <span class="s1">'Esleitu moduluak beste irakasle bati lehenik.'</span><span class="p">);</span>
         <span class="p">}</span>
 
         <span class="nv">$teacher</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">();</span>
 
-        <span class="k">return</span> <span class="nx">to_route</span><span class="p">(</span><span class="s1">&#39;teachers.index&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">with</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="s1">&#39;Irakaslea ezabatu da.&#39;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nx">to_route</span><span class="p">(</span><span class="s1">'teachers.index'</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">with</span><span class="p">(</span><span class="s1">'status'</span><span class="p">,</span> <span class="s1">'Irakaslea ezabatu da.'</span><span class="p">);</span>
     <span class="p">}</span>
 
     <span class="k">private</span> <span class="k">function</span> <span class="nf">rules</span><span class="p">(</span><span class="o">?</span><span class="nx">Teacher</span> <span class="nv">$teacher</span> <span class="o">=</span> <span class="k">null</span><span class="p">)</span><span class="o">:</span> <span class="k">array</span>
     <span class="p">{</span>
-        <span class="nv">$unique</span> <span class="o">=</span> <span class="nx">Rule</span><span class="o">::</span><span class="na">unique</span><span class="p">(</span><span class="s1">&#39;teachers&#39;</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">);</span>
+        <span class="nv">$unique</span> <span class="o">=</span> <span class="nx">Rule</span><span class="o">::</span><span class="na">unique</span><span class="p">(</span><span class="s1">'teachers'</span><span class="p">,</span> <span class="s1">'email'</span><span class="p">);</span>
         <span class="k">if</span> <span class="p">(</span><span class="nv">$teacher</span> <span class="o">!==</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
             <span class="nv">$unique</span><span class="o">-&gt;</span><span class="na">ignore</span><span class="p">(</span><span class="nv">$teacher</span><span class="p">);</span>
         <span class="p">}</span>
 
         <span class="k">return</span> <span class="p">[</span>
-            <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;required&#39;</span><span class="p">,</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span> <span class="s1">&#39;max:100&#39;</span><span class="p">],</span>
-            <span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;required&#39;</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;max:255&#39;</span><span class="p">,</span> <span class="nv">$unique</span><span class="p">],</span>
+            <span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'required'</span><span class="p">,</span> <span class="s1">'string'</span><span class="p">,</span> <span class="s1">'max:100'</span><span class="p">],</span>
+            <span class="s1">'email'</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'required'</span><span class="p">,</span> <span class="s1">'email'</span><span class="p">,</span> <span class="s1">'max:255'</span><span class="p">,</span> <span class="nv">$unique</span><span class="p">],</span>
         <span class="p">];</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p><code>resources/views/teachers/index.blade.php</code></p>
-<div class="highlight"><pre><span></span><code>@extends(&#39;layouts.app&#39;)
+<div class="highlight"><pre><span></span><code>@extends('layouts.app')
 
-@section(&#39;title&#39;, &#39;Irakasleak&#39;)
+@section('title', 'Irakasleak')
 
-@section(&#39;content&#39;)
+@section('content')
     &lt;h1&gt;Irakasleak&lt;/h1&gt;
-    &lt;a href=&quot;{{ route(&#39;teachers.create&#39;) }}&quot;&gt;Irakasle berria&lt;/a&gt;
+    &lt;a href="{{ route('teachers.create') }}"&gt;Irakasle berria&lt;/a&gt;
     &lt;ul&gt;
         @forelse ($teachers as $teacher)
-            &lt;li&gt;&lt;a href=&quot;{{ route(&#39;teachers.show&#39;, $teacher) }}&quot;&gt;{{ $teacher-&gt;name }}&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="{{ route('teachers.show', $teacher) }}"&gt;{{ $teacher-&gt;name }}&lt;/a&gt;&lt;/li&gt;
         @empty
             &lt;li&gt;Ez dago erregistrorik.&lt;/li&gt;
         @endforelse
@@ -2935,76 +2935,76 @@ php<span class="w"> </span>artisan<span class="w"> </span>make:controller<span c
 @endsection
 </code></pre></div>
 <p><code>resources/views/teachers/show.blade.php</code></p>
-<div class="highlight"><pre><span></span><code>@extends(&#39;layouts.app&#39;)
+<div class="highlight"><pre><span></span><code>@extends('layouts.app')
 
-@section(&#39;title&#39;, &#39;Irakaslea · Fitxa&#39;)
+@section('title', 'Irakaslea · Fitxa')
 
-@section(&#39;content&#39;)
+@section('content')
     &lt;h1&gt;{{ $teacher-&gt;name }}&lt;/h1&gt;
     &lt;p&gt;Helbide elektronikoa: {{ $teacher-&gt;email }}&lt;/p&gt;
-    &lt;a href=&quot;{{ route(&#39;teachers.edit&#39;, $teacher) }}&quot;&gt;Editatu&lt;/a&gt;
-    &lt;a href=&quot;{{ route(&#39;teachers.delete&#39;, $teacher) }}&quot;&gt;Ezabatu&lt;/a&gt;
-    &lt;a href=&quot;{{ route(&#39;teachers.index&#39;) }}&quot;&gt;Itzuli zerrendara&lt;/a&gt;
+    &lt;a href="{{ route('teachers.edit', $teacher) }}"&gt;Editatu&lt;/a&gt;
+    &lt;a href="{{ route('teachers.delete', $teacher) }}"&gt;Ezabatu&lt;/a&gt;
+    &lt;a href="{{ route('teachers.index') }}"&gt;Itzuli zerrendara&lt;/a&gt;
 @endsection
 </code></pre></div>
 <p><code>resources/views/teachers/create.blade.php</code></p>
-<div class="highlight"><pre><span></span><code>@extends(&#39;layouts.app&#39;)
+<div class="highlight"><pre><span></span><code>@extends('layouts.app')
 
-@section(&#39;title&#39;, &#39;Irakasle berria&#39;)
+@section('title', 'Irakasle berria')
 
-@section(&#39;content&#39;)
+@section('content')
     &lt;h1&gt;Irakasle berria&lt;/h1&gt;
-    &lt;form method=&quot;POST&quot; action=&quot;{{ route(&#39;teachers.store&#39;) }}&quot;&gt;
+    &lt;form method="POST" action="{{ route('teachers.store') }}"&gt;
         @csrf
-        @include(&#39;teachers._form&#39;)
-        &lt;button type=&quot;submit&quot;&gt;Gorde&lt;/button&gt;
+        @include('teachers._form')
+        &lt;button type="submit"&gt;Gorde&lt;/button&gt;
     &lt;/form&gt;
 @endsection
 </code></pre></div>
 <p><code>resources/views/teachers/edit.blade.php</code></p>
-<div class="highlight"><pre><span></span><code>@extends(&#39;layouts.app&#39;)
+<div class="highlight"><pre><span></span><code>@extends('layouts.app')
 
-@section(&#39;title&#39;, &#39;Irakaslea editatu&#39;)
+@section('title', 'Irakaslea editatu')
 
-@section(&#39;content&#39;)
+@section('content')
     &lt;h1&gt;Irakaslea editatu&lt;/h1&gt;
-    &lt;form method=&quot;POST&quot; action=&quot;{{ route(&#39;teachers.update&#39;, $teacher) }}&quot;&gt;
+    &lt;form method="POST" action="{{ route('teachers.update', $teacher) }}"&gt;
         @csrf
-        @method(&#39;PUT&#39;)
-        @include(&#39;teachers._form&#39;)
-        &lt;button type=&quot;submit&quot;&gt;Gorde&lt;/button&gt;
+        @method('PUT')
+        @include('teachers._form')
+        &lt;button type="submit"&gt;Gorde&lt;/button&gt;
     &lt;/form&gt;
 @endsection
 </code></pre></div>
 <p><code>resources/views/teachers/_form.blade.php</code></p>
 <div class="highlight"><pre><span></span><code>&lt;div&gt;
-    &lt;label for=&quot;name&quot;&gt;Izen-abizenak&lt;/label&gt;
-    &lt;input id=&quot;name&quot; name=&quot;name&quot; value=&quot;{{ old(&#39;name&#39;, $teacher-&gt;name ?? &#39;&#39;) }}&quot; required maxlength=&quot;100&quot;&gt;
-    @error(&#39;name&#39;)
-        &lt;p class=&quot;error&quot;&gt;{{ $message }}&lt;/p&gt;
+    &lt;label for="name"&gt;Izen-abizenak&lt;/label&gt;
+    &lt;input id="name" name="name" value="{{ old('name', $teacher-&gt;name ?? '') }}" required maxlength="100"&gt;
+    @error('name')
+        &lt;p class="error"&gt;{{ $message }}&lt;/p&gt;
     @enderror
 &lt;/div&gt;
 &lt;div&gt;
-    &lt;label for=&quot;email&quot;&gt;Helbide elektronikoa&lt;/label&gt;
-    &lt;input type=&quot;email&quot; id=&quot;email&quot; name=&quot;email&quot; value=&quot;{{ old(&#39;email&#39;, $teacher-&gt;email ?? &#39;&#39;) }}&quot; required maxlength=&quot;255&quot;&gt;
-    @error(&#39;email&#39;)
-        &lt;p class=&quot;error&quot;&gt;{{ $message }}&lt;/p&gt;
+    &lt;label for="email"&gt;Helbide elektronikoa&lt;/label&gt;
+    &lt;input type="email" id="email" name="email" value="{{ old('email', $teacher-&gt;email ?? '') }}" required maxlength="255"&gt;
+    @error('email')
+        &lt;p class="error"&gt;{{ $message }}&lt;/p&gt;
     @enderror
 &lt;/div&gt;
 </code></pre></div>
 <p><code>resources/views/teachers/delete.blade.php</code></p>
-<div class="highlight"><pre><span></span><code>@extends(&#39;layouts.app&#39;)
+<div class="highlight"><pre><span></span><code>@extends('layouts.app')
 
-@section(&#39;title&#39;, &#39;Ezabatu&#39;)
+@section('title', 'Ezabatu')
 
-@section(&#39;content&#39;)
+@section('content')
     &lt;h1&gt;Ezabatu&lt;/h1&gt;
     &lt;p&gt;{{ $teacher-&gt;name }} ezabatu nahi duzu?&lt;/p&gt;
-    &lt;form method=&quot;POST&quot; action=&quot;{{ route(&#39;teachers.destroy&#39;, $teacher) }}&quot;&gt;
+    &lt;form method="POST" action="{{ route('teachers.destroy', $teacher) }}"&gt;
         @csrf
-        @method(&#39;DELETE&#39;)
-        &lt;button type=&quot;submit&quot;&gt;Bai, ezabatu&lt;/button&gt;
-        &lt;a href=&quot;{{ route(&#39;teachers.show&#39;, $teacher) }}&quot;&gt;Utzi&lt;/a&gt;
+        @method('DELETE')
+        &lt;button type="submit"&gt;Bai, ezabatu&lt;/button&gt;
+        &lt;a href="{{ route('teachers.show', $teacher) }}"&gt;Utzi&lt;/a&gt;
     &lt;/form&gt;
 @endsection
 </code></pre></div>
@@ -3026,82 +3026,82 @@ php<span class="w"> </span>artisan<span class="w"> </span>make:controller<span c
 <span class="p">{</span>
     <span class="k">public</span> <span class="k">function</span> <span class="nf">index</span><span class="p">()</span><span class="o">:</span> <span class="nx">View</span>
     <span class="p">{</span>
-        <span class="nv">$modules</span> <span class="o">=</span> <span class="nx">Module</span><span class="o">::</span><span class="na">with</span><span class="p">(</span><span class="s1">&#39;teacher&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">orderBy</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">();</span>
+        <span class="nv">$modules</span> <span class="o">=</span> <span class="nx">Module</span><span class="o">::</span><span class="na">with</span><span class="p">(</span><span class="s1">'teacher'</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">orderBy</span><span class="p">(</span><span class="s1">'name'</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">();</span>
 
-        <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;modules.index&#39;</span><span class="p">,</span> <span class="nb">compact</span><span class="p">(</span><span class="s1">&#39;modules&#39;</span><span class="p">));</span>
+        <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">'modules.index'</span><span class="p">,</span> <span class="nb">compact</span><span class="p">(</span><span class="s1">'modules'</span><span class="p">));</span>
     <span class="p">}</span>
 
     <span class="k">public</span> <span class="k">function</span> <span class="nf">show</span><span class="p">(</span><span class="nx">Module</span> <span class="nv">$module</span><span class="p">)</span><span class="o">:</span> <span class="nx">View</span>
     <span class="p">{</span>
-        <span class="nv">$module</span><span class="o">-&gt;</span><span class="na">load</span><span class="p">(</span><span class="s1">&#39;teacher&#39;</span><span class="p">);</span>
+        <span class="nv">$module</span><span class="o">-&gt;</span><span class="na">load</span><span class="p">(</span><span class="s1">'teacher'</span><span class="p">);</span>
 
-        <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;modules.show&#39;</span><span class="p">,</span> <span class="nb">compact</span><span class="p">(</span><span class="s1">&#39;module&#39;</span><span class="p">));</span>
+        <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">'modules.show'</span><span class="p">,</span> <span class="nb">compact</span><span class="p">(</span><span class="s1">'module'</span><span class="p">));</span>
     <span class="p">}</span>
 
     <span class="k">public</span> <span class="k">function</span> <span class="nf">create</span><span class="p">()</span><span class="o">:</span> <span class="nx">View</span>
     <span class="p">{</span>
-        <span class="nv">$teachers</span> <span class="o">=</span> <span class="nx">Teacher</span><span class="o">::</span><span class="na">orderBy</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">();</span>
-        <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;modules.create&#39;</span><span class="p">,</span> <span class="nb">compact</span><span class="p">(</span><span class="s1">&#39;teachers&#39;</span><span class="p">));</span>
+        <span class="nv">$teachers</span> <span class="o">=</span> <span class="nx">Teacher</span><span class="o">::</span><span class="na">orderBy</span><span class="p">(</span><span class="s1">'name'</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">();</span>
+        <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">'modules.create'</span><span class="p">,</span> <span class="nb">compact</span><span class="p">(</span><span class="s1">'teachers'</span><span class="p">));</span>
     <span class="p">}</span>
 
     <span class="k">public</span> <span class="k">function</span> <span class="nf">store</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">)</span><span class="o">:</span> <span class="nx">RedirectResponse</span>
     <span class="p">{</span>
         <span class="nv">$module</span> <span class="o">=</span> <span class="nx">Module</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">validate</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">rules</span><span class="p">()));</span>
 
-        <span class="k">return</span> <span class="nx">to_route</span><span class="p">(</span><span class="s1">&#39;modules.show&#39;</span><span class="p">,</span> <span class="nv">$module</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">with</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="s1">&#39;Modulua gorde da.&#39;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nx">to_route</span><span class="p">(</span><span class="s1">'modules.show'</span><span class="p">,</span> <span class="nv">$module</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">with</span><span class="p">(</span><span class="s1">'status'</span><span class="p">,</span> <span class="s1">'Modulua gorde da.'</span><span class="p">);</span>
     <span class="p">}</span>
 
     <span class="k">public</span> <span class="k">function</span> <span class="nf">edit</span><span class="p">(</span><span class="nx">Module</span> <span class="nv">$module</span><span class="p">)</span><span class="o">:</span> <span class="nx">View</span>
     <span class="p">{</span>
-        <span class="nv">$teachers</span> <span class="o">=</span> <span class="nx">Teacher</span><span class="o">::</span><span class="na">orderBy</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">();</span>
-        <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;modules.edit&#39;</span><span class="p">,</span> <span class="nb">compact</span><span class="p">(</span><span class="s1">&#39;module&#39;</span><span class="p">,</span> <span class="s1">&#39;teachers&#39;</span><span class="p">));</span>
+        <span class="nv">$teachers</span> <span class="o">=</span> <span class="nx">Teacher</span><span class="o">::</span><span class="na">orderBy</span><span class="p">(</span><span class="s1">'name'</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">();</span>
+        <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">'modules.edit'</span><span class="p">,</span> <span class="nb">compact</span><span class="p">(</span><span class="s1">'module'</span><span class="p">,</span> <span class="s1">'teachers'</span><span class="p">));</span>
     <span class="p">}</span>
 
     <span class="k">public</span> <span class="k">function</span> <span class="nf">update</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">,</span> <span class="nx">Module</span> <span class="nv">$module</span><span class="p">)</span><span class="o">:</span> <span class="nx">RedirectResponse</span>
     <span class="p">{</span>
         <span class="nv">$module</span><span class="o">-&gt;</span><span class="na">update</span><span class="p">(</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">validate</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">rules</span><span class="p">(</span><span class="nv">$module</span><span class="p">)));</span>
 
-        <span class="k">return</span> <span class="nx">to_route</span><span class="p">(</span><span class="s1">&#39;modules.show&#39;</span><span class="p">,</span> <span class="nv">$module</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">with</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="s1">&#39;Modulua gorde da.&#39;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nx">to_route</span><span class="p">(</span><span class="s1">'modules.show'</span><span class="p">,</span> <span class="nv">$module</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">with</span><span class="p">(</span><span class="s1">'status'</span><span class="p">,</span> <span class="s1">'Modulua gorde da.'</span><span class="p">);</span>
     <span class="p">}</span>
 
     <span class="k">public</span> <span class="k">function</span> <span class="nf">delete</span><span class="p">(</span><span class="nx">Module</span> <span class="nv">$module</span><span class="p">)</span><span class="o">:</span> <span class="nx">View</span>
     <span class="p">{</span>
-        <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;modules.delete&#39;</span><span class="p">,</span> <span class="nb">compact</span><span class="p">(</span><span class="s1">&#39;module&#39;</span><span class="p">));</span>
+        <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">'modules.delete'</span><span class="p">,</span> <span class="nb">compact</span><span class="p">(</span><span class="s1">'module'</span><span class="p">));</span>
     <span class="p">}</span>
 
     <span class="k">public</span> <span class="k">function</span> <span class="nf">destroy</span><span class="p">(</span><span class="nx">Module</span> <span class="nv">$module</span><span class="p">)</span><span class="o">:</span> <span class="nx">RedirectResponse</span>
     <span class="p">{</span>
         <span class="nv">$module</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">();</span>
 
-        <span class="k">return</span> <span class="nx">to_route</span><span class="p">(</span><span class="s1">&#39;modules.index&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">with</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="s1">&#39;Modulua ezabatu da.&#39;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nx">to_route</span><span class="p">(</span><span class="s1">'modules.index'</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">with</span><span class="p">(</span><span class="s1">'status'</span><span class="p">,</span> <span class="s1">'Modulua ezabatu da.'</span><span class="p">);</span>
     <span class="p">}</span>
 
     <span class="k">private</span> <span class="k">function</span> <span class="nf">rules</span><span class="p">(</span><span class="o">?</span><span class="nx">Module</span> <span class="nv">$module</span> <span class="o">=</span> <span class="k">null</span><span class="p">)</span><span class="o">:</span> <span class="k">array</span>
     <span class="p">{</span>
-        <span class="nv">$unique</span> <span class="o">=</span> <span class="nx">Rule</span><span class="o">::</span><span class="na">unique</span><span class="p">(</span><span class="s1">&#39;modules&#39;</span><span class="p">,</span> <span class="s1">&#39;code&#39;</span><span class="p">);</span>
+        <span class="nv">$unique</span> <span class="o">=</span> <span class="nx">Rule</span><span class="o">::</span><span class="na">unique</span><span class="p">(</span><span class="s1">'modules'</span><span class="p">,</span> <span class="s1">'code'</span><span class="p">);</span>
         <span class="k">if</span> <span class="p">(</span><span class="nv">$module</span> <span class="o">!==</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
             <span class="nv">$unique</span><span class="o">-&gt;</span><span class="na">ignore</span><span class="p">(</span><span class="nv">$module</span><span class="p">);</span>
         <span class="p">}</span>
 
         <span class="k">return</span> <span class="p">[</span>
-            <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;required&#39;</span><span class="p">,</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span> <span class="s1">&#39;max:100&#39;</span><span class="p">],</span>
-            <span class="s1">&#39;code&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;required&#39;</span><span class="p">,</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span> <span class="s1">&#39;max:20&#39;</span><span class="p">,</span> <span class="nv">$unique</span><span class="p">],</span>
-            <span class="s1">&#39;teacher_id&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;required&#39;</span><span class="p">,</span> <span class="s1">&#39;integer&#39;</span><span class="p">,</span> <span class="s1">&#39;exists:teachers,id&#39;</span><span class="p">],</span>
+            <span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'required'</span><span class="p">,</span> <span class="s1">'string'</span><span class="p">,</span> <span class="s1">'max:100'</span><span class="p">],</span>
+            <span class="s1">'code'</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'required'</span><span class="p">,</span> <span class="s1">'string'</span><span class="p">,</span> <span class="s1">'max:20'</span><span class="p">,</span> <span class="nv">$unique</span><span class="p">],</span>
+            <span class="s1">'teacher_id'</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'required'</span><span class="p">,</span> <span class="s1">'integer'</span><span class="p">,</span> <span class="s1">'exists:teachers,id'</span><span class="p">],</span>
         <span class="p">];</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p><code>resources/views/modules/index.blade.php</code></p>
-<div class="highlight"><pre><span></span><code>@extends(&#39;layouts.app&#39;)
+<div class="highlight"><pre><span></span><code>@extends('layouts.app')
 
-@section(&#39;title&#39;, &#39;Moduluak&#39;)
+@section('title', 'Moduluak')
 
-@section(&#39;content&#39;)
+@section('content')
     &lt;h1&gt;Moduluak&lt;/h1&gt;
-    &lt;a href=&quot;{{ route(&#39;modules.create&#39;) }}&quot;&gt;Modulu berria&lt;/a&gt;
+    &lt;a href="{{ route('modules.create') }}"&gt;Modulu berria&lt;/a&gt;
     &lt;ul&gt;
         @forelse ($modules as $module)
-            &lt;li&gt;&lt;a href=&quot;{{ route(&#39;modules.show&#39;, $module) }}&quot;&gt;{{ $module-&gt;name }}&lt;/a&gt; · {{ $module-&gt;teacher-&gt;name }}&lt;/li&gt;
+            &lt;li&gt;&lt;a href="{{ route('modules.show', $module) }}"&gt;{{ $module-&gt;name }}&lt;/a&gt; · {{ $module-&gt;teacher-&gt;name }}&lt;/li&gt;
         @empty
             &lt;li&gt;Ez dago erregistrorik.&lt;/li&gt;
         @endforelse
@@ -3109,91 +3109,91 @@ php<span class="w"> </span>artisan<span class="w"> </span>make:controller<span c
 @endsection
 </code></pre></div>
 <p><code>resources/views/modules/show.blade.php</code></p>
-<div class="highlight"><pre><span></span><code>@extends(&#39;layouts.app&#39;)
+<div class="highlight"><pre><span></span><code>@extends('layouts.app')
 
-@section(&#39;title&#39;, &#39;Modulua · Fitxa&#39;)
+@section('title', 'Modulua · Fitxa')
 
-@section(&#39;content&#39;)
+@section('content')
     &lt;h1&gt;{{ $module-&gt;name }}&lt;/h1&gt;
     &lt;p&gt;Kodea: {{ $module-&gt;code }}&lt;/p&gt;
     &lt;p&gt;Irakaslea: {{ $module-&gt;teacher-&gt;name }}&lt;/p&gt;
-    &lt;a href=&quot;{{ route(&#39;modules.edit&#39;, $module) }}&quot;&gt;Editatu&lt;/a&gt;
-    &lt;a href=&quot;{{ route(&#39;modules.delete&#39;, $module) }}&quot;&gt;Ezabatu&lt;/a&gt;
-    &lt;a href=&quot;{{ route(&#39;modules.index&#39;) }}&quot;&gt;Itzuli zerrendara&lt;/a&gt;
+    &lt;a href="{{ route('modules.edit', $module) }}"&gt;Editatu&lt;/a&gt;
+    &lt;a href="{{ route('modules.delete', $module) }}"&gt;Ezabatu&lt;/a&gt;
+    &lt;a href="{{ route('modules.index') }}"&gt;Itzuli zerrendara&lt;/a&gt;
 @endsection
 </code></pre></div>
 <p><code>resources/views/modules/create.blade.php</code></p>
-<div class="highlight"><pre><span></span><code>@extends(&#39;layouts.app&#39;)
+<div class="highlight"><pre><span></span><code>@extends('layouts.app')
 
-@section(&#39;title&#39;, &#39;Modulu berria&#39;)
+@section('title', 'Modulu berria')
 
-@section(&#39;content&#39;)
+@section('content')
     &lt;h1&gt;Modulu berria&lt;/h1&gt;
-    &lt;form method=&quot;POST&quot; action=&quot;{{ route(&#39;modules.store&#39;) }}&quot;&gt;
+    &lt;form method="POST" action="{{ route('modules.store') }}"&gt;
         @csrf
-        @include(&#39;modules._form&#39;)
-        &lt;button type=&quot;submit&quot;&gt;Gorde&lt;/button&gt;
+        @include('modules._form')
+        &lt;button type="submit"&gt;Gorde&lt;/button&gt;
     &lt;/form&gt;
 @endsection
 </code></pre></div>
 <p><code>resources/views/modules/edit.blade.php</code></p>
-<div class="highlight"><pre><span></span><code>@extends(&#39;layouts.app&#39;)
+<div class="highlight"><pre><span></span><code>@extends('layouts.app')
 
-@section(&#39;title&#39;, &#39;Modulua editatu&#39;)
+@section('title', 'Modulua editatu')
 
-@section(&#39;content&#39;)
+@section('content')
     &lt;h1&gt;Modulua editatu&lt;/h1&gt;
-    &lt;form method=&quot;POST&quot; action=&quot;{{ route(&#39;modules.update&#39;, $module) }}&quot;&gt;
+    &lt;form method="POST" action="{{ route('modules.update', $module) }}"&gt;
         @csrf
-        @method(&#39;PUT&#39;)
-        @include(&#39;modules._form&#39;)
-        &lt;button type=&quot;submit&quot;&gt;Gorde&lt;/button&gt;
+        @method('PUT')
+        @include('modules._form')
+        &lt;button type="submit"&gt;Gorde&lt;/button&gt;
     &lt;/form&gt;
 @endsection
 </code></pre></div>
 <p><code>resources/views/modules/_form.blade.php</code></p>
 <div class="highlight"><pre><span></span><code>&lt;div&gt;
-    &lt;label for=&quot;name&quot;&gt;Moduluaren izena&lt;/label&gt;
-    &lt;input id=&quot;name&quot; name=&quot;name&quot; value=&quot;{{ old(&#39;name&#39;, $module-&gt;name ?? &#39;&#39;) }}&quot; required maxlength=&quot;100&quot;&gt;
-    @error(&#39;name&#39;)
-        &lt;p class=&quot;error&quot;&gt;{{ $message }}&lt;/p&gt;
+    &lt;label for="name"&gt;Moduluaren izena&lt;/label&gt;
+    &lt;input id="name" name="name" value="{{ old('name', $module-&gt;name ?? '') }}" required maxlength="100"&gt;
+    @error('name')
+        &lt;p class="error"&gt;{{ $message }}&lt;/p&gt;
     @enderror
 &lt;/div&gt;
 &lt;div&gt;
-    &lt;label for=&quot;code&quot;&gt;Kodea&lt;/label&gt;
-    &lt;input id=&quot;code&quot; name=&quot;code&quot; value=&quot;{{ old(&#39;code&#39;, $module-&gt;code ?? &#39;&#39;) }}&quot; required maxlength=&quot;20&quot;&gt;
-    @error(&#39;code&#39;)
-        &lt;p class=&quot;error&quot;&gt;{{ $message }}&lt;/p&gt;
+    &lt;label for="code"&gt;Kodea&lt;/label&gt;
+    &lt;input id="code" name="code" value="{{ old('code', $module-&gt;code ?? '') }}" required maxlength="20"&gt;
+    @error('code')
+        &lt;p class="error"&gt;{{ $message }}&lt;/p&gt;
     @enderror
 &lt;/div&gt;
 &lt;div&gt;
-    &lt;label for=&quot;teacher_id&quot;&gt;Irakaslea&lt;/label&gt;
-    &lt;select id=&quot;teacher_id&quot; name=&quot;teacher_id&quot; required&gt;
-        &lt;option value=&quot;&quot;&gt;Aukeratu irakaslea&lt;/option&gt;
+    &lt;label for="teacher_id"&gt;Irakaslea&lt;/label&gt;
+    &lt;select id="teacher_id" name="teacher_id" required&gt;
+        &lt;option value=""&gt;Aukeratu irakaslea&lt;/option&gt;
         @foreach ($teachers as $teacher)
-            &lt;option value=&quot;{{ $teacher-&gt;id }}&quot; @selected((string) old(&#39;teacher_id&#39;, $module-&gt;teacher_id ?? &#39;&#39;) === (string) $teacher-&gt;id)&gt;
+            &lt;option value="{{ $teacher-&gt;id }}" @selected((string) old('teacher_id', $module-&gt;teacher_id ?? '') === (string) $teacher-&gt;id)&gt;
                 {{ $teacher-&gt;name }}
             &lt;/option&gt;
         @endforeach
     &lt;/select&gt;
-    @error(&#39;teacher_id&#39;)
-        &lt;p class=&quot;error&quot;&gt;{{ $message }}&lt;/p&gt;
+    @error('teacher_id')
+        &lt;p class="error"&gt;{{ $message }}&lt;/p&gt;
     @enderror
 &lt;/div&gt;
 </code></pre></div>
 <p><code>resources/views/modules/delete.blade.php</code></p>
-<div class="highlight"><pre><span></span><code>@extends(&#39;layouts.app&#39;)
+<div class="highlight"><pre><span></span><code>@extends('layouts.app')
 
-@section(&#39;title&#39;, &#39;Ezabatu&#39;)
+@section('title', 'Ezabatu')
 
-@section(&#39;content&#39;)
+@section('content')
     &lt;h1&gt;Ezabatu&lt;/h1&gt;
     &lt;p&gt;{{ $module-&gt;name }} ezabatu nahi duzu?&lt;/p&gt;
-    &lt;form method=&quot;POST&quot; action=&quot;{{ route(&#39;modules.destroy&#39;, $module) }}&quot;&gt;
+    &lt;form method="POST" action="{{ route('modules.destroy', $module) }}"&gt;
         @csrf
-        @method(&#39;DELETE&#39;)
-        &lt;button type=&quot;submit&quot;&gt;Bai, ezabatu&lt;/button&gt;
-        &lt;a href=&quot;{{ route(&#39;modules.show&#39;, $module) }}&quot;&gt;Utzi&lt;/a&gt;
+        @method('DELETE')
+        &lt;button type="submit"&gt;Bai, ezabatu&lt;/button&gt;
+        &lt;a href="{{ route('modules.show', $module) }}"&gt;Utzi&lt;/a&gt;
     &lt;/form&gt;
 @endsection
 </code></pre></div>
@@ -3202,7 +3202,7 @@ php<span class="w"> </span>artisan<span class="w"> </span>make:controller<span c
 <div class="highlight"><pre><span></span><code>&lt;h2&gt;Esleitutako moduluak&lt;/h2&gt;
 &lt;ul&gt;
     @forelse ($teacher-&gt;modules as $module)
-        &lt;li&gt;&lt;a href=&quot;{{ route(&#39;modules.show&#39;, $module) }}&quot;&gt;{{ $module-&gt;name }}&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="{{ route('modules.show', $module) }}"&gt;{{ $module-&gt;name }}&lt;/a&gt;&lt;/li&gt;
     @empty
         &lt;li&gt;Irakasleak ez du modulurik esleituta.&lt;/li&gt;
     @endforelse
@@ -3263,7 +3263,7 @@ php<span class="w"> </span>artisan<span class="w"> </span>make:controller<span c
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Arbelean kopiatuta", "clipboard.copy": "Kopiatu arbelean", "search.result.more.one": "Bat gehiago orri honetan", "search.result.more.other": "# gehiago orri honetan", "search.result.none": "Bat datorren dokumenturik ez", "search.result.one": "Bat datorren dokumentu bat", "search.result.other": "Bat datozen # dokumentu", "search.result.placeholder": "Idatzi bilatzen hasteko", "search.result.term.missing": "Falta da", "select.version": "Hautatu bertsioa"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

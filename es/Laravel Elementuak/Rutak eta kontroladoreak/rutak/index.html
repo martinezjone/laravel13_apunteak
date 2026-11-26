@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2980,67 +2980,67 @@
 </tbody>
 </table>
 <p>Se puede utilizar la misma URI con métodos diferentes. Por ejemplo, <code>GET /test</code> y <code>POST /test</code> son rutas distintas.</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;/test&#39;, function () {</span>
-<span class="x">    return &#39;Método GET&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get('/test', function () {</span>
+<span class="x">    return 'Método GET';</span>
 <span class="x">});</span>
 
-<span class="x">Route::post(&#39;/test&#39;, function () {</span>
-<span class="x">    return &#39;Método POST&#39;;</span>
+<span class="x">Route::post('/test', function () {</span>
+<span class="x">    return 'Método POST';</span>
 <span class="x">});</span>
 
-<span class="x">Route::put(&#39;/test&#39;, function () {</span>
-<span class="x">    return &#39;Método PUT&#39;;</span>
+<span class="x">Route::put('/test', function () {</span>
+<span class="x">    return 'Método PUT';</span>
 <span class="x">});</span>
 
-<span class="x">Route::patch(&#39;/test&#39;, function () {</span>
-<span class="x">    return &#39;Método PATCH&#39;;</span>
+<span class="x">Route::patch('/test', function () {</span>
+<span class="x">    return 'Método PATCH';</span>
 <span class="x">});</span>
 
-<span class="x">Route::delete(&#39;/test&#39;, function () {</span>
-<span class="x">    return &#39;Método DELETE&#39;;</span>
+<span class="x">Route::delete('/test', function () {</span>
+<span class="x">    return 'Método DELETE';</span>
 <span class="x">});</span>
 </code></pre></div>
 <p>Al escribir una URL en la barra de direcciones del navegador, este realiza una solicitud <code>GET</code>. Para probar <code>POST</code>, por ejemplo, podemos utilizar <code>method="POST"</code> y <code>@csrf</code> en un formulario Blade. Veremos los formularios correspondientes a los métodos <code>PUT</code>, <code>PATCH</code> y <code>DELETE</code> en la sección CRUD.</p>
 <h2 id="enrutamiento-basico">Enrutamiento básico</h2>
 <p>En un proyecto Laravel nuevo, es habitual que las rutas iniciales muestren la vista <code>welcome</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;/&#39;, function () {</span>
-<span class="x">    return view(&#39;welcome&#39;);</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get('/', function () {</span>
+<span class="x">    return view('welcome');</span>
 <span class="x">});</span>
 </code></pre></div>
 <p>Para probarlo, sustituye la ruta anterior por esta:</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;/&#39;, function () {</span>
-<span class="x">    return &#39;¡Bienvenido!&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get('/', function () {</span>
+<span class="x">    return '¡Bienvenido!';</span>
 <span class="x">});</span>
 </code></pre></div>
 <p>El primer argumento de <code>Route::get()</code> es la ruta de la URI. El segundo es la acción que se ejecutará cuando una solicitud <code>GET</code> coincida con esa ruta. En el ejemplo, la acción es una función anónima y su <code>return</code> proporciona el contenido de la respuesta.</p>
 <p><img alt="La ruta de una solicitud" src="../../../../assets/images/Rutak/07ce8f0d8711ea19aa326f0b5232afd7.jpg" /></p>
 <h2 id="rutas-fijas">Rutas fijas</h2>
 <p>Supongamos que queremos crear las direcciones <code>/1</code>, <code>/2</code> y <code>/3</code>. Podemos definir una ruta para cada dirección:</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;/1&#39;, function () {</span>
-<span class="x">    return &#39;¡Soy la página 1!&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get('/1', function () {</span>
+<span class="x">    return '¡Soy la página 1!';</span>
 <span class="x">});</span>
 
-<span class="x">Route::get(&#39;/2&#39;, function () {</span>
-<span class="x">    return &#39;¡Soy la página 2!&#39;;</span>
+<span class="x">Route::get('/2', function () {</span>
+<span class="x">    return '¡Soy la página 2!';</span>
 <span class="x">});</span>
 
-<span class="x">Route::get(&#39;/3&#39;, function () {</span>
-<span class="x">    return &#39;¡Soy la página 3!&#39;;</span>
+<span class="x">Route::get('/3', function () {</span>
+<span class="x">    return '¡Soy la página 3!';</span>
 <span class="x">});</span>
 </code></pre></div>
 <p>Si lo único que cambia es el número de la página, podemos sustituir las tres rutas por una ruta con un parámetro.</p>
 <h2 id="rutas-con-parametros">Rutas con parámetros</h2>
 <h3 id="un-parametro">Un parámetro</h3>
 <p>El parámetro <code>{number}</code>, escrito entre llaves, recibe el valor de un segmento de la URL. Laravel pasa ese valor a la función.</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;/{id}&#39;, function (string $id) {</span>
-<span class="x">    return &#39;El número de mi página: &#39; . e($id) . &#39;!&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get('/{id}', function (string $id) {</span>
+<span class="x">    return 'El número de mi página: ' . e($id) . '!';</span>
 <span class="x">});</span>
 </code></pre></div>
 <p>En la solicitud <code>GET /2</code>, la variable <code>$id</code> toma el valor <code>'2'</code>. La solicitud <code>GET /4</code> también coincide con la ruta. En cambio, si solo estuvieran definidas las tres rutas fijas anteriores, la dirección <code>/4</code> devolvería un error 404.</p>
 <p><img alt="Ejemplo de un parámetro de ruta" src="../../../../assets/images/Rutak/90805bda7f1764506f7b4a6c5f4c143d.jpg" /></p>
 <h3 id="dos-parametros">Dos parámetros</h3>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;/posts/{category}/{id}&#39;, function (string $category, string $id) {</span>
-<span class="x">    return &#39;Categoría: &#39; . e($category) . &#39;, publicación: &#39; . e($id);</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get('/posts/{category}/{id}', function (string $category, string $id) {</span>
+<span class="x">    return 'Categoría: ' . e($category) . ', publicación: ' . e($id);</span>
 <span class="x">});</span>
 </code></pre></div>
 <table>
@@ -3068,8 +3068,8 @@
 <p>El helper <code>e()</code> prepara el valor recibido de la URL para mostrarlo como texto en HTML.</p>
 <h3 id="parametro-opcional-y-valor-predeterminado">Parámetro opcional y valor predeterminado</h3>
 <p>Para que un parámetro sea opcional, escribe <code>?</code> después del nombre y proporciona un valor predeterminado al argumento de la función.</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;/welcome/{name?}&#39;, function (string $name = &#39;invitado&#39;) {</span>
-<span class="x">    return &#39;Hola, &#39; . e($name);</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get('/welcome/{name?}', function (string $name = 'invitado') {</span>
+<span class="x">    return 'Hola, ' . e($name);</span>
 <span class="x">});</span>
 </code></pre></div>
 <table>
@@ -3094,12 +3094,12 @@
 <h2 id="orden-de-las-rutas">Orden de las rutas</h2>
 <p>Cuando dos rutas pueden coincidir con el mismo método HTTP y la misma ruta, coloca <strong>primero la ruta más específica</strong>. En este ejemplo, la dirección <code>/contact</code> coincide con la ruta fija y con la ruta dinámica <code>/{number}</code>.</p>
 <p>Para ver el orden, elimina la definición anterior de <code>/{id}</code> y utiliza este bloque:</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;/contact&#39;, function () {</span>
-<span class="x">    return &#39;Página de contacto&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get('/contact', function () {</span>
+<span class="x">    return 'Página de contacto';</span>
 <span class="x">});</span>
 
-<span class="x">Route::get(&#39;/{id}&#39;, function (string $id) {</span>
-<span class="x">    return &#39;El número de mi página: &#39; . e($id) . &#39;!&#39;;</span>
+<span class="x">Route::get('/{id}', function (string $id) {</span>
+<span class="x">    return 'El número de mi página: ' . e($id) . '!';</span>
 <span class="x">});</span>
 </code></pre></div>
 <ul>
@@ -3110,16 +3110,16 @@
 <h2 id="restricciones-de-los-parametros">Restricciones de los parámetros</h2>
 <p>El nombre del parámetro <code>{id}</code> no limita su contenido a números. Para ello, debemos añadir una restricción a la ruta.</p>
 <h3 id="expresion-regular-con-where">Expresión regular con <code>where()</code></h3>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;/users/{id}&#39;, function (string $id) {</span>
-<span class="x">    return &#39;Usuario: &#39; . $id;</span>
-<span class="x">})-&gt;where(&#39;id&#39;, &#39;[0-9]+&#39;);</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get('/users/{id}', function (string $id) {</span>
+<span class="x">    return 'Usuario: ' . $id;</span>
+<span class="x">})-&gt;where('id', '[0-9]+');</span>
 </code></pre></div>
 <p>La expresión <code>[0-9]+</code> acepta uno o más dígitos.</p>
 <h3 id="helpers-para-restricciones">Helpers para restricciones</h3>
 <p>Podemos sustituir la definición anterior de <code>/users/{id}</code> por <code>whereNumber()</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;/users/{id}&#39;, function (string $id) {</span>
-<span class="x">    return &#39;Usuario: &#39; . $id;</span>
-<span class="x">})-&gt;whereNumber(&#39;id&#39;);</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get('/users/{id}', function (string $id) {</span>
+<span class="x">    return 'Usuario: ' . $id;</span>
+<span class="x">})-&gt;whereNumber('id');</span>
 </code></pre></div>
 <p>La solicitud <code>GET /users/7</code> mostrará <code>Usuario: 7</code>. En cambio, la solicitud <code>GET /users/alex</code> devolverá un error 404 si no coincide con otra ruta. La ruta <code>/users/999</code> cumple la condición porque contiene dígitos. Comprobar si el usuario existe realmente es responsabilidad de la aplicación.</p>
 <table>
@@ -3151,12 +3151,12 @@
 <p><img alt="Ejemplo de un error 404" src="../../../../assets/images/Rutak/980af06441273c7000e40ace4bc0ec74.jpg" /></p>
 <h2 id="rutas-con-nombre">Rutas con nombre</h2>
 <p>Podemos asignar un nombre a una ruta mediante el método <code>name()</code>. Después, el helper <code>route()</code> genera su URL. Para probar el ejemplo de la ruta inicial, añade <code>-&gt;name('home')</code> a la definición existente:</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;/&#39;, function () {</span>
-<span class="x">    return &#39;¡Soy la página de inicio!&#39;;</span>
-<span class="x">})-&gt;name(&#39;home&#39;);</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get('/', function () {</span>
+<span class="x">    return '¡Soy la página de inicio!';</span>
+<span class="x">})-&gt;name('home');</span>
 </code></pre></div>
 <p>En una vista Blade:</p>
-<div class="highlight"><pre><span></span><code>&lt;a href=&quot;{{ route(&#39;home&#39;) }}&quot;&gt;Inicio&lt;/a&gt;
+<div class="highlight"><pre><span></span><code>&lt;a href="{{ route('home') }}"&gt;Inicio&lt;/a&gt;
 </code></pre></div>
 <p>Si la ruta tiene un parámetro, podemos proporcionar su valor en el segundo argumento. Por ejemplo, si añadimos <code>-&gt;name('users.show')</code> a la ruta <code>/users/{id}</code>, la llamada <code>route('users.show', ['id' =&gt; 7])</code> genera la URL correspondiente a la ruta <code>/users/7</code>.</p>
 <h2 id="grupos-de-rutas-con-un-controlador">Grupos de rutas con un controlador</h2>
@@ -3164,9 +3164,9 @@
 <div class="highlight"><pre><span></span><code><span class="x">use App\Http\Controllers\CourseController;</span>
 
 <span class="x">Route::controller(CourseController::class)-&gt;group(function () {</span>
-<span class="x">    Route::get(&#39;/courses&#39;, &#39;index&#39;);</span>
-<span class="x">    Route::get(&#39;/courses/create&#39;, &#39;create&#39;);</span>
-<span class="x">    Route::get(&#39;/courses/{course}&#39;, &#39;show&#39;);</span>
+<span class="x">    Route::get('/courses', 'index');</span>
+<span class="x">    Route::get('/courses/create', 'create');</span>
+<span class="x">    Route::get('/courses/{course}', 'show');</span>
 <span class="x">});</span>
 </code></pre></div>
 <p>La ruta fija <code>/courses/create</code> va antes que la ruta dinámica <code>/courses/{course}</code>.</p>
@@ -3174,7 +3174,7 @@
 <p>El comando <code>php artisan make:controller StudentController --resource</code> crea un controlador con métodos para las acciones CRUD. El método <code>Route::resource()</code>, por su parte, registra las rutas correspondientes a esas acciones.</p>
 <div class="highlight"><pre><span></span><code><span class="x">use App\Http\Controllers\StudentController;</span>
 
-<span class="x">Route::resource(&#39;students&#39;, StudentController::class);</span>
+<span class="x">Route::resource('students', StudentController::class);</span>
 </code></pre></div>
 <table>
 <thead>
@@ -3231,7 +3231,7 @@
 </tbody>
 </table>
 <p>Si solo necesitamos la lista y la página de detalles, sustituye la declaración anterior por esta:</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::resource(&#39;students&#39;, StudentController::class)-&gt;only([&#39;index&#39;, &#39;show&#39;]);</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::resource('students', StudentController::class)-&gt;only(['index', 'show']);</span>
 </code></pre></div>
 <p>Si definimos una ruta adicional como <code>/students/featured</code>, colócala antes de la declaración <code>Route::resource()</code>. Así, la ruta generada <code>/students/{student}</code> no tomará <code>featured</code> como parámetro.</p>
 <h2 id="comprobar-las-rutas">Comprobar las rutas</h2>
@@ -3291,7 +3291,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

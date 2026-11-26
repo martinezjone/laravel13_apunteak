@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2715,20 +2715,20 @@
 <h1 id="txurdigest-paginazioa-balidazioa-hizkuntza-eta-irudiak">TxurdiGest · Paginazioa, balidazioa, hizkuntza eta irudiak</h1>
 <h2 id="1-paginazioa">1. Paginazioa</h2>
 <p><code>StudentController::index()</code> metodoan ordezkatu <code>Student::all()</code> kontsulta:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$students = Student::query()-&gt;orderBy(&#39;name&#39;)-&gt;orderBy(&#39;id&#39;)-&gt;paginate(10);</span>
+<div class="highlight"><pre><span></span><code><span class="x">$students = Student::query()-&gt;orderBy('name')-&gt;orderBy('id')-&gt;paginate(10);</span>
 </code></pre></div>
 <p><code>paginate(10)</code> metodoak orriko hamar ikasle berreskuratzen ditu. Izen bera duten ikasleak IDaren arabera ordenatzen dira. Gehitu ondokoa <code>resources/views/students/index.blade.php</code> fitxategian, zerrendaren azpian:</p>
-<div class="highlight"><pre><span></span><code>{{ $students-&gt;links(&#39;pagination.simple&#39;) }}
+<div class="highlight"><pre><span></span><code>{{ $students-&gt;links('pagination.simple') }}
 </code></pre></div>
 <p>Ariketan CSS propioa erabili dugu. Sortu <code>resources/views/pagination/simple.blade.php</code> izeneko bista estekak euskaraz eta Tailwinden beharrik gabe erakusteko:</p>
 <div class="highlight"><pre><span></span><code>@if ($paginator-&gt;hasPages())
-    &lt;nav class=&quot;pagination&quot; aria-label=&quot;Paginazioa&quot;&gt;
+    &lt;nav class="pagination" aria-label="Paginazioa"&gt;
         @if ($paginator-&gt;previousPageUrl())
-            &lt;a href=&quot;{{ $paginator-&gt;previousPageUrl() }}&quot; rel=&quot;prev&quot;&gt;Aurrekoa&lt;/a&gt;
+            &lt;a href="{{ $paginator-&gt;previousPageUrl() }}" rel="prev"&gt;Aurrekoa&lt;/a&gt;
         @endif
         &lt;span&gt;{{ $paginator-&gt;currentPage() }} / {{ $paginator-&gt;lastPage() }}&lt;/span&gt;
         @if ($paginator-&gt;nextPageUrl())
-            &lt;a href=&quot;{{ $paginator-&gt;nextPageUrl() }}&quot; rel=&quot;next&quot;&gt;Hurrengoa&lt;/a&gt;
+            &lt;a href="{{ $paginator-&gt;nextPageUrl() }}" rel="next"&gt;Hurrengoa&lt;/a&gt;
         @endif
     &lt;/nav&gt;
 @endif
@@ -2770,7 +2770,7 @@
 <p>Balidazioak huts egiten badu, Laravelek formulariora itzultzen du erabiltzailea. <code>@error('email')</code> direktibak eremuaren mezua erakusten du, eta <code>old('email', $student-&gt;email ?? '')</code> deiak bidalitako balioa leheneratzen du. Balidatu gabeko hasierako edizioan, bigarren argumentuko balioa erakutsiko da.</p>
 <p>Akats guztiak batera erakutsi nahi badituzu, jarri kode hau formularioaren hasieran. Eremuen azpiko mezuek errorea non gertatu den adierazten dute.</p>
 <div class="highlight"><pre><span></span><code>@if ($errors-&gt;any())
-    &lt;ul class=&quot;error&quot; role=&quot;alert&quot;&gt;
+    &lt;ul class="error" role="alert"&gt;
         @foreach ($errors-&gt;all() as $error)
             &lt;li&gt;{{ $error }}&lt;/li&gt;
         @endforeach
@@ -2786,34 +2786,34 @@
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
 
 <span class="k">return</span> <span class="p">[</span>
-    <span class="s1">&#39;required&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;:attribute eremua bete behar da.&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;string&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;:attribute eremuak testua izan behar du.&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Idatzi baliozko helbide elektroniko bat.&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;max&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
-        <span class="s1">&#39;string&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;:attribute eremuak gehienez :max karaktere izan ditzake.&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;file&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Fitxategiak gehienez :max KB izan ditzake.&#39;</span><span class="p">,</span>
+    <span class="s1">'required'</span> <span class="o">=&gt;</span> <span class="s1">':attribute eremua bete behar da.'</span><span class="p">,</span>
+    <span class="s1">'string'</span> <span class="o">=&gt;</span> <span class="s1">':attribute eremuak testua izan behar du.'</span><span class="p">,</span>
+    <span class="s1">'email'</span> <span class="o">=&gt;</span> <span class="s1">'Idatzi baliozko helbide elektroniko bat.'</span><span class="p">,</span>
+    <span class="s1">'max'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+        <span class="s1">'string'</span> <span class="o">=&gt;</span> <span class="s1">':attribute eremuak gehienez :max karaktere izan ditzake.'</span><span class="p">,</span>
+        <span class="s1">'file'</span> <span class="o">=&gt;</span> <span class="s1">'Fitxategiak gehienez :max KB izan ditzake.'</span><span class="p">,</span>
     <span class="p">],</span>
-    <span class="s1">&#39;between&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
-        <span class="s1">&#39;numeric&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;:attribute eremuak :min eta :max artekoa izan behar du.&#39;</span><span class="p">,</span>
+    <span class="s1">'between'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+        <span class="s1">'numeric'</span> <span class="o">=&gt;</span> <span class="s1">':attribute eremuak :min eta :max artekoa izan behar du.'</span><span class="p">,</span>
     <span class="p">],</span>
-    <span class="s1">&#39;unique&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;:attribute hori dagoeneko erabilita dago.&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;integer&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;:attribute eremuak zenbaki osoa izan behar du.&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;exists&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Hautatutako :attribute ez da existitzen.&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;array&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;:attribute eremuak zerrenda bat izan behar du.&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;list&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;:attribute eremuak zerrenda ordenatua izan behar du.&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;distinct&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;:attribute ezin da errepikatu.&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;image&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Aukeratu irudi-fitxategi bat.&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;mimes&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Aukeratu formatu hauetako fitxategi bat: :values.&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;uploaded&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Ezin izan da fitxategia igo.&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;attributes&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
-        <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;izena&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;helbide elektronikoa&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;code&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;kodea&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;teacher_id&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;irakaslea&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;module_id&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;moduluen hautapena&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;module_id.*&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;modulua&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;grade&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;kalifikazioa&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;photo_path&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;argazkia&#39;</span><span class="p">,</span>
+    <span class="s1">'unique'</span> <span class="o">=&gt;</span> <span class="s1">':attribute hori dagoeneko erabilita dago.'</span><span class="p">,</span>
+    <span class="s1">'integer'</span> <span class="o">=&gt;</span> <span class="s1">':attribute eremuak zenbaki osoa izan behar du.'</span><span class="p">,</span>
+    <span class="s1">'exists'</span> <span class="o">=&gt;</span> <span class="s1">'Hautatutako :attribute ez da existitzen.'</span><span class="p">,</span>
+    <span class="s1">'array'</span> <span class="o">=&gt;</span> <span class="s1">':attribute eremuak zerrenda bat izan behar du.'</span><span class="p">,</span>
+    <span class="s1">'list'</span> <span class="o">=&gt;</span> <span class="s1">':attribute eremuak zerrenda ordenatua izan behar du.'</span><span class="p">,</span>
+    <span class="s1">'distinct'</span> <span class="o">=&gt;</span> <span class="s1">':attribute ezin da errepikatu.'</span><span class="p">,</span>
+    <span class="s1">'image'</span> <span class="o">=&gt;</span> <span class="s1">'Aukeratu irudi-fitxategi bat.'</span><span class="p">,</span>
+    <span class="s1">'mimes'</span> <span class="o">=&gt;</span> <span class="s1">'Aukeratu formatu hauetako fitxategi bat: :values.'</span><span class="p">,</span>
+    <span class="s1">'uploaded'</span> <span class="o">=&gt;</span> <span class="s1">'Ezin izan da fitxategia igo.'</span><span class="p">,</span>
+    <span class="s1">'attributes'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+        <span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'izena'</span><span class="p">,</span>
+        <span class="s1">'email'</span> <span class="o">=&gt;</span> <span class="s1">'helbide elektronikoa'</span><span class="p">,</span>
+        <span class="s1">'code'</span> <span class="o">=&gt;</span> <span class="s1">'kodea'</span><span class="p">,</span>
+        <span class="s1">'teacher_id'</span> <span class="o">=&gt;</span> <span class="s1">'irakaslea'</span><span class="p">,</span>
+        <span class="s1">'module_id'</span> <span class="o">=&gt;</span> <span class="s1">'moduluen hautapena'</span><span class="p">,</span>
+        <span class="s1">'module_id.*'</span> <span class="o">=&gt;</span> <span class="s1">'modulua'</span><span class="p">,</span>
+        <span class="s1">'grade'</span> <span class="o">=&gt;</span> <span class="s1">'kalifikazioa'</span><span class="p">,</span>
+        <span class="s1">'photo_path'</span> <span class="o">=&gt;</span> <span class="s1">'argazkia'</span><span class="p">,</span>
     <span class="p">],</span>
 <span class="p">];</span>
 </code></pre></div>
@@ -2823,31 +2823,31 @@
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
 
 <span class="k">return</span> <span class="p">[</span>
-    <span class="s1">&#39;home&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Hasiera&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;students&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Ikasleak&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;teachers&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Irakasleak&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;modules&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Moduluak&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;save&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Gorde&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;cancel&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Utzi&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;student_saved&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Ikaslea gorde da.&#39;</span><span class="p">,</span>
+    <span class="s1">'home'</span> <span class="o">=&gt;</span> <span class="s1">'Hasiera'</span><span class="p">,</span>
+    <span class="s1">'students'</span> <span class="o">=&gt;</span> <span class="s1">'Ikasleak'</span><span class="p">,</span>
+    <span class="s1">'teachers'</span> <span class="o">=&gt;</span> <span class="s1">'Irakasleak'</span><span class="p">,</span>
+    <span class="s1">'modules'</span> <span class="o">=&gt;</span> <span class="s1">'Moduluak'</span><span class="p">,</span>
+    <span class="s1">'save'</span> <span class="o">=&gt;</span> <span class="s1">'Gorde'</span><span class="p">,</span>
+    <span class="s1">'cancel'</span> <span class="o">=&gt;</span> <span class="s1">'Utzi'</span><span class="p">,</span>
+    <span class="s1">'student_saved'</span> <span class="o">=&gt;</span> <span class="s1">'Ikaslea gorde da.'</span><span class="p">,</span>
 <span class="p">];</span>
 </code></pre></div>
 <p><code>lang/es/ui.php</code> fitxategian, gako berak erabili:</p>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
 
 <span class="k">return</span> <span class="p">[</span>
-    <span class="s1">&#39;home&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Inicio&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;students&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Alumnado&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;teachers&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Profesorado&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;modules&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Módulos&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;save&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Guardar&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;cancel&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Cancelar&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;student_saved&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Se ha guardado el registro del alumno.&#39;</span><span class="p">,</span>
+    <span class="s1">'home'</span> <span class="o">=&gt;</span> <span class="s1">'Inicio'</span><span class="p">,</span>
+    <span class="s1">'students'</span> <span class="o">=&gt;</span> <span class="s1">'Alumnado'</span><span class="p">,</span>
+    <span class="s1">'teachers'</span> <span class="o">=&gt;</span> <span class="s1">'Profesorado'</span><span class="p">,</span>
+    <span class="s1">'modules'</span> <span class="o">=&gt;</span> <span class="s1">'Módulos'</span><span class="p">,</span>
+    <span class="s1">'save'</span> <span class="o">=&gt;</span> <span class="s1">'Guardar'</span><span class="p">,</span>
+    <span class="s1">'cancel'</span> <span class="o">=&gt;</span> <span class="s1">'Cancelar'</span><span class="p">,</span>
+    <span class="s1">'student_saved'</span> <span class="o">=&gt;</span> <span class="s1">'Se ha guardado el registro del alumno.'</span><span class="p">,</span>
 <span class="p">];</span>
 </code></pre></div>
 <p>Ordezkatu, adibidez, botoia <code>&lt;button type="submit"&gt;{{ __('ui.save') }}&lt;/button&gt;</code> kodearekin. Ikaslea gordetzean, erabili <code>-&gt;with('status', __('ui.student_saved'))</code>. Probatu itzulpena Tinkerren, konfigurazio iraunkorra aldatu gabe:</p>
-<div class="highlight"><pre><span></span><code><span class="x">__(&#39;ui.save&#39;, [], &#39;eu&#39;);</span>
-<span class="x">__(&#39;ui.save&#39;, [], &#39;es&#39;);</span>
+<div class="highlight"><pre><span></span><code><span class="x">__('ui.save', [], 'eu');</span>
+<span class="x">__('ui.save', [], 'es');</span>
 </code></pre></div>
 <p>Gelan, eraman nabigazioko testuak eta izenburuak dagozkien gakoetara. Gaztelaniazko fitxategia bigarren hizkuntza gehitzeko adibidea da. Ariketaren interfazearen lehenetsitako hizkuntza euskara da.</p>
 <h2 id="4-aukerako-hedapena-ikaslearen-argazkia">4. Aukerako hedapena · Ikaslearen argazkia</h2>
@@ -2856,15 +2856,15 @@
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="x">public function up(): void</span>
 <span class="x">{</span>
-<span class="x">    Schema::table(&#39;students&#39;, function (Blueprint $table) {</span>
-<span class="x">        $table-&gt;string(&#39;photo_path&#39;)-&gt;nullable();</span>
+<span class="x">    Schema::table('students', function (Blueprint $table) {</span>
+<span class="x">        $table-&gt;string('photo_path')-&gt;nullable();</span>
 <span class="x">    });</span>
 <span class="x">}</span>
 
 <span class="x">public function down(): void</span>
 <span class="x">{</span>
-<span class="x">    Schema::table(&#39;students&#39;, function (Blueprint $table) {</span>
-<span class="x">        $table-&gt;dropColumn(&#39;photo_path&#39;);</span>
+<span class="x">    Schema::table('students', function (Blueprint $table) {</span>
+<span class="x">        $table-&gt;dropColumn('photo_path');</span>
 <span class="x">    });</span>
 <span class="x">}</span>
 </code></pre></div>
@@ -2875,8 +2875,8 @@ php<span class="w"> </span>artisan<span class="w"> </span>make:controller<span c
 <p><code>routes/web.php</code> fitxategian gehitu inportazioa eta ibilbidea:</p>
 <div class="highlight"><pre><span></span><code><span class="x">use App\Http\Controllers\StudentPhotoController;</span>
 
-<span class="x">Route::post(&#39;/students/{student}/photo&#39;, StudentPhotoController::class)</span>
-<span class="x">    -&gt;name(&#39;students.photo.store&#39;);</span>
+<span class="x">Route::post('/students/{student}/photo', StudentPhotoController::class)</span>
+<span class="x">    -&gt;name('students.photo.store');</span>
 </code></pre></div>
 <p><code>app/Http/Controllers/StudentPhotoController.php</code></p>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
@@ -2896,14 +2896,14 @@ php<span class="w"> </span>artisan<span class="w"> </span>make:controller<span c
     <span class="k">public</span> <span class="k">function</span> <span class="fm">__invoke</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">,</span> <span class="nx">Student</span> <span class="nv">$student</span><span class="p">)</span><span class="o">:</span> <span class="nx">RedirectResponse</span>
     <span class="p">{</span>
         <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">validate</span><span class="p">([</span>
-            <span class="s1">&#39;photo_path&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;required&#39;</span><span class="p">,</span> <span class="s1">&#39;image&#39;</span><span class="p">,</span> <span class="s1">&#39;mimes:jpg,jpeg,png,webp&#39;</span><span class="p">,</span> <span class="s1">&#39;max:2048&#39;</span><span class="p">],</span>
+            <span class="s1">'photo_path'</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'required'</span><span class="p">,</span> <span class="s1">'image'</span><span class="p">,</span> <span class="s1">'mimes:jpg,jpeg,png,webp'</span><span class="p">,</span> <span class="s1">'max:2048'</span><span class="p">],</span>
         <span class="p">]);</span>
 
-        <span class="nv">$newPath</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">file</span><span class="p">(</span><span class="s1">&#39;photo_path&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">store</span><span class="p">(</span><span class="s1">&#39;students&#39;</span><span class="p">,</span> <span class="s1">&#39;public&#39;</span><span class="p">);</span>
+        <span class="nv">$newPath</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">file</span><span class="p">(</span><span class="s1">'photo_path'</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">store</span><span class="p">(</span><span class="s1">'students'</span><span class="p">,</span> <span class="s1">'public'</span><span class="p">);</span>
 
         <span class="k">if</span> <span class="p">(</span><span class="nv">$newPath</span> <span class="o">===</span> <span class="k">false</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">throw</span> <span class="nx">ValidationException</span><span class="o">::</span><span class="na">withMessages</span><span class="p">([</span>
-                <span class="s1">&#39;photo_path&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Ezin izan da argazkia gorde.&#39;</span><span class="p">,</span>
+                <span class="s1">'photo_path'</span> <span class="o">=&gt;</span> <span class="s1">'Ezin izan da argazkia gorde.'</span><span class="p">,</span>
             <span class="p">]);</span>
         <span class="p">}</span>
 
@@ -2917,34 +2917,34 @@ php<span class="w"> </span>artisan<span class="w"> </span>make:controller<span c
                 <span class="k">return</span> <span class="nv">$previousPath</span><span class="p">;</span>
             <span class="p">});</span>
         <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">Throwable</span> <span class="nv">$exception</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">Storage</span><span class="o">::</span><span class="na">disk</span><span class="p">(</span><span class="s1">&#39;public&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="nv">$newPath</span><span class="p">);</span>
+            <span class="nx">Storage</span><span class="o">::</span><span class="na">disk</span><span class="p">(</span><span class="s1">'public'</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="nv">$newPath</span><span class="p">);</span>
 
             <span class="k">throw</span> <span class="nv">$exception</span><span class="p">;</span>
         <span class="p">}</span>
 
         <span class="k">if</span> <span class="p">(</span><span class="nv">$previousPath</span> <span class="o">!==</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">Storage</span><span class="o">::</span><span class="na">disk</span><span class="p">(</span><span class="s1">&#39;public&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="nv">$previousPath</span><span class="p">);</span>
+            <span class="nx">Storage</span><span class="o">::</span><span class="na">disk</span><span class="p">(</span><span class="s1">'public'</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="nv">$previousPath</span><span class="p">);</span>
         <span class="p">}</span>
 
-        <span class="k">return</span> <span class="nx">to_route</span><span class="p">(</span><span class="s1">&#39;students.show&#39;</span><span class="p">,</span> <span class="nv">$student</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">with</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="s1">&#39;Argazkia gorde da.&#39;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nx">to_route</span><span class="p">(</span><span class="s1">'students.show'</span><span class="p">,</span> <span class="nv">$student</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">with</span><span class="p">(</span><span class="s1">'status'</span><span class="p">,</span> <span class="s1">'Argazkia gorde da.'</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Gehitu argazki-formularioa <code>students/edit.blade.php</code> fitxategian, ikaslearen datuen formularioa itxi eta gero:</p>
 <div class="highlight"><pre><span></span><code>&lt;h2&gt;Ikaslearen argazkia&lt;/h2&gt;
-&lt;form method=&quot;POST&quot; enctype=&quot;multipart/form-data&quot; action=&quot;{{ route(&#39;students.photo.store&#39;, $student) }}&quot;&gt;
+&lt;form method="POST" enctype="multipart/form-data" action="{{ route('students.photo.store', $student) }}"&gt;
     @csrf
-    &lt;label for=&quot;photo_path&quot;&gt;Argazkia&lt;/label&gt;
-    &lt;input type=&quot;file&quot; id=&quot;photo_path&quot; name=&quot;photo_path&quot; accept=&quot;image/jpeg,image/png,image/webp&quot; required&gt;
-    @error(&#39;photo_path&#39;)
-        &lt;p class=&quot;error&quot;&gt;{{ $message }}&lt;/p&gt;
+    &lt;label for="photo_path"&gt;Argazkia&lt;/label&gt;
+    &lt;input type="file" id="photo_path" name="photo_path" accept="image/jpeg,image/png,image/webp" required&gt;
+    @error('photo_path')
+        &lt;p class="error"&gt;{{ $message }}&lt;/p&gt;
     @enderror
-    &lt;button type=&quot;submit&quot;&gt;Igo argazkia&lt;/button&gt;
+    &lt;button type="submit"&gt;Igo argazkia&lt;/button&gt;
 &lt;/form&gt;
 </code></pre></div>
 <p>Gehitu irudia ikaslearen fitxan:</p>
 <div class="highlight"><pre><span></span><code>@if ($student-&gt;photo_path)
-    &lt;img src=&quot;{{ asset(&#39;storage/&#39; . $student-&gt;photo_path) }}&quot; alt=&quot;{{ $student-&gt;name }} · Argazkia&quot; width=&quot;160&quot;&gt;
+    &lt;img src="{{ asset('storage/' . $student-&gt;photo_path) }}" alt="{{ $student-&gt;name }} · Argazkia" width="160"&gt;
 @endif
 </code></pre></div>
 <p>Ikaslea ezabatzean argazkia ere kentzeko, gehitu <code>use Illuminate\Support\Facades\DB;</code> eta <code>use Illuminate\Support\Facades\Storage;</code> <code>StudentController</code> fitxategian eta ordezkatu <code>destroy()</code> metodoa:</p>
@@ -2959,10 +2959,10 @@ php<span class="w"> </span>artisan<span class="w"> </span>make:controller<span c
 <span class="x">    });</span>
 
 <span class="x">    if ($photoPath !== null) {</span>
-<span class="x">        Storage::disk(&#39;public&#39;)-&gt;delete($photoPath);</span>
+<span class="x">        Storage::disk('public')-&gt;delete($photoPath);</span>
 <span class="x">    }</span>
 
-<span class="x">    return to_route(&#39;students.index&#39;)-&gt;with(&#39;status&#39;, &#39;Ikaslea ezabatu da.&#39;);</span>
+<span class="x">    return to_route('students.index')-&gt;with('status', 'Ikaslea ezabatu da.');</span>
 <span class="x">}</span>
 </code></pre></div>
 <p><code>photo_path</code> zutabean bidea gordetzen da; fitxategia diskoan gordetzen da. Probatu irudi bat igotzen, beste batekin ordezkatzen eta ikaslea ezabatzen. Erabili 2 MB baino gehiagoko irudi bat ere, balidazioa egiaztatzeko.</p>
@@ -3020,7 +3020,7 @@ php<span class="w"> </span>artisan<span class="w"> </span>make:controller<span c
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Arbelean kopiatuta", "clipboard.copy": "Kopiatu arbelean", "search.result.more.one": "Bat gehiago orri honetan", "search.result.more.other": "# gehiago orri honetan", "search.result.none": "Bat datorren dokumenturik ez", "search.result.one": "Bat datorren dokumentu bat", "search.result.other": "Bat datozen # dokumentu", "search.result.placeholder": "Idatzi bilatzen hasteko", "search.result.term.missing": "Falta da", "select.version": "Hautatu bertsioa"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

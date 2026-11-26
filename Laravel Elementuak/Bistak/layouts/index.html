@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2703,23 +2703,23 @@
 <h2 id="layouta-sortzea">Layouta sortzea</h2>
 <p>Sortu <code>resources/views/layouts/app.blade.php</code> fitxategia HTMLaren egitura orokorrarekin.</p>
 <div class="highlight"><pre><span></span><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;eu&quot;&gt;
+&lt;html lang="eu"&gt;
 &lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-    &lt;title&gt;@yield(&#39;title&#39;, &#39;Nire bloga&#39;)&lt;/title&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;@yield('title', 'Nire bloga')&lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
     &lt;header&gt;
         &lt;p&gt;Nire bloga&lt;/p&gt;
         &lt;nav&gt;
-            &lt;a href=&quot;/&quot;&gt;Hasiera&lt;/a&gt;
-            &lt;a href=&quot;/users&quot;&gt;Erabiltzaileak&lt;/a&gt;
+            &lt;a href="/"&gt;Hasiera&lt;/a&gt;
+            &lt;a href="/users"&gt;Erabiltzaileak&lt;/a&gt;
         &lt;/nav&gt;
     &lt;/header&gt;
 
     &lt;main&gt;
-        @yield(&#39;content&#39;)
+        @yield('content')
     &lt;/main&gt;
 
     &lt;footer&gt;
@@ -2732,11 +2732,11 @@
 <p>Adibidez, bistak <code>title</code> atala definitzen ez badu, nabigatzaileko fitxan «Nire bloga» agertuko da.</p>
 <h2 id="txantiloi-bat-luzatzea">Txantiloi bat luzatzea</h2>
 <p>Bista batek layout bat erabiltzeko, <code>@extends</code> direktiba erabiliko dugu. Adibidez, sortu <code>resources/views/home.blade.php</code> fitxategia.</p>
-<div class="highlight"><pre><span></span><code>@extends(&#39;layouts.app&#39;)
+<div class="highlight"><pre><span></span><code>@extends('layouts.app')
 
-@section(&#39;title&#39;, &#39;Hasiera&#39;)
+@section('title', 'Hasiera')
 
-@section(&#39;content&#39;)
+@section('content')
     &lt;h1&gt;Ongi etorri nire blogera!&lt;/h1&gt;
     &lt;p&gt;Hau da hasierako orria.&lt;/p&gt;
 @endsection
@@ -2744,11 +2744,11 @@
 <p><code>layouts.app</code> izenak <code>resources/views/layouts/app.blade.php</code> fitxategia adierazten du. Puntuak karpeta eta bistaren izena bereizten ditu. Blade dei horretan fitxategiaren luzapena kenduta idazten dugu izena.</p>
 <p><code>@section</code> direktibak atalaren edukia definitzen du. Atalaren izenak layoutaren <code>@yield</code> direktiban erabilitako izenarekin bat etorri behar du. Edukia testu laburra bada, bigarren argumentu gisa eman dezakegu. HTMLa edo hainbat lerro idatzi behar baditugu, atala <code>@section</code> bidez ireki eta <code>@endsection</code> bidez itxiko dugu.</p>
 <p>Layout bera beste bista batean erabiltzeko, sortu <code>resources/views/users.blade.php</code> fitxategia.</p>
-<div class="highlight"><pre><span></span><code>@extends(&#39;layouts.app&#39;)
+<div class="highlight"><pre><span></span><code>@extends('layouts.app')
 
-@section(&#39;title&#39;, &#39;Erabiltzaileak&#39;)
+@section('title', 'Erabiltzaileak')
 
-@section(&#39;content&#39;)
+@section('content')
     &lt;h1&gt;Erabiltzaileak&lt;/h1&gt;
 
     &lt;ul&gt;
@@ -2763,15 +2763,15 @@
 <p>Bi bistak probatzeko, <code>routes/web.php</code> fitxategian gehitu ibilbide hauek.</p>
 <div class="highlight"><pre><span></span><code><span class="x">use Illuminate\Support\Facades\Route;</span>
 
-<span class="x">Route::view(&#39;/&#39;, &#39;home&#39;);</span>
+<span class="x">Route::view('/', 'home');</span>
 
-<span class="x">Route::get(&#39;/users&#39;, function () {</span>
+<span class="x">Route::get('/users', function () {</span>
 <span class="x">    $users = [</span>
-<span class="x">        (object) [&#39;name&#39; =&gt; &#39;Jon&#39;],</span>
-<span class="x">        (object) [&#39;name&#39; =&gt; &#39;Ane&#39;],</span>
+<span class="x">        (object) ['name' =&gt; 'Jon'],</span>
+<span class="x">        (object) ['name' =&gt; 'Ane'],</span>
 <span class="x">    ];</span>
 
-<span class="x">    return view(&#39;users&#39;, compact(&#39;users&#39;));</span>
+<span class="x">    return view('users', compact('users'));</span>
 <span class="x">});</span>
 </code></pre></div>
 <p>Ireki <code>/</code> eta <code>/users</code> nabigatzailean. Bi orriek goiburu, menu eta orri-oin bera dute. Kendu <code>@section('title', 'Erabiltzaileak')</code> lerroa eta egiaztatu nabigatzaileko fitxan «Nire bloga» agertzen dela.</p>
@@ -2783,26 +2783,26 @@
 &lt;/footer&gt;
 </code></pre></div>
 <p>Ondoren, ordezkatu layoutaren <code>&lt;footer&gt;</code> blokea lerro honekin.</p>
-<div class="highlight"><pre><span></span><code>@include(&#39;partials.footer&#39;)
+<div class="highlight"><pre><span></span><code>@include('partials.footer')
 </code></pre></div>
 <h2 id="asset-laguntzailea">asset() laguntzailea</h2>
 <p>Webgune osoko estiloak <code>public/css/style.css</code> fitxategian baditugu, estilo-orria layoutaren <code>&lt;head&gt;</code> atalean lotu dezakegu.</p>
-<div class="highlight"><pre><span></span><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;{{ asset(&#39;css/style.css&#39;) }}&quot;&gt;
+<div class="highlight"><pre><span></span><code>&lt;link rel="stylesheet" href="{{ asset('css/style.css') }}"&gt;
 </code></pre></div>
 <p><code>asset()</code> laguntzaileak fitxategi publiko baten URLa sortzen du. Argumentu gisa, fitxategiaren bidea ematen diogu, public karpetatik hasita. Adibidez, <code>public/css/style.css</code> fitxategia lotzeko, <code>asset('css/style.css')</code> erabiltzen dugu. Horrela, layout bera erabiltzen duten orrialde guztiek CSS fitxategiaren URL bera jasotzen dute.</p>
 <h2 id="stack-direktiba">@stack direktiba</h2>
 <p>Bista jakin batek CSS edo JavaScript fitxategi gehigarri bat behar badu (layout-en jarri dugunaren aparte), <code>@stack</code> eta <code>@push</code> erabil ditzakegu. </p>
 <p>Hori egiteko, gehituko genuke <code>@stack('styles')</code> layoutaren <code>&lt;head&gt;</code> atalean, estilo-orri komunaren ondoren.</p>
 <p>Layoutaren <head> atalean, orri guztiek behar duten CSSa lotzen dugu, eta estilo gehigarriak non txertatuko diren adierazten dugu, horretarako erabiltzen dugu <code>@stack('styles')</code>.</p>
-<div class="highlight"><pre><span></span><code>    &lt;link rel=&quot;stylesheet&quot; href=&quot;{{ asset(&#39;css/style.css&#39;) }}&quot;&gt;
+<div class="highlight"><pre><span></span><code>    &lt;link rel="stylesheet" href="{{ asset('css/style.css') }}"&gt;
 
-    @stack(&#39;styles&#39;)
+    @stack('styles')
 </code></pre></div>
 <p><code>users.blade.php</code> bistan, <code>users.css</code> kargatzeko <code>&lt;link&gt;</code> etiketa gehitzen dugu styles pilara. Blokea <code>@extends</code> lerroaren ondoren jar dezakezu.</p>
-<div class="highlight"><pre><span></span><code>    @extends(&#39;layouts.app&#39;)
+<div class="highlight"><pre><span></span><code>    @extends('layouts.app')
 
-    @push(&#39;styles&#39;)
-        &lt;link rel=&quot;stylesheet&quot; href=&quot;{{ asset(&#39;css/users.css&#39;) }}&quot;&gt;
+    @push('styles')
+        &lt;link rel="stylesheet" href="{{ asset('css/users.css') }}"&gt;
     @endpush
 </code></pre></div>
 <p><code>@push('styles')</code>-ek zer gehitu adierazten du, eta <code>@stack('styles')</code>-ek non txertatu. Horregatik, <code>users.blade.php</code> bistan idatzitako <code>&lt;link&gt;</code> etiketa azken HTMLaren <code>&lt;head&gt;</code> atalean agertzen da. Hasierako bistak styles pilara ezer gehitzen ez badu, <code>@stack('styles')</code>-ek ez du ezer txertatzen.</p>
@@ -2858,7 +2858,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Arbelean kopiatuta", "clipboard.copy": "Kopiatu arbelean", "search.result.more.one": "Bat gehiago orri honetan", "search.result.more.other": "# gehiago orri honetan", "search.result.none": "Bat datorren dokumenturik ez", "search.result.one": "Bat datorren dokumentu bat", "search.result.other": "Bat datozen # dokumentu", "search.result.placeholder": "Idatzi bilatzen hasteko", "search.result.term.missing": "Falta da", "select.version": "Hautatu bertsioa"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

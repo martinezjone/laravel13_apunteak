@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2683,11 +2683,11 @@
 <div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>make:migration<span class="w"> </span>add_photo_to_pupils_table
 </code></pre></div>
 <p>Como vemos, la migración está lista para añadir el campo correspondiente. Lo añadiremos en el método up() y lo eliminaremos en el método down().</p>
-<div class="highlight"><pre><span></span><code><span class="x">$table-&gt;string(&#39;photo&#39;)-&gt;nullable()-&gt;after(&#39;address&#39;);</span>
+<div class="highlight"><pre><span></span><code><span class="x">$table-&gt;string('photo')-&gt;nullable()-&gt;after('address');</span>
 </code></pre></div>
 <p>Con esto indicamos que se cree un campo nuevo llamado "photo"; indicamos nullable() porque puede ser null (para que los datos anteriores no den error) y after('address') para añadirlo después del campo address y antes de timestamps.</p>
 <p>En el método down() especificamos la acción inversa; en este caso, eliminamos la columna que añadimos en el método up():</p>
-<div class="highlight"><pre><span></span><code><span class="x">$table-&gt;dropColumn(&#39;photo&#39;);</span>
+<div class="highlight"><pre><span></span><code><span class="x">$table-&gt;dropColumn('photo');</span>
 </code></pre></div>
 <p><img alt="" src="../../../../assets/images/Irudi%20bat%20igo/e5469230605c1f9ba765a0cf3d64f7ff.jpg" /></p>
 <h2 id="almacenamiento-de-archivos">Almacenamiento de archivos</h2>
@@ -2717,7 +2717,7 @@
 <p>Al escribir ambas cosas nos aseguraremos de que en nuestra base de datos solo se suban imágenes.</p>
 <p>Para poder utilizar Storage Facade, recuerda que hay que añadir: use Illuminate\Support\Facades\Storage;</p>
 <p>En la vista también utilizaremos el método url() para ver nuestra imagen:</p>
-<div class="highlight"><pre><span></span><code><span class="x">&lt;img src=&quot;{{ url(&#39;storage/&#39; . $pupil-&gt;photo)}}&quot; alt=&quot;&quot; width=&quot;80px&quot; height=&quot;80px&quot;/&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="x">&lt;img src="{{ url('storage/' . $pupil-&gt;photo)}}" alt="" width="80px" height="80px"/&gt;</span>
 </code></pre></div>
 <h2 id="subir-una-imagen-controlador-move">Subir una imagen (controlador) - move</h2>
 <div class="highlight"><pre><span></span><code><span class="x">public function store(StorePupil $request){</span>
@@ -2725,9 +2725,9 @@
 <p>$new_pupil = $request-&gt;validated();</p>
 <p>// Irudia igoko dugu</p>
 <p>if ($request-&gt;hasFile('photo')) {</p>
-<div class="highlight"><pre><span></span><code><span class="x">$file = $request-&gt;file(&#39;photo&#39;);</span>
+<div class="highlight"><pre><span></span><code><span class="x">$file = $request-&gt;file('photo');</span>
 
-<span class="x">$destinationPath = public_path(&#39;storage/pupils&#39;);</span>
+<span class="x">$destinationPath = public_path('storage/pupils');</span>
 
 <span class="x">$filename = $file-&gt;getClientOriginalName();</span>
 
@@ -2736,7 +2736,7 @@
 <p>$new_pupil['photo'] = 'pupils/' . $filename; // Bide erlatiboa gordetzen dugu</p>
 <p>}</p>
 <p>Pupil::create($new_pupil);</p>
-<div class="highlight"><pre><span></span><code><span class="x">return redirect()-&gt;route(&#39;pupils.index&#39;)-&gt;with(&#39;success&#39;, &#39;Ikaslea ondo sortu da.&#39;);</span>
+<div class="highlight"><pre><span></span><code><span class="x">return redirect()-&gt;route('pupils.index')-&gt;with('success', 'Ikaslea ondo sortu da.');</span>
 
 <span class="x">}</span>
 </code></pre></div>
@@ -2792,7 +2792,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

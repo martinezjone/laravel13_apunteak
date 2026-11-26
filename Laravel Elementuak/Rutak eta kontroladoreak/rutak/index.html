@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2980,67 +2980,67 @@
 </tbody>
 </table>
 <p>URI bera metodo desberdinekin erabil daiteke. Adibidez, <code>GET /test</code> eta <code>POST /test</code> ibilbide desberdinak dira.</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;/test&#39;, function () {</span>
-<span class="x">    return &#39;GET metodoa&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get('/test', function () {</span>
+<span class="x">    return 'GET metodoa';</span>
 <span class="x">});</span>
 
-<span class="x">Route::post(&#39;/test&#39;, function () {</span>
-<span class="x">    return &#39;POST metodoa&#39;;</span>
+<span class="x">Route::post('/test', function () {</span>
+<span class="x">    return 'POST metodoa';</span>
 <span class="x">});</span>
 
-<span class="x">Route::put(&#39;/test&#39;, function () {</span>
-<span class="x">    return &#39;PUT metodoa&#39;;</span>
+<span class="x">Route::put('/test', function () {</span>
+<span class="x">    return 'PUT metodoa';</span>
 <span class="x">});</span>
 
-<span class="x">Route::patch(&#39;/test&#39;, function () {</span>
-<span class="x">    return &#39;PATCH metodoa&#39;;</span>
+<span class="x">Route::patch('/test', function () {</span>
+<span class="x">    return 'PATCH metodoa';</span>
 <span class="x">});</span>
 
-<span class="x">Route::delete(&#39;/test&#39;, function () {</span>
-<span class="x">    return &#39;DELETE metodoa&#39;;</span>
+<span class="x">Route::delete('/test', function () {</span>
+<span class="x">    return 'DELETE metodoa';</span>
 <span class="x">});</span>
 </code></pre></div>
 <p>Nabigatzailearen helbide-barran URL bat idaztean, nabigatzaileak <code>GET</code> eskaera bat egiten du. <code>POST</code> probatzeko, adibidez, Blade formulario batean <code>method="POST"</code> eta <code>@csrf</code> erabil ditzakegu. <code>PUT</code>, <code>PATCH</code> eta <code>DELETE</code> metodoei dagozkien formularioak CRUD atalean ikusiko ditugu.</p>
 <h2 id="oinarrizko-bideratzea">Oinarrizko bideratzea</h2>
 <p>Laravel proiektu berri batean, ohikoa da hasierako ibilbideak <code>welcome</code> bista erakustea:</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;/&#39;, function () {</span>
-<span class="x">    return view(&#39;welcome&#39;);</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get('/', function () {</span>
+<span class="x">    return view('welcome');</span>
 <span class="x">});</span>
 </code></pre></div>
 <p>Proba egiteko, ordezkatu aurreko ibilbidea honako honekin:</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;/&#39;, function () {</span>
-<span class="x">    return &#39;Welcome!!!&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get('/', function () {</span>
+<span class="x">    return 'Welcome!!!';</span>
 <span class="x">});</span>
 </code></pre></div>
 <p><code>Route::get()</code>-en lehen argumentua URIaren bidea da. Bigarrena, <code>GET</code> eskaera bide horrekin bat datorrenean exekutatuko den ekintza. Adibidean, ekintza funtzio anonimo bat da, eta haren <code>return</code>-ak erantzunaren edukia ematen du.</p>
 <p><img alt="Eskaera baten ibilbidea" src="../../../assets/images/Rutak/07ce8f0d8711ea19aa326f0b5232afd7.jpg" /></p>
 <h2 id="ibilbide-finkoak">Ibilbide finkoak</h2>
 <p>Demagun <code>/1</code>, <code>/2</code> eta <code>/3</code> helbideak sortu nahi ditugula. Helbide bakoitzerako ibilbide bat defini dezakegu:</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;/1&#39;, function () {</span>
-<span class="x">    return &#39;Ni 1. orria naiz!&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get('/1', function () {</span>
+<span class="x">    return 'Ni 1. orria naiz!';</span>
 <span class="x">});</span>
 
-<span class="x">Route::get(&#39;/2&#39;, function () {</span>
-<span class="x">    return &#39;Ni 2. orria naiz!&#39;;</span>
+<span class="x">Route::get('/2', function () {</span>
+<span class="x">    return 'Ni 2. orria naiz!';</span>
 <span class="x">});</span>
 
-<span class="x">Route::get(&#39;/3&#39;, function () {</span>
-<span class="x">    return &#39;Ni 3. orria naiz!&#39;;</span>
+<span class="x">Route::get('/3', function () {</span>
+<span class="x">    return 'Ni 3. orria naiz!';</span>
 <span class="x">});</span>
 </code></pre></div>
 <p>Aldatzen den gauza bakarra orriaren zenbakia bada, hiru ibilbideak parametro bakarreko ibilbide batekin ordezka ditzakegu.</p>
 <h2 id="ibilbideak-parametroekin">Ibilbideak parametroekin</h2>
 <h3 id="parametro-bat">Parametro bat</h3>
 <p>Giltzen artean idatzitako <code>{number}</code> parametroak URLaren segmentu baten balioa jasotzen du. Laravelek balio hori funtzioari pasatzen dio.</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;/{id}&#39;, function (string $id) {</span>
-<span class="x">    return &#39;Nire orriaren zenbakia: &#39; . e($id) . &#39;!&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get('/{id}', function (string $id) {</span>
+<span class="x">    return 'Nire orriaren zenbakia: ' . e($id) . '!';</span>
 <span class="x">});</span>
 </code></pre></div>
 <p><code>GET /2</code> eskaeran, <code>$id</code> aldagaiak <code>'2'</code> balioa hartzen du. <code>GET /4</code> eskaera ere ibilbidearekin bat dator. Aurreko hiru ibilbide finkoak soilik definituta bazeuden, berriz, <code>/4</code> helbideak 404 emango zuen.</p>
 <p><img alt="Ibilbide baten parametroaren adibidea" src="../../../assets/images/Rutak/90805bda7f1764506f7b4a6c5f4c143d.jpg" /></p>
 <h3 id="bi-parametro">Bi parametro</h3>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;/posts/{category}/{id}&#39;, function (string $category, string $id) {</span>
-<span class="x">    return &#39;Kategoria: &#39; . e($category) . &#39;, argitalpena: &#39; . e($id);</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get('/posts/{category}/{id}', function (string $category, string $id) {</span>
+<span class="x">    return 'Kategoria: ' . e($category) . ', argitalpena: ' . e($id);</span>
 <span class="x">});</span>
 </code></pre></div>
 <table>
@@ -3068,8 +3068,8 @@
 <p><code>e()</code> laguntzaileak URLtik jasotako balioa HTMLan testu gisa erakusteko prestatzen du.</p>
 <h3 id="aukerako-parametroa-eta-balio-lehenetsia">Aukerako parametroa eta balio lehenetsia</h3>
 <p>Parametroa aukerakoa izan dadin, idatzi <code>?</code> izenaren ondoren eta eman balio lehenetsi bat funtzioaren argumentuari.</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;/welcome/{name?}&#39;, function (string $name = &#39;gonbidatua&#39;) {</span>
-<span class="x">    return &#39;Kaixo, &#39; . e($name);</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get('/welcome/{name?}', function (string $name = 'gonbidatua') {</span>
+<span class="x">    return 'Kaixo, ' . e($name);</span>
 <span class="x">});</span>
 </code></pre></div>
 <table>
@@ -3094,12 +3094,12 @@
 <h2 id="ibilbideen-ordena">Ibilbideen ordena</h2>
 <p>HTTP metodo eta bide berarekin bi ibilbide bat etor daitezkeenean, jarri <strong>ibilbide zehatzena lehenengo</strong>. Adibide honetan, <code>/contact</code> helbidea ibilbide finkoarekin eta <code>/{number}</code> ibilbide dinamikoarekin bat dator.</p>
 <p>Ordena ikusteko, kendu aurreko <code>/{id}</code> definizioa eta erabili bloke hau:</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;/contact&#39;, function () {</span>
-<span class="x">    return &#39;Contact page&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get('/contact', function () {</span>
+<span class="x">    return 'Contact page';</span>
 <span class="x">});</span>
 
-<span class="x">Route::get(&#39;/{id}&#39;, function (string $id) {</span>
-<span class="x">    return &#39;Nire orriaren zenbakia: &#39; . e($id) . &#39;!&#39;;</span>
+<span class="x">Route::get('/{id}', function (string $id) {</span>
+<span class="x">    return 'Nire orriaren zenbakia: ' . e($id) . '!';</span>
 <span class="x">});</span>
 </code></pre></div>
 <ul>
@@ -3110,16 +3110,16 @@
 <h2 id="parametroen-murrizketak">Parametroen murrizketak</h2>
 <p><code>{id}</code> parametroaren izenak ez du haren edukia zenbakietara mugatzen. Horretarako, murrizketa bat gehitu behar diogu ibilbideari.</p>
 <h3 id="adierazpen-erregularra-where-bidez">Adierazpen erregularra <code>where()</code> bidez</h3>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;/users/{id}&#39;, function (string $id) {</span>
-<span class="x">    return &#39;Erabiltzailea: &#39; . $id;</span>
-<span class="x">})-&gt;where(&#39;id&#39;, &#39;[0-9]+&#39;);</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get('/users/{id}', function (string $id) {</span>
+<span class="x">    return 'Erabiltzailea: ' . $id;</span>
+<span class="x">})-&gt;where('id', '[0-9]+');</span>
 </code></pre></div>
 <p><code>[0-9]+</code> adierazpenak digitu bat edo gehiago onartzen ditu.</p>
 <h3 id="murrizketetarako-laguntzaileak">Murrizketetarako laguntzaileak</h3>
 <p>Aurreko <code>/users/{id}</code> definizioa ordezkatu dezakegu <code>whereNumber()</code> erabiliz:</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;/users/{id}&#39;, function (string $id) {</span>
-<span class="x">    return &#39;Erabiltzailea: &#39; . $id;</span>
-<span class="x">})-&gt;whereNumber(&#39;id&#39;);</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get('/users/{id}', function (string $id) {</span>
+<span class="x">    return 'Erabiltzailea: ' . $id;</span>
+<span class="x">})-&gt;whereNumber('id');</span>
 </code></pre></div>
 <p><code>GET /users/7</code> eskaerak <code>Erabiltzailea: 7</code> erakutsiko du. <code>GET /users/alex</code> eskaerak, berriz, 404 emango du beste ibilbiderik ez badator bat. <code>/users/999</code> bideak baldintza betetzen du, digituak dituelako. Erabiltzailea benetan existitzen den egiaztatzea aplikazioaren egitekoa da.</p>
 <table>
@@ -3151,12 +3151,12 @@
 <p><img alt="404 errorearen adibidea" src="../../../assets/images/Rutak/980af06441273c7000e40ace4bc0ec74.jpg" /></p>
 <h2 id="izena-duten-ibilbideak">Izena duten ibilbideak</h2>
 <p><code>name()</code> metodoaren bidez izena eman diezaiokegu ibilbide bati. Ondoren, <code>route()</code> laguntzaileak haren URLa sortzen du. Hasierako ibilbidearen adibidea probatzeko, gehitu <code>-&gt;name('home')</code> lehendik dagoen definizioari:</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;/&#39;, function () {</span>
-<span class="x">    return &#39;Hasiera orria naiz!&#39;;</span>
-<span class="x">})-&gt;name(&#39;home&#39;);</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get('/', function () {</span>
+<span class="x">    return 'Hasiera orria naiz!';</span>
+<span class="x">})-&gt;name('home');</span>
 </code></pre></div>
 <p>Blade bista batean:</p>
-<div class="highlight"><pre><span></span><code>&lt;a href=&quot;{{ route(&#39;home&#39;) }}&quot;&gt;Hasiera&lt;/a&gt;
+<div class="highlight"><pre><span></span><code>&lt;a href="{{ route('home') }}"&gt;Hasiera&lt;/a&gt;
 </code></pre></div>
 <p>Ibilbideak parametro bat badu, haren balioa bigarren argumentuan eman dezakegu. Adibidez, <code>/users/{id}</code> ibilbideari <code>-&gt;name('users.show')</code> gehituz gero, <code>route('users.show', ['id' =&gt; 7])</code> deialdiak <code>/users/7</code> bideari dagokion URLa sortzen du.</p>
 <h2 id="ibilbide-taldeak-kontrolatzailearekin">Ibilbide-taldeak kontrolatzailearekin</h2>
@@ -3164,9 +3164,9 @@
 <div class="highlight"><pre><span></span><code><span class="x">use App\Http\Controllers\CourseController;</span>
 
 <span class="x">Route::controller(CourseController::class)-&gt;group(function () {</span>
-<span class="x">    Route::get(&#39;/courses&#39;, &#39;index&#39;);</span>
-<span class="x">    Route::get(&#39;/courses/create&#39;, &#39;create&#39;);</span>
-<span class="x">    Route::get(&#39;/courses/{course}&#39;, &#39;show&#39;);</span>
+<span class="x">    Route::get('/courses', 'index');</span>
+<span class="x">    Route::get('/courses/create', 'create');</span>
+<span class="x">    Route::get('/courses/{course}', 'show');</span>
 <span class="x">});</span>
 </code></pre></div>
 <p><code>/courses/create</code> ibilbide finkoa <code>/courses/{course}</code> dinamikoaren aurretik doa.</p>
@@ -3174,7 +3174,7 @@
 <p><code>php artisan make:controller StudentController --resource</code> komandoak CRUD ekintzetarako metodoak dituen kontrolatzaile bat sortzen du. <code>Route::resource()</code> metodoak, berriz, ekintza horiei dagozkien ibilbideak erregistratzen ditu.</p>
 <div class="highlight"><pre><span></span><code><span class="x">use App\Http\Controllers\StudentController;</span>
 
-<span class="x">Route::resource(&#39;students&#39;, StudentController::class);</span>
+<span class="x">Route::resource('students', StudentController::class);</span>
 </code></pre></div>
 <table>
 <thead>
@@ -3231,7 +3231,7 @@
 </tbody>
 </table>
 <p>Zerrenda eta xehetasun-orria soilik behar baditugu, ordezkatu aurreko deklarazioa honekin:</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::resource(&#39;students&#39;, StudentController::class)-&gt;only([&#39;index&#39;, &#39;show&#39;]);</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::resource('students', StudentController::class)-&gt;only(['index', 'show']);</span>
 </code></pre></div>
 <p><code>/students/featured</code> bezalako ibilbide gehigarri bat definituz gero, jarri <code>Route::resource()</code> deklarazioaren aurretik. Horrela, sortutako <code>/students/{student}</code> ibilbideak ez du <code>featured</code> parametro gisa hartuko.</p>
 <h2 id="ibilbideak-egiaztatzea">Ibilbideak egiaztatzea</h2>
@@ -3291,7 +3291,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Arbelean kopiatuta", "clipboard.copy": "Kopiatu arbelean", "search.result.more.one": "Bat gehiago orri honetan", "search.result.more.other": "# gehiago orri honetan", "search.result.none": "Bat datorren dokumenturik ez", "search.result.one": "Bat datorren dokumentu bat", "search.result.other": "Bat datozen # dokumentu", "search.result.placeholder": "Idatzi bilatzen hasteko", "search.result.term.missing": "Falta da", "select.version": "Hautatu bertsioa"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2660,16 +2660,16 @@
 <h2 id="por-que-probar-antes-de-crear-vue">¿Por qué probar antes de crear Vue?</h2>
 <p>Al probar el backend y el frontend por separado, es más fácil identificar el origen de los errores.</p>
 <h2 id="mediante-curl">Mediante <code>curl</code></h2>
-<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-i<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Accept: application/json&quot;</span><span class="w"> </span>http://127.0.0.1:8000/api/jarduerak
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-i<span class="w"> </span>-H<span class="w"> </span><span class="s2">"Accept: application/json"</span><span class="w"> </span>http://127.0.0.1:8000/api/jarduerak
 </code></pre></div>
 <p>En Windows PowerShell, se puede usar <code>curl.exe</code> para llamar al ejecutable real de curl:</p>
-<div class="highlight"><pre><span></span><code><span class="n">curl</span><span class="p">.</span><span class="n">exe</span> <span class="n">-i</span> <span class="n">-H</span> <span class="s2">&quot;Accept: application/json&quot;</span> <span class="n">http</span><span class="p">://</span><span class="n">127</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">1</span><span class="p">:</span><span class="n">8000</span><span class="p">/</span><span class="n">api</span><span class="p">/</span><span class="n">jarduerak</span>
+<div class="highlight"><pre><span></span><code><span class="n">curl</span><span class="p">.</span><span class="n">exe</span> <span class="n">-i</span> <span class="n">-H</span> <span class="s2">"Accept: application/json"</span> <span class="n">http</span><span class="p">://</span><span class="n">127</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">1</span><span class="p">:</span><span class="n">8000</span><span class="p">/</span><span class="n">api</span><span class="p">/</span><span class="n">jarduerak</span>
 </code></pre></div>
 <p>Ejemplo de una solicitud POST (PowerShell):</p>
-<div class="highlight"><pre><span></span><code><span class="n">curl</span><span class="p">.</span><span class="n">exe</span> <span class="n">-i</span> <span class="n">-X</span> <span class="n">POST</span> <span class="s2">&quot;http://127.0.0.1:8000/api/jarduerak&quot;</span> <span class="p">`</span>
-  <span class="n">-H</span> <span class="s2">&quot;Accept: application/json&quot;</span> <span class="p">`</span>
-  <span class="n">-H</span> <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="p">`</span>
-  <span class="n">-d</span> <span class="s1">&#39;{&quot;izena&quot;:&quot;Dantza tailerra&quot;,&quot;plazak&quot;:20}&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="n">curl</span><span class="p">.</span><span class="n">exe</span> <span class="n">-i</span> <span class="n">-X</span> <span class="n">POST</span> <span class="s2">"http://127.0.0.1:8000/api/jarduerak"</span> <span class="p">`</span>
+  <span class="n">-H</span> <span class="s2">"Accept: application/json"</span> <span class="p">`</span>
+  <span class="n">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="p">`</span>
+  <span class="n">-d</span> <span class="s1">'{"izena":"Dantza tailerra","plazak":20}'</span>
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">PowerShell y JSON</p>
@@ -2711,7 +2711,7 @@
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="x">public function test_jardueren_zerrenda_jaso_daiteke(): void</span>
 <span class="x">{</span>
-<span class="x">    $response = $this-&gt;getJson(&#39;/api/jarduerak&#39;);</span>
+<span class="x">    $response = $this-&gt;getJson('/api/jarduerak');</span>
 <span class="x">    $response-&gt;assertOk();</span>
 <span class="x">}</span>
 </code></pre></div>
@@ -2775,7 +2775,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>
