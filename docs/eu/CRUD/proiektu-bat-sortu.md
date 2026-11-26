@@ -18,15 +18,16 @@ Irakasle batek modulu bat baino gehiago izan dezake (1:N). Ikasle batek modulu b
 Ireki terminala proiektua gorde nahi duzun karpetan. Egiaztatu terminalak PHP 8.3 edo berriagoa eta Composer aurkitzen dituela.
 
 ```bash
-php -v
-composer --version
 composer create-project laravel/laravel txurdigest "^13.0"
 cd txurdigest
-php artisan --version
 php artisan serve
 ```
 
+Ireki nabigatzailean `http://127.0.0.1:8000` aplikazioa ikusteko.
+
 Laravel instalatzailea erabiltzen baduzu, beste aukera bat da `composer global require laravel/installer` eta gero `laravel new txurdigest` exekutatzea. Aukeratu starter kit gabeko instalazioa eta egiaztatu `php artisan --version` aginduarekin 13.x dela.
+
+> `php artisan serve`-ren ordez `composer run dev` ere erabil daiteke: zerbitzaria, Vite, ilara eta logak batera abiarazten ditu.
 
 
 <a href="https://laravel.com/framework/docs/13.x/installation" target="_blank">Laravel 13 Installation</a>
