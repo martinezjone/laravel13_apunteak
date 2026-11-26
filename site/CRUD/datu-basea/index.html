@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -1858,6 +1858,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Seederra eta factorya">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#databaseseedersstudentseederphp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        database/seeders/StudentSeeder.php
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#databasefactoriesstudentfactoryphp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        database/factories/StudentFactory.php
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -2671,6 +2699,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Seederra eta factorya">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#databaseseedersstudentseederphp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        database/seeders/StudentSeeder.php
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#databasefactoriesstudentfactoryphp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        database/factories/StudentFactory.php
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -2714,92 +2770,97 @@ DB_PASSWORD=root //MAMP erabiltzen dugulako
 </code></pre></div>
 <h3 id="create_students_tablephp-migrazioa">create_students_table.php migrazioa</h3>
 <p><code>database/migrations/…_create_students_table.php</code> fitxategia hartu eta ondorengo elementuak sartuko ditugu: name eta emaila</p>
-<div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
+<div class="highlight"><pre><span></span><code><span class="x">use Illuminate\Database\Migrations\Migration;</span>
+<span class="x">use Illuminate\Database\Schema\Blueprint;</span>
+<span class="x">use Illuminate\Support\Facades\Schema;</span>
 
-<span class="k">use</span> <span class="nx">Illuminate\Database\Migrations\Migration</span><span class="p">;</span>
-<span class="k">use</span> <span class="nx">Illuminate\Database\Schema\Blueprint</span><span class="p">;</span>
-<span class="k">use</span> <span class="nx">Illuminate\Support\Facades\Schema</span><span class="p">;</span>
+<span class="x">return new class extends Migration</span>
+<span class="x">{</span>
+<span class="x">    public function up(): void</span>
+<span class="x">    {</span>
+<span class="x">        Schema::create('students', function (Blueprint $table) {</span>
+<span class="x">            $table-&gt;id();</span>
+<span class="x">            $table-&gt;string('name', 100);</span>
+<span class="x">            $table-&gt;string('email')-&gt;unique();</span>
+<span class="x">            $table-&gt;date('birth_date');</span>
+<span class="x">            $table-&gt;string('city', 100);</span>
+<span class="x">            $table-&gt;timestamps();</span>
+<span class="x">        });</span>
+<span class="x">    }</span>
 
-<span class="k">return</span> <span class="k">new</span> <span class="k">class</span> <span class="k">extends</span> <span class="nx">Migration</span>
-<span class="p">{</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">up</span><span class="p">()</span><span class="o">:</span> <span class="nx">void</span>
-    <span class="p">{</span>
-        <span class="nx">Schema</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;students&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Blueprint</span> <span class="nv">$table</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">();</span>
-            <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">string</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
-            <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">string</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">unique</span><span class="p">();</span>
-            <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">date</span><span class="p">(</span><span class="s1">&#39;birth_date&#39;</span><span class="p">);</span>
-            <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">string</span><span class="p">(</span><span class="s1">&#39;city&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
-            <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">timestamps</span><span class="p">();</span>
-        <span class="p">});</span>
-    <span class="p">}</span>
-
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">down</span><span class="p">()</span><span class="o">:</span> <span class="nx">void</span>
-    <span class="p">{</span>
-        <span class="nx">Schema</span><span class="o">::</span><span class="na">dropIfExists</span><span class="p">(</span><span class="s1">&#39;students&#39;</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">};</span>
+<span class="x">    public function down(): void</span>
+<span class="x">    {</span>
+<span class="x">        Schema::dropIfExists('students');</span>
+<span class="x">    }</span>
+<span class="x">};</span>
 </code></pre></div>
 <p>Orain migrazioa exekutatuko dugu:</p>
 <div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>migrate
 </code></pre></div>
 <h2 id="student-modeloa">Student Modeloa</h2>
 <p><code>app/Models/Student.php</code></p>
-<div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
+<div class="highlight"><pre><span></span><code><span class="x">    namespace App\Models;</span>
 
-<span class="k">namespace</span> <span class="nx">App\Models</span><span class="p">;</span>
+<span class="x">    use Illuminate\Database\Eloquent\Factories\HasFactory;</span>
+<span class="x">    use Illuminate\Database\Eloquent\Model;</span>
 
-<span class="k">use</span> <span class="nx">Illuminate\Database\Eloquent\Factories\HasFactory</span><span class="p">;</span>
-<span class="k">use</span> <span class="nx">Illuminate\Database\Eloquent\Model</span><span class="p">;</span>
-
-<span class="k">class</span> <span class="nc">Student</span> <span class="k">extends</span> <span class="nx">Model</span>
-<span class="p">{</span>
-    <span class="k">use</span> <span class="nx">HasFactory</span><span class="p">;</span>
-
-    <span class="k">protected</span> <span class="nv">$fillable</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">];</span>
-<span class="p">}</span>
+<span class="x">    class Student extends Model</span>
+<span class="x">    {</span>
+<span class="x">        use HasFactory;</span>
+<span class="x">        protected $fillable = ['name', 'email', 'birth_date' , 'city'];</span>
+<span class="x">    }</span>
 </code></pre></div>
 <p>Eloquentek <code>Student</code> modeloa <code>students</code> taularekin lotzen du. <code>$fillable</code> zerrendak <code>create()</code> eta <code>update()</code> deietan batera esleitu daitezkeen atributuak zehazten ditu.</p>
 <h2 id="seederra-eta-factorya">Seederra eta factorya</h2>
 <p>Seederrarekin datu ezagunak sartuko ditugu. Factoryarekin, zerrenda eta paginazioa probatzeko erregistroak sortuko ditugu.</p>
 <div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>make:seeder<span class="w"> </span>StudentSeeder
-php<span class="w"> </span>artisan<span class="w"> </span>make:factory<span class="w"> </span>StudentFactory<span class="w"> </span>--model<span class="o">=</span>Student
+php<span class="w"> </span>artisan<span class="w"> </span>make:factory<span class="w"> </span>StudentFactory
 </code></pre></div>
-<p><code>database/seeders/StudentSeeder.php</code></p>
-<div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
+<h3 id="databaseseedersstudentseederphp">database/seeders/StudentSeeder.php</h3>
+<div class="highlight"><pre><span></span><code><span class="x">namespace Database\Seeders;</span>
 
-<span class="k">namespace</span> <span class="nx">Database\Seeders</span><span class="p">;</span>
+<span class="x">use App\Models\Student;</span>
+<span class="x">use Illuminate\Database\Seeder;</span>
 
-<span class="k">use</span> <span class="nx">App\Models\Student</span><span class="p">;</span>
-<span class="k">use</span> <span class="nx">Illuminate\Database\Seeder</span><span class="p">;</span>
+<span class="x">class StudentSeeder extends Seeder</span>
+<span class="x">{</span>
 
-<span class="k">class</span> <span class="nc">StudentSeeder</span> <span class="k">extends</span> <span class="nx">Seeder</span>
-<span class="p">{</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span><span class="o">:</span> <span class="nx">void</span>
-    <span class="p">{</span>
-        <span class="nx">Student</span><span class="o">::</span><span class="na">firstOrCreate</span><span class="p">([</span><span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;jon@example.test&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Jon Bilbao&#39;</span><span class="p">]);</span>
-        <span class="nx">Student</span><span class="o">::</span><span class="na">firstOrCreate</span><span class="p">([</span><span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;ane@example.test&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Ane Etxeberria&#39;</span><span class="p">]);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<span class="x">    public function run(): void</span>
+<span class="x">    {</span>
+<span class="x">        Student::create([</span>
+<span class="x">            'name' =&gt; 'Jon Bilbao',</span>
+<span class="x">            'email' =&gt; 'jon@example.test',</span>
+<span class="x">            'birth_date' =&gt; '2006-03-15',</span>
+<span class="x">            'city' =&gt; 'Bilbo',</span>
+<span class="x">        ]);</span>
+
+<span class="x">        Student::create([</span>
+<span class="x">            'name' =&gt; 'Ane Etxeberria',</span>
+<span class="x">            'email' =&gt; 'ane@example.test',</span>
+<span class="x">            'birth_date' =&gt; '2005-11-08',</span>
+<span class="x">            'city' =&gt; 'Basauri',</span>
+<span class="x">        ]);</span>
+<span class="x">    }</span>
+<span class="x">}</span>
 </code></pre></div>
-<p><code>database/factories/StudentFactory.php</code></p>
-<div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
+<h3 id="databasefactoriesstudentfactoryphp">database/factories/StudentFactory.php</h3>
+<div class="highlight"><pre><span></span><code><span class="x">namespace Database\Factories;</span>
 
-<span class="k">namespace</span> <span class="nx">Database\Factories</span><span class="p">;</span>
+<span class="x">use Illuminate\Database\Eloquent\Factories\Factory;</span>
+<span class="x">use Illuminate\Support\Str;</span>
 
-<span class="k">use</span> <span class="nx">Illuminate\Database\Eloquent\Factories\Factory</span><span class="p">;</span>
-<span class="k">use</span> <span class="nx">Illuminate\Support\Str</span><span class="p">;</span>
-
-<span class="k">class</span> <span class="nc">StudentFactory</span> <span class="k">extends</span> <span class="nx">Factory</span>
-<span class="p">{</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">definition</span><span class="p">()</span><span class="o">:</span> <span class="k">array</span>
-    <span class="p">{</span>
-        <span class="k">return</span> <span class="p">[</span>
-            <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="nx">fake</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">(),</span>
-            <span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="nx">Str</span><span class="o">::</span><span class="na">uuid</span><span class="p">()</span> <span class="o">.</span> <span class="s1">&#39;@example.test&#39;</span><span class="p">,</span>
-        <span class="p">];</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<span class="x">class StudentFactory extends Factory</span>
+<span class="x">{</span>
+<span class="x">    public function definition(): array</span>
+<span class="x">    {</span>
+<span class="x">        return [</span>
+<span class="x">            'name' =&gt; fake()-&gt;name(),</span>
+<span class="x">            'email' =&gt; Str::uuid() . '@example.test',</span>
+<span class="x">            'birth_date' =&gt; fake()-&gt;dateTimeBetween('-30 years', '-18 years')-&gt;format('Y-m-d'),</span>
+<span class="x">            'city' =&gt; fake()-&gt;randomElement(['Bilbo', 'Basauri', 'Barakaldo', 'Getxo', 'Galdakao']),</span>
+<span class="x">        ];</span>
+<span class="x">    }</span>
+<span class="x">}</span>
 </code></pre></div>
 <p><code>database/seeders/DatabaseSeeder.php</code> fitxategian ordezkatu hasierako <code>run()</code> metodoa. Gehitu <code>use App\Models\Student;</code> eta kendu erabili gabe geratzen den <code>User</code> inportazioa.</p>
 <div class="highlight"><pre><span></span><code><span class="x">public function run(): void</span>
@@ -2812,11 +2873,9 @@ php<span class="w"> </span>artisan<span class="w"> </span>make:factory<span clas
 <span class="x">}</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>db:seed
-php<span class="w"> </span>artisan<span class="w"> </span>tinker
 </code></pre></div>
-<p>Tinker-en, probatu <code>App\Models\Student::where('email', 'jon@example.test')-&gt;first();</code>. Irten <code>exit</code> idatzita. <code>migrate:fresh --seed</code> aginduak taula guztiak ezabatzen eta berreraikitzen ditu; erabili soilik ariketako datuak berariaz berrabiarazi nahi dituzunean.</p>
 <p><a href="https://laravel.com/docs/13.x/migrations">Laravel 13 · Migrazioak</a> · <a href="https://laravel.com/docs/13.x/seeding">Seederrak</a> · <a href="https://laravel.com/docs/13.x/eloquent-factories">Factoryak</a></p>
-<p><a href="../proiektu-bat-sortu/">Aurrekoa · Proiektua sortu</a> | <a href="../all-show-create-edit-delete-adibideekin/">Hurrengoa · Ikasleen CRUDa</a></p>
+<p><a href="../all-show-create-edit-delete-adibideekin/">Hurrengoa · Ikasleen CRUDa</a></p>
 
 
 
@@ -2869,7 +2928,7 @@ php<span class="w"> </span>artisan<span class="w"> </span>tinker
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Arbelean kopiatuta", "clipboard.copy": "Kopiatu arbelean", "search.result.more.one": "Bat gehiago orri honetan", "search.result.more.other": "# gehiago orri honetan", "search.result.none": "Bat datorren dokumenturik ez", "search.result.one": "Bat datorren dokumentu bat", "search.result.other": "Bat datozen # dokumentu", "search.result.placeholder": "Idatzi bilatzen hasteko", "search.result.term.missing": "Falta da", "select.version": "Hautatu bertsioa"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

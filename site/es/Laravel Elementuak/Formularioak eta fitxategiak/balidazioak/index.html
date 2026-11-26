@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2643,26 +2643,26 @@
 <li>Crearemos todas las validaciones en la vista create.blade.php.</li>
 </ol>
 <p>En el campo Nombre y apellidos, debajo del elemento Input, añadiremos el código de validación del campo mediante la directiva que nos ofrece Blade. La opción @error permite imprimir el mensaje de error correspondiente a este campo.</p>
-<div class="highlight"><pre><span></span><code><span class="x">@error(&#39;name&#39;)</span>
+<div class="highlight"><pre><span></span><code><span class="x">@error('name')</span>
 
-<span class="x">&lt;p class=&quot;error-message&quot;&gt;{{ $message }}&lt;/p&gt;</span>
+<span class="x">&lt;p class="error-message"&gt;{{ $message }}&lt;/p&gt;</span>
 </code></pre></div>
 <p>@enderror</p>
 <ol>
 <li>Añadiremos al input el método old(), que es una directiva de Blade. Así conseguiremos conservar el dato introducido antes de la validación.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="x">&lt;input type=&quot;text&quot; name=&quot;name&quot; placeholder=&quot;Izena&quot; value=&quot;{{ old(&#39;name&#39;) }}&quot;&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="x">&lt;input type="text" name="name" placeholder="Izena" value="{{ old('name') }}"&gt;</span>
 </code></pre></div>
 <ol>
 <li>Haremos lo mismo con el campo de la edad:</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="x">&lt;label&gt;Adina:&lt;/label&gt;</span>
 
-<span class="x">&lt;input type=&quot;text&quot; name=&quot;age&quot; placeholder=&quot;Adina&quot; value=&quot;{{ old(&#39;age&#39;) }}&quot;&gt;</span>
+<span class="x">&lt;input type="text" name="age" placeholder="Adina" value="{{ old('age') }}"&gt;</span>
 
-<span class="x">@error(&#39;age&#39;)</span>
+<span class="x">@error('age')</span>
 
-<span class="x">&lt;p class=&quot;error-message&quot;&gt;{{ $message }}&lt;/p&gt;&lt;br&gt;</span>
+<span class="x">&lt;p class="error-message"&gt;{{ $message }}&lt;/p&gt;&lt;br&gt;</span>
 </code></pre></div>
 <p>@enderror</p>
 <ol>
@@ -2670,18 +2670,18 @@
 </ol>
 <div class="highlight"><pre><span></span><code><span class="x">&lt;label&gt;Telefonoa:&lt;/label&gt;</span>
 
-<span class="x">&lt;input type=&quot;text&quot; name=&quot;phone&quot; placeholder=&quot;Telefonoa&quot; value=&quot;{{ old(&#39;phone&#39;) }}&quot;&gt;</span>
+<span class="x">&lt;input type="text" name="phone" placeholder="Telefonoa" value="{{ old('phone') }}"&gt;</span>
 
 <span class="x">&lt;label&gt;Helbidea:&lt;/label&gt;</span>
 
-<span class="x">&lt;input type=&quot;text&quot; name=&quot;address&quot; placeholder=&quot;Helbidea&quot; value=&quot;{{ old(&#39;address&#39;) }}&quot;&gt;</span>
+<span class="x">&lt;input type="text" name="address" placeholder="Helbidea" value="{{ old('address') }}"&gt;</span>
 </code></pre></div>
 <ol>
 <li>¿Qué ocurre si hacemos la validación al editar? En ese caso, la primera vez que entramos en el formulario queremos obtener el dato de la base de datos y, si hay un error, el valor que nos devuelve el método old. Para ello, pasaremos un segundo parámetro al método old:</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="x">&lt;label&gt;Telefonoa:&lt;/label&gt;</span>
 
-<span class="x">&lt;input type=&quot;text&quot; name=&quot;phone&quot; placeholder=&quot;Telefonoa&quot; value=&quot;{{ old(&#39;phone&#39;, $pupil-&gt;phone) }}&quot;&gt;</span>
+<span class="x">&lt;input type="text" name="phone" placeholder="Telefonoa" value="{{ old('phone', $pupil-&gt;phone) }}"&gt;</span>
 </code></pre></div>
 <p>Como vemos, los mensajes aparecerán en inglés; si queremos cambiarlo, tendremos que cambiar el idioma.</p>
 <ol>
@@ -2832,7 +2832,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

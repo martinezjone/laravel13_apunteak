@@ -1,365 +1,308 @@
-# Ejemplo escolar
+# TxurdiGest · CRUD de estudiantes
 
-## Mostrar todos los registros de estudiantes
+En el apartado anterior hemos creado la tabla `students` y algunos estudiantes de prueba.
 
-Para mostrar la lista de nuestros estudiantes, debemos seguir estos pasos:
+Ahora, en cada paso, conectaremos **ruta → método del controlador → vista Blade**.
 
-- Crear una ruta
-- Crear el controlador PupilController
-- Crear en el controlador el método necesario y buscar con el método all() todos los estudiantes que hay en la base de datos
-- Crear una vista para mostrar los estudiantes encontrados
-
-1. La ruta sería la siguiente:
-
-//Para ver todos los estudiantes
-
-```php
-Route::get('/pupils', [PupilController::class, 'index'])->name('pupils.index');
+```bash
+php artisan make:controller StudentController --resource
 ```
 
-2. Crear PupilController
-3. En PupilController empezaremos a crear los métodos necesarios. Por ahora, crearemos el método index() para obtener todos los estudiantes:
+Añade la importación al principio del archivo `routes/web.php` y ve incorporando las rutas según el paso que estés trabajando. Conserva la ruta inicial del apartado anterior.
 
 ```php
-public function index(){
-    $pupils= Pupil::all();
+use App\Http\Controllers\StudentController;
+```
 
-    return view('pupils.index',compact('pupils'));
+### app/Http/Controllers/StudentController.php
+
+```php
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Student;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+use Illuminate\View\View;
+
+class StudentController extends Controller
+{
 }
 ```
 
-4. Ahora debemos crear la vista. Con un foreach buscaremos todos los datos de la variable $pupils.
+## 1. Lista de estudiantes
 
-En Laravel, hay un par de convenciones más para crear vistas: por un lado, se suele dar al archivo el mismo nombre que al método que lo invoca y, por otro, todas las vistas que invoca un controlador se crean en una subcarpeta con el mismo nombre que el controlador; en este caso, será la carpeta "pupils".
+### Ruta
 
 ```php
-@foreach($pupils as $pupil)
-    <label><strong>Izen abizenak:</strong> {{ $pupil->name}}</label><br>
-
-    <label><strong>Adina:</strong> {{ $pupil->age}}</label><br>
-
-    <label><strong>Telefonoa:</strong> {{ $pupil->phone}}</label><br>
-
-    <label><strong>Helbidea:</strong> {{ $pupil->address}}</label>
-@endforeach
+// Lista de estudiantes
+Route::get('/students', [StudentController::class, 'index'])->name('students.index');
 ```
 
-5. En este caso hemos mostrado todos nuestros registros usando el método all(). Sin embargo, tenemos varios métodos que podemos utilizar en nuestras consultas. Para ver cómo crear consultas, podéis consultar la documentación de Laravel: [Query builder](https://laravel.com/framework/docs/13.x/queries).
-6. Algunos ejemplos:
+### Controlador
 
 ```php
+public function index(): View
+{
+    $students = Student::all();
 
-// Izenetik ordenatu
-$pupils = Pupil::orderBy('name')->get();
-
-// Ikasle guztiak hartzen ditu baina bakarrik izena eta adina
-$pupils = Pupil::select('name', 'age')->get();
-
-// Where bat erabiliz
-$pupils = Pupil::where('address', 'Bilbao')->get();
-
-// Where konbinatuak: adina > 18 edo helbidea = 'Bilbao'
-$pupils = Pupil::where('age', '>', 18)->orWhere('address', '=', 'Bilbao')->get();
-
-// Name like '%Jon%'
-$pupils = Pupil::where('name', 'like', '%Jon%')->get();
-
-// Adina > 20 guztiak
-$pupils = Pupil::where('age', '>', 15)->get();
-
-// Adina > 20, lehenengoa bakarrik
-$pupil = Pupil::where('age', '>', 20)->first();
-
-// Zenbat erregistro dauden
-$pupilCount = Pupil::count();
-
-// Lehenengo 10 ikasleak
-$pupils = Pupil::limit(10)->get();
-
-// Adin maximoa
-$maxAge = Pupil::max('age');
-
-// Adin minimoa
-$minAge = Pupil::min('age');
-
-// Adin batazbestekoa
-$avgAge = Pupil::avg('age');
-
-// Adinen batura
-$totalAge = Pupil::sum('age');
-```
-
-## Mostrar un registro
-
-- Crear una ruta
-- Crear en el controlador el método necesario y obtener el estudiante de la base de datos con el método find()
-- Crear una vista para mostrar el estudiante encontrado
-- En la vista anterior, añadir a cada estudiante un enlace para ver el estudiante concreto
-
-Para mostrar un solo registro, usaremos el método show():
-
-1. Empezaremos abriendo el controlador PupilController. Dentro del método show(), inicializaremos una variable que obtendrá un objeto del tipo $alumno. Pasaremos el parámetro $alumno al método find() para recuperar un registro concreto y, por último, mostraremos los datos del estudiante recuperados.
-
-```php
-public function show(Pupil $pupil){
-
-    return view('pupils.show', compact('pupil'));
-
+    return view('students.index', compact('students'));
 }
 ```
 
-2. La ruta sería la siguiente:
+### resources/views/students/index.blade.php
 
-```php
-Route::get('pupils/{pupil}', [PupilController::class, 'show'])->name('pupils.show');
+```blade
+@extends('layouts.app')
+
+@section('title', 'Estudiantes')
+
+@section('content')
+    <h1>Estudiantes</h1>
+    <a href="{{ route('students.create') }}">Nuevo estudiante</a>
+    <ul>
+        @forelse ($students as $student)
+            <li>
+                <a href="{{ route('students.show', $student) }}">{{ $student->name }}</a>
+                · {{ $student->city }}
+            </li>
+        @empty
+            <li>No hay registros.</li>
+        @endforelse
+    </ul>
+@endsection
 ```
 
-3. Vista: show.blade.php
+## 2. Ficha de un estudiante
+
+### Ruta
 
 ```php
-<label><strong>Izen abizenak:</strong> {{ $pupil->name}}</label><br>
-
-<label><strong>Adina:</strong> {{ $pupil->age}}</label><br>
-
-<label><strong>Telefonoa:</strong> {{ $pupil->phone}}</label><br>
-
-<label><strong>Helbidea:</strong> {{ $pupil->address}}</label>
+// Ver la ficha de un estudiante
+Route::get('/students/{student}', [StudentController::class, 'show'])->name('students.show');
 ```
 
-4. Añadir un enlace en la vista anterior:
+### Controlador
 
 ```php
-<a href="{{ route('pupils.show', $pupil->id) }}">{{ $pupil->name }}</a>
-```
-
-## Crear un nuevo estudiante: métodos create y store
-
-- Crear una ruta
-- Crear los métodos necesarios en el controlador y crear el estudiante en la base de datos usando los métodos create() y store()
-- Crear una vista con el formulario para crear el estudiante
-- Crear un menú con las opciones de índice y crear estudiante; para ello usaremos layouts
-
-Esta vez crearemos un nuevo estudiante en nuestra base de datos. Para ello se usan dos métodos: create() y store(); con el primero crearemos el formulario y con el segundo insertaremos los datos en nuestra base de datos.
-
-1. Lo primero será crear una vista nueva llamada "create" y, a continuación, crear su ruta.
-2. Crearemos la vista en la carpeta "alumnos" con el nombre "create.blade.php".
-3. Este será el código de la vista que contendrá el formulario:
-
-```html
-<form action="{{ route('pupils.store') }}" method="POST">
-
-    @csrf
-
-    Izen Abizena <input type="text" name="izena" value=""><br>
-    Adina <input type="text" name="adina" value=""><br>
-    Telefonoa <input type="text" name="telefonoa" value=""><br>
-    Helbidea<input type="text" name="helbidea"  value=""><br>
-
-    <button type="submit">Bidali</button>
-
-</form>
-```
-
-4. Fijaos en que Laravel nos pide incluir el token @csrf dentro del formulario. Esto se hace por seguridad y se usa para evitar ataques. Crearemos un token de este tipo para cada formulario. Laravel exige que este token esté presente.
-5. Rutas. Necesitaremos dos: una GET para acceder al formulario y otra con el método POST para guardar en la base de datos los datos del formulario:
-
-```php
-Route::get('pupils/create',[PupilController::class,'create'])->name('pupils.create');
-
-Route::post('pupils/store',[PupilController::class,'store'])->name('pupils.store');
-```
-
-6. PupilController:
-
-El método create() mostrará el formulario que necesitamos para crear un nuevo estudiante:
-
-```php
-public function create(){
-
-    return view('pupils.create');
-
+public function show(Student $student): View
+{
+    return view('students.show', compact('student'));
 }
 ```
 
-El método store() guardará en la base de datos la información enviada por el formulario:
+### resources/views/students/show.blade.php
+
+```blade
+@extends('layouts.app')
+
+@section('title', 'Estudiante · Ficha')
+
+@section('content')
+    <h1>{{ $student->name }}</h1>
+    <p>Correo electrónico: {{ $student->email }}</p>
+    <p>Fecha de nacimiento: {{ $student->birth_date }}</p>
+    <p>Ciudad: {{ $student->city }}</p>
+    <a href="{{ route('students.edit', $student) }}">Editar</a>
+    <a href="{{ route('students.delete', $student) }}">Eliminar</a>
+    <a href="{{ route('students.index') }}">Volver a la lista</a>
+@endsection
+```
+
+## 3. Crear un estudiante
+
+### Rutas
 
 ```php
-public function store(Request $request){
-    Pupil::create([
-    'name' => $request->name,
-    'age' => $request->age,
-    'phone' => $request->phone,
-    'address' => $request->address,
-    ]);
+// Crear un estudiante
+Route::get('/students/create', [StudentController::class, 'create'])->name('students.create');
+Route::post('/students', [StudentController::class, 'store'])->name('students.store');
+```
 
-return redirect()->route('pupils.all');
+### Controlador
 
+```php
+public function create(): View
+{
+    return view('students.create');
+}
+
+public function store(Request $request): RedirectResponse
+{
+    $student = Student::create($request->validate($this->rules()));
+
+    return to_route('students.show', $student)->with('status', 'Estudiante guardado.');
 }
 ```
 
-7. También pondremos en la vista index un enlace para crear un nuevo estudiante:
+### resources/views/students/create.blade.php
 
-```php
-<a href="{{route('pupils.create')}}">Ikasle berria</a>
+```blade
+@extends('layouts.app')
+
+@section('title', 'Nuevo estudiante')
+
+@section('content')
+    <h1>Nuevo estudiante</h1>
+    <form method="POST" action="{{ route('students.store') }}">
+        @csrf
+        @include('students._form')
+        <button type="submit">Guardar</button>
+    </form>
+@endsection
 ```
 
-## Modificar los datos de un estudiante: métodos edit y update
+### resources/views/students/_form.blade.php
 
-- Crear una ruta
-- Crear los métodos necesarios en el controlador y modificar los datos del estudiante en la base de datos usando los métodos edit() y update()
-- Crear una vista con el formulario para modificar el estudiante
-- Añadir un enlace para modificar el estudiante en las opciones index y show
+```blade
+<div>
+    <label for="name">Nombre y apellidos</label>
+    <input type="text" id="name" name="name" value="{{ old('name', $student->name ?? '') }}" required maxlength="100">
+    @error('name')
+        <p class="error">{{ $message }}</p>
+    @enderror
+</div>
+<div>
+    <label for="email">Correo electrónico</label>
+    <input type="email" id="email" name="email" value="{{ old('email', $student->email ?? '') }}" required maxlength="255">
+    @error('email')
+        <p class="error">{{ $message }}</p>
+    @enderror
+</div>
+<div>
+    <label for="birth_date">Fecha de nacimiento</label>
+    <input type="date" id="birth_date" name="birth_date"
+        value="{{ old('birth_date', $student->birth_date ?? '') }}" required>
+    @error('birth_date')
+        <p class="error">{{ $message }}</p>
+    @enderror
+</div>
+<div>
+    <label for="city">Ciudad</label>
+    <input type="text" id="city" name="city"
+        value="{{ old('city', $student->city ?? '') }}" required maxlength="100">
+    @error('city')
+        <p class="error">{{ $message }}</p>
+    @enderror
+</div>
+```
 
-1. Primero buscaremos en la función edit() el estudiante que queremos modificar; para ello usaremos el método find($id). Cargaremos los datos en la vista edit. Este formulario llamará a la función update, que modificará los datos en la base de datos.
+`old()` recupera el valor introducido en el último envío si la validación falla. La primera vez que se abre el formulario de edición, muestra el valor guardado en la base de datos.
 
-PupilController
+## 4. Editar un estudiante
+
+### Rutas
 
 ```php
-public function edit(Pupil $pupil){
-    return view('pupils.edit', compact('pupil'));
+// Editar un estudiante
+Route::get('/students/{student}/edit', [StudentController::class, 'edit'])->name('students.edit');
+Route::put('/students/{student}', [StudentController::class, 'update'])->name('students.update');
+```
+
+### Controlador
+
+```php
+public function edit(Student $student): View
+{
+    return view('students.edit', compact('student'));
+}
+
+public function update(Request $request, Student $student): RedirectResponse
+{
+    $student->update($request->validate($this->rules($student)));
+
+    return to_route('students.show', $student)->with('status', 'Estudiante guardado.');
 }
 ```
 
-Como podéis ver, ahora, en lugar de recibir una variable corriente, hemos puesto Alumno delante. Al escribirlo así, Laravel entiende que $alumno es una instancia de la clase Alumno.
+### resources/views/students/edit.blade.php
 
-2. Necesitaremos una ruta que invoque este método:
+```blade
+@extends('layouts.app')
 
-```php
-Route::get('pupils/edit/{pupil}',[PupilController::class,'edit'])->name('pupils.edit');
+@section('title', 'Editar estudiante')
+
+@section('content')
+    <h1>Editar estudiante</h1>
+    <form method="POST" action="{{ route('students.update', $student) }}">
+        @csrf
+        @method('PUT')
+        @include('students._form')
+        <button type="submit">Guardar</button>
+    </form>
+@endsection
 ```
 
-3. También crearemos en una vista el formulario necesario para modificar los datos del estudiante. En este formulario tendremos un par de particularidades: por un lado, esta vez mostraremos en los valores los datos que ya tiene ese estudiante y, por otro, tendremos que cambiar el método. Al realizar actualizaciones, Laravel prefiere que la ruta use el método PUT en lugar de POST, así que también debemos indicarlo en el formulario:
+## 5. Eliminar un estudiante
+
+### Rutas
 
 ```php
-<form action="{{ route('pupils.update', $pupil->id) }}" method="POST">
-    @csrf
-
-    @method('put')
-    <input type="text" id="izena" name="izena" value="{{$pupil->name}}">
-    <input type="number" id="adina" name="adina" value="{{$pupil->age}}">
-    <input type="tel" id="telefonoa" name="telefonoa" value="{{$pupil->phone}}">
-    <textarea id="helbidea" name="helbidea" required>{{$pupil->address}}</textarea>
-    <button type="submit">Gorde</button>
-</form>
+// Eliminar un estudiante
+Route::get('/students/{student}/delete', [StudentController::class, 'delete'])->name('students.delete');
+Route::delete('/students/{student}', [StudentController::class, 'destroy'])->name('students.destroy');
 ```
 
-4. La ruta para la actualización sería así, usando el método PUT:
+### Controlador
 
 ```php
-Route::put('pupils/update/{pupil}',[PupilController::class,'update'])->name('pupils.update');
-```
+public function delete(Student $student): View
+{
+    return view('students.delete', compact('student'));
+}
 
-5. En el controlador también prepararemos la función update, que modificará la base de datos con los datos enviados. Es decir, la vista edit llamará a la siguiente función; en este caso, el método recibirá tanto los datos enviados por el formulario como el objeto que tenemos que modificar.
+public function destroy(Student $student): RedirectResponse
+{
+    $student->delete();
 
-```php
-public function update(Request $request, Pupil $pupil) {
-
-    $pupil->update([
-    'name' => $request->name,
-    'age' => $request->age,
-    'phone' => $request->phone,
-    'address' => $request->address,
-    ]);
-
-    return redirect()->route('pupils.all');
+    return to_route('students.index')->with('status', 'Estudiante eliminado.');
 }
 ```
 
-## Eliminar un estudiante: método destroy()
+### resources/views/students/delete.blade.php
 
-- Crear una ruta
-- Crear en el controlador el método necesario, que será destroy()
-- Añadir un enlace para eliminar al estudiante en las opciones index y show
+```blade
+@extends('layouts.app')
 
-1. Crear la ruta:
+@section('title', 'Eliminar')
 
-```php
-Route::delete('pupils/{pupil}',[PupilController::class,'destroy'])->name('pupils.destroy');
-```
-
-Como vemos, esta ruta invoca el método delete, que es el método que Laravel usa para eliminar.
-
-2. Dentro de PupilController crearemos el método para eliminar un registro; será destroy(), y dentro de este llamaremos al método delete().
-
-```php
-public function destroy(Pupil $pupil){
-    $pupil->delete();
-    return redirect()->route('pupils.all');
-}
-```
-
-3. Enlace para eliminar al estudiante. Como hemos visto al crear la ruta, Laravel usa el método delete para eliminar un registro de la base de datos. Por tanto, al llamar a esa ruta debemos indicar en HTML que vamos a usar ese método. Solo podemos hacerlo dentro de un formulario, así que siempre debemos llamar a una ruta destroy mediante un formulario.
-
-```php
-<form action="{{ route('pupils.destroy', $pupil->id) }}" method="POST" class="inline-block">
-    @csrf
-
-    @method('DELETE')
-
-    <button type="submit">Delete</button>
-</form>
-```
-
-4. Como vemos, esto elimina directamente el registro.
-
-## Eliminar un estudiante: pedir confirmación antes de eliminar
-
-Sin embargo, normalmente sabemos que, antes de eliminar algo, debemos dar la opción de confirmar que queremos eliminar ese registro. Entonces, ¿cómo lo haríamos?
-
-- Crear una nueva ruta
-- Llamar a la vista de confirmación desde el controlador
-- Crear la vista de confirmación
-
-1. Crear la ruta:
-
-```php
-Route::get('pupils/delete/{pupil}',[PupilController::class,'delete'])->name('pupils.delete');
-```
-
-2. Dentro de PupilController crearemos un método para confirmar la eliminación de un registro.
-
-```php
-public function delete(Pupil $pupil){
-
-    return view('pupils.delete', compact('pupil'));
-
-}
-```
-
-3. confirm.blade.php - Crearemos una vista con un formulario que tendrá un botón para eliminar y también un enlace para cancelar.
-
-¿Seguro que quieres eliminarlo?
-
-```php
-<form action="{{ route('pupils.destroy', $pupil->id) }}" method="POST" class="inline-block">
-    @csrf
-
-    @method('DELETE')
-    <button type="submit">Delete</button>
-</form>
+@section('content')
+    <h1>Eliminar</h1>
+    <p>¿Quieres eliminar a {{ $student->name }}?</p>
+    <form method="POST" action="{{ route('students.destroy', $student) }}">
+        @csrf
+        @method('DELETE')
+        <button type="submit">Sí, eliminar</button>
+        <a href="{{ route('students.show', $student) }}">Cancelar</a>
+    </form>
+@endsection
 ```
 
 ## Rutas resource
 
-Si seguimos todas las convenciones, podemos resumir todas estas rutas en una sola:
+Para no tener que escribir todas las rutas, Laravel permite agrupar las rutas resource:
 
 ```php
-Route::resource('pupils',PupilController::class);
+use App\Http\Controllers\StudentController;
+// Pantalla de confirmación de eliminación, que no incluye resource
+Route::get('/students/{student}/delete', [StudentController::class, 'delete'])
+    ->name('students.delete');
+
+// Rutas CRUD de estudiantes
+Route::resource('students', StudentController::class);
 ```
 
-Para ver todas las rutas creadas por el proyecto, podemos listarlas mediante Artisan:
+!!! warning "Pantalla de confirmación"
+    Como se ve en el ejemplo anterior, la pantalla de confirmación de eliminación debe definirse por separado: `Route::resource` no la incluye, aunque sí genera las demás rutas.
+
+Para comprobar las rutas, ejecuta:
 
 ```bash
 php artisan route:list
 ```
 
-Si queremos crear más de un resource, podemos pasar a nuestra ruta resource un array con tantos elementos como queramos.
+[Laravel 13 · Controladores resource](https://laravel.com/docs/13.x/controllers#resource-controllers) · [Rutas](https://laravel.com/docs/13.x/routing)
 
-```php
-Route::resources([
-    'photos' => PhotoController::class,
-    'posts' => PostController::class,
-]);
-```
-
-Documentación oficial sobre este tema: <https://laravel.com/framework/docs/13.x/controllers#resource-controllers>
+[Anterior · Base de datos](datu-basea.md) | [Siguiente · Relación 1:N](erlazioak-1-n.md)

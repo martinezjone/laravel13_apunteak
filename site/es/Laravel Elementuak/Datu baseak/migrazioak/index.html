@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -3008,10 +3008,10 @@
 </div>
 <p>Una vez creado el archivo, podemos ver que se ha generado una clase nueva; después modificaremos los métodos up() y down():</p>
 <div class="highlight"><pre><span></span><code><span class="x">    public function up(): void{</span>
-<span class="x">        Schema::create(&#39;posts&#39;, function (Blueprint $table) {</span>
+<span class="x">        Schema::create('posts', function (Blueprint $table) {</span>
 <span class="x">            $table-&gt;id();</span>
-<span class="x">            $table-&gt;string(&#39;title&#39;);</span>
-<span class="x">            $table-&gt;text(&#39;content&#39;);</span>
+<span class="x">            $table-&gt;string('title');</span>
+<span class="x">            $table-&gt;text('content');</span>
 <span class="x">            $table-&gt;timestamps();</span>
 <span class="x">        });</span>
 <span class="x">    }</span>
@@ -3019,7 +3019,7 @@
 <span class="x">    // Reverse the migrations.</span>
 
 <span class="x">    public function down(): void{</span>
-<span class="x">        Schema::dropIfExists(&#39;posts&#39;);</span>
+<span class="x">        Schema::dropIfExists('posts');</span>
 <span class="x">    }</span>
 </code></pre></div>
 <h2 id="como-cambiar-un-campo-de-una-tabla-que-ya-tiene-datos">¿Cómo cambiar un campo de una tabla que ya tiene datos?</h2>
@@ -3036,15 +3036,15 @@
 </div>
 <div class="highlight"><pre><span></span><code><span class="x">    public function up(): void</span>
 <span class="x">    {</span>
-<span class="x">        Schema::table(&#39;users&#39;, function (Blueprint $table) {</span>
-<span class="x">            $table-&gt;string(&#39;avatar&#39;)-&gt;nullable();</span>
+<span class="x">        Schema::table('users', function (Blueprint $table) {</span>
+<span class="x">            $table-&gt;string('avatar')-&gt;nullable();</span>
 <span class="x">        });</span>
 <span class="x">    }</span>
 
 <span class="x">    public function down(): void</span>
 <span class="x">    {</span>
-<span class="x">        Schema::table(&#39;users&#39;, function (Blueprint $table) {</span>
-<span class="x">            $table-&gt;dropColumn(&#39;avatar&#39;);</span>
+<span class="x">        Schema::table('users', function (Blueprint $table) {</span>
+<span class="x">            $table-&gt;dropColumn('avatar');</span>
 <span class="x">        });</span>
 <span class="x">    }</span>
 </code></pre></div>
@@ -3052,7 +3052,7 @@
 <div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>migrate
 </code></pre></div>
 <p>Supongamos que queremos colocarla después del campo email:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$table-&gt;string(&#39;avatar&#39;)-&gt;nullable()-&gt;after(&#39;email&#39;);</span>
+<div class="highlight"><pre><span></span><code><span class="x">$table-&gt;string('avatar')-&gt;nullable()-&gt;after('email');</span>
 </code></pre></div>
 <h2 id="tipos-de-columna-mas-habituales">Tipos de columna más habituales</h2>
 <p>En las migraciones, al crear o modificar una tabla, debemos especificar <strong>qué tipo de datos se guardarán en cada columna</strong>.</p>
@@ -3142,9 +3142,9 @@
 </tbody>
 </table>
 <p><strong>Ejemplo:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="x">$table-&gt;string(&#39;email&#39;)-&gt;unique();</span>
-<span class="x">$table-&gt;boolean(&#39;active&#39;)-&gt;default(true);</span>
-<span class="x">$table-&gt;string(&#39;avatar&#39;)-&gt;nullable();</span>
+<div class="highlight"><pre><span></span><code><span class="x">$table-&gt;string('email')-&gt;unique();</span>
+<span class="x">$table-&gt;boolean('active')-&gt;default(true);</span>
+<span class="x">$table-&gt;string('avatar')-&gt;nullable();</span>
 </code></pre></div>
 <ul>
 <li><strong><code>email</code></strong>: la dirección de correo electrónico no se podrá repetir.</li>
@@ -3154,7 +3154,7 @@
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Podemos encadenar varios métodos en la definición de una columna:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$table-&gt;string(&#39;username&#39;, 50)-&gt;nullable()-&gt;unique();</span>
+<div class="highlight"><pre><span></span><code><span class="x">$table-&gt;string('username', 50)-&gt;nullable()-&gt;unique();</span>
 </code></pre></div>
 <p>En este caso, la columna <code>username</code> tendrá un máximo de 50 caracteres, aceptará el valor <code>NULL</code> y no permitirá que se repitan los valores que no sean <code>NULL</code>.</p>
 </div>
@@ -3212,7 +3212,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

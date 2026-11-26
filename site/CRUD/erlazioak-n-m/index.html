@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2708,16 +2708,16 @@
 <p>Migrazioaren metodoak:</p>
 <div class="highlight"><pre><span></span><code><span class="x">public function up(): void</span>
 <span class="x">{</span>
-<span class="x">    Schema::create(&#39;module_student&#39;, function (Blueprint $table) {</span>
-<span class="x">        $table-&gt;foreignId(&#39;module_id&#39;)-&gt;constrained()-&gt;cascadeOnDelete();</span>
-<span class="x">        $table-&gt;foreignId(&#39;student_id&#39;)-&gt;constrained()-&gt;cascadeOnDelete();</span>
-<span class="x">        $table-&gt;primary([&#39;module_id&#39;, &#39;student_id&#39;]);</span>
+<span class="x">    Schema::create('module_student', function (Blueprint $table) {</span>
+<span class="x">        $table-&gt;foreignId('module_id')-&gt;constrained()-&gt;cascadeOnDelete();</span>
+<span class="x">        $table-&gt;foreignId('student_id')-&gt;constrained()-&gt;cascadeOnDelete();</span>
+<span class="x">        $table-&gt;primary(['module_id', 'student_id']);</span>
 <span class="x">    });</span>
 <span class="x">}</span>
 
 <span class="x">public function down(): void</span>
 <span class="x">{</span>
-<span class="x">    Schema::dropIfExists(&#39;module_student&#39;);</span>
+<span class="x">    Schema::dropIfExists('module_student');</span>
 <span class="x">}</span>
 </code></pre></div>
 <p>Gako konposatuak matrikula bikoiztuak saihesten ditu. Ikasle edo modulu bat ezabatzean, bere matrikula-errenkadak ere ezabatuko dira. Beste aldeko erregistro nagusiak gordeko dira.</p>
@@ -2751,10 +2751,10 @@
 <span class="p">{</span>
     <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span><span class="o">:</span> <span class="nx">void</span>
     <span class="p">{</span>
-        <span class="nv">$jon</span> <span class="o">=</span> <span class="nx">Student</span><span class="o">::</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;jon@example.test&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">firstOrFail</span><span class="p">();</span>
-        <span class="nv">$ane</span> <span class="o">=</span> <span class="nx">Student</span><span class="o">::</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;ane@example.test&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">firstOrFail</span><span class="p">();</span>
-        <span class="nv">$server</span> <span class="o">=</span> <span class="nx">Module</span><span class="o">::</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="s1">&#39;DWS&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">firstOrFail</span><span class="p">();</span>
-        <span class="nv">$client</span> <span class="o">=</span> <span class="nx">Module</span><span class="o">::</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="s1">&#39;DWC&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">firstOrFail</span><span class="p">();</span>
+        <span class="nv">$jon</span> <span class="o">=</span> <span class="nx">Student</span><span class="o">::</span><span class="na">where</span><span class="p">(</span><span class="s1">'email'</span><span class="p">,</span> <span class="s1">'jon@example.test'</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">firstOrFail</span><span class="p">();</span>
+        <span class="nv">$ane</span> <span class="o">=</span> <span class="nx">Student</span><span class="o">::</span><span class="na">where</span><span class="p">(</span><span class="s1">'email'</span><span class="p">,</span> <span class="s1">'ane@example.test'</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">firstOrFail</span><span class="p">();</span>
+        <span class="nv">$server</span> <span class="o">=</span> <span class="nx">Module</span><span class="o">::</span><span class="na">where</span><span class="p">(</span><span class="s1">'code'</span><span class="p">,</span> <span class="s1">'DWS'</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">firstOrFail</span><span class="p">();</span>
+        <span class="nv">$client</span> <span class="o">=</span> <span class="nx">Module</span><span class="o">::</span><span class="na">where</span><span class="p">(</span><span class="s1">'code'</span><span class="p">,</span> <span class="s1">'DWC'</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">firstOrFail</span><span class="p">();</span>
 
         <span class="nv">$jon</span><span class="o">-&gt;</span><span class="na">modules</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">syncWithoutDetaching</span><span class="p">([</span><span class="nv">$server</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">,</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">]);</span>
         <span class="nv">$ane</span><span class="o">-&gt;</span><span class="na">modules</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">syncWithoutDetaching</span><span class="p">([</span><span class="nv">$client</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">]);</span>
@@ -2767,7 +2767,7 @@
 <div class="highlight"><pre><span></span><code>&lt;h2&gt;Matrikulatutako moduluak&lt;/h2&gt;
 &lt;ul&gt;
     @forelse ($student-&gt;modules as $module)
-        &lt;li&gt;&lt;a href=&quot;{{ route(&#39;modules.show&#39;, $module) }}&quot;&gt;{{ $module-&gt;name }}&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="{{ route('modules.show', $module) }}"&gt;{{ $module-&gt;name }}&lt;/a&gt;&lt;/li&gt;
     @empty
         &lt;li&gt;Ikaslea ez dago modulurik egiten.&lt;/li&gt;
     @endforelse
@@ -2777,7 +2777,7 @@
 <div class="highlight"><pre><span></span><code>&lt;h2&gt;Matrikulatutako ikasleak&lt;/h2&gt;
 &lt;ul&gt;
     @forelse ($module-&gt;students as $student)
-        &lt;li&gt;&lt;a href=&quot;{{ route(&#39;students.show&#39;, $student) }}&quot;&gt;{{ $student-&gt;name }}&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="{{ route('students.show', $student) }}"&gt;{{ $student-&gt;name }}&lt;/a&gt;&lt;/li&gt;
     @empty
         &lt;li&gt;Ez dago matrikulatutako ikaslerik.&lt;/li&gt;
     @endforelse
@@ -2789,11 +2789,11 @@
 <p>Gehitu inportazioa eta bi ibilbideak <code>routes/web.php</code> fitxategian:</p>
 <div class="highlight"><pre><span></span><code><span class="x">use App\Http\Controllers\EnrollmentController;</span>
 
-<span class="x">Route::get(&#39;/students/{student}/enrollments/edit&#39;, [EnrollmentController::class, &#39;edit&#39;])</span>
-<span class="x">    -&gt;name(&#39;students.enrollments.edit&#39;);</span>
+<span class="x">Route::get('/students/{student}/enrollments/edit', [EnrollmentController::class, 'edit'])</span>
+<span class="x">    -&gt;name('students.enrollments.edit');</span>
 
-<span class="x">Route::put(&#39;/students/{student}/enrollments&#39;, [EnrollmentController::class, &#39;update&#39;])</span>
-<span class="x">    -&gt;name(&#39;students.enrollments.update&#39;);</span>
+<span class="x">Route::put('/students/{student}/enrollments', [EnrollmentController::class, 'update'])</span>
+<span class="x">    -&gt;name('students.enrollments.update');</span>
 </code></pre></div>
 <p><code>app/Http/Controllers/EnrollmentController.php</code></p>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
@@ -2811,54 +2811,54 @@
 <span class="p">{</span>
     <span class="k">public</span> <span class="k">function</span> <span class="nf">edit</span><span class="p">(</span><span class="nx">Student</span> <span class="nv">$student</span><span class="p">)</span><span class="o">:</span> <span class="nx">View</span>
     <span class="p">{</span>
-        <span class="nv">$modules</span> <span class="o">=</span> <span class="nx">Module</span><span class="o">::</span><span class="na">orderBy</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">();</span>
-        <span class="nv">$enrolledModuleIds</span> <span class="o">=</span> <span class="nv">$student</span><span class="o">-&gt;</span><span class="na">modules</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">pluck</span><span class="p">(</span><span class="s1">&#39;modules.id&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">all</span><span class="p">();</span>
+        <span class="nv">$modules</span> <span class="o">=</span> <span class="nx">Module</span><span class="o">::</span><span class="na">orderBy</span><span class="p">(</span><span class="s1">'name'</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">();</span>
+        <span class="nv">$enrolledModuleIds</span> <span class="o">=</span> <span class="nv">$student</span><span class="o">-&gt;</span><span class="na">modules</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">pluck</span><span class="p">(</span><span class="s1">'modules.id'</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">all</span><span class="p">();</span>
 
-        <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;enrollments.edit&#39;</span><span class="p">,</span> <span class="nb">compact</span><span class="p">(</span><span class="s1">&#39;student&#39;</span><span class="p">,</span> <span class="s1">&#39;modules&#39;</span><span class="p">,</span> <span class="s1">&#39;enrolledModuleIds&#39;</span><span class="p">));</span>
+        <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">'enrollments.edit'</span><span class="p">,</span> <span class="nb">compact</span><span class="p">(</span><span class="s1">'student'</span><span class="p">,</span> <span class="s1">'modules'</span><span class="p">,</span> <span class="s1">'enrolledModuleIds'</span><span class="p">));</span>
     <span class="p">}</span>
 
     <span class="k">public</span> <span class="k">function</span> <span class="nf">update</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">,</span> <span class="nx">Student</span> <span class="nv">$student</span><span class="p">)</span><span class="o">:</span> <span class="nx">RedirectResponse</span>
     <span class="p">{</span>
         <span class="nv">$validated</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">validate</span><span class="p">([</span>
-            <span class="s1">&#39;module_id&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;sometimes&#39;</span><span class="p">,</span> <span class="s1">&#39;array&#39;</span><span class="p">,</span> <span class="s1">&#39;list&#39;</span><span class="p">],</span>
-            <span class="s1">&#39;module_id.*&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;required&#39;</span><span class="p">,</span> <span class="s1">&#39;integer&#39;</span><span class="p">,</span> <span class="s1">&#39;distinct&#39;</span><span class="p">,</span> <span class="s1">&#39;exists:modules,id&#39;</span><span class="p">],</span>
+            <span class="s1">'module_id'</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'sometimes'</span><span class="p">,</span> <span class="s1">'array'</span><span class="p">,</span> <span class="s1">'list'</span><span class="p">],</span>
+            <span class="s1">'module_id.*'</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'required'</span><span class="p">,</span> <span class="s1">'integer'</span><span class="p">,</span> <span class="s1">'distinct'</span><span class="p">,</span> <span class="s1">'exists:modules,id'</span><span class="p">],</span>
         <span class="p">]);</span>
 
         <span class="nx">DB</span><span class="o">::</span><span class="na">transaction</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$student</span><span class="p">,</span> <span class="nv">$validated</span><span class="p">)</span> <span class="p">{</span>
             <span class="nv">$lockedStudent</span> <span class="o">=</span> <span class="nx">Student</span><span class="o">::</span><span class="na">query</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">lockForUpdate</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">findOrFail</span><span class="p">(</span><span class="nv">$student</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">);</span>
-            <span class="nv">$lockedStudent</span><span class="o">-&gt;</span><span class="na">modules</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">sync</span><span class="p">(</span><span class="nv">$validated</span><span class="p">[</span><span class="s1">&#39;module_id&#39;</span><span class="p">]</span> <span class="o">??</span> <span class="p">[]);</span>
+            <span class="nv">$lockedStudent</span><span class="o">-&gt;</span><span class="na">modules</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">sync</span><span class="p">(</span><span class="nv">$validated</span><span class="p">[</span><span class="s1">'module_id'</span><span class="p">]</span> <span class="o">??</span> <span class="p">[]);</span>
         <span class="p">});</span>
 
-        <span class="k">return</span> <span class="nx">to_route</span><span class="p">(</span><span class="s1">&#39;students.show&#39;</span><span class="p">,</span> <span class="nv">$student</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">with</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="s1">&#39;Matrikulak gorde dira.&#39;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nx">to_route</span><span class="p">(</span><span class="s1">'students.show'</span><span class="p">,</span> <span class="nv">$student</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">with</span><span class="p">(</span><span class="s1">'status'</span><span class="p">,</span> <span class="s1">'Matrikulak gorde dira.'</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p><code>module_id[]</code> izenak moduluko IDen zerrenda bidaltzen du eta <code>module_id</code> zutabearen izena mantentzen du. <code>student_id</code> ibilbidetik dator, <code>Student $student</code> parametroaren bidez. Laukitxo guztiak desmarkatzean nabigatzaileak <code>module_id</code> bidali gabe uzten du. Kasu horretan, <code>sync([])</code> deiak ikaslearen matrikula guztiak kentzen ditu. Transakzioak aldaketak batera gordetzen ditu; ikaslearen blokeoak ikasle beraren aldibereko formulario-bidalketak ordenatzen ditu.</p>
 <p><code>resources/views/enrollments/edit.blade.php</code></p>
-<div class="highlight"><pre><span></span><code>@extends(&#39;layouts.app&#39;)
+<div class="highlight"><pre><span></span><code>@extends('layouts.app')
 
-@section(&#39;title&#39;, &#39;Matrikulak editatu&#39;)
+@section('title', 'Matrikulak editatu')
 
-@section(&#39;content&#39;)
+@section('content')
     &lt;h1&gt;{{ $student-&gt;name }} · Matrikulak editatu&lt;/h1&gt;
 
     @php
-        $selectedModuleIds = old(&#39;enrollment_form&#39;)
-            ? collect(old(&#39;module_id&#39;, []))-&gt;filter(fn ($id) =&gt; is_scalar($id))-&gt;map(fn ($id) =&gt; (int) $id)-&gt;all()
+        $selectedModuleIds = old('enrollment_form')
+            ? collect(old('module_id', []))-&gt;filter(fn ($id) =&gt; is_scalar($id))-&gt;map(fn ($id) =&gt; (int) $id)-&gt;all()
             : $enrolledModuleIds;
     @endphp
 
-    &lt;form method=&quot;POST&quot; action=&quot;{{ route(&#39;students.enrollments.update&#39;, $student) }}&quot;&gt;
+    &lt;form method="POST" action="{{ route('students.enrollments.update', $student) }}"&gt;
         @csrf
-        @method(&#39;PUT&#39;)
-        &lt;input type=&quot;hidden&quot; name=&quot;enrollment_form&quot; value=&quot;1&quot;&gt;
+        @method('PUT')
+        &lt;input type="hidden" name="enrollment_form" value="1"&gt;
 
         &lt;fieldset&gt;
             &lt;legend&gt;Moduluak&lt;/legend&gt;
             @forelse ($modules as $module)
-                &lt;label for=&quot;module_id_{{ $module-&gt;id }}&quot;&gt;
-                    &lt;input type=&quot;checkbox&quot; id=&quot;module_id_{{ $module-&gt;id }}&quot; name=&quot;module_id[]&quot;
-                        value=&quot;{{ $module-&gt;id }}&quot; @checked(in_array($module-&gt;id, $selectedModuleIds))&gt;
+                &lt;label for="module_id_{{ $module-&gt;id }}"&gt;
+                    &lt;input type="checkbox" id="module_id_{{ $module-&gt;id }}" name="module_id[]"
+                        value="{{ $module-&gt;id }}" @checked(in_array($module-&gt;id, $selectedModuleIds))&gt;
                     {{ $module-&gt;code }} · {{ $module-&gt;name }}
                 &lt;/label&gt;
             @empty
@@ -2867,17 +2867,17 @@
         &lt;/fieldset&gt;
 
         @foreach ($errors-&gt;all() as $error)
-            &lt;p class=&quot;error&quot;&gt;{{ $error }}&lt;/p&gt;
+            &lt;p class="error"&gt;{{ $error }}&lt;/p&gt;
         @endforeach
 
-        &lt;button type=&quot;submit&quot;&gt;Gorde&lt;/button&gt;
-        &lt;a href=&quot;{{ route(&#39;students.show&#39;, $student) }}&quot;&gt;Utzi&lt;/a&gt;
+        &lt;button type="submit"&gt;Gorde&lt;/button&gt;
+        &lt;a href="{{ route('students.show', $student) }}"&gt;Utzi&lt;/a&gt;
     &lt;/form&gt;
 @endsection
 </code></pre></div>
 <p><code>enrollment_form</code> ez da datu-baseko eremu bat. Aurretik formularioa bidali den jakiteko marka da, balidazio-errore baten ondoren hautapena leheneratzeko.</p>
 <p>Gehitu esteka ikaslearen fitxan:</p>
-<div class="highlight"><pre><span></span><code>&lt;a href=&quot;{{ route(&#39;students.enrollments.edit&#39;, $student) }}&quot;&gt;Matrikulak editatu&lt;/a&gt;
+<div class="highlight"><pre><span></span><code>&lt;a href="{{ route('students.enrollments.edit', $student) }}"&gt;Matrikulak editatu&lt;/a&gt;
 </code></pre></div>
 <h2 id="attach-detach-eta-sync">attach(), detach() eta sync()</h2>
 <table>
@@ -2912,27 +2912,27 @@
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="x">public function up(): void</span>
 <span class="x">{</span>
-<span class="x">    Schema::table(&#39;module_student&#39;, function (Blueprint $table) {</span>
-<span class="x">        $table-&gt;date(&#39;enrolled_at&#39;)-&gt;nullable();</span>
-<span class="x">        $table-&gt;unsignedTinyInteger(&#39;grade&#39;)-&gt;nullable();</span>
+<span class="x">    Schema::table('module_student', function (Blueprint $table) {</span>
+<span class="x">        $table-&gt;date('enrolled_at')-&gt;nullable();</span>
+<span class="x">        $table-&gt;unsignedTinyInteger('grade')-&gt;nullable();</span>
 <span class="x">    });</span>
 <span class="x">}</span>
 
 <span class="x">public function down(): void</span>
 <span class="x">{</span>
-<span class="x">    Schema::table(&#39;module_student&#39;, function (Blueprint $table) {</span>
-<span class="x">        $table-&gt;dropColumn([&#39;enrolled_at&#39;, &#39;grade&#39;]);</span>
+<span class="x">    Schema::table('module_student', function (Blueprint $table) {</span>
+<span class="x">        $table-&gt;dropColumn(['enrolled_at', 'grade']);</span>
 <span class="x">    });</span>
 <span class="x">}</span>
 </code></pre></div>
 <p>Exekutatu <code>php artisan migrate</code>. Gehitu <code>-&gt;withPivot('enrolled_at', 'grade')</code> bi <code>belongsToMany()</code> deien bukaeran. Lehendik dauden matrikulek <code>null</code> izango dute bi eremuetan.</p>
 <p>Tinkerren, erabili dagoeneko matrikulatuta dagoen ikasle bat eta bere modulu baten IDa. <code>updateExistingPivot()</code> metodoak lotura horren datuak eguneratzen ditu:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$student = App\Models\Student::where(&#39;email&#39;, &#39;jon@example.test&#39;)-&gt;firstOrFail();</span>
+<div class="highlight"><pre><span></span><code><span class="x">$student = App\Models\Student::where('email', 'jon@example.test')-&gt;firstOrFail();</span>
 <span class="x">$module = $student-&gt;modules()-&gt;firstOrFail();</span>
 
 <span class="x">$student-&gt;modules()-&gt;updateExistingPivot($module-&gt;id, [</span>
-<span class="x">    &#39;enrolled_at&#39; =&gt; now()-&gt;toDateString(),</span>
-<span class="x">    &#39;grade&#39; =&gt; 8,</span>
+<span class="x">    'enrolled_at' =&gt; now()-&gt;toDateString(),</span>
+<span class="x">    'grade' =&gt; 8,</span>
 <span class="x">]);</span>
 </code></pre></div>
 <p>Ikaslearen fitxako moduluen begiztan erabil daiteke <code>{{ $module-&gt;pivot-&gt;grade ?? 'Kalifikatu gabe' }}</code>. Nota 0 izan daiteke; horregatik erabiltzen dugu <code>??</code>. Kalifikazio-formularioa gehituz gero, <code>name="grade"</code> erabili eta balidatu <code>nullable|integer|between:0,10</code>. Dagoeneko matrikulatuta dagoen modulua mantentzen bada, matrikula-formularioaren <code>sync()</code> deiak nota gordetzen du. Matrikula kentzean, haren nota ere ezabatzen da.</p>
@@ -2990,7 +2990,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Arbelean kopiatuta", "clipboard.copy": "Kopiatu arbelean", "search.result.more.one": "Bat gehiago orri honetan", "search.result.more.other": "# gehiago orri honetan", "search.result.none": "Bat datorren dokumenturik ez", "search.result.one": "Bat datorren dokumentu bat", "search.result.other": "Bat datozen # dokumentu", "search.result.placeholder": "Idatzi bilatzen hasteko", "search.result.term.missing": "Falta da", "select.version": "Hautatu bertsioa"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>
