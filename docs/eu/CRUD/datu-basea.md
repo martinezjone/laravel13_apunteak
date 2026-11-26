@@ -38,8 +38,6 @@ php artisan make:model Student -m
 `database/migrations/…_create_students_table.php` fitxategia hartu eta ondorengo elementuak sartuko ditugu: name eta emaila
 
 ```php
-<?php
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -76,19 +74,16 @@ php artisan migrate
 `app/Models/Student.php`
 
 ```php
-<?php
+    namespace App\Models;
 
-namespace App\Models;
+    use Illuminate\Database\Eloquent\Factories\HasFactory;
+    use Illuminate\Database\Eloquent\Model;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-
-class Student extends Model
-{
-    use HasFactory;
-
-    protected $fillable = ['name', 'email'];
-}
+    class Student extends Model
+    {
+        use HasFactory;
+        protected $fillable = ['name', 'email', 'birth_date' , 'city'];
+    }
 ```
 
 Eloquentek `Student` modeloa `students` taularekin lotzen du. `$fillable` zerrendak `create()` eta `update()` deietan batera esleitu daitezkeen atributuak zehazten ditu.
@@ -99,14 +94,12 @@ Seederrarekin datu ezagunak sartuko ditugu. Factoryarekin, zerrenda eta paginazi
 
 ```bash
 php artisan make:seeder StudentSeeder
-php artisan make:factory StudentFactory --model=Student
+php artisan make:factory StudentFactory
 ```
 
-`database/seeders/StudentSeeder.php`
+### database/seeders/StudentSeeder.php
 
 ```php
-<?php
-
 namespace Database\Seeders;
 
 use App\Models\Student;
@@ -114,18 +107,29 @@ use Illuminate\Database\Seeder;
 
 class StudentSeeder extends Seeder
 {
+
     public function run(): void
     {
-        Student::firstOrCreate(['email' => 'jon@example.test'], ['name' => 'Jon Bilbao']);
-        Student::firstOrCreate(['email' => 'ane@example.test'], ['name' => 'Ane Etxeberria']);
+        Student::create([
+            'name' => 'Jon Bilbao',
+            'email' => 'jon@example.test',
+            'birth_date' => '2006-03-15',
+            'city' => 'Bilbo',
+        ]);
+
+        Student::create([
+            'name' => 'Ane Etxeberria',
+            'email' => 'ane@example.test',
+            'birth_date' => '2005-11-08',
+            'city' => 'Basauri',
+        ]);
     }
 }
 ```
 
-`database/factories/StudentFactory.php`
+### database/factories/StudentFactory.php
 
 ```php
-<?php
 
 namespace Database\Factories;
 
@@ -139,6 +143,8 @@ class StudentFactory extends Factory
         return [
             'name' => fake()->name(),
             'email' => Str::uuid() . '@example.test',
+            'birth_date' => fake()->dateTimeBetween('-30 years', '-18 years')->format('Y-m-d'),
+            'city' => fake()->randomElement(['Bilbo', 'Basauri', 'Barakaldo', 'Getxo', 'Galdakao']),
         ];
     }
 }
@@ -159,11 +165,8 @@ public function run(): void
 
 ```bash
 php artisan db:seed
-php artisan tinker
 ```
-
-Tinker-en, probatu `App\Models\Student::where('email', 'jon@example.test')->first();`. Irten `exit` idatzita. `migrate:fresh --seed` aginduak taula guztiak ezabatzen eta berreraikitzen ditu; erabili soilik ariketako datuak berariaz berrabiarazi nahi dituzunean.
 
 [Laravel 13 · Migrazioak](https://laravel.com/docs/13.x/migrations) · [Seederrak](https://laravel.com/docs/13.x/seeding) · [Factoryak](https://laravel.com/docs/13.x/eloquent-factories)
 
-[Aurrekoa · Proiektua sortu](proiektu-bat-sortu.md) | [Hurrengoa · Ikasleen CRUDa](all-show-create-edit-delete-adibideekin.md)
+ [Hurrengoa · Ikasleen CRUDa](all-show-create-edit-delete-adibideekin.md)

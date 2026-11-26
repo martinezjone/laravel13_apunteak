@@ -1,47 +1,20 @@
 # TxurdiGest · Ikasleen CRUDa
 
-Aurreko atalean `students` taula eta probako ikasleak sortu ditugu. Orain, urrats bakoitzean **ibilbidea → kontroladorearen metodoa → Blade bista** lotuko ditugu.
+Aurreko atalean `students` taula eta probako ikasleak sortu ditugu.
+
+Orain, urrats bakoitzean **ibilbidea → kontroladorearen metodoa → Blade bista** lotuko ditugu.
 
 ```bash
-php artisan make:controller StudentController --model=Student --resource
+php artisan make:controller StudentController --resource
 ```
-
-## Ibilbideak banan-banan
 
 Gehitu inportazioa `routes/web.php` fitxategiaren goialdean eta joan ibilbideak eransten lantzen duzun urratsaren arabera. Mantendu aurreko ataleko hasierako ibilbidea.
 
 ```php
 use App\Http\Controllers\StudentController;
-
-Route::get('/students', [StudentController::class, 'index'])->name('students.index');
-Route::get('/students/create', [StudentController::class, 'create'])->name('students.create');
-Route::post('/students', [StudentController::class, 'store'])->name('students.store');
-Route::get('/students/{student}', [StudentController::class, 'show'])->name('students.show');
-Route::get('/students/{student}/edit', [StudentController::class, 'edit'])->name('students.edit');
-Route::put('/students/{student}', [StudentController::class, 'update'])->name('students.update');
-Route::get('/students/{student}/delete', [StudentController::class, 'delete'])->name('students.delete');
-Route::delete('/students/{student}', [StudentController::class, 'destroy'])->name('students.destroy');
 ```
 
-| Urratsa | Kodea | Zer probatu |
-| --- | --- | --- |
-| 1. Zerrenda | `index()` eta `index.blade.php` | Ireki `/students` eta egiaztatu seederraren izenak. |
-| 2. Fitxa | `show()` eta `show.blade.php` | Ireki Jonen fitxa. Existitzen ez den ID batek 404 eman behar du. |
-| 3. Alta | `create()`, `store()`, `create.blade.php` eta `_form.blade.php` | Sortu ikasle bat. |
-| 4. Edizioa | `edit()`, `update()` eta `edit.blade.php` | Aldatu izena, posta bera mantenduta. |
-| 5. Baja | `delete()`, `destroy()` eta `delete.blade.php` | Utzi behin eta baieztatu hurrengoan. |
-
-Kode osoa behean dago. Urrats bat bakarrik probatzeko, gehitu momentuz behar dituzun metodoak eta bistak. Zerrendan eta fitxan, gerorako estekak dagozkien ibilbideak gehitzean kopiatu.
-
-- `index()` metodoan `Student::all()` erabiliko dugu. Probatu baita `Student::orderBy('name')->get()`, `Student::where('name', 'like', '%Jon%')->get()` eta `Student::count()` ere.
-- `show(Student $student)` metodoak **route model binding** erabiltzen du. `{student}` parametroa eta `$student` argumentua izenez bat datoz; Laravelek IDari dagokion erregistroa kargatzen du. Eskuzko baliokidea `Student::findOrFail($id)` da.
-- `create()` eta `edit()` metodoek formularioa irekitzen dute; `store()` eta `update()` metodoek bidalitako datuak gordetzen dituzte. `@csrf` behar da idazketa-formularioetan. HTMLko `POST` eskaerari `@method('PUT')` edo `@method('DELETE')` gehitzen zaio, dagokion ibilbidera iristeko.
-- `delete()` metodoak baieztapen-pantaila erakusten du. `destroy()` metodoak erregistroa ezabatzen du.
-- Gutxieneko zerbitzari-balidazioa hasieratik dago, formularioak datu baliodunak bakarrik gorde ditzan. [Balidazioaren atalean](balidazioa-paginazioa-eta-hizkuntza.md) aztertuko dugu xeheago.
-
-## Kontroladorea eta bistak
-
-`app/Http/Controllers/StudentController.php`
+### app/Http/Controllers/StudentController.php
 
 ```php
 <?php
@@ -56,70 +29,30 @@ use Illuminate\View\View;
 
 class StudentController extends Controller
 {
-    public function index(): View
-    {
-        $students = Student::all();
-
-        return view('students.index', compact('students'));
-    }
-
-    public function show(Student $student): View
-    {
-        return view('students.show', compact('student'));
-    }
-
-    public function create(): View
-    {
-        return view('students.create');
-    }
-
-    public function store(Request $request): RedirectResponse
-    {
-        $student = Student::create($request->validate($this->rules()));
-
-        return to_route('students.show', $student)->with('status', 'Ikaslea gorde da.');
-    }
-
-    public function edit(Student $student): View
-    {
-        return view('students.edit', compact('student'));
-    }
-
-    public function update(Request $request, Student $student): RedirectResponse
-    {
-        $student->update($request->validate($this->rules($student)));
-
-        return to_route('students.show', $student)->with('status', 'Ikaslea gorde da.');
-    }
-
-    public function delete(Student $student): View
-    {
-        return view('students.delete', compact('student'));
-    }
-
-    public function destroy(Student $student): RedirectResponse
-    {
-        $student->delete();
-
-        return to_route('students.index')->with('status', 'Ikaslea ezabatu da.');
-    }
-
-    private function rules(?Student $student = null): array
-    {
-        $unique = Rule::unique('students', 'email');
-        if ($student !== null) {
-            $unique->ignore($student);
-        }
-
-        return [
-            'name' => ['required', 'string', 'max:100'],
-            'email' => ['required', 'email', 'max:255', $unique],
-        ];
-    }
 }
 ```
 
-`resources/views/students/index.blade.php`
+## 1. Ikasleen zerrenda
+
+### Ibilbidea
+
+```php
+// Ikasleen zerrenda
+Route::get('/students', [StudentController::class, 'index'])->name('students.index');
+```
+
+### Kontroladorea
+
+```php
+public function index(): View
+{
+    $students = Student::all();
+
+    return view('students.index', compact('students'));
+}
+```
+
+### resources/views/students/index.blade.php
 
 ```blade
 @extends('layouts.app')
@@ -131,7 +64,10 @@ class StudentController extends Controller
     <a href="{{ route('students.create') }}">Ikasle berria</a>
     <ul>
         @forelse ($students as $student)
-            <li><a href="{{ route('students.show', $student) }}">{{ $student->name }}</a></li>
+            <li>
+                <a href="{{ route('students.show', $student) }}">{{ $student->name }}</a>
+                · {{ $student->city }}
+            </li>
         @empty
             <li>Ez dago erregistrorik.</li>
         @endforelse
@@ -139,7 +75,25 @@ class StudentController extends Controller
 @endsection
 ```
 
-`resources/views/students/show.blade.php`
+## 2. Ikasle baten fitxa
+
+### Ibilbidea
+
+```php
+// Ikasle baten fitxa ikusteko
+Route::get('/students/{student}', [StudentController::class, 'show'])->name('students.show');
+```
+
+### Kontroladorea
+
+```php
+public function show(Student $student): View
+{
+    return view('students.show', compact('student'));
+}
+```
+
+### resources/views/students/show.blade.php
 
 ```blade
 @extends('layouts.app')
@@ -149,13 +103,41 @@ class StudentController extends Controller
 @section('content')
     <h1>{{ $student->name }}</h1>
     <p>Helbide elektronikoa: {{ $student->email }}</p>
+    <p>Jaiotze-data: {{ $student->birth_date }}</p>
+    <p>Udalerria: {{ $student->city }}</p>
     <a href="{{ route('students.edit', $student) }}">Editatu</a>
     <a href="{{ route('students.delete', $student) }}">Ezabatu</a>
     <a href="{{ route('students.index') }}">Itzuli zerrendara</a>
 @endsection
 ```
 
-`resources/views/students/create.blade.php`
+## 3. Ikasle bati alta ematea
+
+### Ibilbideak
+
+```php
+// Ikasle bati alta emateko
+Route::get('/students/create', [StudentController::class, 'create'])->name('students.create');
+Route::post('/students', [StudentController::class, 'store'])->name('students.store');
+```
+
+### Kontroladorea
+
+```php
+public function create(): View
+{
+    return view('students.create');
+}
+
+public function store(Request $request): RedirectResponse
+{
+    $student = Student::create($request->validate($this->rules()));
+
+    return to_route('students.show', $student)->with('status', 'Ikaslea gorde da.');
+}
+```
+
+### resources/views/students/create.blade.php
 
 ```blade
 @extends('layouts.app')
@@ -172,7 +154,70 @@ class StudentController extends Controller
 @endsection
 ```
 
-`resources/views/students/edit.blade.php`
+### resources/views/students/_form.blade.php
+
+```blade
+<div>
+    <label for="name">Izen-abizenak</label>
+    <input type="text" id="name" name="name" value="{{ old('name', $student->name ?? '') }}" required maxlength="100">
+    @error('name')
+        <p class="error">{{ $message }}</p>
+    @enderror
+</div>
+<div>
+    <label for="email">Helbide elektronikoa</label>
+    <input type="email" id="email" name="email" value="{{ old('email', $student->email ?? '') }}" required maxlength="255">
+    @error('email')
+        <p class="error">{{ $message }}</p>
+    @enderror
+</div>
+<div>
+    <label for="birth_date">Jaiotze-data</label>
+    <input type="date" id="birth_date" name="birth_date"
+        value="{{ old('birth_date', $student->birth_date ?? '') }}" required>
+    @error('birth_date')
+        <p class="error">{{ $message }}</p>
+    @enderror
+</div>
+<div>
+    <label for="city">Udalerria</label>
+    <input type="text" id="city" name="city"
+        value="{{ old('city', $student->city ?? '') }}" required maxlength="100">
+    @error('city')
+        <p class="error">{{ $message }}</p>
+    @enderror
+</div>
+```
+
+`old()`-ek azken bidalketan idatzitako balioa berreskuratzen du balidazioak huts egiten badu. Editatzeko formularioa lehen aldiz irekitzean, datu-baseko balioa erakusten du.
+
+## 4. Ikasle bat aldatzea
+
+### Ibilbideak
+
+```php
+// Ikasle bat aldatzeko
+Route::get('/students/{student}/edit', [StudentController::class, 'edit'])->name('students.edit');
+Route::put('/students/{student}', [StudentController::class, 'update'])->name('students.update');
+```
+
+### Kontroladorea
+
+```php
+public function edit(Student $student): View
+{
+    return view('students.edit', compact('student'));
+}
+
+public function update(Request $request, Student $student): RedirectResponse
+{
+    $student->update($request->validate($this->rules($student)));
+
+    return to_route('students.show', $student)->with('status', 'Ikaslea gorde da.');
+}
+```
+
+### resources/views/students/edit.blade.php
 
 ```blade
 @extends('layouts.app')
@@ -190,26 +235,33 @@ class StudentController extends Controller
 @endsection
 ```
 
-`resources/views/students/_form.blade.php`
+## 5. Ikasle bat ezabatzea
 
-```blade
-<div>
-    <label for="name">Izen-abizenak</label>
-    <input id="name" name="name" value="{{ old('name', $student->name ?? '') }}" required maxlength="100">
-    @error('name')
-        <p class="error">{{ $message }}</p>
-    @enderror
-</div>
-<div>
-    <label for="email">Helbide elektronikoa</label>
-    <input type="email" id="email" name="email" value="{{ old('email', $student->email ?? '') }}" required maxlength="255">
-    @error('email')
-        <p class="error">{{ $message }}</p>
-    @enderror
-</div>
+### Ibilbideak
+
+```php
+// Ikasle bat ezabatzeko
+Route::get('/students/{student}/delete', [StudentController::class, 'delete'])->name('students.delete');
+Route::delete('/students/{student}', [StudentController::class, 'destroy'])->name('students.destroy');
 ```
 
-`resources/views/students/delete.blade.php`
+### Kontroladorea
+
+```php
+public function delete(Student $student): View
+{
+    return view('students.delete', compact('student'));
+}
+
+public function destroy(Student $student): RedirectResponse
+{
+    $student->delete();
+
+    return to_route('students.index')->with('status', 'Ikaslea ezabatu da.');
+}
+```
+
+### resources/views/students/delete.blade.php
 
 ```blade
 @extends('layouts.app')
@@ -228,16 +280,28 @@ class StudentController extends Controller
 @endsection
 ```
 
-## Ibilbideak laburtu baliabide batekin
+## Ibilbideak resource
 
-CRUD osoa egiaztatu ondoren, ordezkatu eskuzko zazpi ibilbideak `Route::resource()` dei bakar batekin. Mantendu baieztapen-pantailarako ibilbide gehigarria.
+Ruta guztiak ez izateko, Laravelen aukera ematen digu resource bista guztiak elkarrekin izateko:
 
 ```php
+use App\Http\Controllers\StudentController;
+// Ezabatu aurreko baieztapen-pantaila
+Route::get('/students/{student}/delete', [StudentController::class, 'delete'])
+    ->name('students.delete');
+
+// Ikasleen CRUD ibilbideak
 Route::resource('students', StudentController::class);
-Route::get('/students/{student}/delete', [StudentController::class, 'delete'])->name('students.delete');
 ```
 
-Exekutatu `php artisan route:list --path=students` eta parekatu ibilbide bakoitza bere kontroladore-metodoarekin.
+!!! Warning Baieztapen pantaila
+    Aurreko abidibean ikusten duzuen moduan delete baieztapen pantaila aparte jarri behar izan dugu, rosourcek ez bait du egiten, gainontzeko guztiak bai.
+
+Konprobatu nahi izanez gero erabili:
+
+```bash
+    php artisan route:list
+```
 
 [Laravel 13 · Baliabide-kontroladoreak](https://laravel.com/docs/13.x/controllers#resource-controllers) · [Ibilbideak](https://laravel.com/docs/13.x/routing)
 
