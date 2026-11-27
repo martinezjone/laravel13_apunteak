@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#crear-un-proyecto" class="md-skip">
+        <a href="#txurdigest-crear-el-proyecto" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -1772,10 +1772,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#aplicacion-escolar" class="md-nav__link">
+  <a href="#instalar-laravel-13" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Aplicación escolar
+        Instalar Laravel 13
       
     </span>
   </a>
@@ -1783,21 +1783,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#crear-un-proyecto-laravel" class="md-nav__link">
+  <a href="#primera-ruta-controlador-y-vista-blade" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Crear un proyecto Laravel
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#crear-un-proyecto-laravel-con-laravel-installer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Crear un proyecto Laravel con Laravel Installer
+        Primera ruta, controlador y vista Blade
       
     </span>
   </a>
@@ -2585,10 +2574,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#aplicacion-escolar" class="md-nav__link">
+  <a href="#instalar-laravel-13" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Aplicación escolar
+        Instalar Laravel 13
       
     </span>
   </a>
@@ -2596,21 +2585,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#crear-un-proyecto-laravel" class="md-nav__link">
+  <a href="#primera-ruta-controlador-y-vista-blade" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Crear un proyecto Laravel
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#crear-un-proyecto-laravel-con-laravel-installer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Crear un proyecto Laravel con Laravel Installer
+        Primera ruta, controlador y vista Blade
       
     </span>
   </a>
@@ -2634,31 +2612,144 @@
 
 
 
-<h1 id="crear-un-proyecto">Crear un proyecto</h1>
-<h2 id="aplicacion-escolar">Aplicación escolar</h2>
-<p>Crearemos una aplicación escolar con Laravel. En esta aplicación tendremos estudiantes, profesores y cursos, y gestionaremos estas tres tablas.</p>
-<p>Lo primero que haremos será crear nuestro proyecto Laravel.</p>
-<h2 id="crear-un-proyecto-laravel">Crear un proyecto Laravel</h2>
-<p>Para crear un proyecto Laravel, debemos seguir estos pasos:</p>
-<ol>
-<li>Iniciaremos XAMPP o MAMP.</li>
-<li>También abriremos la consola que queramos, Git Bash o la que prefiramos.</li>
-<li>Crearemos un proyecto llamado "eskola". Para ello, primero debemos situarnos en la carpeta que queramos desde la consola.</li>
-</ol>
-<p>$ cd c/xampp/htdocs/laravel_proiektuak</p>
-<div class="highlight"><pre><span></span><code>composer<span class="w"> </span>create-project<span class="w"> </span>laravel/laravel<span class="w"> </span>eskola
+<h1 id="txurdigest-crear-el-proyecto">TxurdiGest · Crear el proyecto</h1>
+<p>TxurdiGest es una aplicación de gestión para un centro de Formación Profesional. En este ejercicio guiado trabajaremos con <strong>matrículas por módulo</strong>. En la ficha del estudiante Jon veremos en qué módulos está matriculado. En la ficha del módulo, por su parte, veremos quién es el profesor y qué estudiantes están matriculados.</p>
+<table>
+<thead>
+<tr>
+<th>Entidad</th>
+<th>Modelo</th>
+<th>Tabla</th>
+<th>Campos iniciales</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Estudiante</td>
+<td><code>Student</code></td>
+<td><code>students</code></td>
+<td><code>id</code>, <code>name</code>, <code>email</code>, marcas de tiempo</td>
+</tr>
+<tr>
+<td>Profesor</td>
+<td><code>Teacher</code></td>
+<td><code>teachers</code></td>
+<td><code>id</code>, <code>name</code>, <code>email</code>, marcas de tiempo</td>
+</tr>
+<tr>
+<td>Módulo</td>
+<td><code>Module</code></td>
+<td><code>modules</code></td>
+<td><code>id</code>, <code>name</code>, <code>code</code>, <code>teacher_id</code>, marcas de tiempo</td>
+</tr>
+<tr>
+<td>Matrícula</td>
+<td>—</td>
+<td><code>module_student</code></td>
+<td><code>module_id</code>, <code>student_id</code></td>
+</tr>
+</tbody>
+</table>
+<p>Un profesor puede impartir más de un módulo (1:N). Un estudiante puede matricularse en más de un módulo y un módulo puede tener más de un estudiante (N:M). En este ejercicio, las matrículas corresponden a un único curso académico. En clase utilizaremos datos ficticios.</p>
+<p><img alt="Diagrama entidad-relación de TxurdiGest" src="../../../images/TxurdiGest_ER_eguneratua.png" /></p>
+<h2 id="instalar-laravel-13">Instalar Laravel 13</h2>
+<p>Abre un terminal en la carpeta donde quieras guardar el proyecto. Comprueba que el terminal encuentra PHP 8.3 o posterior y Composer.</p>
+<div class="highlight"><pre><span></span><code>composer<span class="w"> </span>create-project<span class="w"> </span>laravel/laravel<span class="w"> </span>txurdigest<span class="w"> </span><span class="s2">"^13.0"</span>
+<span class="nb">cd</span><span class="w"> </span>txurdigest
+php<span class="w"> </span>artisan<span class="w"> </span>serve
 </code></pre></div>
-<p>Este proceso tardará un poco, ya que se están creando muchas cosas.</p>
-<ol>
-<li>Comprobaremos que todo se haya creado correctamente. Para ello, encontraremos una carpeta llamada eskola en la ubicación indicada. La abriremos en Visual Studio y veremos que contiene muchas carpetas.</li>
-</ol>
-<p>Por otra parte, al introducir nuestra URL en el navegador, en mi caso: <a href="http://localhost/laravel2025-2026/eskola">http://localhost/laravel2025-2026/eskola</a></p>
-<p>Encontraremos una página como esta:</p>
-<p><img alt="Página inicial de Laravel" src="../../../assets/images/Proiektu%20bat%20sortu/e097dbca9101d55bd0f3905ab758e1f5.jpg" /></p>
-<h2 id="crear-un-proyecto-laravel-con-laravel-installer">Crear un proyecto Laravel con Laravel Installer</h2>
-<div class="highlight"><pre><span></span><code>composer<span class="w"> </span>global<span class="w"> </span>require<span class="w"> </span>laravel/installer
+<p>Abre <code>http://127.0.0.1:8000</code> en el navegador para ver la aplicación.</p>
+<p>Si utilizas el instalador de Laravel, otra opción es ejecutar <code>composer global require laravel/installer</code> y, después, <code>laravel new txurdigest</code>. Elige una instalación sin starter kit y comprueba que la versión es 13.x con el comando <code>php artisan --version</code>.</p>
+<blockquote>
+<p>En lugar de <code>php artisan serve</code>, también se puede utilizar <code>composer run dev</code>: inicia a la vez el servidor, Vite, la cola y los registros.</p>
+</blockquote>
+<p><a href="https://laravel.com/framework/docs/13.x/installation" target="_blank">Instalación de Laravel 13</a></p>
+<h2 id="primera-ruta-controlador-y-vista-blade">Primera ruta, controlador y vista Blade</h2>
+<div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>make:controller<span class="w"> </span>HomeController
 </code></pre></div>
-<p>laravel new eskola</p>
+<p><code>routes/web.php</code></p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">App\Http\Controllers\HomeController</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Illuminate\Support\Facades\Route</span><span class="p">;</span>
+
+<span class="nx">Route</span><span class="o">::</span><span class="na">get</span><span class="p">(</span><span class="s1">'/'</span><span class="p">,</span> <span class="p">[</span><span class="nx">HomeController</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">'index'</span><span class="p">])</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">(</span><span class="s1">'home'</span><span class="p">);</span>
+</code></pre></div>
+<p><code>app/Http/Controllers/HomeController.php</code></p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Http\Controllers</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Illuminate\View\View</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">HomeController</span> <span class="k">extends</span> <span class="nx">Controller</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">index</span><span class="p">()</span><span class="o">:</span> <span class="nx">View</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">'home.index'</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Crea las carpetas y los archivos en las siguientes rutas.</p>
+<p><code>resources/views/layouts/app.blade.php</code></p>
+<div class="highlight"><pre><span></span><code>&lt;!doctype html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+    &lt;title&gt;@yield('title', 'TxurdiGest') · TxurdiGest&lt;/title&gt;
+    &lt;link rel="stylesheet" href="{{ asset('css/app.css') }}"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;nav aria-label="Navegación principal"&gt;
+            &lt;a href="{{ route('home') }}"&gt;TxurdiGest&lt;/a&gt;
+            &lt;!-- Aquí añadiremos el menú de navegación --&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+
+    &lt;main&gt;
+        @yield('content')
+    &lt;/main&gt;
+
+    &lt;footer&gt;FP Txurdinaga&lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div>
+<p><code>resources/views/home/index.blade.php</code></p>
+<div class="highlight"><pre><span></span><code>@extends('layouts.app')
+
+@section('title', 'Inicio')
+
+@section('content')
+    &lt;h1&gt;TxurdiGest&lt;/h1&gt;
+    &lt;p&gt;Gestiona estudiantes, profesores, módulos y matrículas.&lt;/p&gt;
+@endsection
+</code></pre></div>
+<p><code>public/css/app.css</code></p>
+<div class="highlight"><pre><span></span><code><span class="nt">body</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">max-width</span><span class="p">:</span><span class="w"> </span><span class="mi">65</span><span class="kt">rem</span><span class="p">;</span>
+<span class="w">    </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span>
+<span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">rem</span><span class="p">;</span>
+<span class="w">    </span><span class="k">font</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">rem</span><span class="o">/</span><span class="mf">1.6</span><span class="w"> </span><span class="n">system-ui</span><span class="p">,</span><span class="w"> </span><span class="kc">sans-serif</span><span class="p">;</span>
+<span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#172533</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">nav</span><span class="o">,</span><span class="w"> </span><span class="p">.</span><span class="nc">pagination</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">flex</span><span class="p">;</span>
+<span class="w">    </span><span class="k">flex-wrap</span><span class="p">:</span><span class="w"> </span><span class="kc">wrap</span><span class="p">;</span>
+<span class="w">    </span><span class="k">gap</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">rem</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">main</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">margin-block</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="kt">rem</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="nt">footer</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">border-top</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#cbd5e1</span><span class="p">;</span><span class="w"> </span><span class="k">padding-top</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">rem</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="nt">label</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">block</span><span class="p">;</span><span class="w"> </span><span class="k">margin-top</span><span class="p">:</span><span class="w"> </span><span class="mf">.75</span><span class="kt">rem</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="nt">input</span><span class="o">,</span><span class="w"> </span><span class="nt">select</span><span class="o">,</span><span class="w"> </span><span class="nt">button</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">font</span><span class="p">:</span><span class="w"> </span><span class="kc">inherit</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="nt">button</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">margin-top</span><span class="p">:</span><span class="w"> </span><span class="mf">.75</span><span class="kt">rem</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">.</span><span class="nc">error</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#a31324</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<p>Si aparece el texto de bienvenida y el comando <code>php artisan route:list</code> muestra la ruta <code>home</code>, ya podemos empezar con la base de datos.</p>
+<p><a href="../datu-basea/">Siguiente · Base de datos</a></p>
 
 
 

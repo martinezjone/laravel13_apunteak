@@ -2654,14 +2654,15 @@
 <p><img alt="TxurdiGest-en entitate-erlazio diagrama" src="../../images/TxurdiGest_ER_eguneratua.png" /></p>
 <h2 id="laravel-13-instalatu">Laravel 13 instalatu</h2>
 <p>Ireki terminala proiektua gorde nahi duzun karpetan. Egiaztatu terminalak PHP 8.3 edo berriagoa eta Composer aurkitzen dituela.</p>
-<div class="highlight"><pre><span></span><code>php<span class="w"> </span>-v
-composer<span class="w"> </span>--version
-composer<span class="w"> </span>create-project<span class="w"> </span>laravel/laravel<span class="w"> </span>txurdigest<span class="w"> </span><span class="s2">"^13.0"</span>
+<div class="highlight"><pre><span></span><code>composer<span class="w"> </span>create-project<span class="w"> </span>laravel/laravel<span class="w"> </span>txurdigest<span class="w"> </span><span class="s2">"^13.0"</span>
 <span class="nb">cd</span><span class="w"> </span>txurdigest
-php<span class="w"> </span>artisan<span class="w"> </span>--version
 php<span class="w"> </span>artisan<span class="w"> </span>serve
 </code></pre></div>
+<p>Ireki nabigatzailean <code>http://127.0.0.1:8000</code> aplikazioa ikusteko.</p>
 <p>Laravel instalatzailea erabiltzen baduzu, beste aukera bat da <code>composer global require laravel/installer</code> eta gero <code>laravel new txurdigest</code> exekutatzea. Aukeratu starter kit gabeko instalazioa eta egiaztatu <code>php artisan --version</code> aginduarekin 13.x dela.</p>
+<blockquote>
+<p><code>php artisan serve</code>-ren ordez <code>composer run dev</code> ere erabil daiteke: zerbitzaria, Vite, ilara eta logak batera abiarazten ditu.</p>
+</blockquote>
 <p><a href="https://laravel.com/framework/docs/13.x/installation" target="_blank">Laravel 13 Installation</a></p>
 <h2 id="lehen-ibilbidea-kontroladorea-eta-blade-bista">Lehen ibilbidea, kontroladorea eta Blade bista</h2>
 <div class="highlight"><pre><span></span><code>php<span class="w"> </span>artisan<span class="w"> </span>make:controller<span class="w"> </span>HomeController
